@@ -1,0 +1,112 @@
+---
+title: "Teaching"
+subtitle: "Resources, demos, and materials for quantitative methods"
+page-layout: article
+toc: true
+---
+
+Interactive teaching resources for quantitative methods courses. These materials are designed to help students build intuition for statistical concepts through hands-on exploration.
+
+---
+
+## Interactive Demos {.section-header}
+
+::: {.demo-grid}
+
+::: {.demo-card .placeholder}
+### 📊 Sampling Distributions
+*Coming Soon*
+
+Visualize how sampling distributions emerge from repeated sampling. Adjust sample size and population parameters to see the central limit theorem in action.
+
+::: {.demo-tags}
+`Statistics 101` `Interactive` `Visualization`
+:::
+:::
+
+::: {.demo-card .placeholder}
+### 🎯 Hypothesis Testing
+*Coming Soon*
+
+Interactive demonstration of hypothesis testing concepts. See how p-values, effect sizes, and sample sizes interact.
+
+::: {.demo-tags}
+`Inference` `Interactive` `Visualization`
+:::
+:::
+
+::: {.demo-card .placeholder}
+### 📈 Regression Intuition
+*Coming Soon*
+
+Build intuition for linear regression by manipulating data points and seeing how the regression line responds.
+
+::: {.demo-tags}
+`Regression` `Interactive` `Visualization`
+:::
+:::
+
+:::
+
+---
+
+## Course Materials {.section-header}
+
+### Quantitative Methods
+
+::: {.materials-list}
+
+- **Syllabus** — Course overview and schedule *(coming soon)*
+- **Lecture Slides** — Presentation materials *(coming soon)*
+- **Problem Sets** — Practice exercises with solutions *(coming soon)*
+- **Code Examples** — R and Python code for common analyses *(coming soon)*
+
+:::
+
+---
+
+## Tools for Teaching {.section-header}
+
+::: {.tool-showcase}
+
+### 📋 QuizView
+
+Preview and validate Brightspace quiz CSV files before uploading them to your LMS. Great for catching errors before students see them.
+
+[Launch QuizView →](https://ignaciourbina.github.io/quizview/){.btn .btn-primary}
+
+:::
+
+---
+
+## Resources {.section-header}
+
+### Recommended Books
+
+::: {.book-list}
+
+- **Causal Inference** — *The Effect* by Nick Huntington-Klein (free online)
+- **Statistics** — *OpenIntro Statistics* (free online)
+- **R Programming** — *R for Data Science* by Wickham & Grolemund (free online)
+- **Regression** — *Regression and Other Stories* by Gelman, Hill & Vehtari
+
+:::
+
+### Online Resources
+
+::: {.resource-list}
+
+- [Seeing Theory](https://seeing-theory.brown.edu/) — Visual introduction to probability and statistics
+- [Distill.pub](https://distill.pub/) — Clear explanations of machine learning concepts
+- [EGAP Methods Guides](https://egap.org/methods-guides/) — Research design guides
+- [Andrew Heiss's Course Materials](https://www.andrewheiss.com/teaching/) — Excellent open course materials
+
+:::
+
+---
+
+## Request Materials
+
+Looking for specific teaching resources? Let me know what would be helpful.
+
+[Request Materials →](https://github.com/ignaciourbina/ignaciourbina.github.io/issues){.btn .btn-outline-primary}

@@ -1,0 +1,145 @@
+---
+title: "Tools"
+subtitle: "Interactive applications for research and teaching"
+page-layout: full
+toc: false
+---
+
+A collection of open-source tools I've built to support research methodology and teaching. All tools are free to use and hosted on GitHub.
+
+---
+
+## Research Tools {.category-header}
+
+::: {.tools-grid}
+
+::: {.tool-card .featured}
+::: {.tool-header}
+### 🔀 CausalFlow
+::: {.tool-status .live}
+Live
+:::
+:::
+
+An interactive visual tool for specifying **longitudinal causal models** and exporting them to lavaan syntax for Structural Equation Modeling (SEM) analysis in R.
+
+**Features:**
+
+- Drag-and-drop interface for building path diagrams
+- Support for cross-lagged panel models
+- Automatic lavaan syntax generation
+- Export to R script
+
+::: {.tool-tags}
+`Causal Inference` `SEM` `R/lavaan` `Panel Data` `Interactive`
+:::
+
+::: {.tool-actions}
+[Launch Tool](https://ignaciourbina.github.io/causal-flow/){.btn .btn-primary}
+[GitHub](https://github.com/ignaciourbina/causal-flow){.btn .btn-outline-secondary}
+:::
+:::
+
+::: {.tool-card .placeholder}
+::: {.tool-header}
+### 📈 Power Calculator
+::: {.tool-status .coming}
+Coming Soon
+:::
+:::
+
+Interactive power analysis for common research designs. Calculate sample sizes, visualize power curves, and understand the relationship between effect size, sample size, and statistical power.
+
+::: {.tool-tags}
+`Statistics` `Power Analysis` `Sample Size` `Interactive`
+:::
+
+::: {.tool-actions}
+[Coming Soon]{.btn .btn-secondary .disabled}
+:::
+:::
+
+::: {.tool-card .placeholder}
+::: {.tool-header}
+### 🎲 Bayes Viz
+::: {.tool-status .coming}
+Coming Soon
+:::
+:::
+
+Visualize Bayesian inference concepts interactively. See how priors, likelihoods, and posteriors interact in real-time.
+
+::: {.tool-tags}
+`Bayesian` `Visualization` `Teaching` `Interactive`
+:::
+
+::: {.tool-actions}
+[Coming Soon]{.btn .btn-secondary .disabled}
+:::
+:::
+
+:::
+
+---
+
+## Teaching Tools {.category-header}
+
+::: {.tools-grid}
+
+::: {.tool-card .featured}
+::: {.tool-header}
+### 📋 QuizView
+::: {.tool-status .live}
+Live
+:::
+:::
+
+A Next.js web app that lets you **preview and visualize Brightspace quiz CSV files** before uploading them to your LMS.
+
+**Features:**
+
+- Drag-and-drop CSV upload
+- Visual preview of questions and answers
+- Validation before upload
+- Support for multiple question types
+
+::: {.tool-tags}
+`Teaching` `LMS` `Brightspace` `Next.js` `CSV`
+:::
+
+::: {.tool-actions}
+[Launch Tool](https://ignaciourbina.github.io/quizview/){.btn .btn-primary}
+[GitHub](https://github.com/ignaciourbina/quizview){.btn .btn-outline-secondary}
+:::
+:::
+
+::: {.tool-card .placeholder}
+::: {.tool-header}
+### 📊 Stats Demos
+::: {.tool-status .coming}
+Coming Soon
+:::
+:::
+
+Interactive demonstrations for teaching statistical concepts. Includes sampling distributions, hypothesis testing, and regression visualization.
+
+::: {.tool-tags}
+`Teaching` `Statistics` `Interactive` `Visualization`
+:::
+
+::: {.tool-actions}
+[Coming Soon]{.btn .btn-secondary .disabled}
+:::
+:::
+
+:::
+
+---
+
+## Suggest a Tool
+
+Have an idea for a research or teaching tool? I'm always looking for new projects that can help researchers and students.
+
+::: {.suggest-box}
+[Open an Issue on GitHub](https://github.com/ignaciourbina/ignaciourbina.github.io/issues){.btn .btn-outline-primary}
+:::

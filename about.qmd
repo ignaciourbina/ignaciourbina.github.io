@@ -1,0 +1,116 @@
+---
+title: "About"
+subtitle: "Researcher · Tool Builder · Educator"
+page-layout: article
+toc: true
+about:
+  template: trestles
+  image: images/profile.jpg
+  image-shape: round
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/ignaciourbina
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/ignaciourbina
+    - icon: envelope
+      text: Email
+      href: mailto:your.email@example.com
+    - icon: file-earmark-pdf
+      text: CV
+      href: files/cv.pdf
+---
+
+## About Me
+
+I'm a researcher focused on quantitative methods in social science. I develop open-source tools to make complex methodological concepts more accessible through interactive visualization.
+
+My research interests include:
+
+- **Causal inference** — Methods for identifying causal effects in observational data
+- **Survey methodology** — Measurement, sampling, and response quality
+- **Computational methods** — Tools and workflows for reproducible research
+- **Science communication** — Making research findings accessible to broader audiences
+
+## What I Build
+
+I create interactive tools that help researchers and students:
+
+- **Visualize** complex statistical concepts
+- **Specify** causal models and research designs
+- **Validate** data before analysis
+- **Learn** quantitative methods through exploration
+
+All my tools are open-source and freely available.
+
+## Education
+
+::: {.education-list}
+
+**Ph.D. in [Your Field]** *(In Progress)*
+University Name
+
+**M.A. in [Your Field]**
+University Name · Year
+
+**B.A. in [Your Field]**
+University Name · Year
+
+:::
+
+## Selected Publications
+
+::: {.publications-list}
+
+*Publications will be listed here.*
+
+:::
+
+## Skills & Tools
+
+::: {.skills-grid}
+
+::: {.skill-category}
+### Languages
+R · Python · JavaScript · SQL
+:::
+
+::: {.skill-category}
+### Frameworks
+Next.js · React · Quarto · Shiny
+:::
+
+::: {.skill-category}
+### Methods
+SEM · Causal Inference · Survey Design · Bayesian Analysis
+:::
+
+::: {.skill-category}
+### Tools
+Git · Docker · LaTeX · Observable
+:::
+
+:::
+
+## CV
+
+Download my full curriculum vitae:
+
+[Download CV (PDF)](#){.btn .btn-primary}
+
+---
+
+## Contact
+
+The best way to reach me is by email. I'm also active on GitHub and open to collaboration on research tools.
+
+::: {.contact-info}
+
+📧 **Email:** your.email@example.com
+
+🐙 **GitHub:** [@ignaciourbina](https://github.com/ignaciourbina)
+
+💼 **LinkedIn:** [Ignacio Urbina](https://linkedin.com/in/ignaciourbina)
+
+:::

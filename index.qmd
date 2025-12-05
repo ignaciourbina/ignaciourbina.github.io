@@ -1,0 +1,87 @@
+---
+title: "Ignacio Urbina"
+subtitle: "Research Tools & Interactive Insights"
+page-layout: full
+toc: false
+---
+
+::: {.hero-banner}
+::: {.hero-content}
+# Hi, I'm Ignacio 👋
+
+I build **interactive tools** for research and teaching, and share **insights** from my work in social science methodology.
+
+::: {.hero-buttons}
+[View Tools](tools/index.qmd){.btn .btn-primary .btn-lg}
+[Research Briefs](research/index.qmd){.btn .btn-outline-primary .btn-lg}
+:::
+
+:::
+:::
+
+## Featured Tools {.section-header}
+
+::: {.tool-grid}
+
+::: {.tool-card}
+### 🔀 CausalFlow
+
+Interactive visual tool for specifying longitudinal causal models and exporting them to lavaan syntax for SEM analysis in R.
+
+::: {.tool-tags}
+`Causal Inference` `SEM` `R/lavaan` `Interactive`
+:::
+
+[Launch Tool →](https://ignaciourbina.github.io/causal-flow/){.tool-link}
+:::
+
+::: {.tool-card}
+### 📋 QuizView
+
+A Next.js web app that lets you preview and visualize Brightspace quiz CSV files before uploading them.
+
+::: {.tool-tags}
+`Teaching` `LMS` `Next.js` `Data Preview`
+:::
+
+[Launch Tool →](https://ignaciourbina.github.io/quizview/){.tool-link}
+:::
+
+::: {.tool-card .coming-soon}
+### 📊 More Coming Soon
+
+Power calculators, Bayesian visualization tools, and interactive research demos are on the way.
+
+::: {.tool-tags}
+`Statistics` `Visualization` `Research`
+:::
+
+[View All Tools →](tools/index.qmd){.tool-link}
+:::
+
+:::
+
+## Latest Research Briefs {.section-header}
+
+Interactive summaries of research findings with embedded visualizations and key insights.
+
+::: {.brief-preview}
+
+> *Research briefs section coming soon — interactive summaries with embedded charts, methodology notes, and replication materials.*
+
+[Browse Research →](research/index.qmd){.btn .btn-outline-secondary}
+:::
+
+## About Me {.section-header}
+
+I'm a researcher focused on quantitative methods in social science. I develop open-source tools to make complex methodological concepts more accessible through interactive visualization.
+
+My work spans:
+
+- **Causal inference** and structural equation modeling
+- **Survey methodology** and measurement
+- **Teaching technology** for quantitative methods
+
+::: {.about-cta}
+[More About Me →](about.qmd)
+:::

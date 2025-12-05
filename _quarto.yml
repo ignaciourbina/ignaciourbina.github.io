@@ -1,0 +1,59 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Ignacio Urbina"
+  description: "Research tools, interactive briefs, and teaching resources"
+  site-url: https://ignaciourbina.github.io
+  
+  navbar:
+    background: "#1e3a5f"
+    foreground: "#ffffff"
+    logo: images/logo.png
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Tools"
+        href: tools/index.qmd
+      - text: "Research"
+        href: research/index.qmd
+      - text: "Teaching"
+        href: teaching/index.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/ignaciourbina
+      - icon: linkedin
+        href: https://linkedin.com/in/ignaciourbina
+      - icon: envelope
+        href: mailto:your.email@example.com
+
+  page-footer:
+    left: "© 2025 Ignacio Urbina"
+    right:
+      - icon: github
+        href: https://github.com/ignaciourbina
+
+  search: true
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    fontsize: 1rem
+    linestretch: 1.6
+
+execute:
+  freeze: auto
+
+# Bibliography (for research briefs)
+bibliography: references.bib
+csl: apa.csl
