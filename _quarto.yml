@@ -55,5 +55,6 @@ execute:
   freeze: auto
 
 # Bibliography (for research briefs)
-bibliography: references.bib
-csl: apa.csl
+# Uncomment and add apa.csl file for custom citation style
+# bibliography: references.bib
+# csl: apa.csl
