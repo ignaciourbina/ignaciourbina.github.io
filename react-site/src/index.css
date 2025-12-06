@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-light text-slate;
+}
+
+/* Better code blocks */
+pre {
+  @apply rounded border border-border;
+}
+
+/* Better images */
+img {
+  @apply max-w-full h-auto rounded;
+}

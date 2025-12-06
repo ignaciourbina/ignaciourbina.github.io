@@ -194,5 +194,61 @@
     "title": "Research",
     "section": "Suggest a Topic",
     "text": "Suggest a Topic\nIs there a research topic or methodological question you’d like to see covered? Let me know!\nSuggest a Topic →"
+  },
+  {
+    "objectID": "TODO.html",
+    "href": "TODO.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "TODO.html#high-priority-before-launch",
+    "href": "TODO.html#high-priority-before-launch",
+    "title": "",
+    "section": "🔴 High Priority (Before Launch)",
+    "text": "🔴 High Priority (Before Launch)\n\nAdd profile photo — Place profile.jpg in the images/ folder\nAdd CV — Place cv.pdf in the files/ folder\nUpdate personal info in about.qmd:\n\nBio/introduction\nEducation history\nEmail address\nLinkedIn URL\nSkills & tools\n\nUpdate contact links in _quarto.yml:\n\nEmail address (line: href: mailto:your.email@example.com)\nLinkedIn URL"
+  },
+  {
+    "objectID": "TODO.html#content-to-add",
+    "href": "TODO.html#content-to-add",
+    "title": "",
+    "section": "🟡 Content to Add",
+    "text": "🟡 Content to Add\n\nTools Page (tools/index.qmd)\n\nAdd screenshots for CausalFlow and QuizView\nAdd GitHub repo links for each tool\nAdd more tools as they’re ready:\n\nPower Calculator\nBayes Viz\nStats Demos\n\n\n\n\nResearch Briefs (research/)\n\nCreate first research brief (use research/sample-brief/ as template)\nAdd interactive Plotly/Altair visualizations\nTopics to consider:\n\nAutomation attitudes research\nAI deliberation findings\nMethodology explainers\n\n\n\n\nTeaching Page (teaching/index.qmd)\n\nAdd course syllabi\nCreate interactive demos:\n\nSampling distributions\nHypothesis testing\nRegression intuition\n\nAdd lecture slides/materials"
+  },
+  {
+    "objectID": "TODO.html#optional-enhancements",
+    "href": "TODO.html#optional-enhancements",
+    "title": "",
+    "section": "🟢 Optional Enhancements",
+    "text": "🟢 Optional Enhancements\n\nCustom logo — Create and add images/logo.png\nFavicon — Add site icon\nCustom colors — Adjust palette in custom.scss if desired\nEmail subscription — Set up newsletter (e.g., Buttondown, Substack)\nAnalytics — Add Google Analytics or Plausible\nComments — Add Giscus or Utterances for research briefs\nCitation style — Download apa.csl and uncomment in _quarto.yml"
+  },
+  {
+    "objectID": "TODO.html#deployment",
+    "href": "TODO.html#deployment",
+    "title": "",
+    "section": "🚀 Deployment",
+    "text": "🚀 Deployment\n\nPush changes to GitHub\nConfigure GitHub Pages:\n\nGo to Settings → Pages\nSet Source to “Deploy from a branch”\nSelect Branch: master and Folder: /docs\n\nOR enable GitHub Actions (workflow already created in .github/workflows/publish.yml)\nVerify site is live at https://ignaciourbina.github.io"
+  },
+  {
+    "objectID": "TODO.html#ongoing-maintenance",
+    "href": "TODO.html#ongoing-maintenance",
+    "title": "",
+    "section": "📝 Ongoing Maintenance",
+    "text": "📝 Ongoing Maintenance\n\nAdd new tools as they’re developed\nPublish research briefs for new papers\nUpdate CV periodically\nKeep teaching materials current"
+  },
+  {
+    "objectID": "TODO.html#quick-commands",
+    "href": "TODO.html#quick-commands",
+    "title": "",
+    "section": "Quick Commands",
+    "text": "Quick Commands\n# Preview site locally\nquarto preview\n\n# Build site for production\nquarto render\n\n# Check what will be deployed\nls -la docs/"
+  },
+  {
+    "objectID": "TODO.html#file-locations",
+    "href": "TODO.html#file-locations",
+    "title": "",
+    "section": "File Locations",
+    "text": "File Locations\n\n\n\nWhat\nWhere\n\n\n\n\nSite config\n_quarto.yml\n\n\nLanding page\nindex.qmd\n\n\nAbout/CV\nabout.qmd\n\n\nTools gallery\ntools/index.qmd\n\n\nResearch hub\nresearch/index.qmd\n\n\nBrief template\nresearch/sample-brief/index.qmd\n\n\nTeaching\nteaching/index.qmd\n\n\nCustom styles\ncustom.scss\n\n\nProfile photo\nimages/profile.jpg\n\n\nCV PDF\nfiles/cv.pdf"
   }
 ]

@@ -13,7 +13,7 @@ about:
       href: https://github.com/ignaciourbina
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com/in/ignaciourbina
+      href: https://www.linkedin.com/in/ignaciourbinah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
     - icon: envelope
       text: Email
       href: mailto:your.email@example.com
@@ -48,14 +48,16 @@ All my tools are open-source and freely available.
 
 ::: {.education-list}
 
-**Ph.D. in [Your Field]** *(In Progress)*
-University Name
+**Ph.D. Candidate in Political Science**
+Stony Brook University
 
-**M.A. in [Your Field]**
-University Name · Year
+**M.S. in Economics**
+Adolfo Ibáñez University
 
-**B.A. in [Your Field]**
-University Name · Year
+**M.S. in Public Policy**
+Adolfo Ibáñez University
+
+**B.A. in Management Science**
 
 :::
 
