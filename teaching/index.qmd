@@ -65,6 +65,27 @@ Build intuition for linear regression by manipulating data points and seeing how
 
 ---
 
+## 📊 Curated Course Materials for Statistics {.section-header}
+
+A comprehensive repository of resources for teaching and learning statistics in political science, designed to make statistics accessible and engaging.
+
+::: {.callout-note appearance="simple"}
+### 🌐 Interactive Visualizations
+A suite of interactive tools and visualizations is available online to bring statistical concepts to life.
+
+[Explore the Live Demo Site →](https://iurbinah-teaching-materials.static.hf.space){.btn .btn-primary}
+:::
+
+### Repository Contents
+
+::: {.content-chips}
+`🎓 Lecture Slides` `📘 Lecture Notes` `📝 Problem Sets & Quizzes` `🧪 Exams` `💻 R Programming` `📈 Figures & Animations` `📄 Formulas & Tables`
+:::
+
+[View Repository on GitHub →](https://github.com/ignaciourbina/stats-materials){.btn .btn-outline-primary}
+
+---
+
 ## Tools for Teaching {.section-header}
 
 ::: {.tool-showcase}

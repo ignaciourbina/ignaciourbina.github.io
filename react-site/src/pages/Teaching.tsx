@@ -99,6 +99,59 @@ export default function Teaching() {
 
       <hr className="border-border mb-8" />
 
+      {/* Curated Course Materials for Statistics */}
+      <SectionHeader>📊 Curated Course Materials for Statistics</SectionHeader>
+
+      <p className="text-slate mb-6">
+        A comprehensive repository of resources for teaching and learning statistics in political science, 
+        designed to make statistics accessible and engaging.
+      </p>
+
+      <div className="bg-accent/10 border border-accent/20 rounded-lg p-6 mb-6">
+        <h4 className="text-lg font-semibold text-navy mb-2">🌐 Interactive Visualizations</h4>
+        <p className="text-slate-light mb-4">
+          A suite of interactive tools and visualizations is available online to bring statistical concepts to life.
+        </p>
+        <a
+          href="https://iurbinah-teaching-materials.static.hf.space"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 bg-accent text-white rounded font-medium hover:bg-accent-light transition-colors"
+        >
+          Explore the Live Demo Site →
+        </a>
+      </div>
+
+      <h3 className="text-lg font-semibold text-navy mb-4">Repository Contents</h3>
+      <div className="flex flex-wrap gap-3 mb-6">
+        {[
+          { icon: '🎓', label: 'Lecture Slides', desc: 'Ready-to-use .tex slides covering a full semester of topics' },
+          { icon: '📘', label: 'Lecture Notes', desc: 'Detailed notes including advanced topics and in-depth explanations' },
+          { icon: '📝', label: 'Problem Sets & Quizzes', desc: 'A vast bank of questions, solved problems, and compiled assignments' },
+          { icon: '🧪', label: 'Exams', desc: 'Midterm and final exams with solutions' },
+          { icon: '💻', label: 'R Programming', desc: 'Tutorials, problem sets, and a data analysis project using R' },
+          { icon: '📈', label: 'Figures & Animations', desc: 'Plots, diagrams, and animations to illustrate key concepts' },
+          { icon: '📄', label: 'Formulas & Tables', desc: 'Handy formula sheets and distribution tables' },
+        ].map((item) => (
+          <div key={item.label} className="group relative">
+            <div className="flex items-center gap-2 px-3 py-2 bg-bg-card border border-border rounded-lg cursor-help hover:border-accent transition-colors">
+              <span>{item.icon}</span>
+              <span className="text-sm text-slate">{item.label}</span>
+            </div>
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-navy text-white text-xs rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-10">
+              {item.desc}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-navy"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <Button href="https://github.com/ignaciourbina/stats-materials" variant="outline-secondary">
+        View Repository on GitHub →
+      </Button>
+
+      <hr className="border-border my-8" />
+
       {/* Tools for Teaching */}
       <SectionHeader>Tools for Teaching</SectionHeader>
 
