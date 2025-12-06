@@ -80,6 +80,7 @@ export default function About() {
         </li>
         <li className="py-3">
           <p className="font-semibold text-slate">B.A. in Management Science</p>
+          <p className="text-slate-light">Adolfo Ibáñez University</p>
         </li>
       </ul>
 
