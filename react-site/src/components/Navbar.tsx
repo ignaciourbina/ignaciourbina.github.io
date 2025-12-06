@@ -13,7 +13,7 @@ const navLinks = [
 const socialLinks = [
   { href: 'https://github.com/ignaciourbina', icon: Github, label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/ignaciourbinah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:your.email@example.com', icon: Mail, label: 'Email' },
+  { href: 'mailto:ignacio.urbina@stonybrook.edu', icon: Mail, label: 'Email' },
 ]
 
 export default function Navbar() {

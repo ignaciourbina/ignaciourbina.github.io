@@ -13,8 +13,9 @@ export default function Home() {
             Hi, I'm Ignacio 👋
           </h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto mb-8">
-            I build <strong>interactive tools</strong> for research and teaching, and share{' '}
-            <strong>insights</strong> from my work in social science methodology.
+            I'm a political economist studying how <strong>democracies can govern AI</strong>. I build{' '}
+            <strong>interactive tools</strong> for research and teaching, combining experimental methods
+            with computational modeling.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button to="/tools" variant="primary" size="lg">
@@ -90,16 +91,17 @@ export default function Home() {
         <SectionHeader>About Me</SectionHeader>
         
         <p className="text-slate-light mb-6 max-w-3xl">
-          I'm a researcher focused on quantitative methods in social science. I develop open-source
-          tools to make complex methodological concepts more accessible through interactive
-          visualization.
+          I am a Ph.D. Candidate in Political Science at Stony Brook University, studying how
+          democracies can govern artificial intelligence. My dissertation, "Three Essays on the
+          Political Implications of AI," examines how citizens form preferences about emerging
+          technologies.
         </p>
         
         <p className="text-slate mb-4">My work spans:</p>
         <ul className="list-disc list-inside text-slate-light space-y-2 mb-6">
-          <li><strong className="text-slate">Causal inference</strong> and structural equation modeling</li>
-          <li><strong className="text-slate">Survey methodology</strong> and measurement</li>
-          <li><strong className="text-slate">Teaching technology</strong> for quantitative methods</li>
+          <li><strong className="text-slate">AI and democratic governance</strong> — public attitudes and policy preferences</li>
+          <li><strong className="text-slate">Behavioral experiments</strong> — with ~$11,000 in competitive research grants</li>
+          <li><strong className="text-slate">Teaching technology</strong> — 20+ interactive tools for quantitative methods</li>
         </ul>
         
         <Link

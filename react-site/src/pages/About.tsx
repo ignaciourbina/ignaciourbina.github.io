@@ -5,7 +5,7 @@ import Button from '../components/Button'
 const socialLinks = [
   { href: 'https://github.com/ignaciourbina', icon: Github, label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/ignaciourbinah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:your.email@example.com', icon: Mail, label: 'Email' },
+  { href: 'mailto:ignacio.urbina@stonybrook.edu', icon: Mail, label: 'Email' },
   { href: '/files/cv.pdf', icon: FileText, label: 'CV' },
 ]
 
@@ -40,26 +40,30 @@ export default function About() {
       {/* About Me */}
       <SectionHeader>About Me</SectionHeader>
       <p className="text-slate mb-6">
-        I'm a researcher focused on quantitative methods in social science. I develop open-source
-        tools to make complex methodological concepts more accessible through interactive
-        visualization.
+        I am a political economist studying how democracies can govern artificial intelligence.
+        My research combines experimental methods with computational modeling to understand how
+        citizens form preferences about emerging technologies and what this means for democratic governance.
       </p>
       <p className="text-slate mb-4">My research interests include:</p>
       <ul className="list-disc list-inside text-slate-light space-y-2 mb-8">
-        <li><strong className="text-slate">Causal inference</strong> — Methods for identifying causal effects in observational data</li>
-        <li><strong className="text-slate">Survey methodology</strong> — Measurement, sampling, and response quality</li>
-        <li><strong className="text-slate">Computational methods</strong> — Tools and workflows for reproducible research</li>
-        <li><strong className="text-slate">Science communication</strong> — Making research findings accessible to broader audiences</li>
+        <li><strong className="text-slate">AI and democratic governance</strong> — How citizens form attitudes toward AI and how democracies can govern emerging technologies</li>
+        <li><strong className="text-slate">Political behavior</strong> — Automation risk, policy preferences, and public opinion</li>
+        <li><strong className="text-slate">Computational social science</strong> — Agent-based modeling, behavioral experiments, and causal inference</li>
+        <li><strong className="text-slate">Latin American politics</strong> — State violence, political trust, and democratic attitudes</li>
       </ul>
 
       {/* What I Build */}
       <SectionHeader>What I Build</SectionHeader>
-      <p className="text-slate mb-4">I create interactive tools that help researchers and students:</p>
+      <p className="text-slate mb-4">
+        I create interactive tools that help researchers and students build intuition for
+        quantitative methods. My teaching philosophy centers on helping students who did not
+        expect to succeed at quantitative methods discover that they can.
+      </p>
       <ul className="list-disc list-inside text-slate-light space-y-2 mb-6">
-        <li><strong className="text-slate">Visualize</strong> complex statistical concepts</li>
-        <li><strong className="text-slate">Specify</strong> causal models and research designs</li>
-        <li><strong className="text-slate">Validate</strong> data before analysis</li>
-        <li><strong className="text-slate">Learn</strong> quantitative methods through exploration</li>
+        <li><strong className="text-slate">20+ interactive learning tools</strong> built with JavaScript to help students visualize statistical concepts</li>
+        <li><strong className="text-slate">Behavioral experiment platforms</strong> using oTree for research</li>
+        <li><strong className="text-slate">Causal modeling tools</strong> for specifying and exporting SEM models</li>
+        <li><strong className="text-slate">Teaching resources</strong> for quantitative methods courses</li>
       </ul>
       <p className="text-slate-light mb-8">All my tools are open-source and freely available.</p>
 
@@ -86,7 +90,17 @@ export default function About() {
 
       {/* Selected Publications */}
       <SectionHeader>Selected Publications</SectionHeader>
-      <p className="text-slate-light italic mb-8">Publications will be listed here.</p>
+      <ul className="space-y-4 mb-8">
+        <li className="py-3 border-b border-border">
+          <p className="text-slate">Smirnov, O., Hsieh, P-H., & <strong>Urbina, I.</strong> (2025). Finite pool of worry and emotions in climate change tweets during COVID-19. <em>Journal of Environmental Psychology</em>, 106, 102728.</p>
+        </li>
+        <li className="py-3 border-b border-border">
+          <p className="text-slate"><strong>Urbina, I.</strong>, Araya, D., Vidigal, R., & Sharygina, A. Mind Under Pressure: Does Cognitive Overload Increase Susceptibility to Misinformation? <em>Politics and the Life Sciences</em> (In-Principle Accepted).</p>
+        </li>
+        <li className="py-3">
+          <p className="text-slate"><strong>Urbina, I.</strong> The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation. <em>(Job Market Paper)</em></p>
+        </li>
+      </ul>
 
       {/* Skills & Tools */}
       <SectionHeader>Skills & Tools</SectionHeader>
@@ -127,8 +141,8 @@ export default function About() {
       <div className="bg-bg-card border border-border rounded-lg p-6">
         <p className="mb-2">
           📧 <strong className="text-slate">Email:</strong>{' '}
-          <a href="mailto:your.email@example.com" className="text-accent hover:text-accent-light">
-            your.email@example.com
+          <a href="mailto:ignacio.urbina@stonybrook.edu" className="text-accent hover:text-accent-light">
+            ignacio.urbina@stonybrook.edu
           </a>
         </p>
         <p className="mb-2">
