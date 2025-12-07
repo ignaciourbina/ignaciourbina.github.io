@@ -1,11 +1,6 @@
-# Quarto
-/.quarto/
-/_site/
-/_freeze/
-
-# Do NOT ignore /docs - it's used for GitHub Pages deployment
-# If using GitHub Actions, you can uncomment this:
-# /docs/
+# Node / React
+node_modules/
+dist/
 
 # Python
 __pycache__/
@@ -15,13 +10,6 @@ __pycache__/
 .venv/
 venv/
 .ipynb_checkpoints/
-
-# R
-.Rhistory
-.Rdata
-.RData
-.Ruserdata
-*.Rproj.user/
 
 # OS
 .DS_Store
