@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# PDFs (except CV in public folder)
+*.pdf
+!public/files/cv.pdf
+!docs/files/cv.pdf
