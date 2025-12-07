@@ -1,0 +1,122 @@
+{
+  "page": {
+    "title": "About",
+    "subtitle": "Researcher · Tool Builder · Educator"
+  },
+  "profile": {
+    "initials": "IU",
+    "photoUrl": null,
+    "cvUrl": "/files/cv.pdf"
+  },
+  "bio": {
+    "intro": "I am a political economist studying how democracies can govern artificial intelligence. My research combines experimental methods with computational modeling to understand how citizens form preferences about emerging technologies and what this means for democratic governance.",
+    "researchInterests": {
+      "title": "My research interests include:",
+      "items": [
+        {
+          "title": "AI and democratic governance",
+          "description": "How citizens form attitudes toward AI and how democracies can govern emerging technologies"
+        },
+        {
+          "title": "Political behavior",
+          "description": "Automation risk, policy preferences, and public opinion"
+        },
+        {
+          "title": "Computational social science",
+          "description": "Agent-based modeling, behavioral experiments, and causal inference"
+        },
+        {
+          "title": "Latin American politics",
+          "description": "State violence, political trust, and democratic attitudes"
+        }
+      ]
+    }
+  },
+  "whatIBuild": {
+    "title": "What I Build",
+    "intro": "I create interactive tools that help researchers and students build intuition for quantitative methods. My teaching philosophy centers on helping students who did not expect to succeed at quantitative methods discover that they can.",
+    "items": [
+      "**20+ interactive learning tools** built with JavaScript to help students visualize statistical concepts",
+      "**Behavioral experiment platforms** using oTree for research",
+      "**Causal modeling tools** for specifying and exporting SEM models",
+      "**Teaching resources** for quantitative methods courses"
+    ],
+    "note": "All my tools are open-source and freely available."
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "degree": "Ph.D. Candidate in Political Science",
+        "institution": "Stony Brook University",
+        "year": null
+      },
+      {
+        "degree": "M.S. in Economics",
+        "institution": "Adolfo Ibáñez University",
+        "year": null
+      },
+      {
+        "degree": "M.S. in Public Policy",
+        "institution": "Adolfo Ibáñez University",
+        "year": null
+      },
+      {
+        "degree": "B.A. in Management Science",
+        "institution": "Adolfo Ibáñez University",
+        "year": null
+      }
+    ]
+  },
+  "publications": {
+    "title": "Selected Publications",
+    "items": [
+      {
+        "citation": "Smirnov, O., Hsieh, P-H., & **Urbina, I.** (2025). Finite pool of worry and emotions in climate change tweets during COVID-19. *Journal of Environmental Psychology*, 106, 102728.",
+        "url": null
+      },
+      {
+        "citation": "**Urbina, I.**, Araya, D., Vidigal, R., & Sharygina, A. Mind Under Pressure: Does Cognitive Overload Increase Susceptibility to Misinformation? *Politics and the Life Sciences* (In-Principle Accepted).",
+        "url": null
+      },
+      {
+        "citation": "**Urbina, I.** The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation. *(Job Market Paper)*",
+        "url": null
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills & Tools",
+    "categories": [
+      {
+        "name": "Languages",
+        "items": ["R", "Python", "JavaScript", "SQL"]
+      },
+      {
+        "name": "Frameworks",
+        "items": ["Next.js", "React", "Quarto", "Shiny"]
+      },
+      {
+        "name": "Methods",
+        "items": ["SEM", "Causal Inference", "Survey Design", "Bayesian Analysis"]
+      },
+      {
+        "name": "Tools",
+        "items": ["Git", "Docker", "LaTeX", "Observable"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "The best way to reach me is by email. I'm also active on GitHub and open to collaboration on research tools.",
+    "email": "ignacio.urbina@stonybrook.edu",
+    "github": {
+      "username": "ignaciourbina",
+      "url": "https://github.com/ignaciourbina"
+    },
+    "linkedin": {
+      "name": "Ignacio Urbina",
+      "url": "https://www.linkedin.com/in/ignaciourbinah"
+    }
+  }
+}

@@ -1,23 +1,26 @@
 import { Link, NavLink } from 'react-router-dom'
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { site } from '../content'
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/tools', label: 'Tools' },
-  { to: '/research', label: 'Research' },
-  { to: '/teaching', label: 'Teaching' },
-  { to: '/about', label: 'About' },
-]
+const navLinks = site.navigation.links
 
 const socialLinks = [
-  { href: 'https://github.com/ignaciourbina', icon: Github, label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/ignaciourbinah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:ignacio.urbina@stonybrook.edu', icon: Mail, label: 'Email' },
+  { href: site.social.github.url, icon: Github, label: site.social.github.label },
+  { href: site.social.linkedin.url, icon: Linkedin, label: site.social.linkedin.label },
+  { href: `mailto:${site.social.email.address}`, icon: Mail, label: site.social.email.label },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleClose = () => {
+    setIsOpen(false)
+  }
 
   return (
     <nav className="bg-navy text-white border-b border-white/10">
@@ -25,7 +28,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo / Brand */}
           <Link to="/" className="font-semibold text-lg hover:opacity-80 transition-opacity">
-            Ignacio Urbina
+            {site.navigation.brand}
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,11 +65,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="md:hidden p-2" onClick={handleToggle} aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -79,11 +78,9 @@ export default function Navbar() {
                 <NavLink
                   key={link.to}
                   to={link.to}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                   className={({ isActive }) =>
-                    `px-3 py-2 rounded font-medium ${
-                      isActive ? 'bg-white/10' : 'hover:bg-white/5'
-                    }`
+                    `px-3 py-2 rounded font-medium ${isActive ? 'bg-white/10' : 'hover:bg-white/5'}`
                   }
                 >
                   {link.label}

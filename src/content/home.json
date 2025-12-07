@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm Ignacio 👋",
+    "introduction": "I'm a political economist studying how **democracies can govern AI**. I build **interactive tools** for research and teaching, combining experimental methods with computational modeling.",
+    "buttons": {
+      "primary": {
+        "label": "View Tools",
+        "to": "/tools"
+      },
+      "secondary": {
+        "label": "Research Briefs",
+        "to": "/research"
+      }
+    }
+  },
+  "sections": {
+    "featuredTools": {
+      "title": "Featured Tools"
+    },
+    "researchBriefs": {
+      "title": "Latest Research Briefs",
+      "description": "Interactive summaries of research findings with embedded visualizations and key insights.",
+      "placeholder": "Research briefs section coming soon — interactive summaries with embedded charts, methodology notes, and replication materials.",
+      "buttonLabel": "Browse Research →"
+    },
+    "aboutPreview": {
+      "title": "About Me",
+      "description": "I am a Ph.D. Candidate in Political Science at Stony Brook University, studying how democracies can govern artificial intelligence. My dissertation, \"Three Essays on the Political Implications of AI,\" examines how citizens form preferences about emerging technologies.",
+      "workSpans": {
+        "intro": "My work spans:",
+        "items": [
+          "**Causal inference** and structural equation modeling",
+          "**Survey methodology** and measurement",
+          "**Teaching technology** for quantitative methods"
+        ]
+      },
+      "linkLabel": "More About Me →"
+    }
+  }
+}

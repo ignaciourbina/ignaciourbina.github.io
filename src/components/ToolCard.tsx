@@ -22,7 +22,7 @@ export default function ToolCard({
   children,
 }: ToolCardProps) {
   const isPlaceholder = status === 'coming'
-  
+
   return (
     <div
       className={`bg-bg-card border border-border rounded-lg p-6 transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg ${
@@ -34,33 +34,26 @@ export default function ToolCard({
         {status && (
           <span
             className={`text-xs font-semibold px-2 py-1 rounded-full ${
-              status === 'live'
-                ? 'bg-green-100 text-green-800'
-                : 'bg-amber-100 text-amber-800'
+              status === 'live' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
             }`}
           >
             {status === 'live' ? 'Live' : 'Coming Soon'}
           </span>
         )}
       </div>
-      
-      <p className="text-slate-light text-[0.95rem] leading-relaxed mb-4">
-        {description}
-      </p>
-      
+
+      <p className="text-slate-light text-[0.95rem] leading-relaxed mb-4">{description}</p>
+
       {children}
-      
+
       <div className="flex flex-wrap gap-1.5 my-4">
         {tags.map((tag) => (
-          <span
-            key={tag}
-            className="bg-bg-light text-slate text-xs px-2 py-1 rounded"
-          >
+          <span key={tag} className="bg-bg-light text-slate text-xs px-2 py-1 rounded">
             {tag}
           </span>
         ))}
       </div>
-      
+
       <div className="flex flex-wrap gap-3 mt-5">
         {launchUrl && (
           <a

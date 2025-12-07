@@ -1,0 +1,166 @@
+{
+  "page": {
+    "title": "Teaching",
+    "subtitle": "Resources, demos, and materials for quantitative methods",
+    "description": "Interactive teaching resources for quantitative methods courses. These materials are designed to help students build intuition for statistical concepts through hands-on exploration."
+  },
+  "sections": {
+    "demos": {
+      "title": "Interactive Demos",
+      "items": [
+        {
+          "id": "sampling-distributions",
+          "title": "📊 Sampling Distributions",
+          "description": "Visualize how sampling distributions emerge from repeated sampling. Adjust sample size and population parameters to see the central limit theorem in action.",
+          "tags": ["Statistics 101", "Interactive", "Visualization"],
+          "status": "coming"
+        },
+        {
+          "id": "hypothesis-testing",
+          "title": "🎯 Hypothesis Testing",
+          "description": "Interactive demonstration of hypothesis testing concepts. See how p-values, effect sizes, and sample sizes interact.",
+          "tags": ["Inference", "Interactive", "Visualization"],
+          "status": "coming"
+        },
+        {
+          "id": "regression-intuition",
+          "title": "📈 Regression Intuition",
+          "description": "Build intuition for linear regression by manipulating data points and seeing how the regression line responds.",
+          "tags": ["Regression", "Interactive", "Visualization"],
+          "status": "coming"
+        }
+      ]
+    },
+    "courseMaterials": {
+      "title": "Course Materials",
+      "subtitle": "Quantitative Methods",
+      "items": [
+        { "title": "Syllabus", "description": "Course overview and schedule", "status": "coming" },
+        { "title": "Lecture Slides", "description": "Presentation materials", "status": "coming" },
+        {
+          "title": "Problem Sets",
+          "description": "Practice exercises with solutions",
+          "status": "coming"
+        },
+        {
+          "title": "Code Examples",
+          "description": "R and Python code for common analyses",
+          "status": "coming"
+        }
+      ]
+    },
+    "curatedMaterials": {
+      "title": "📊 Curated Course Materials for Statistics",
+      "description": "A comprehensive repository of resources for teaching and learning statistics in political science, designed to make statistics accessible and engaging.",
+      "liveDemoUrl": "https://iurbinah-teaching-materials.static.hf.space",
+      "liveDemoLabel": "Explore the Live Demo Site →",
+      "repositoryUrl": "https://github.com/ignaciourbina/stats-materials",
+      "repositoryLabel": "View Repository on GitHub →",
+      "contents": [
+        {
+          "icon": "🎓",
+          "label": "Lecture Slides",
+          "description": "Ready-to-use .tex slides covering a full semester of topics"
+        },
+        {
+          "icon": "📘",
+          "label": "Lecture Notes",
+          "description": "Detailed notes including advanced topics and in-depth explanations"
+        },
+        {
+          "icon": "📝",
+          "label": "Problem Sets & Quizzes",
+          "description": "A vast bank of questions, solved problems, and compiled assignments"
+        },
+        { "icon": "🧪", "label": "Exams", "description": "Midterm and final exams with solutions" },
+        {
+          "icon": "💻",
+          "label": "R Programming",
+          "description": "Tutorials, problem sets, and a data analysis project using R"
+        },
+        {
+          "icon": "📈",
+          "label": "Figures & Animations",
+          "description": "Plots, diagrams, and animations to illustrate key concepts"
+        },
+        {
+          "icon": "📄",
+          "label": "Formulas & Tables",
+          "description": "Handy formula sheets and distribution tables"
+        }
+      ]
+    },
+    "toolsForTeaching": {
+      "title": "Tools for Teaching",
+      "featured": {
+        "title": "📋 QuizView",
+        "description": "Preview and validate Brightspace quiz CSV files before uploading them to your LMS. Great for catching errors before students see them.",
+        "launchUrl": "https://ignaciourbina.github.io/quizview/",
+        "launchLabel": "Launch QuizView →"
+      }
+    },
+    "resources": {
+      "title": "Resources",
+      "books": {
+        "title": "Recommended Books",
+        "items": [
+          {
+            "topic": "Causal Inference",
+            "title": "The Effect",
+            "author": "Nick Huntington-Klein",
+            "note": "free online"
+          },
+          {
+            "topic": "Statistics",
+            "title": "OpenIntro Statistics",
+            "author": null,
+            "note": "free online"
+          },
+          {
+            "topic": "R Programming",
+            "title": "R for Data Science",
+            "author": "Wickham & Grolemund",
+            "note": "free online"
+          },
+          {
+            "topic": "Regression",
+            "title": "Regression and Other Stories",
+            "author": "Gelman, Hill & Vehtari",
+            "note": null
+          }
+        ]
+      },
+      "online": {
+        "title": "Online Resources",
+        "items": [
+          {
+            "title": "Seeing Theory",
+            "url": "https://seeing-theory.brown.edu/",
+            "description": "Visual introduction to probability and statistics"
+          },
+          {
+            "title": "Distill.pub",
+            "url": "https://distill.pub/",
+            "description": "Clear explanations of machine learning concepts"
+          },
+          {
+            "title": "EGAP Methods Guides",
+            "url": "https://egap.org/methods-guides/",
+            "description": "Research design guides"
+          },
+          {
+            "title": "Andrew Heiss's Course Materials",
+            "url": "https://www.andrewheiss.com/teaching/",
+            "description": "Excellent open course materials"
+          }
+        ]
+      }
+    },
+    "request": {
+      "title": "Request Materials",
+      "description": "Looking for specific teaching resources? Let me know what would be helpful.",
+      "buttonLabel": "Request Materials →",
+      "buttonUrl": "https://github.com/ignaciourbina/ignaciourbina.github.io/issues"
+    }
+  }
+}

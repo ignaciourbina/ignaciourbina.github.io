@@ -1,0 +1,75 @@
+{
+  "page": {
+    "title": "Research",
+    "subtitle": "Interactive briefs with findings and insights",
+    "description": "Interactive summaries of research projects with embedded visualizations, key findings, and methodology notes. Each brief is designed to communicate core insights while providing access to full details for those who want to dig deeper."
+  },
+  "sections": {
+    "featured": {
+      "title": "Featured Briefs",
+      "placeholder": {
+        "title": "📊 Coming Soon: Research Brief Template",
+        "description": "This section will feature interactive research briefs with:",
+        "features": [
+          { "title": "Key Findings", "description": "The main takeaways, visualized" },
+          { "title": "Interactive Charts", "description": "Explore the data yourself" },
+          { "title": "Methodology", "description": "Collapsible technical details" },
+          { "title": "Replication", "description": "Links to code and data" }
+        ],
+        "meta": "Template · Coming Soon"
+      }
+    },
+    "whatAreBriefs": {
+      "title": "What Are Research Briefs?",
+      "intro": "Research briefs are short, accessible summaries of academic research designed for broader audiences. Unlike full academic papers, briefs:",
+      "features": [
+        { "title": "Focus on insights", "description": "rather than exhaustive literature review" },
+        { "title": "Use visualization", "description": "to communicate findings" },
+        { "title": "Include interactivity", "description": "so readers can explore data" },
+        { "title": "Provide context", "description": "without requiring specialized knowledge" }
+      ],
+      "structure": {
+        "title": "Example Structure",
+        "intro": "Each brief follows a consistent format:",
+        "steps": [
+          { "title": "TL;DR", "description": "One-paragraph summary" },
+          { "title": "Key Findings", "description": "3-5 main takeaways with supporting visuals" },
+          { "title": "Background", "description": "Why this question matters" },
+          { "title": "Methods", "description": "Collapsible section with technical details" },
+          { "title": "Implications", "description": "What this means for practice/policy" },
+          { "title": "Resources", "description": "Links to paper, code, data" }
+        ]
+      }
+    },
+    "topics": {
+      "title": "Topics I Cover",
+      "items": [
+        {
+          "title": "Causal Inference",
+          "description": "Methods for identifying causal effects in observational data"
+        },
+        {
+          "title": "Survey Methodology",
+          "description": "Measurement, sampling, and response quality"
+        },
+        {
+          "title": "Quantitative Methods",
+          "description": "Statistical approaches for social science research"
+        },
+        { "title": "Research Technology", "description": "Tools and workflows for modern research" }
+      ]
+    },
+    "subscribe": {
+      "title": "Subscribe for Updates",
+      "description": "Get notified when new research briefs are published.",
+      "note": "Email subscription coming soon. For now, follow me on GitHub or check back periodically."
+    },
+    "suggest": {
+      "title": "Suggest a Topic",
+      "description": "Is there a research topic or methodological question you'd like to see covered? Let me know!",
+      "buttonLabel": "Suggest a Topic →",
+      "buttonUrl": "https://github.com/ignaciourbina/ignaciourbina.github.io/issues"
+    }
+  },
+  "briefs": []
+}

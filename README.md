@@ -1,213 +1,161 @@
-# Ignacio Urbina - Personal Website
+# Ignacio Urbina - Personal Website (React)
 
-A Quarto-powered academic website for sharing research tools, interactive briefs, and teaching resources.
+This is a React + TypeScript + Vite migration of the Quarto website.
 
-🌐 **Live site:** [ignaciourbina.github.io](https://ignaciourbina.github.io)
+## Tech Stack
 
-## 🚀 Quick Start
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **React Router** - Client-side routing
+- **Lucide React** - Icons
 
-### Prerequisites
+## Getting Started
 
-1. **Install Quarto** (version 1.3 or higher):
-   ```bash
-   # macOS (Homebrew)
-   brew install quarto
-   
-   # Linux (Ubuntu/Debian)
-   wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.553/quarto-1.4.553-linux-amd64.deb
-   sudo dpkg -i quarto-1.4.553-linux-amd64.deb
-   
-   # Or download from: https://quarto.org/docs/get-started/
-   ```
-
-2. **Clone this repository:**
-   ```bash
-   git clone https://github.com/ignaciourbina/ignaciourbina.github.io.git
-   cd ignaciourbina.github.io
-   ```
-
-### Local Development
+### Install dependencies
 
 ```bash
-# Preview the site locally (with hot reload)
-quarto preview
-
-# The site will open at http://localhost:4000
+npm install
 ```
+
+### Development
+
+```bash
+npm run dev
+```
+
+This starts the development server at `http://localhost:5173`
 
 ### Build for Production
 
 ```bash
-# Build the site (outputs to /docs folder)
-quarto render
+npm run build
 ```
 
-## 📁 Project Structure
+This creates an optimized build in the `dist` folder.
 
-```
-ignaciourbina.github.io/
-├── _quarto.yml           # Site configuration
-├── index.qmd             # Landing page
-├── about.qmd             # About/CV page
-├── custom.scss           # Custom styles (SCSS)
-├── styles.css            # Additional CSS
-├── references.bib        # Bibliography for citations
-│
-├── tools/
-│   └── index.qmd         # Tools gallery
-│
-├── research/
-│   ├── index.qmd         # Research briefs hub
-│   └── sample-brief/     # Template for research briefs
-│       └── index.qmd
-│
-├── teaching/
-│   └── index.qmd         # Teaching resources
-│
-├── images/               # Profile photo, logos, etc.
-│   └── profile.jpg       # Add your photo here
-│
-├── files/                # Downloadable files
-│   └── cv.pdf            # Add your CV here
-│
-└── docs/                 # Generated site (git-ignored locally)
+### Preview Production Build
+
+```bash
+npm run preview
 ```
 
-## ✏️ Customization
+## Project Structure
 
-### 1. Update Personal Information
-
-Edit these files with your details:
-
-- **`_quarto.yml`** - Site title, social links, email
-- **`index.qmd`** - Landing page introduction
-- **`about.qmd`** - Bio, education, skills, contact info
-
-### 2. Add Your Profile Photo
-
-Place your photo in `images/profile.jpg`
-
-### 3. Add Your CV
-
-Place your CV in `files/cv.pdf`
-
-### 4. Customize Colors
-
-Edit `custom.scss` to change the color palette:
-
-```scss
-$navy: #1e3a5f;        // Primary dark color
-$accent: #0ea5e9;      // Accent/link color
-$slate: #475569;       // Text color
+```
+src/
+├── components/       # Reusable UI components
+│   ├── Button.tsx
+│   ├── Footer.tsx
+│   ├── Layout.tsx
+│   ├── Navbar.tsx
+│   ├── SectionHeader.tsx
+│   └── ToolCard.tsx
+├── pages/            # Page components (routes)
+│   ├── About.tsx
+│   ├── Home.tsx
+│   ├── Research.tsx
+│   ├── Teaching.tsx
+│   └── Tools.tsx
+├── App.tsx           # Main app with routing
+├── main.tsx          # Entry point
+└── index.css         # Global styles
 ```
 
-## 📝 Adding Content
+## Deploying to GitHub Pages
 
-### Add a New Tool
-
-1. Edit `tools/index.qmd`
-2. Add a new `.tool-card` div following the existing pattern
-3. Update status to `.live` when published
-
-### Add a Research Brief
-
-1. Create a new folder: `research/my-brief/`
-2. Copy `research/sample-brief/index.qmd` as a template
-3. Write your content with embedded visualizations
-4. Remove `draft: true` when ready to publish
-
-### Add Interactive Visualizations
-
-Quarto supports many visualization libraries:
-
-```python
-# Python (Plotly)
-import plotly.express as px
-fig = px.scatter(df, x="x", y="y")
-fig.show()
-```
-
-```r
-# R (ggplot2 + plotly)
-library(plotly)
-ggplotly(ggplot(df, aes(x, y)) + geom_point())
-```
-
-```{ojs}
-// Observable JS
-Plot.plot({
-  marks: [Plot.dot(data, {x: "x", y: "y"})]
-})
-```
-
-## 🚀 Deployment
-
-### Option 1: GitHub Pages (Recommended)
-
-The site is configured to deploy from the `/docs` folder.
-
-1. Build the site:
-   ```bash
-   quarto render
+1. Update `vite.config.ts` if deploying to a subdirectory:
+   ```ts
+   base: '/your-repo-name/'
    ```
 
-2. Commit and push:
+2. Build the project:
    ```bash
-   git add .
-   git commit -m "Update site"
-   git push
+   npm run build
    ```
 
-3. In GitHub repo settings:
-   - Go to **Settings → Pages**
-   - Set **Source** to "Deploy from a branch"
-   - Select **Branch:** `master` and **Folder:** `/docs`
+3. Deploy the `dist` folder to GitHub Pages (you can use the `gh-pages` package or GitHub Actions)
 
-### Option 2: GitHub Actions (Automatic)
+### Using GitHub Actions (recommended)
 
-Create `.github/workflows/publish.yml`:
+Create `.github/workflows/deploy.yml`:
 
 ```yaml
-name: Build and Deploy Quarto Site
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
       
-      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: react-site/package-lock.json
       
-      - name: Render Quarto Project
-        run: quarto render
-        
-      - name: Deploy to GitHub Pages
+      - name: Install dependencies
+        run: npm ci
+        working-directory: react-site
+      
+      - name: Build
+        run: npm run build
+        working-directory: react-site
+      
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: react-site/dist
 ```
 
-## 🔗 Existing Tools
+## Customization
 
-These tools are already live and linked from the site:
+### Colors
 
-- **[CausalFlow](https://ignaciourbina.github.io/causal-flow/)** - Longitudinal causal model builder
-- **[QuizView](https://ignaciourbina.github.io/quizview/)** - Brightspace quiz CSV previewer
+Edit `tailwind.config.js` to customize the color palette:
 
-## 📚 Resources
+```js
+colors: {
+  navy: '#1e3a5f',      // Primary dark color
+  accent: '#0ea5e9',    // Accent/link color
+  // ...
+}
+```
 
-- [Quarto Documentation](https://quarto.org/docs/guide/)
-- [Quarto Websites](https://quarto.org/docs/websites/)
-- [Quarto Themes](https://quarto.org/docs/output-formats/html-themes.html)
-- [Observable JS](https://quarto.org/docs/interactive/ojs/)
+### Adding New Pages
 
-## 📄 License
+1. Create a new file in `src/pages/`
+2. Add a route in `src/App.tsx`
+3. Add a navigation link in `src/components/Navbar.tsx`
 
-Content © Ignacio Urbina. Code is MIT licensed.
+### Adding Profile Image
+
+Replace the placeholder avatar in `About.tsx` with an actual image:
+
+```tsx
+<img 
+  src="/images/profile.jpg" 
+  alt="Profile" 
+  className="w-48 h-48 rounded-full object-cover"
+/>
+```
+
+## Migration Notes
+
+This React site replicates the structure and content of the original Quarto site:
+
+- **Home** → `index.qmd`
+- **Tools** → `tools/index.qmd`
+- **Research** → `research/index.qmd`
+- **Teaching** → `teaching/index.qmd`
+- **About** → `about.qmd`
+
+The styling has been converted from SCSS to Tailwind CSS while maintaining the same visual design.

@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "siteTitle": "Ignacio Urbina",
+    "siteDescription": "Research tools, interactive briefs, and teaching resources",
+    "siteUrl": "https://ignaciourbina.github.io",
+    "author": "Ignacio Urbina",
+    "copyright": "© 2025 Ignacio Urbina"
+  },
+  "navigation": {
+    "brand": "Ignacio Urbina",
+    "links": [
+      { "to": "/", "label": "Home" },
+      { "to": "/tools", "label": "Tools" },
+      { "to": "/research", "label": "Research" },
+      { "to": "/teaching", "label": "Teaching" },
+      { "to": "/about", "label": "About" }
+    ]
+  },
+  "social": {
+    "github": {
+      "url": "https://github.com/ignaciourbina",
+      "label": "GitHub"
+    },
+    "linkedin": {
+      "url": "https://www.linkedin.com/in/ignaciourbinah",
+      "label": "LinkedIn"
+    },
+    "email": {
+      "address": "ignacio.urbina@stonybrook.edu",
+      "label": "Email"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Ignacio Urbina"
+  }
+}

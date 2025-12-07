@@ -1,0 +1,113 @@
+{
+  "page": {
+    "title": "Tools",
+    "subtitle": "Interactive applications for research and teaching",
+    "description": "A collection of open-source tools I've built to support research methodology and teaching. All tools are free to use and hosted on GitHub."
+  },
+  "sections": {
+    "research": {
+      "title": "Research Tools"
+    },
+    "teaching": {
+      "title": "Teaching Tools"
+    },
+    "suggest": {
+      "title": "Suggest a Tool",
+      "description": "Have an idea for a research or teaching tool? I'm always looking for new projects that can help researchers and students.",
+      "buttonLabel": "Open an Issue on GitHub",
+      "buttonUrl": "https://github.com/ignaciourbina/ignaciourbina.github.io/issues"
+    }
+  },
+  "tools": {
+    "research": [
+      {
+        "id": "causalflow",
+        "title": "🔀 CausalFlow",
+        "description": "An interactive visual tool for specifying longitudinal causal models and exporting them to lavaan syntax for Structural Equation Modeling (SEM) analysis in R.",
+        "tags": ["Causal Inference", "SEM", "R/lavaan", "Panel Data", "Interactive"],
+        "status": "live",
+        "featured": true,
+        "launchUrl": "https://ignaciourbina.github.io/causal-flow/",
+        "githubUrl": "https://github.com/ignaciourbina/causal-flow",
+        "features": [
+          "Drag-and-drop interface for building path diagrams",
+          "Support for cross-lagged panel models",
+          "Automatic lavaan syntax generation",
+          "Export to R script"
+        ]
+      },
+      {
+        "id": "power-calculator",
+        "title": "📈 Power Calculator",
+        "description": "Interactive power analysis for common research designs. Calculate sample sizes, visualize power curves, and understand the relationship between effect size, sample size, and statistical power.",
+        "tags": ["Statistics", "Power Analysis", "Sample Size", "Interactive"],
+        "status": "coming",
+        "featured": false
+      },
+      {
+        "id": "bayes-viz",
+        "title": "🎲 Bayes Viz",
+        "description": "Visualize Bayesian inference concepts interactively. See how priors, likelihoods, and posteriors interact in real-time.",
+        "tags": ["Bayesian", "Visualization", "Teaching", "Interactive"],
+        "status": "coming",
+        "featured": false
+      }
+    ],
+    "teaching": [
+      {
+        "id": "quizview",
+        "title": "📋 QuizView",
+        "description": "A Next.js web app that lets you preview and visualize Brightspace quiz CSV files before uploading them to your LMS.",
+        "tags": ["Teaching", "LMS", "Brightspace", "Next.js", "CSV"],
+        "status": "live",
+        "featured": true,
+        "launchUrl": "https://ignaciourbina.github.io/quizview/",
+        "githubUrl": "https://github.com/ignaciourbina/quizview",
+        "features": [
+          "Drag-and-drop CSV upload",
+          "Visual preview of questions and answers",
+          "Validation before upload",
+          "Support for multiple question types"
+        ]
+      },
+      {
+        "id": "stats-demos",
+        "title": "📊 Stats Demos",
+        "description": "Interactive demonstrations for teaching statistical concepts. Includes sampling distributions, hypothesis testing, and regression visualization.",
+        "tags": ["Teaching", "Statistics", "Interactive", "Visualization"],
+        "status": "coming",
+        "featured": false
+      }
+    ],
+    "featured": [
+      {
+        "id": "causalflow",
+        "title": "🔀 CausalFlow",
+        "description": "Interactive visual tool for specifying longitudinal causal models and exporting them to lavaan syntax for SEM analysis in R.",
+        "tags": ["Causal Inference", "SEM", "R/lavaan", "Interactive"],
+        "status": "live",
+        "featured": true,
+        "launchUrl": "https://ignaciourbina.github.io/causal-flow/"
+      },
+      {
+        "id": "quizview",
+        "title": "📋 QuizView",
+        "description": "A Next.js web app that lets you preview and visualize Brightspace quiz CSV files before uploading them.",
+        "tags": ["Teaching", "LMS", "Next.js", "Data Preview"],
+        "status": "live",
+        "featured": true,
+        "launchUrl": "https://ignaciourbina.github.io/quizview/"
+      },
+      {
+        "id": "more-coming",
+        "title": "📊 More Coming Soon",
+        "description": "Power calculators, Bayesian visualization tools, and interactive research demos are on the way.",
+        "tags": ["Statistics", "Visualization", "Research"],
+        "status": "coming",
+        "featured": false,
+        "linkLabel": "View All Tools →",
+        "linkTo": "/tools"
+      }
+    ]
+  }
+}
