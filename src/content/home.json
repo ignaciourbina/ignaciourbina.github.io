@@ -1,7 +1,7 @@
 {
   "hero": {
     "greeting": "Hi, I'm Ignacio",
-    "introduction": "I'm a political economist studying how **citizens form beliefs and attitudes about AI**, and how this impacts their **political behavior and preferences for government policies**. I build **interactive tools** for research and teaching, combining experimental methods with computational modeling.",
+    "introduction": "I'm a political scientist studying how **citizens form beliefs and attitudes about AI**, and how this impacts their **political behavior and preferences for government policies**. I build **interactive tools** for research and teaching, combining experimental methods with computational modeling.",
     "buttons": {
       "primary": {
         "label": "View Tools",

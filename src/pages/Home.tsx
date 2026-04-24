@@ -12,7 +12,7 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="max-w-5xl mx-auto px-6">
           <span className="text-xs font-bold uppercase tracking-widest text-green mb-4 block">
-            Political economist
+            Political scientist
           </span>
           <h1 className="text-4xl md:text-6xl font-extrabold text-ink leading-[0.98] mb-6 max-w-3xl">
             {home.hero.greeting.replace(' 👋', '')}
