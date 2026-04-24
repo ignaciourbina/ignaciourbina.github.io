@@ -604,6 +604,13 @@ export class DeckRenderer {
         if (this.features.controls) this.root.append(this.renderControls());
 
         if (!this.printMode) {
+            this.sidebar = this.renderSidebar();
+            this.sidebarToggle = this.renderSidebarToggle();
+            this.root.append(this.sidebar);
+            this.root.append(this.sidebarToggle);
+        }
+
+        if (!this.printMode) {
             if (this.features.hashNavigation) this.readHash();
             window.addEventListener("keydown", this.boundKeydown);
             if (this.features.hashNavigation) window.addEventListener("hashchange", this.boundHashChange);
@@ -629,6 +636,53 @@ export class DeckRenderer {
         ]);
     }
 
+    renderSidebar() {
+        this.sidebarList = h("ol", { class: "deck-sidebar-list" },
+            this.deck.slides.map((slide, index) =>
+                h("li", {
+                    on: { click: () => { this.goTo(index); this.toggleSidebar(); } },
+                }, [
+                    h("span", { class: "sidebar-slide-number", text: String(index + 1).padStart(2, "0") }),
+                    h("span", { class: "sidebar-slide-title", text: slide.headlineText || slide.title }),
+                ])
+            )
+        );
+
+        return h("aside", { class: "deck-sidebar" }, [
+            h("div", { class: "deck-sidebar-header" }, [
+                h("strong", { text: this.deck.options.title }),
+                h("button", {
+                    class: "sidebar-close",
+                    text: "×",
+                    attrs: { type: "button", "aria-label": "Close sidebar" },
+                    on: { click: () => this.toggleSidebar() },
+                }),
+            ]),
+            this.sidebarList,
+        ]);
+    }
+
+    renderSidebarToggle() {
+        return h("button", {
+            class: "sidebar-toggle",
+            text: "☰",
+            attrs: { type: "button", title: "Toggle slide list", "aria-label": "Toggle slide list" },
+            on: { click: () => this.toggleSidebar() },
+        });
+    }
+
+    toggleSidebar() {
+        if (this.sidebar) this.sidebar.classList.toggle("is-open");
+    }
+
+    updateSidebar() {
+        if (!this.sidebarList) return;
+        const items = this.sidebarList.querySelectorAll("li");
+        items.forEach((li, i) => li.classList.toggle("is-current", i === this.index));
+        const current = items[this.index];
+        if (current) current.scrollIntoView({ block: "nearest" });
+    }
+
     render() {
         if (this.printMode) {
             this.renderPrintDeck();
@@ -650,6 +704,7 @@ export class DeckRenderer {
         this.applyRevealState();
         this.renderNotes();
         this.updateProgress();
+        this.updateSidebar();
         this.writeHash();
     }
 
@@ -802,6 +857,8 @@ export class DeckRenderer {
             this.toggleOutline();
         } else if (this.features.fullscreen && event.key.toLowerCase() === "f") {
             this.toggleFullscreen();
+        } else if (event.key.toLowerCase() === "s") {
+            this.toggleSidebar();
         } else if (event.key === "Home") {
             event.preventDefault();
             this.goTo(0);
