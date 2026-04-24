@@ -1,75 +1,97 @@
 {
   "page": {
     "title": "Research",
-    "subtitle": "Interactive briefs with findings and insights",
-    "description": "Interactive summaries of research projects with embedded visualizations, key findings, and methodology notes. Each brief is designed to communicate core insights while providing access to full details for those who want to dig deeper."
+    "subtitle": "Political behavior, public opinion, political economy, and computational social science"
   },
-  "sections": {
-    "featured": {
-      "title": "Featured Briefs",
-      "placeholder": {
-        "title": "📊 Coming Soon: Research Brief Template",
-        "description": "This section will feature interactive research briefs with:",
-        "features": [
-          { "title": "Key Findings", "description": "The main takeaways, visualized" },
-          { "title": "Interactive Charts", "description": "Explore the data yourself" },
-          { "title": "Methodology", "description": "Collapsible technical details" },
-          { "title": "Replication", "description": "Links to code and data" }
-        ],
-        "meta": "Template · Coming Soon"
+  "dissertation": {
+    "title": "Three Essays on the Political Implications of AI",
+    "committee": "Committee: Oleg Smirnov (Chair), Reuben Kline, Andrew Engelhardt",
+    "papers": [
+      {
+        "authors": "**Ignacio Urbina**",
+        "title": "The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation",
+        "note": "Job Market Paper",
+        "description": "Introduces a \"funnel of causality\" framework explaining when citizens update policy preferences in response to AI-driven job automation risk. Uses pre-registered experiment with ~1,000 U.S. workers and Bayesian finite mixture model."
+      },
+      {
+        "authors": "**Ignacio Urbina**",
+        "title": "Simulating Open Democracy: An Agent-Based Framework for Testing Deliberative Institutional Designs",
+        "note": null,
+        "description": "Open-source simulation using LLM agents as synthetic citizens to test how different institutional rules impact democratic consensus. To be presented at the 2026 MPSA Meeting."
+      },
+      {
+        "authors": "**Ignacio Urbina** & Oleg Smirnov",
+        "title": "The Nature of Attitudes Toward Artificial Intelligence in Mass Publics",
+        "note": null,
+        "description": "Examines the structure of public AI attitudes using exploratory factor analysis on nationally representative U.S. sample (N > 5,000); reveals multidimensional structure across domains and contexts."
       }
-    },
-    "whatAreBriefs": {
-      "title": "What Are Research Briefs?",
-      "intro": "Research briefs are short, accessible summaries of academic research designed for broader audiences. Unlike full academic papers, briefs:",
-      "features": [
-        { "title": "Focus on insights", "description": "rather than exhaustive literature review" },
-        { "title": "Use visualization", "description": "to communicate findings" },
-        { "title": "Include interactivity", "description": "so readers can explore data" },
-        { "title": "Provide context", "description": "without requiring specialized knowledge" }
-      ],
-      "structure": {
-        "title": "Example Structure",
-        "intro": "Each brief follows a consistent format:",
-        "steps": [
-          { "title": "TL;DR", "description": "One-paragraph summary" },
-          { "title": "Key Findings", "description": "3-5 main takeaways with supporting visuals" },
-          { "title": "Background", "description": "Why this question matters" },
-          { "title": "Methods", "description": "Collapsible section with technical details" },
-          { "title": "Implications", "description": "What this means for practice/policy" },
-          { "title": "Resources", "description": "Links to paper, code, data" }
-        ]
-      }
-    },
-    "topics": {
-      "title": "Topics I Cover",
-      "items": [
-        {
-          "title": "Causal Inference",
-          "description": "Methods for identifying causal effects in observational data"
-        },
-        {
-          "title": "Survey Methodology",
-          "description": "Measurement, sampling, and response quality"
-        },
-        {
-          "title": "Quantitative Methods",
-          "description": "Statistical approaches for social science research"
-        },
-        { "title": "Research Technology", "description": "Tools and workflows for modern research" }
-      ]
-    },
-    "subscribe": {
-      "title": "Subscribe for Updates",
-      "description": "Get notified when new research briefs are published.",
-      "note": "Email subscription coming soon. For now, follow me on GitHub or check back periodically."
-    },
-    "suggest": {
-      "title": "Suggest a Topic",
-      "description": "Is there a research topic or methodological question you'd like to see covered? Let me know!",
-      "buttonLabel": "Suggest a Topic →",
-      "buttonUrl": "https://github.com/ignaciourbina/ignaciourbina.github.io/issues"
-    }
+    ]
   },
-  "briefs": []
+  "published": {
+    "title": "Published Papers",
+    "papers": [
+      {
+        "citation": "Oleg Smirnov, Pei-Hsun Hsieh, & **Ignacio Urbina**. (2025). *Finite pool of worry and emotions in climate change tweets during COVID-19*. *Journal of Environmental Psychology*, 106, 102728."
+      }
+    ]
+  },
+  "working": {
+    "title": "Working Papers",
+    "note": "Drafts available upon request",
+    "papers": [
+      {
+        "authors": "**Ignacio Urbina** & Vitória Sgorlon",
+        "title": "Fractured Trust: The Spillover Effects of Police Violence on Political Trust and Satisfaction with Democracy",
+        "description": "Three studies: vignette experiment in Brazil (N = 624), observational analysis of 2019 Chilean protests, and cross-national analysis of 24 Latin American countries (LAPOP).",
+        "presentations": "Presented at POLMETH (2024), APSA (2024), MPSA (2024), Human Rights Workshop at URI (2024), and others. Winner of Best Poster Award at 2023 Latin American Political Methodology Meeting."
+      },
+      {
+        "authors": "**Ignacio Urbina**",
+        "title": "Will a Robot Take My Job? The Moderating Role of Automation Risks on Ideology's Effect on Welfare and Redistribution Attitudes",
+        "description": "Observational analysis using 2016 European Social Survey with occupation-level automation risk estimates. Multilevel decomposition: individual, industry, country.",
+        "presentations": "Presented at the 2024 MPSA Meeting and the 2024 ISPP Meeting."
+      },
+      {
+        "authors": "**Ignacio Urbina**, Reuben Kline, & Akhil Ponda",
+        "title": "Communication and Cooperation with Human and Artificial Agents",
+        "description": "2x2 factorial behavioral experiment (oTree): human vs. AI partner, with vs. without communication, in one shot Prisoner's Dilemma and Stag Hunt games.",
+        "presentations": "Presented at 2023 APSA Meeting, Oxford's Talking to Machines Workshop (2024), and 2024 IMEBESS Conference."
+      }
+    ]
+  },
+  "inProgress": {
+    "title": "Work in Progress",
+    "papers": [
+      {
+        "authors": "Oleg Smirnov & **Ignacio Urbina**",
+        "title": "Public Attitudes Toward Artificial General Intelligence and Superintelligent AI",
+        "description": "Original survey instrument with novel question battery, fielded on Prolific (N ~ 900). Data collection finished."
+      },
+      {
+        "authors": "**Ignacio Urbina**, Daniel Araya, Robert Vidigal, & Angelika Sharygina",
+        "title": "Mind Under Pressure: Does Cognitive Overload Increase Susceptibility to Misinformation?",
+        "description": "Pre-registered 2x3 factorial survey experiment testing whether an LLM assistant reduces misinformation susceptibility under cognitive overload."
+      },
+      {
+        "authors": "Vitória Sgorlon & **Ignacio Urbina**",
+        "title": "Trait Aggression Predicts Vote Choice for Far-Right Candidates: Evidence from the United States and Brazil",
+        "description": "Pre-registered cross-national study (US N = 933, Brazil N = 1,004). CFA, logistic regression, mediation analysis. Data collection completed."
+      },
+      {
+        "authors": "Alexa Bankert, Reuben Kline, **Ignacio Urbina**, & Thomas McDonough",
+        "title": "Minding The (Experimental) Gap(s): Prosociality with Real and Hypothetical Stakes in the Lab and Online",
+        "description": "Behavioral experiment comparing prosociality with real vs. hypothetical stakes across lab and online settings."
+      },
+      {
+        "authors": "Vitória Sgorlon & **Ignacio Urbina**",
+        "title": "Misperceptions of Immigrants on the Workforce: Unpacking Labor Market Concerns",
+        "description": "Pre-registered belief correction survey experiment with four conditions (control, egotropic, sociotropic, combined). N = 1,950 U.S. workers. Data collection completed."
+      },
+      {
+        "authors": "**Ignacio Urbina**",
+        "title": "Bots, Collective Action, and Social Media: An Agent-Based Model of Adversarial Suppression in Polarized Networks",
+        "description": "Simulates how adversarial bots exploit network topology to suppress political coordination. Bayesian calibration against empirical protest and social media studies."
+      }
+    ]
+  }
 }
