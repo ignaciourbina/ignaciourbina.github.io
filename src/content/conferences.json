@@ -3,5 +3,13 @@
     "title": "Conferences",
     "subtitle": "Presentations and talks from academic conferences"
   },
-  "presentations": []
+  "presentations": [
+    {
+      "slug": "mpsa-2026",
+      "title": "Simulating Open Democracy: An Agent-Based Framework for Testing Deliberative Institutional Designs",
+      "event": "MPSA 2026",
+      "date": "April 2026",
+      "description": "Comparing deliberation engines in a shared argument-theoretic environment. Open-source simulation using LLM agents as synthetic citizens to test how different institutional rules impact democratic consensus."
+    }
+  ]
 }
