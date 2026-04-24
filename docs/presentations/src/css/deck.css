@@ -181,7 +181,7 @@ button {
     min-height: 100vh;
     display: grid;
     grid-template-rows: 1fr;
-    padding: 1.25rem;
+    padding: 0.5rem;
     position: relative;
 }
 
@@ -190,27 +190,27 @@ button {
     min-width: 0;
     display: grid;
     place-items: center;
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100vh - 1.5rem);
 }
 
 /* --- Slide --- */
 
 .slide {
-    width: min(92vw, 1200px);
+    width: min(98vw, 1400px);
     max-width: 100%;
     min-width: 0;
     aspect-ratio: 16 / 9;
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: clamp(0.75rem, 1.5vw, 1.5rem);
+    gap: clamp(0.6rem, 1.2vw, 1.2rem);
     background:
         linear-gradient(90deg, rgba(31, 122, 91, 0.07), transparent 34%),
         var(--panel);
     border: 1px solid rgba(23, 33, 31, 0.12);
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: var(--shadow);
     overflow: hidden;
-    padding: clamp(1.25rem, 3.5vw, 3.5rem);
+    padding: clamp(1rem, 2.5vw, 2.5rem);
 }
 
 .slide--title,
