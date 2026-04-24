@@ -7,6 +7,15 @@ import toolsContent from './tools.json'
 import aboutContent from './about.json'
 import researchContent from './research.json'
 import teachingContent from './teaching.json'
+import conferencesContent from './conferences.json'
+
+export interface Presentation {
+  slug: string
+  title: string
+  event: string
+  date: string
+  description: string
+}
 
 export const site = siteContent
 export const home = homeContent
@@ -14,6 +23,10 @@ export const tools = toolsContent
 export const about = aboutContent
 export const research = researchContent
 export const teaching = teachingContent
+export const conferences = conferencesContent as {
+  page: typeof conferencesContent.page
+  presentations: Presentation[]
+}
 
 // Type exports for TypeScript support
 export type SiteContent = typeof siteContent
@@ -22,6 +35,7 @@ export type ToolsContent = typeof toolsContent
 export type AboutContent = typeof aboutContent
 export type ResearchContent = typeof researchContent
 export type TeachingContent = typeof teachingContent
+export type ConferencesContent = typeof conferencesContent
 
 // Helper to get a tool by ID
 export const getToolById = (id: string) => {
