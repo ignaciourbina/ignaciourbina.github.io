@@ -647,7 +647,7 @@ export class DeckRenderer {
                     on: { click: () => { this.goTo(index); this.toggleSidebar(); } },
                 }, [
                     h("span", { class: "sidebar-slide-number", text: String(index + 1).padStart(2, "0") }),
-                    h("span", { class: "sidebar-slide-title", text: slide.headlineText || slide.title }),
+                    h("span", { class: "sidebar-slide-title", text: slide.kickerText || slide.title }),
                 ])
             )
         );
