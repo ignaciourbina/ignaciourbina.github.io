@@ -131,8 +131,8 @@
       "id": "theory",
       "kicker": "CAM framework",
       "headline": "Two sequential gates: source trust (discrete) and joint activation (Gap × Anxiety).",
-      "subhead": "Gate 1 operates as a binary filter, not a continuous moderator. Gate 2 requires the joint presence of informational shock and dispositional vigilance.",
-      "notes": "Gate 1: discrete accept/reject. Gate 2: neither gap alone nor anxiety alone sufficient. Below threshold: cool cognition.",
+      "subhead": "Source trust operates as a binary filter, not a continuous moderator. Activation requires the joint presence of informational shock and dispositional vigilance.",
+      "notes": "Source trust: discrete accept/reject. Activation: neither gap alone nor anxiety alone sufficient. Below threshold: cool cognition.",
       "blocks": [
         {
           "type": "split",
@@ -142,8 +142,8 @@
               "type": "flow",
               "steps": [
                 { "title": "Information", "detail": "Expert risk estimate" },
-                { "title": "Gate 1", "detail": "Source trust" },
-                { "title": "Gate 2", "detail": "Gap × Anxiety" },
+                { "title": "Source trust", "detail": "Accept or reject" },
+                { "title": "Activation", "detail": "Gap × Anxiety" },
                 { "title": "Policy demand", "detail": "Protection preferences" }
               ]
             }
@@ -152,8 +152,8 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Gate 1: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
-                { "title": "Gate 2: joint activation", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
+                { "title": "Source trust: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
+                { "title": "Activation: joint requirement", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
                 { "title": "Below-threshold pathway", "detail": "Beliefs update without policy preference change (cool cognition)" }
               ]
             }
@@ -215,9 +215,9 @@
               "type": "bullets",
               "items": [
                 { "title": "Outcome", "detail": "Policy demand index: 5 items, 7-pt scale (ω = 0.85)" },
-                { "title": "Gate 1 measure", "detail": "Source trust: 5-point item, post-treatment" },
-                { "title": "Gate 2a", "detail": "Belief gap: expert percentile − subjective prior" },
-                { "title": "Gate 2b", "detail": "Trait anxiety: 4-item scale, pre-treatment (ω = 0.90)" }
+                { "title": "Source trust", "detail": "5-point item, post-treatment only" },
+                { "title": "Belief gap", "detail": "Expert percentile − subjective prior" },
+                { "title": "Trait anxiety", "detail": "4-item scale, pre-treatment (ω = 0.90)" }
               ]
             }
           ]
@@ -226,10 +226,10 @@
     },
     {
       "id": "measures",
-      "kicker": "Measurement",
+      "kicker": "Outcome measure",
       "headline": "Policy demand index: five items capturing support for government responses to automation (ω = 0.85).",
       "subhead": "Respondents rate agreement on a 7-point scale (strongly disagree to strongly agree). Items span redistribution, regulation, retraining, labor protections, and employment limits.",
-      "notes": "The battery deliberately covers multiple policy instruments — not just redistribution. This avoids anchoring to a single ideological frame. Scale reliability is good (McDonald's omega = 0.85). Items are measured post-treatment for all respondents.",
+      "notes": "The battery deliberately covers multiple policy instruments — not just redistribution. This avoids anchoring to a single ideological frame.",
       "blocks": [
         {
           "type": "bullets",
@@ -247,7 +247,7 @@
       "id": "moderators",
       "kicker": "Moderator measures",
       "headline": "Source trust, belief gap, and trait anxiety operationalize the two gates.",
-      "notes": "Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Belief gap is computed, not self-reported. Trait anxiety uses a validated Big Five facet scale with excellent reliability. The key asymmetry: trust and gap are post-treatment (only available for treated), while anxiety is pre-treatment (available for all).",
+      "notes": "Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Belief gap is computed, not self-reported. Trait anxiety uses a validated Big Five facet scale with excellent reliability.",
       "blocks": [
         {
           "type": "split",
@@ -256,8 +256,8 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Gate 1 · Source trust", "detail": "\"How trustworthy is the Oxford researchers' assessment of your occupation?\" — single 5-point item, post-treatment only" },
-                { "title": "Gate 2a · Belief gap", "detail": "Gap = Expert percentile − Subjective prior (both 0–100). Mean = 2.44, SD = 36. Computed, not self-reported" }
+                { "title": "Source trust", "detail": "\"How trustworthy is the Oxford researchers' assessment of your occupation?\" — single 5-point item, post-treatment only" },
+                { "title": "Belief gap", "detail": "Gap = Expert percentile − Subjective prior (both 0–100). Mean = 2.44, SD = 36. Computed, not self-reported" }
               ]
             }
           ],
@@ -265,7 +265,7 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Gate 2b · Trait anxiety (ω = 0.90)", "detail": "Four items on 7-point agreement scale, measured pre-treatment:" },
+                { "title": "Trait anxiety (ω = 0.90)", "detail": "Four items on 7-point agreement scale, measured pre-treatment:" },
                 { "title": "", "detail": "\"I worry easily\" · \"I get stressed easily\" · \"I am easily disturbed\" · \"I get upset easily\"" }
               ]
             },
@@ -284,7 +284,7 @@
       "kicker": "Identification",
       "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
       "subhead": "The BFMM uses principal stratification: Gap and Gap² block the collider path and isolate dispositional trust.",
-      "notes": "Trust measured only for treated AND caused by both disposition and treatment. The CATE function is type-specific: Skeptics are constrained to have coefficients no larger than Trusters (non-negativity). The BFMM integrates all three components in a single posterior.",
+      "notes": "Trust measured only for treated AND caused by both disposition and treatment. The CATE function is type-specific: Skeptics are constrained to have coefficients no larger than Trusters (non-negativity).",
       "blocks": [
         {
           "type": "split",
@@ -309,9 +309,9 @@
             {
               "type": "architecture",
               "layers": [
-                { "label": "Gate 1", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
+                { "label": "Trust", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
                 { "label": "Measurement", "items": ["anxiety CFA (ω = .90)", "policy CFA (ω = .85)"] },
-                { "label": "Gate 2", "items": ["type-specific CATEs", "Gap × η interaction", "non-negativity"] }
+                { "label": "Activation", "items": ["type-specific CATEs", "Gap × η interaction", "non-negativity"] }
               ]
             }
           ]
@@ -338,8 +338,8 @@
       ]
     },
     {
-      "id": "results-gate1",
-      "kicker": "Results: Gate 1",
+      "id": "results-trust",
+      "kicker": "Results: source trust",
       "headline": "Source trust operates as a discrete gate: Skeptic effects are null across all moderator values.",
       "notes": "Even Skeptics with large gaps AND high anxiety show null effects. Inconsistent with continuous moderator models.",
       "blocks": [
@@ -374,8 +374,8 @@
       ]
     },
     {
-      "id": "results-gate2",
-      "kicker": "Results: Gate 2",
+      "id": "results-activation",
+      "kicker": "Results: activation",
       "headline": "Among Trusters, effects are jointly activated by belief gap and trait anxiety (β₃ = 0.13, P > 0: 0.92).",
       "subhead": "Activation threshold at ≈ 20th percentile of trait anxiety. Below threshold, large gaps produce null CATEs.",
       "notes": "Neither gap nor anxiety alone sufficient. All pairwise contrasts P(Δ > 0) > 0.97.",
