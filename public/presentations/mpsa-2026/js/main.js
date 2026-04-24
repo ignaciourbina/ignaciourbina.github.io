@@ -16,9 +16,42 @@ function renderLoadError(error) {
     root.textContent = error.message;
 }
 
+const KATEX_DELIMS = [
+    { left: "\\[", right: "\\]", display: true },
+    { left: "\\(", right: "\\)", display: false }
+];
+
+function renderMath() {
+    const root = document.querySelector("#deck");
+    if (!root || !window.renderMathInElement) return;
+    window.renderMathInElement(root, {
+        delimiters: KATEX_DELIMS,
+        throwOnError: false,
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+    });
+}
+
+function scheduleMathRender() {
+    if (window.renderMathInElement) {
+        renderMath();
+    } else {
+        window.addEventListener("load", renderMath, { once: true });
+    }
+}
+
 try {
     const spec = await loadDeckSpec();
     createDeckFromSpec(spec).mount("#deck");
+    scheduleMathRender();
+    const observer = new MutationObserver(() => {
+        if (observer.pending) return;
+        observer.pending = true;
+        requestAnimationFrame(() => {
+            observer.pending = false;
+            renderMath();
+        });
+    });
+    observer.observe(document.querySelector("#deck"), { childList: true, subtree: true });
 } catch (error) {
     renderLoadError(error);
 }

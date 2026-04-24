@@ -14,84 +14,121 @@
     {
       "id": "title",
       "format": "title",
-      "kicker": "MPSA 2026 · Research talk",
+      "kicker": "MPSA 2026",
       "headline": "Simulating Open Democracy",
-      "subhead": "Comparing deliberation engines in a shared argument-theoretic environment.",
-      "notes": "Open with the central comparative question: does cognitive implementation change the kind of deliberation an ABM produces, once the forum, argument pool, and outcome metrics are held fixed? The talk reports one answer from the current manuscript.",
+      "subhead": "Comparing Deliberation Engines in a Shared Argument-Theoretic Environment",
+      "notes": "Central comparative claim: holding the forum, argument pool, and outcome metrics fixed, cognitive implementation changes the kind of deliberation an ABM produces. The talk reports one controlled test of that claim.",
       "blocks": [
         {
-          "type": "bullets",
-          "items": [
-            { "title": "Ignacio Urbina", "detail": "Department of Political Science, Stony Brook University" },
-            { "title": "Working paper", "detail": "Manuscript dated April 23, 2026" },
-            { "title": "Design", "detail": "Single-group town hall · empirical rule-based and tool-constrained LLM engines" }
-          ]
+          "type": "callout",
+          "label": "Author",
+          "text": "Ignacio Urbina · Stony Brook University · April 2026",
+          "tone": "green"
         }
       ]
     },
     {
       "id": "motivation",
       "kicker": "Motivation",
-      "headline": "Cognition is an unspecified degree of freedom in deliberation ABMs.",
-      "subhead": "Empirical forums bundle design levers; classical opinion-dynamics models bake cognition into the update rule.",
-      "notes": "Empirical deliberation research (Barabas 2004; Fishkin et al. 2021; Niemeyer et al. 2024) cannot cleanly isolate individual levers because real forums vary along several dimensions at once. Opinion-dynamics ABMs (DeGroot 1974; Deffuant et al. 2000; Hegselmann & Krause 2002) offer controlled comparison but usually fix the cognitive representation inside a single update equation. The research question follows directly from that gap.",
+      "headline": "Deliberation exchanges reasons; ABMs rarely model that exchange.",
+      "subhead": "The deliberative ideal demands public reason-giving (Habermas 1996; Dryzek 2010; Mansbridge et al. 2012); real forums show that design levers matter but co-vary (Barabas 2004; Fishkin et al. 2021; Niemeyer et al. 2024).",
+      "notes": "The manuscript's introduction opens with the normative claim and then steps into the practical problem: in heterogeneous settings like local councils, school boards, or community forums, the coordination cost of reason-giving often exceeds the perceived benefit of participation, leaving policy choices to thin participation, survey aggregation, or non-decision. Niemeyer et al. (2024) make the bundling explicit by comparing forums that vary on group building, complexity, duration, and closure. The methodological gap is that deliberation is too interactive to study as a list of independent treatments, yet empirical forums are too bundled to reveal how each lever works on its own.",
       "blocks": [
         {
-          "type": "split",
-          "ratio": "1.05fr 0.95fr",
-          "left": [
-            {
-              "type": "bullets",
-              "items": [
-                { "title": "Empirical forums", "detail": "facilitation, composition, duration, and closure are co-varied (Niemeyer et al. 2024)" },
-                { "title": "Opinion-dynamics ABMs", "detail": "cognition enters as the update rule (DeGroot 1974; Hegselmann & Krause 2002)" },
-                { "title": "Blind spot", "detail": "a design recommendation rests on an unstated cognitive theory of citizens" }
-              ]
-            }
-          ],
-          "right": [
-            {
-              "type": "callout",
-              "label": "Research question",
-              "text": "Does cognitive implementation change the kind of deliberation an ABM produces, once the forum, argument pool, and outcome metrics are held fixed?",
-              "tone": "amber"
-            }
+          "type": "bullets",
+          "items": [
+            { "title": "Normative", "detail": "Deliberation = public exchange of reasons, not preference aggregation (Habermas 1996; Mansbridge et al. 2012)." },
+            { "title": "Empirical", "detail": "Mini-publics confirm facilitation, composition, and closure matter — but bundle them (Fishkin et al. 2021; Niemeyer et al. 2024)." },
+            { "title": "Classical ABMs", "detail": "Opinion-dynamics models isolate mechanisms but fix cognition in the update rule (DeGroot 1974; Deffuant et al. 2000; Hegselmann & Krause 2002)." },
+            { "title": "Argument-theoretic ABMs", "detail": "Take reasons as primitive, but rarely vary cognition under a shared protocol (Gabbriellini & Torroni 2014; Shugars 2021)." }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Research question",
+          "text": "Does cognitive implementation change the kind of deliberation an ABM produces, once the forum, argument pool, and outcome metrics are held fixed?",
+          "tone": "amber"
+        }
+      ]
+    },
+    {
+      "id": "model-state",
+      "kicker": "Model · State",
+      "headline": "Argument-theoretic state space.",
+      "subhead": "Considerations \\(c = (\\ell_c,\\, d_c,\\, s_c)\\) with direction \\(d_c \\in [-1,1]\\) and persuasiveness \\(s_c \\in [0,1]\\); sparse signed weights \\(w_{ic} \\in [-1,1]\\) over a repertoire \\(R_i \\subseteq \\mathcal{C}\\) (cf. Dung 1995; Gabbriellini & Torroni 2014).",
+      "notes": "Opinions are derived from weighted reasons; the model does not permit free-floating opinion motion. Any shift in expressed stance must be traced to changes in weights over considerations. This reason-centered ontology is what allows the paper to evaluate grounded convergence rather than endpoint movement alone.",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "Expressed opinion",
+          "text": "\\[ o_i \\;=\\; \\operatorname{clip}\\!\\left(\\frac{1}{|R_i|}\\sum_{c \\in R_i} w_{ic}\\, d_c\\right) \\]",
+          "tone": "green"
+        }
+      ]
+    },
+    {
+      "id": "model-protocol",
+      "kicker": "Model · Protocol",
+      "headline": "Voice → Evaluate → Reflect, one voice per agent per round.",
+      "subhead": "The three hooks are the abstraction boundary: any cognitive engine implementing them plugs into the same state, protocol, and outcome metrics.",
+      "notes": "Voice: agent selects one held consideration. Evaluate: listeners score its influence given their currently held attackers and supporters. Reflect: weights move toward endorsement or rejection at a rate set by persuasiveness and agent inertia; previously unheld considerations can be adopted when influence clears a threshold. The rule-based engine realizes these hooks via attack-support arithmetic on the graph; the LLM engine realizes them via tool-constrained action calls.",
+      "blocks": [
+        {
+          "type": "architecture",
+          "layers": [
+            { "label": "Protocol", "items": ["town hall", "voice budget", "round count"] },
+            { "label": "State", "items": ["considerations", "attack–support graph", "weighted repertoires"] },
+            { "label": "Engine", "items": ["empirical rule-based", "tool-constrained LLM"] },
+            { "label": "Outcomes", "items": ["epistemic", "distributional", "procedural"] }
           ]
         }
       ]
     },
     {
-      "id": "model",
-      "kicker": "Model",
-      "headline": "Reason-level ontology, swappable cognitive engines.",
-      "subhead": "Agents hold weighted repertoires over a shared pool; opinions are derived from those reasons.",
-      "notes": "State space is (considerations C, attack-support graph A, sparse repertoires R_i with signed weights w_{ic}). Expressed opinion o_i = clip(mean over R_i of w_{ic} · d_c). Deliberation unfolds through Voice → Evaluate → Reflect, with one voice opportunity per agent per round. The three hooks are the abstraction boundary of the model: any engine implementing them can be plugged in.",
+      "id": "round-trace",
+      "kicker": "One round (LLM engine, conceptual)",
+      "headline": "A single round, step by step.",
+      "subhead": "Illustrative, not a real trace. Same three hooks drive both engines; the natural-language surface is what differs.",
+      "notes": "Walk through this slide by advancing reveals. The scenario: round 3 of 8 in a polarized room, six agents. A Pro-Coherent agent speaks; a Con-Coherent listener has an attacker in their repertoire; an Ambivalent-Mixed listener has neither attacker nor supporter and clears the adoption threshold. Reflect phase: the ambivalent listener adopts the new consideration; the Pro speaker's weight is reinforced; the Con listener's weight stays inside the no-update band. This illustrates three things the rest of the talk depends on: (i) voice is selection from a sparse repertoire, (ii) evaluation is graph-conditional, (iii) reflection can adopt new reasons, not just reweight old ones.",
       "blocks": [
         {
-          "type": "split",
-          "ratio": "1fr 1fr",
-          "left": [
+          "type": "chat-round",
+          "reveal": "messages",
+          "messages": [
             {
-              "type": "agent-loop",
-              "label": "Round structure",
-              "center": "Reason state",
-              "detail": "weights → opinion → next action",
-              "stages": [
-                { "title": "Voice", "detail": "one consideration per agent, per round" },
-                { "title": "Evaluate", "detail": "score influence of what was heard" },
-                { "title": "Reflect", "detail": "revise weights; adopt new considerations" }
-              ]
-            }
-          ],
-          "right": [
+              "phase": "Voice",
+              "agent": "Agent 2",
+              "tag": "Pro · Coherent",
+              "text": "A well-designed minimum-wage floor raises standards without closing small firms; the burden is absorbed across payroll, not concentrated on marginal workers.",
+              "annotation": "Selects consideration c₄ from repertoire; |R₂| = 6."
+            },
             {
-              "type": "architecture",
-              "layers": [
-                { "label": "Protocol", "items": ["town hall", "voice budget", "round count"] },
-                { "label": "State", "items": ["considerations", "attack–support graph", "weighted repertoires"] },
-                { "label": "Engine", "items": ["empirical rule-based", "tool-constrained LLM"] },
-                { "label": "Outcomes", "items": ["epistemic", "distributional", "procedural"] }
-              ]
+              "phase": "Evaluate",
+              "agent": "Agent 4",
+              "tag": "Con · Coherent",
+              "text": "Influence low: I already hold an attacker ('small-business margins are razor-thin').",
+              "annotation": "\\(\\tilde{\\phi}_4(c_4) \\approx 0.15\\); below no-update threshold."
+            },
+            {
+              "phase": "Evaluate",
+              "agent": "Agent 6",
+              "tag": "Ambivalent · Mixed",
+              "text": "Influence high: no attackers or supporters for c₄ in my repertoire yet; persuasive on its face.",
+              "annotation": "\\(\\tilde{\\phi}_6(c_4) \\approx 0.72\\); clears adoption threshold."
+            },
+            {
+              "phase": "Reflect",
+              "agent": "Agent 6",
+              "tag": "Adopt",
+              "text": "Add c₄ to R₆ with weight w₆,c₄ = +0.38.",
+              "annotation": "\\(|R_6|: 5 \\to 6\\); new consideration flagged `_adopted = true` in the trace."
+            },
+            {
+              "phase": "Reflect",
+              "agent": "Agent 2",
+              "tag": "Reinforce",
+              "text": "No counter-pressure heard; weight on c₄ ticks up from +0.62 to +0.68.",
+              "annotation": "\\(\\kappa_{2,c_4} = \\eta_2\\, s_{c_4}\\, |\\psi_2(c_4)|\\)."
             }
           ]
         }
@@ -101,146 +138,107 @@
       "id": "scenario",
       "kicker": "Scenario",
       "headline": "Seattle 2014 $15/hour Polis conversation.",
-      "subhead": "Computational Democracy Project open-data release (pol.is/2demo).",
-      "notes": "Not a binding mini-public: CompDemocracy documents this case as a long-running demonstration conversation, tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This grounds the scenario in a live policy controversy rather than an abstract prompt.",
+      "subhead": "Computational Democracy Project open-data release (pol.is/2demo); a documented controversy, not a binding mini-public.",
+      "notes": "CompDemocracy documents this case as a long-running demonstration conversation rather than an official City of Seattle mini-public, but it is tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This gives the model access to publicly available reasons on both sides of a live policy controversy rather than to an abstract survey prompt.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "Participants", "value": "339", "detail": "Seattle 15-per-hour Polis export", "tone": "green" },
-            { "type": "metric", "label": "Statements", "value": "54 → 30", "detail": "30 moderated statements retained for scenario construction", "tone": "amber" },
-            { "type": "metric", "label": "Compositions", "value": "3", "detail": "symmetric_n6, polarized_n6, three_clusters_n6", "tone": "red" }
+            { "type": "metric", "label": "Participants", "value": "339", "detail": "15-per-hour Polis export", "tone": "green" },
+            { "type": "metric", "label": "Statements", "value": "54 → 30", "detail": "moderated statements retained", "tone": "amber" },
+            { "type": "metric", "label": "Compositions", "value": "3", "detail": "symmetric · polarized · three-cluster", "tone": "red" }
           ]
-        },
-        {
-          "type": "callout",
-          "label": "Policy domain",
-          "text": "Minimum-wage phase-in, employer coverage, tips, and enforcement — a documented controversy with publicly available reasons on both sides.",
-          "tone": "green"
         }
       ]
     },
     {
       "id": "data-use",
       "kicker": "Data use",
-      "headline": "One vote matrix grounds the pool, the relation graph, and agent initialization.",
-      "subhead": "Sparse initialization: agents begin only with the considerations they actually voted on (mean ≈ 5.4 of 10).",
-      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool; (2) participant co-voting identifies attack/support structure and persuasiveness via Yule's Q; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. New considerations enter later through the Reflect hook once the engine clears an adoption threshold.",
+      "headline": "One vote matrix grounds pool, graph, and initialization.",
+      "subhead": "Co-voting via Yule's \\(Q\\); sparse repertoires via Ising-based profile reconstruction. Sparse init mean \\(|R_i^{(0)}| \\approx 5.4\\) of \\(10\\); new considerations enter later through Reflect.",
+      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool; (2) pairwise co-voting identifies attack/support structure and item persuasiveness via Yule's Q; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. Sparsity matters because the model does not begin from full information — it begins from unequal, empirically grounded informational endowments.",
       "blocks": [
         {
           "type": "matrix",
           "rows": ["Consideration pool", "Attack–support graph", "Agent initialization"],
           "columns": ["Grounded by", "Use in the model"],
           "cells": [
-            ["Moderated Polis statements", "shared reasons available to voice and adopt"],
-            ["Participant co-voting (Yule's Q)", "neighborhood weights and item persuasiveness"],
-            ["Ising-reconstructed profiles", "sparse starting repertoires per agent"]
+            ["Moderated statements", "reasons available to voice and adopt"],
+            ["Co-voting (Yule's Q)", "neighborhood weights and persuasiveness"],
+            ["Ising-reconstructed profiles", "sparse starting repertoires"]
           ]
         }
       ]
     },
     {
-      "id": "design",
-      "kicker": "Design",
-      "headline": "Two engines, three compositions, eight rounds.",
-      "subhead": "The forum is held fixed; only the cognitive operator varies between arms.",
-      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The rule-based engine is empirically grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage — 600 rule-based vs. 286 LLM — so the comparison is reported as directional slope contrasts rather than point-estimate decompositions.",
+      "id": "estimation",
+      "kicker": "Design · Estimation",
+      "headline": "Pooled finite-difference indexed model, clustered by run.",
+      "subhead": "886 runs (600 rule-based, 286 LLM) over 8 rounds, \\(n=6\\) agents each; 6{,}202 adjacent run-round observations. Arms interacted with composition; outcomes indexed as \\(\\text{index}^{(k)}_{it} = 100 + 100\\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\\bigr)\\).",
+      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The empirical rule-based engine is grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage (600 vs. 286), so comparisons are reported as directional slope contrasts rather than point-estimate decompositions. Clustered standard errors at the run level (Cameron & Miller 2015).",
       "blocks": [
         {
-          "type": "split",
-          "ratio": "1.1fr 0.9fr",
-          "left": [
-            {
-              "type": "matrix",
-              "rows": ["Arm A", "Arm B"],
-              "columns": ["Engine", "Calibration", "Role"],
-              "cells": [
-                ["Rule-based", "empirically grounded", "graph-structured updating"],
-                ["LLM", "tool-constrained", "natural-language cognition"]
-              ]
-            }
-          ],
-          "right": [
-            {
-              "type": "grid",
-              "columns": 1,
-              "items": [
-                { "type": "metric", "label": "Agents per run", "value": "6", "detail": "sampled from Ising-reconstructed Polis profiles", "tone": "green" },
-                { "type": "metric", "label": "Rounds per run", "value": "8", "detail": "shared baseline town hall", "tone": "amber" },
-                { "type": "metric", "label": "Estimation panel", "value": "886 runs", "detail": "600 rule-based + 286 LLM · 6,202 run-round observations", "tone": "red" }
-              ]
-            }
-          ]
+          "type": "callout",
+          "label": "Pooled specification",
+          "text": "\\[ \\Delta\\, \\text{index}^{(k)}_{it} \\;\\sim\\; \\bigl(\\log t - \\log(t-1)\\bigr) \\,\\times\\, \\text{arm}_i \\,\\times\\, \\text{composition}_i \\]",
+          "tone": "amber"
         }
       ]
     },
     {
       "id": "results-epistemic",
       "kicker": "Results I · Epistemic alignment",
-      "headline": "The LLM engine tightens the link between opinions and reasons.",
-      "subhead": "Positive LLM − rule-based slope gaps on DRI and meta-consensus (triplets: polarized / symmetric / three-cluster).",
-      "notes": "DRI asks whether opinion similarity is grounded in underlying reason structure (Niemeyer et al. 2024; Veri & Niemeyer 2025). Meta-consensus tracks convergence on what matters rather than on what to do. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and significant on meta-consensus. Two supporting outcomes are not shown on-slide: plurality moves downward in both arms, and better-argument-wins also favors the LLM engine in every room but is not part of the core epistemic-alignment claim.",
+      "headline": "LLM engine: positive slope gaps on reason-level outcomes.",
+      "subhead": "Deliberative Reasoning Index (Niemeyer et al. 2024; Veri & Niemeyer 2025) and meta-consensus on salience (Curato et al. 2017). Triplets: polarized / symmetric / three-cluster.",
+      "notes": "DRI asks whether opinion similarity is grounded in shared reason structure. Meta-consensus tracks convergence on what matters rather than what to do. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in both arms; better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim.",
       "blocks": [
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "DRI slope gap (LLM − rule)", "value": "+5.72** / +2.48 / +9.21*", "detail": "three-cluster largest (+9.21, p = .012); polarized clear (+5.72, p = .001); symmetric imprecise (p = .422)", "tone": "green" },
-            { "type": "metric", "label": "Meta-consensus slope gap", "value": "+1.34*** / +0.82** / +1.02***", "detail": "positive and statistically significant in all three compositions", "tone": "green" }
+            { "type": "metric", "label": "DRI slope gap (LLM − rule)", "value": "+5.72** / +2.48 / +9.21*", "detail": "three-cluster largest (p = .012); polarized p = .001; symmetric imprecise (p = .422)", "tone": "green" },
+            { "type": "metric", "label": "Meta-consensus slope gap", "value": "+1.34*** / +0.82** / +1.02***", "detail": "significant in all three compositions", "tone": "green" }
           ]
-        },
-        {
-          "type": "callout",
-          "label": "Interpretation",
-          "text": "The LLM engine more often reorganizes what agents take to matter, not only what they say; reason-level alignment improves even where opinion-level convergence does not.",
-          "tone": "green"
         }
       ]
     },
     {
       "id": "results-circulation",
       "kicker": "Results II · Argument circulation",
-      "headline": "The rule-based engine keeps reasons visible and moving.",
-      "subhead": "Negative LLM − rule-based slope gaps on argument diversity across all rooms, and on cross-camp uptake in the symmetric room.",
-      "notes": "Argument diversity rises under both engines, but much more under the rule-based arm; the gap is roughly -21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (-3.64, p = .043) and three-cluster rooms, is near zero in polarized. Plurality (not shown) also favors rule-based. The overall pattern is argumentative activation and circulation without the same reason-level consolidation the LLM arm produces.",
+      "headline": "Rule-based engine: negative slope gaps on circulation outcomes.",
+      "subhead": "Argument diversity and cross-camp uptake (cf. Stasser & Vaughan 1996; Mercier & Landemore 2012). Triplets: polarized / symmetric / three-cluster.",
+      "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−3.64, p = .043), is imprecise in three-cluster, and near zero in polarized. Plurality (held off-slide) also favors rule-based. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
       "blocks": [
         {
           "type": "grid",
           "columns": 2,
           "items": [
             { "type": "metric", "label": "Argument diversity slope gap", "value": "−22.59*** / −19.92*** / −21.53***", "detail": "rule-based advantage in every composition; all p < .001", "tone": "amber" },
-            { "type": "metric", "label": "Cross-camp uptake slope gap", "value": "+0.24 / −3.64* / −1.26", "detail": "clearest rule-based edge in the symmetric room (p = .043); null elsewhere", "tone": "amber" }
+            { "type": "metric", "label": "Cross-camp uptake slope gap", "value": "+0.24 / −3.64* / −1.26", "detail": "clearest in symmetric (p = .043); null in polarized and three-cluster", "tone": "amber" }
           ]
-        },
-        {
-          "type": "callout",
-          "label": "Interpretation",
-          "text": "The rule-based engine preserves argumentative activation: more reasons circulate across camps, even when that circulation does not consolidate into shared reason structure.",
-          "tone": "amber"
         }
       ]
     },
     {
       "id": "discussion",
-      "format": "closing",
       "kicker": "Discussion & conclusion",
-      "headline": "Different cognitive regimes under identical forums.",
-      "subhead": "Epistemic integration and argumentative activation can come apart.",
-      "notes": "Close with the manuscript's bounded reading. This is a directional comparative exercise with uneven arm sizes, one issue domain, and six-agent rooms — not a causal decomposition of every metric. The two engines instantiate different models of successful deliberation rather than different parameterizations of one mechanism. The contribution is framework-level: a way to compare cognitive implementations under a shared forum. Tie back to Landemore's (2020) open-democracy agenda — if randomly selected bodies are to do more than register preferences, they need ways to inspect whether visible agreement is grounded in shared justificatory structure.",
+      "headline": "Different cognitive regimes, identical forums.",
+      "subhead": "Epistemic integration and argumentative activation can come apart (Mansbridge et al. 2012; Landemore 2020).",
+      "notes": "The two engines instantiate different models of successful deliberation, not different parameterizations of one mechanism. This is a directional comparative exercise — one issue domain, six-agent rooms, uneven arms — not a causal decomposition. The contribution is framework-level: a shared architecture in which institutional rules and cognitive implementation can be separately varied. For Landemore's (2020) open-democracy agenda, this matters because randomly-selected bodies need ways to inspect whether visible agreement is grounded in shared justificatory structure.",
       "blocks": [
         {
           "type": "numbers",
           "items": [
             "LLM engine → stronger reason-level alignment (DRI, meta-consensus).",
-            "Rule-based engine → stronger argumentative circulation (diversity, uptake in symmetric rooms).",
+            "Rule-based engine → stronger argumentative circulation (diversity, uptake).",
             "Composition moderates magnitude; the claim is directional, not uniform."
           ]
         },
         {
           "type": "callout",
-          "label": "Scope & implication",
-          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 286 runs; not a substitute for citizens. Engine choice should be reported as part of the design result, not held fixed as a technical detail.",
+          "label": "Scope",
+          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 286 runs. Engine choice is a design result, not a technical detail.",
           "tone": "green"
         }
       ]
