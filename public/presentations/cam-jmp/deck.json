@@ -247,8 +247,8 @@
       "id": "identification",
       "kicker": "Identification",
       "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
-      "subhead": "The BFMM uses principal stratification: Gap and Gap² enter the mixture to block the collider path and isolate dispositional trust.",
-      "notes": "Trust measured only for treated AND caused by both disposition and treatment. BFMM separates these components.",
+      "subhead": "The BFMM uses principal stratification: Gap and Gap² block the collider path and isolate dispositional trust.",
+      "notes": "Trust measured only for treated AND caused by both disposition and treatment. The CATE function is type-specific: Skeptics are constrained to have coefficients no larger than Trusters (non-negativity). The BFMM integrates all three components in a single posterior.",
       "blocks": [
         {
           "type": "split",
@@ -261,6 +261,12 @@
                 { "title": "Post-treatment selection", "detail": "Trust observed only for treated; subsetting breaks randomization" },
                 { "title": "Measurement error", "detail": "Latent constructs with non-trivial noise; attenuation up to 50%" }
               ]
+            },
+            {
+              "type": "callout",
+              "label": "Type-specific CATE",
+              "text": "\\[ \\tau_T(\\text{Gap}, \\eta) = \\beta_0^T + \\beta_1^T \\cdot \\text{Gap} + \\beta_2^T \\cdot \\eta + \\beta_3^T \\cdot \\text{Gap} \\times \\eta \\]",
+              "tone": "green"
             }
           ],
           "right": [
@@ -269,7 +275,7 @@
               "layers": [
                 { "label": "Gate 1", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
                 { "label": "Measurement", "items": ["anxiety CFA (ω = .90)", "policy CFA (ω = .85)"] },
-                { "label": "Gate 2", "items": ["type-specific CATEs", "Gap × Anxiety", "non-negativity"] }
+                { "label": "Gate 2", "items": ["type-specific CATEs", "Gap × η interaction", "non-negativity"] }
               ]
             }
           ]
