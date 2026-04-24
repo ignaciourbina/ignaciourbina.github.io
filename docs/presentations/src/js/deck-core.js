@@ -614,6 +614,10 @@ export class DeckRenderer {
             if (this.features.hashNavigation) this.readHash();
             window.addEventListener("keydown", this.boundKeydown);
             if (this.features.hashNavigation) window.addEventListener("hashchange", this.boundHashChange);
+            this.viewport.addEventListener("click", (e) => {
+                if (e.target.closest("button, a, .deck-controls, .deck-sidebar, .agent-loop-stage")) return;
+                this.next();
+            });
         }
         this.render();
     }

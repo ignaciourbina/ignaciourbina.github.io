@@ -29,10 +29,10 @@
     },
     {
       "id": "setting",
-      "kicker": "Setting",
-      "headline": "AI automation is reshaping labor markets — and voters know it.",
-      "subhead": "47% of U.S. occupations face high automation exposure (Frey & Osborne 2017). Pew (2023): 62% of Americans believe AI will have a major impact on workers. Yet evidence that risk information moves policy preferences is surprisingly weak.",
-      "notes": "Set the stakes: this is not an abstract information-processing question. Governments are making real policy decisions about retraining, regulation, and safety nets. Whether citizens respond to risk information determines whether democratic demand signals reach policymakers.",
+      "kicker": "Context",
+      "headline": "Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive.",
+      "subhead": "Frey & Osborne (2017) estimate 47% of U.S. occupations face high automation risk. Public awareness is high (Pew 2023), but experiments linking risk information to policy preferences yield mixed results.",
+      "notes": "Frame as a scientific puzzle. The disconnect between public awareness and experimental null effects is what motivates the paper.",
       "blocks": [
         {
           "type": "split",
@@ -41,19 +41,19 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Labor market transformation", "detail": "Routine cognitive and manual tasks increasingly automatable" },
-                { "title": "High public salience", "detail": "Majorities report concern about AI's workforce impact" },
-                { "title": "Policy stakes", "detail": "Retraining programs, AI regulation, UBI, worker protections" },
-                { "title": "The gap", "detail": "If risk info does not move preferences, demand signals never reach policymakers" }
+                { "title": "Structural labor market shift", "detail": "Routine cognitive and manual tasks face increasing automation pressure" },
+                { "title": "High public salience", "detail": "62% of Americans report major concern about AI workforce impact (Pew 2023)" },
+                { "title": "Policy demand channel", "detail": "Standard models predict risk exposure → demand for retraining, regulation, redistribution" },
+                { "title": "Empirical gap", "detail": "Experimental tests of this channel produce inconsistent or null aggregate effects" }
               ]
             }
           ],
           "right": [
             {
               "type": "metric",
-              "label": "Occupations at high risk",
+              "label": "Estimated high-risk occupations",
               "value": "47%",
-              "detail": "of U.S. jobs (Frey & Osborne 2017)",
+              "detail": "of U.S. employment (Frey & Osborne 2017)",
               "tone": "red"
             }
           ]
@@ -62,48 +62,48 @@
     },
     {
       "id": "expectation",
-      "kicker": "The expectation",
-      "headline": "Standard model: personal risk information should increase policy demand.",
-      "subhead": "Self-interest theory (Meltzer & Richard 1981), motivated reasoning under threat (Albertson & Gadarian 2015), and egotropic voting (Kinder & Kiewiet 1981) all predict that learning your job is at risk should increase demand for government protection.",
-      "notes": "Three theoretical traditions converge on the same prediction. Self-interest: threatened workers demand redistribution. Threat motivation: anxiety focuses attention on protective policies. Egotropic economics: personal economic shocks drive policy preferences. The prediction is clear and well-grounded. So why doesn't it consistently hold?",
+      "kicker": "Theoretical prediction",
+      "headline": "Three traditions converge: personal risk information should increase policy demand.",
+      "subhead": "Self-interest theory, threat-motivated cognition, and egotropic economic voting each predict that learning one's occupation faces automation risk should increase support for protective policies.",
+      "notes": "Self-interest: Meltzer & Richard (1981). Threat motivation: Albertson & Gadarian (2015). Egotropic: Kinder & Kiewiet (1981).",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "Self-interest", "value": "Risk → demand", "detail": "Threatened workers seek redistribution (Meltzer & Richard 1981)", "tone": "green" },
-            { "type": "metric", "label": "Threat motivation", "value": "Anxiety → search", "detail": "Threat focuses attention on protection (Albertson & Gadarian 2015)", "tone": "green" },
-            { "type": "metric", "label": "Egotropic voting", "value": "Personal → policy", "detail": "Economic shocks drive preferences (Kinder & Kiewiet 1981)", "tone": "green" }
+            { "type": "metric", "label": "Self-interest", "value": "Risk → redistribution", "detail": "Workers facing losses seek compensatory policy (Meltzer & Richard 1981)", "tone": "green" },
+            { "type": "metric", "label": "Threat-motivated cognition", "value": "Anxiety → policy search", "detail": "Threat perception focuses attention on protection (Albertson & Gadarian 2015)", "tone": "green" },
+            { "type": "metric", "label": "Egotropic voting", "value": "Personal shock → preferences", "detail": "Individual economic exposure drives policy demand (Kinder & Kiewiet 1981)", "tone": "green" }
           ]
         }
       ]
     },
     {
       "id": "evidence",
-      "kicker": "The evidence",
-      "headline": "But experimental results are mixed — often null.",
-      "subhead": "A growing body of experiments provides information about personal automation risk and measures downstream policy preferences. The results do not converge.",
-      "notes": "Walk through each study. The audience should feel the accumulating tension: a reasonable prediction, repeatedly failing to replicate. The key pivot comes from Arntz et al., who show that OPPOSING subgroup effects can cancel in the aggregate.",
+      "kicker": "Prior evidence",
+      "headline": "Experimental results are inconsistent: null, positive, and opposing effects coexist.",
+      "subhead": "Studies examining conditional effects find heterogeneity that washes out in the aggregate.",
+      "notes": "The pivot comes from Arntz et al. (2024), who find opposing subgroup effects that cancel at the aggregate level.",
       "blocks": [
         {
           "type": "bullets",
           "reveal": "items",
           "items": [
-            { "title": "Zhang & Hou (2022)", "detail": "Information about automation risk → null effect on policy preferences" },
-            { "title": "Magistro et al. (2024)", "detail": "Automation risk information → null aggregate effect on redistribution" },
-            { "title": "Gallego et al. (2022)", "detail": "Strong positive effects — but different treatment and sample" },
-            { "title": "Arntz et al. (2024)", "detail": "Opposing subgroup effects that cancel in the aggregate" },
-            { "title": "Wu (2022), Im (2023)", "detail": "Conditional effects that depend on ideology, education, or prior beliefs" }
+            { "title": "Zhang & Hou (2022)", "detail": "Automation risk information → null aggregate effect on policy preferences" },
+            { "title": "Magistro et al. (2024)", "detail": "Personalized risk information → null aggregate effect on redistribution support" },
+            { "title": "Gallego et al. (2022)", "detail": "Positive effects — but distinct treatment and sample" },
+            { "title": "Arntz et al. (2024)", "detail": "Opposing subgroup effects cancel in the aggregate ATE" },
+            { "title": "Wu (2022); Im (2023)", "detail": "Conditional effects moderated by ideology, education, or prior beliefs" }
           ]
         }
       ]
     },
     {
       "id": "diagnosis",
-      "kicker": "Diagnosis",
-      "headline": "The problem is not the prediction — it's the estimand.",
-      "subhead": "Unconditional ATEs average over heterogeneous subgroups. When subgroups respond in opposing directions (or not at all), the aggregate washes out. The question is not whether effects exist — but for whom and under what conditions.",
-      "notes": "This is the pivotal slide. The reframe: null ATEs are not evidence of preference stability. They are evidence of heterogeneity that cancels. Arntz et al. showed this empirically; the CAM provides the theoretical architecture for predicting who responds and who does not.",
+      "kicker": "Reframing the estimand",
+      "headline": "The unconditional ATE averages over heterogeneous subgroups — the estimand is misspecified.",
+      "subhead": "Null aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on trust type and activation state.",
+      "notes": "Pivotal slide. Reframe from ATE to CATE.",
       "blocks": [
         {
           "type": "split",
@@ -111,16 +111,16 @@
           "left": [
             {
               "type": "callout",
-              "label": "Wrong question",
-              "text": "Does automation risk information increase policy demand?",
+              "label": "Standard estimand",
+              "text": "E[Y(1) − Y(0)]: unconditional ATE across full sample",
               "tone": "red"
             }
           ],
           "right": [
             {
               "type": "callout",
-              "label": "Right question",
-              "text": "For whom, and under what conditions, does automation risk information activate policy demand?",
+              "label": "Proposed estimand",
+              "text": "E[Y(1) − Y(0) | S, Gap, Anxiety]: CATE stratified by trust type and activation state",
               "tone": "green"
             }
           ]
@@ -129,10 +129,10 @@
     },
     {
       "id": "theory",
-      "kicker": "Theory · The CAM",
-      "headline": "Two sequential gates between information and policy demand.",
-      "subhead": "Gate 1 (source trust) filters who processes the information as credible. Gate 2 (belief gap × trait anxiety) determines who translates processed information into policy search.",
-      "notes": "Gate 1 is discrete (accept/reject), not continuous — this is a departure from standard persuasion models. Gate 2 requires BOTH a positive informational shock AND dispositional vigilance. Below either threshold, even credible information produces cool cognition: belief updating without policy urgency.",
+      "kicker": "CAM framework",
+      "headline": "Two sequential gates: source trust (discrete) and joint activation (Gap × Anxiety).",
+      "subhead": "Gate 1 operates as a binary filter, not a continuous moderator. Gate 2 requires the joint presence of informational shock and dispositional vigilance.",
+      "notes": "Gate 1: discrete accept/reject. Gate 2: neither gap alone nor anxiety alone sufficient. Below threshold: cool cognition.",
       "blocks": [
         {
           "type": "split",
@@ -152,9 +152,9 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Gate 1 is discrete", "detail": "Trust/reject, not a continuous moderator — departure from standard persuasion models" },
-                { "title": "Gate 2 requires joint activation", "detail": "Neither belief gap alone nor anxiety alone is sufficient" },
-                { "title": "Cool cognition below threshold", "detail": "Belief updating without policy urgency — information is processed but does not motivate action" }
+                { "title": "Gate 1: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
+                { "title": "Gate 2: joint activation", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
+                { "title": "Below-threshold pathway", "detail": "Beliefs update without policy preference change (cool cognition)" }
               ]
             }
           ]
@@ -163,33 +163,33 @@
     },
     {
       "id": "pathways",
-      "kicker": "Theory · Pathways",
-      "headline": "Three cognitive pathways explain the mixed literature.",
-      "notes": "Source rejection: ~62% of respondents. Shallow priming from treatment framing, but zero modulation by belief gap or anxiety. Cool cognition: trusters with low anxiety update beliefs without urgency. Deep persuasion: trusters with high anxiety AND large belief gaps — both gates satisfied.",
+      "kicker": "Predicted pathways",
+      "headline": "The model predicts three distinct cognitive pathways generating the observed heterogeneity.",
+      "notes": "Source rejection: ~62%. Cool cognition: trusters with below-threshold anxiety. Activated persuasion: trusters exceeding both thresholds.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "1. Source rejection", "value": "≈62%", "detail": "Skeptics: information discounted at intake; shallow priming only", "tone": "red" },
-            { "type": "metric", "label": "2. Cool cognition", "value": "Low-anx. trusters", "detail": "Belief updating without urgency; no policy search triggered", "tone": "amber" },
-            { "type": "metric", "label": "3. Deep persuasion", "value": "d = 0.61", "detail": "Both gates satisfied; sustained elaboration → policy demand", "tone": "green" }
+            { "type": "metric", "label": "1. Source rejection", "value": "π ≈ 62%", "detail": "Information discounted; effects unmodulated by Gap or Anxiety", "tone": "red" },
+            { "type": "metric", "label": "2. Cool cognition", "value": "Low-anxiety trusters", "detail": "Belief updating without policy search activation", "tone": "amber" },
+            { "type": "metric", "label": "3. Activated persuasion", "value": "CATE = 0.61 SD", "detail": "Both gates exceeded; elaboration translates to policy demand", "tone": "green" }
           ]
         },
         {
           "type": "callout",
           "label": "Implication",
-          "text": "Null aggregate ATEs are a composition artifact — heterogeneous subgroups that cancel, not genuine preference stability.",
+          "text": "Null aggregate ATEs are a weighted average of these three pathways — a composition artifact, not preference stability.",
           "tone": "amber"
         }
       ]
     },
     {
       "id": "design",
-      "kicker": "Design",
-      "headline": "Pre-registered experiment, N = 901 U.S. workers.",
-      "subhead": "Between-subjects (475 treated, 426 control), block randomized by occupation. Three-step belief correction protocol — not a standard vignette.",
-      "notes": "The treatment creates individualized treatment intensity. Workers compress beliefs toward 30-40 regardless of actual risk (regression to the mean). Metacognitive failure: high certainty in priors does NOT predict smaller errors (r = -0.004). Mean gap = 2.44 but SD = 36.",
+      "kicker": "Experimental design",
+      "headline": "Pre-registered between-subjects experiment, N = 901 U.S. workers.",
+      "subhead": "Three-step belief correction protocol with individualized treatment intensity. 475 treatment, 426 control; block randomized by occupation.",
+      "notes": "Workers compress beliefs toward 30-40 regardless of actual risk. Metacognitive failure: r = -0.004 between certainty and accuracy.",
       "blocks": [
         {
           "type": "split",
@@ -198,15 +198,15 @@
             {
               "type": "numbers",
               "items": [
-                "Explain expert methodology (93.4% comprehension)",
-                "Elicit subjective risk belief (0–100 percentile scale)",
-                "Reveal expert estimate; visualize the belief gap"
+                "Explain expert methodology (comprehension: 93.4%)",
+                "Elicit subjective risk belief (0–100 percentile)",
+                "Reveal expert estimate; display belief gap"
               ]
             },
             {
               "type": "callout",
-              "label": "Key",
-              "text": "Individualized treatment intensity — the belief gap varies naturally across respondents.",
+              "label": "Design property",
+              "text": "Treatment intensity varies naturally via belief gap, creating continuous within-treatment variation.",
               "tone": "green"
             }
           ],
@@ -214,10 +214,10 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Outcome", "detail": "Policy demand index: 5 items on 7-pt scale (ω = 0.85)" },
-                { "title": "Gate 1", "detail": "Source trust: 5-pt item, post-treatment" },
+                { "title": "Outcome", "detail": "Policy demand index: 5 items, 7-pt scale (ω = 0.85)" },
+                { "title": "Gate 1 measure", "detail": "Source trust: 5-point item, post-treatment" },
                 { "title": "Gate 2a", "detail": "Belief gap: expert percentile − subjective prior" },
-                { "title": "Gate 2b", "detail": "Trait anxiety: 4 items, pre-treatment (ω = 0.90)" }
+                { "title": "Gate 2b", "detail": "Trait anxiety: 4-item scale, pre-treatment (ω = 0.90)" }
               ]
             }
           ]
@@ -227,9 +227,9 @@
     {
       "id": "identification",
       "kicker": "Identification",
-      "headline": "Trust is a post-treatment collider — naive approaches fail.",
-      "subhead": "Observed trust is caused by both dispositional trust (S) and the belief gap. The BFMM blocks this via principal stratification with Gap and Gap² as covariates.",
-      "notes": "The core identification problem: trust is measured only for treated units and is caused by both the latent disposition AND the treatment (via belief gap). Solution: include Gap and Gap-squared in the ordinal logistic model to block the backdoor path and isolate the dispositional component.",
+      "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
+      "subhead": "The BFMM uses principal stratification: Gap and Gap² enter the mixture to block the collider path and isolate dispositional trust.",
+      "notes": "Trust measured only for treated AND caused by both disposition and treatment. BFMM separates these components.",
       "blocks": [
         {
           "type": "split",
@@ -238,9 +238,9 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Collider bias", "detail": "Gap → Q_obs ← S; conditioning conflates congruence with disposition" },
-                { "title": "Post-treatment", "detail": "Trust observed only for treated; breaks randomization" },
-                { "title": "Measurement error", "detail": "Latent constructs with non-trivial error; attenuation up to 50%" }
+                { "title": "Collider structure", "detail": "Gap → Q_obs ← S; conditioning opens spurious path" },
+                { "title": "Post-treatment selection", "detail": "Trust observed only for treated; subsetting breaks randomization" },
+                { "title": "Measurement error", "detail": "Latent constructs with non-trivial noise; attenuation up to 50%" }
               ]
             }
           ],
@@ -248,7 +248,7 @@
             {
               "type": "architecture",
               "layers": [
-                { "label": "Gate 1", "items": ["ordinal logistic mixture", "Trusters vs Skeptics", "δ = 2.09"] },
+                { "label": "Gate 1", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
                 { "label": "Measurement", "items": ["anxiety CFA (ω = .90)", "policy CFA (ω = .85)"] },
                 { "label": "Gate 2", "items": ["type-specific CATEs", "Gap × Anxiety", "non-negativity"] }
               ]
@@ -259,28 +259,28 @@
     },
     {
       "id": "results-ate",
-      "kicker": "Results I",
-      "headline": "Unconditional ATE: positive, modest, robust across estimators.",
-      "subhead": "All four estimators converge — but the aggregate understates the responsive subgroup by a factor of 2.5.",
-      "notes": "This is the starting point. The BFMM reproduces the unconditional ATE exactly while also decomposing it. The modest effect is real — the question is where it concentrates.",
+      "kicker": "Results: unconditional",
+      "headline": "Unconditional ATE is positive and robust across estimators (d ≈ 0.24–0.27).",
+      "subhead": "All specifications converge. The BFMM reproduces the ATE while decomposing it into type-specific components.",
+      "notes": "Starting point — aggregate effect exists but understates responsive subgroup by factor 2.5.",
       "blocks": [
         {
           "type": "grid",
           "columns": 4,
           "items": [
-            { "type": "metric", "label": "OLS (raw)", "value": "d = 0.27", "detail": "[0.14, 0.40]", "tone": "green" },
-            { "type": "metric", "label": "OLS (controls)", "value": "d = 0.24", "detail": "[0.13, 0.36]", "tone": "green" },
+            { "type": "metric", "label": "OLS (unadjusted)", "value": "d = 0.27", "detail": "[0.14, 0.40]", "tone": "green" },
+            { "type": "metric", "label": "OLS (adjusted)", "value": "d = 0.24", "detail": "[0.13, 0.36]", "tone": "green" },
             { "type": "metric", "label": "SEM", "value": "d = 0.24", "detail": "[0.13, 0.36]", "tone": "green" },
-            { "type": "metric", "label": "BFMM (π-wtd)", "value": "d = 0.27", "detail": "[0.14, 0.39]", "tone": "green" }
+            { "type": "metric", "label": "BFMM (π-weighted)", "value": "d = 0.27", "detail": "[0.14, 0.39]", "tone": "green" }
           ]
         }
       ]
     },
     {
       "id": "results-gate1",
-      "kicker": "Results II · Gate 1",
-      "headline": "Trust is a discrete gate — Skeptics show null effects everywhere.",
-      "notes": "This is the core Gate 1 finding. Even among Skeptics who receive large belief gaps AND are dispositionally high in anxiety, treatment effects remain null. Trust is NOT a continuous moderator — it's a binary filter.",
+      "kicker": "Results: Gate 1",
+      "headline": "Source trust operates as a discrete gate: Skeptic effects are null across all moderator values.",
+      "notes": "Even Skeptics with large gaps AND high anxiety show null effects. Inconsistent with continuous moderator models.",
       "blocks": [
         {
           "type": "split",
@@ -288,36 +288,36 @@
           "left": [
             {
               "type": "metric",
-              "label": "Skeptics (≈62%)",
+              "label": "Skeptics (π ≈ 62%)",
               "value": "d = 0.23",
-              "detail": "Gap β = −0.06 · Anxiety β = −0.06 · Interaction β = −0.07 — all null",
+              "detail": "Gap β = −0.06 · Anx β = −0.06 · Interaction β = −0.07; all P(β > 0) < 0.30",
               "tone": "red"
             }
           ],
           "right": [
             {
               "type": "metric",
-              "label": "Trusters (≈38%)",
+              "label": "Trusters (π ≈ 38%)",
               "value": "d = 0.44",
-              "detail": "Gap β = 0.14 · Anxiety β = 0.14 · Interaction β = 0.13 — all positive",
+              "detail": "Gap β = 0.14 · Anx β = 0.14 · Interaction β = 0.13; all P(β > 0) > 0.92",
               "tone": "green"
             }
           ]
         },
         {
           "type": "callout",
-          "label": "Implication",
-          "text": "Source rejection is strict: zero modulation by informational shock or dispositional vigilance. This contrasts with standard persuasion models where trust is continuous.",
+          "label": "Finding",
+          "text": "Source rejection functions as a strict binary filter: treatment modulation is absent regardless of informational shock or dispositional vigilance.",
           "tone": "amber"
         }
       ]
     },
     {
       "id": "results-gate2",
-      "kicker": "Results III · Gate 2",
-      "headline": "Among Trusters: joint activation drives the headline effect.",
-      "subhead": "Neither belief gap alone nor anxiety alone is sufficient. The interaction is the mechanism.",
-      "notes": "Activation threshold at ~20th percentile of trait anxiety. Below this, even Trusters with large gaps show null effects (cool cognition). Above threshold, effects scale linearly with both Gap and Anxiety. All pairwise contrasts P(delta > 0) > 0.97.",
+      "kicker": "Results: Gate 2",
+      "headline": "Among Trusters, effects are jointly activated by belief gap and trait anxiety (β₃ = 0.13, P > 0: 0.92).",
+      "subhead": "Activation threshold at ≈ 20th percentile of trait anxiety. Below threshold, large gaps produce null CATEs.",
+      "notes": "Neither gap nor anxiety alone sufficient. All pairwise contrasts P(Δ > 0) > 0.97.",
       "blocks": [
         {
           "type": "split",
@@ -327,8 +327,8 @@
               "type": "grid",
               "columns": 1,
               "items": [
-                { "type": "metric", "label": "Baseline CATE", "value": "d = 0.29", "detail": "mean Gap × mean Anxiety among Trusters", "tone": "amber" },
-                { "type": "metric", "label": "Maximum CATE", "value": "d = 0.61", "detail": "high Gap × high Anxiety — 2.5× the ATE", "tone": "green" }
+                { "type": "metric", "label": "Baseline CATE (mean × mean)", "value": "d = 0.29", "detail": "Population-average Gap and Anxiety among Trusters", "tone": "amber" },
+                { "type": "metric", "label": "Maximum CATE (high × high)", "value": "d = 0.61", "detail": "2.5× unconditional ATE; 95% CI: [0.40, 0.86]", "tone": "green" }
               ]
             }
           ],
@@ -336,10 +336,10 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Activation threshold", "detail": "20th percentile of trait anxiety (z ≈ −0.84)" },
-                { "title": "Below threshold", "detail": "Even large gaps → null effects (cool cognition)" },
-                { "title": "Above threshold", "detail": "Effects scale linearly with Gap × Anxiety" },
-                { "title": "All pairwise contrasts", "detail": "P(Δ > 0) > 0.97 for high–high vs. all other cells" }
+                { "title": "Activation threshold", "detail": "≈ 20th percentile of trait anxiety (z ≈ −0.84)" },
+                { "title": "Below threshold", "detail": "Large gaps → null CATEs (cool cognition)" },
+                { "title": "Above threshold", "detail": "CATEs scale linearly with Gap × Anxiety" },
+                { "title": "Pairwise contrasts", "detail": "All: P(Δ > 0) > 0.97" }
               ]
             }
           ]
@@ -349,10 +349,10 @@
     {
       "id": "discussion",
       "format": "closing",
-      "kicker": "Discussion",
-      "headline": "Null aggregate effects are a composition artifact, not preference stability.",
-      "subhead": "The two-gate framework transfers to any persuasion domain with expert sources and dispositional moderators.",
-      "notes": "Scope conditions: U.S. workers, liberal skew (62% Democrat), single trust measure, immediate outcomes, Frey & Osborne 2017 risk estimates. Future work: manipulate source credibility orthogonally, test in climate/vaccine/trade domains, measure persistence.",
+      "kicker": "Contributions",
+      "headline": "Null aggregate effects reflect composition across heterogeneous pathways, not preference stability.",
+      "subhead": "The two-gate architecture generalizes to any persuasion domain with expert sources and dispositional moderators.",
+      "notes": "Scope: U.S. workers, liberal skew, single trust item, immediate measurement, F&O 2017 estimates.",
       "blocks": [
         {
           "type": "split",
@@ -361,23 +361,23 @@
             {
               "type": "numbers",
               "items": [
-                "Two-gate model resolves conflicting findings as composition effects.",
-                "BFMM handles latent classes with collider-biased post-treatment moderators.",
-                "Maximum CATE (d = 0.61) more than doubles the unconditional ATE.",
-                "Identifies responsive subgroup for targeted risk communication."
+                "Theoretical: two-gate model resolves conflicting results as composition effects across three pathways.",
+                "Methodological: BFMM addresses latent classification with collider-biased post-treatment moderators.",
+                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications.",
+                "Applied: identifies responsive subgroup for targeted risk communication."
               ]
             }
           ],
           "right": [
             {
               "type": "callout",
-              "label": "Scope",
-              "text": "N = 901 U.S. workers (CloudResearch). 62% Democrat. Immediate post-treatment. Frey & Osborne 2017 estimates.",
+              "label": "Scope conditions",
+              "text": "N = 901 U.S. workers (CloudResearch). 62% Democrat. Immediate measurement. F&O 2017 estimates.",
               "tone": "amber"
             },
             {
               "type": "callout",
-              "label": "Transfers to",
+              "label": "Generalization",
               "text": "Climate, vaccines, trade — any domain where expert information meets dispositional heterogeneity.",
               "tone": "green"
             }
