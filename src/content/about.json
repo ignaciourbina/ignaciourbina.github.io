@@ -9,13 +9,13 @@
     "cvUrl": "/files/cv.pdf"
   },
   "bio": {
-    "intro": "I am a political economist studying how democracies can govern artificial intelligence. My research combines experimental methods with computational modeling to understand how citizens form preferences about emerging technologies and what this means for democratic governance.",
+    "intro": "I am a political economist studying how citizens form beliefs and attitudes about AI, and how this impacts their political behavior and preferences for government policies. My research combines experimental methods with computational modeling to understand these questions.",
     "researchInterests": {
       "title": "My research interests include:",
       "items": [
         {
           "title": "AI and democratic governance",
-          "description": "How citizens form attitudes toward AI and how democracies can govern emerging technologies"
+          "description": "How citizens form beliefs and attitudes about AI, and how this impacts their political behavior and policy preferences"
         },
         {
           "title": "Political behavior",
