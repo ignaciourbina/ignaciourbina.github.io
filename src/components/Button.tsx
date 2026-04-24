@@ -5,7 +5,7 @@ interface ButtonProps {
   children: ReactNode
   to?: string
   href?: string
-  variant?: 'primary' | 'outline' | 'outline-secondary'
+  variant?: 'primary' | 'outline' | 'ghost'
   size?: 'default' | 'lg'
   disabled?: boolean
   className?: string
@@ -21,15 +21,15 @@ export default function Button({
   className = '',
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded transition-all duration-200'
+    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200'
 
-  const sizeStyles = size === 'lg' ? 'px-6 py-3 text-base' : 'px-4 py-2 text-sm'
+  const sizeStyles = size === 'lg' ? 'px-7 py-3 text-base' : 'px-5 py-2.5 text-sm'
 
   const variantStyles = {
     primary:
-      'bg-accent text-white border border-accent hover:bg-accent-light hover:border-accent-light',
-    outline: 'text-white border border-white/50 hover:bg-white/10 hover:border-white',
-    'outline-secondary': 'text-slate border border-border hover:bg-bg-light hover:border-slate',
+      'bg-green text-white border border-green hover:bg-green-hover hover:border-green-hover shadow-sm hover:shadow-md',
+    outline: 'text-ink border border-line hover:border-green hover:text-green',
+    ghost: 'text-muted hover:text-ink hover:bg-line/30',
   }
 
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : ''

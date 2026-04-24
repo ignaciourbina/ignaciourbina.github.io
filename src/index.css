@@ -7,15 +7,20 @@ html {
 }
 
 body {
-  @apply bg-bg-light text-slate;
+  @apply bg-paper text-muted;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Better code blocks */
+::selection {
+  background: #dff1e9;
+  color: #17211f;
+}
+
 pre {
-  @apply rounded border border-border;
+  @apply rounded border border-line;
 }
 
-/* Better images */
 img {
   @apply max-w-full h-auto rounded;
 }

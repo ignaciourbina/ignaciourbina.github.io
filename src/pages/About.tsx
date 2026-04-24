@@ -12,25 +12,27 @@ const socialLinks = [
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-4xl mx-auto px-6 py-12">
       {/* Header with profile */}
-      <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-12">
-        <div className="w-48 h-48 rounded-full bg-gradient-to-br from-navy to-accent flex items-center justify-center text-white text-6xl font-bold shrink-0">
+      <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-16">
+        <div className="w-40 h-40 rounded-full bg-ink flex items-center justify-center text-white text-5xl font-extrabold shrink-0 tracking-tight">
           {about.profile.initials}
         </div>
         <div className="text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold text-navy mb-2">{about.page.title}</h1>
-          <p className="text-xl text-slate-light mb-6">{about.page.subtitle}</p>
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+          <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
+            {about.page.subtitle}
+          </span>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-4">{about.page.title}</h1>
+          <div className="flex flex-wrap gap-2 justify-center md:justify-start">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border rounded-lg hover:border-accent hover:text-accent transition-colors"
+                className="flex items-center gap-2 px-3 py-2 bg-panel border border-line rounded-lg text-sm text-muted hover:border-green hover:text-green transition-colors"
               >
-                <link.icon size={18} />
+                <link.icon size={16} />
                 <span>{link.label}</span>
               </a>
             ))}
@@ -39,59 +41,67 @@ export default function About() {
       </div>
 
       {/* About Me */}
-      <SectionHeader>About Me</SectionHeader>
-      <p className="text-slate mb-6">{about.bio.intro}</p>
-      <p className="text-slate mb-4">{about.bio.researchInterests.title}</p>
-      <ul className="list-disc list-inside text-slate-light space-y-2 mb-8">
+      <SectionHeader kicker="Bio">About Me</SectionHeader>
+      <p className="text-muted mb-6 leading-relaxed">{about.bio.intro}</p>
+      <p className="text-ink font-medium mb-3">{about.bio.researchInterests.title}</p>
+      <ul className="space-y-2 mb-10">
         {about.bio.researchInterests.items.map((item, index) => (
-          <li key={index}>
-            <strong className="text-slate">{item.title}</strong> — {item.description}
+          <li key={index} className="flex items-start gap-3 text-muted">
+            <span className="text-green mt-1.5 text-xs">&#9679;</span>
+            <span>
+              <strong className="text-ink font-semibold">{item.title}</strong> — {item.description}
+            </span>
           </li>
         ))}
       </ul>
 
       {/* What I Build */}
-      <SectionHeader>{about.whatIBuild.title}</SectionHeader>
-      <p className="text-slate mb-4">{about.whatIBuild.intro}</p>
-      <ul className="list-disc list-inside text-slate-light space-y-2 mb-6">
+      <SectionHeader kicker="Work">{about.whatIBuild.title}</SectionHeader>
+      <p className="text-muted mb-4 leading-relaxed">{about.whatIBuild.intro}</p>
+      <ul className="space-y-2 mb-4">
         {about.whatIBuild.items.map((item, index) => (
-          <li
-            key={index}
-            dangerouslySetInnerHTML={{
-              __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate">$1</strong>'),
-            }}
-          />
+          <li key={index} className="flex items-start gap-3 text-muted">
+            <span className="text-green mt-1.5 text-xs">&#9679;</span>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: item.replace(
+                  /\*\*(.*?)\*\*/g,
+                  '<strong class="text-ink font-semibold">$1</strong>'
+                ),
+              }}
+            />
+          </li>
         ))}
       </ul>
-      <p className="text-slate-light mb-8">{about.whatIBuild.note}</p>
+      <p className="text-muted-light text-sm mb-10">{about.whatIBuild.note}</p>
 
       {/* Education */}
-      <SectionHeader>{about.education.title}</SectionHeader>
-      <ul className="space-y-4 mb-8">
+      <SectionHeader kicker="Degrees">{about.education.title}</SectionHeader>
+      <ul className="space-y-0 mb-10">
         {about.education.items.map((edu, index) => (
           <li
             key={index}
-            className={`py-3 ${index < about.education.items.length - 1 ? 'border-b border-border' : ''}`}
+            className={`py-3 ${index < about.education.items.length - 1 ? 'border-b border-line' : ''}`}
           >
-            <p className="font-semibold text-slate">{edu.degree}</p>
-            <p className="text-slate-light">{edu.institution}</p>
+            <p className="font-semibold text-ink">{edu.degree}</p>
+            <p className="text-muted text-sm">{edu.institution}</p>
           </li>
         ))}
       </ul>
 
       {/* Selected Publications */}
-      <SectionHeader>{about.publications.title}</SectionHeader>
-      <ul className="space-y-4 mb-8">
+      <SectionHeader kicker="Papers">{about.publications.title}</SectionHeader>
+      <ul className="space-y-0 mb-10">
         {about.publications.items.map((pub, index) => (
           <li
             key={index}
-            className={`py-3 ${index < about.publications.items.length - 1 ? 'border-b border-border' : ''}`}
+            className={`py-4 ${index < about.publications.items.length - 1 ? 'border-b border-line' : ''}`}
           >
             <p
-              className="text-slate"
+              className="text-muted leading-relaxed"
               dangerouslySetInnerHTML={{
                 __html: pub.citation
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink">$1</strong>')
                   .replace(/\*(.*?)\*/g, '<em>$1</em>'),
               }}
             />
@@ -100,55 +110,58 @@ export default function About() {
       </ul>
 
       {/* Skills & Tools */}
-      <SectionHeader>{about.skills.title}</SectionHeader>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <SectionHeader kicker="Stack">{about.skills.title}</SectionHeader>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         {about.skills.categories.map((category) => (
-          <div key={category.name} className="bg-bg-card border border-border rounded-lg p-4">
-            <h3 className="text-xs uppercase tracking-wide text-navy font-semibold mb-2">
+          <div key={category.name} className="bg-panel border border-line rounded-lg p-4">
+            <h3 className="text-xs uppercase tracking-widest text-green font-bold mb-2">
               {category.name}
             </h3>
-            <p className="text-slate-light text-sm">{category.items.join(' · ')}</p>
+            <p className="text-muted text-sm">{category.items.join(' · ')}</p>
           </div>
         ))}
       </div>
 
       {/* CV */}
-      <SectionHeader>CV</SectionHeader>
-      <p className="text-slate mb-6">Download my full curriculum vitae:</p>
+      <SectionHeader kicker="Download">CV</SectionHeader>
+      <p className="text-muted mb-6">Download my full curriculum vitae:</p>
       <Button href={about.profile.cvUrl} variant="primary">
         Download CV (PDF)
       </Button>
 
-      <hr className="border-border my-12" />
+      <div className="border-t border-line my-16" />
 
       {/* Contact */}
-      <SectionHeader>{about.contact.title}</SectionHeader>
-      <p className="text-slate mb-6">{about.contact.intro}</p>
-      <div className="bg-bg-card border border-border rounded-lg p-6">
-        <p className="mb-2">
-          📧 <strong className="text-slate">Email:</strong>{' '}
-          <a href={`mailto:${about.contact.email}`} className="text-accent hover:text-accent-light">
+      <SectionHeader kicker="Reach out">{about.contact.title}</SectionHeader>
+      <p className="text-muted mb-6 leading-relaxed">{about.contact.intro}</p>
+      <div className="bg-panel border border-line rounded-lg p-6 space-y-3">
+        <p>
+          <strong className="text-ink font-semibold">Email</strong>{' '}
+          <a
+            href={`mailto:${about.contact.email}`}
+            className="text-green hover:text-green-hover transition-colors ml-2"
+          >
             {about.contact.email}
           </a>
         </p>
-        <p className="mb-2">
-          🐙 <strong className="text-slate">GitHub:</strong>{' '}
+        <p>
+          <strong className="text-ink font-semibold">GitHub</strong>{' '}
           <a
             href={about.contact.github.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:text-accent-light"
+            className="text-green hover:text-green-hover transition-colors ml-2"
           >
             @{about.contact.github.username}
           </a>
         </p>
         <p>
-          💼 <strong className="text-slate">LinkedIn:</strong>{' '}
+          <strong className="text-ink font-semibold">LinkedIn</strong>{' '}
           <a
             href={about.contact.linkedin.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:text-accent-light"
+            className="text-green hover:text-green-hover transition-colors ml-2"
           >
             {about.contact.linkedin.name}
           </a>

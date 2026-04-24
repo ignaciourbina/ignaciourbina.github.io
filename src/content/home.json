@@ -1,6 +1,6 @@
 {
   "hero": {
-    "greeting": "Hi, I'm Ignacio 👋",
+    "greeting": "Hi, I'm Ignacio",
     "introduction": "I'm a political economist studying how **democracies can govern AI**. I build **interactive tools** for research and teaching, combining experimental methods with computational modeling.",
     "buttons": {
       "primary": {
@@ -8,20 +8,14 @@
         "to": "/tools"
       },
       "secondary": {
-        "label": "Research Briefs",
-        "to": "/research"
+        "label": "About Me",
+        "to": "/about"
       }
     }
   },
   "sections": {
     "featuredTools": {
       "title": "Featured Tools"
-    },
-    "researchBriefs": {
-      "title": "Latest Research Briefs",
-      "description": "Interactive summaries of research findings with embedded visualizations and key insights.",
-      "placeholder": "Research briefs section coming soon — interactive summaries with embedded charts, methodology notes, and replication materials.",
-      "buttonLabel": "Browse Research →"
     },
     "aboutPreview": {
       "title": "About Me",
