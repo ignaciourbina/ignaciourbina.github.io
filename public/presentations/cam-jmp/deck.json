@@ -301,7 +301,7 @@
             {
               "type": "callout",
               "label": "Type-specific CATE",
-              "text": "\\[ \\tau_T(\\text{Gap}, \\eta) = \\beta_0^T + \\beta_1^T \\cdot \\text{Gap} + \\beta_2^T \\cdot \\eta + \\beta_3^T \\cdot \\text{Gap} \\times \\eta \\]",
+              "text": "\\[ \\tau_T(\\text{Gap}, \\eta_{\\text{anx}}) = \\beta_0^T + \\beta_1^T \\cdot \\text{Gap} + \\beta_2^T \\cdot \\eta_{\\text{anx}} + \\beta_3^T \\cdot \\text{Gap} \\times \\eta_{\\text{anx}} \\]",
               "tone": "green"
             }
           ],
@@ -311,7 +311,7 @@
               "layers": [
                 { "label": "Trust", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
                 { "label": "Measurement", "items": ["anxiety CFA (ω = .90)", "policy CFA (ω = .85)"] },
-                { "label": "Activation", "items": ["type-specific CATEs", "Gap × η interaction", "non-negativity"] }
+                { "label": "Activation", "items": ["type-specific CATEs", "Gap × η_anx interaction", "non-negativity"] }
               ]
             }
           ]
