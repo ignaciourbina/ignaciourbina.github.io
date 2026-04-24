@@ -244,6 +244,42 @@
       ]
     },
     {
+      "id": "moderators",
+      "kicker": "Moderator measures",
+      "headline": "Source trust, belief gap, and trait anxiety operationalize the two gates.",
+      "notes": "Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Belief gap is computed, not self-reported. Trait anxiety uses a validated Big Five facet scale with excellent reliability. The key asymmetry: trust and gap are post-treatment (only available for treated), while anxiety is pre-treatment (available for all).",
+      "blocks": [
+        {
+          "type": "split",
+          "ratio": "1fr 1fr",
+          "left": [
+            {
+              "type": "bullets",
+              "items": [
+                { "title": "Gate 1 · Source trust", "detail": "\"How trustworthy is the Oxford researchers' assessment of your occupation?\" — single 5-point item, post-treatment only" },
+                { "title": "Gate 2a · Belief gap", "detail": "Gap = Expert percentile − Subjective prior (both 0–100). Mean = 2.44, SD = 36. Computed, not self-reported" }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "bullets",
+              "items": [
+                { "title": "Gate 2b · Trait anxiety (ω = 0.90)", "detail": "Four items on 7-point agreement scale, measured pre-treatment:" },
+                { "title": "", "detail": "\"I worry easily\" · \"I get stressed easily\" · \"I am easily disturbed\" · \"I get upset easily\"" }
+              ]
+            },
+            {
+              "type": "callout",
+              "label": "Asymmetry",
+              "text": "Trust and gap are post-treatment (treated only). Anxiety is pre-treatment (all respondents).",
+              "tone": "amber"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "identification",
       "kicker": "Identification",
       "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
