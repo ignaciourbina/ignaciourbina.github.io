@@ -3,6 +3,7 @@ import {
     ArchitectureMap,
     BulletList,
     Callout,
+    ChatRound,
     DesignMatrix,
     FlowDiagram,
     Grid,
@@ -116,6 +117,10 @@ export function componentFromSpec(spec, features = {}) {
 
     if (type === "matrix" || type === "design-matrix") {
         return new DesignMatrix(spec.rows || [], spec.columns || [], spec.cells || [], opts);
+    }
+
+    if (type === "chat-round" || type === "chat") {
+        return new ChatRound(spec.messages || spec.items || [], opts);
     }
 
     if (type === "plot" || type === "tradeoff-plot") {

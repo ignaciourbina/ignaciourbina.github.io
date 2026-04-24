@@ -393,6 +393,34 @@ export class TradeoffPlot extends Component {
     }
 }
 
+export class ChatRound extends Component {
+    constructor(messages = [], options = {}) {
+        super(options);
+        this.messages = messages;
+    }
+
+    render(ctx) {
+        const list = h("div", { class: "chat-round" });
+        this.messages.forEach(m => {
+            const phase = (m.phase || "").toString().toLowerCase();
+            const bubble = h("div", {
+                class: `chat-message chat-message--${phase || "default"}`,
+                dataset: stepAttrs(ctx, this.options.reveal === "messages"),
+            });
+            const header = h("div", { class: "chat-head" }, [
+                m.phase ? h("span", { class: "chat-phase", text: m.phase }) : null,
+                m.agent ? h("span", { class: "chat-agent", text: m.agent }) : null,
+                m.tag ? h("span", { class: "chat-tag", text: m.tag }) : null,
+            ]);
+            bubble.append(header);
+            if (m.text) bubble.append(h("p", { class: "chat-text", text: m.text }));
+            if (m.annotation) bubble.append(h("p", { class: "chat-annotation", text: m.annotation }));
+            list.append(bubble);
+        });
+        return list;
+    }
+}
+
 export class Slide {
     constructor(title = "", options = {}) {
         this.title = title;
