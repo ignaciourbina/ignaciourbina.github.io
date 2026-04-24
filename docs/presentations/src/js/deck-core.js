@@ -198,10 +198,17 @@ export class Grid extends Component {
     }
 
     render(ctx) {
+        const revealItems = this.options.reveal === "items";
         return h("div", {
             class: "grid-block",
             style: { "--columns": this.options.columns },
-        }, this.children.map(child => renderChild(child, ctx)));
+        }, this.children.map(child => {
+            const rendered = renderChild(child, ctx);
+            if (revealItems && rendered) {
+                Object.assign(rendered.dataset, stepAttrs(ctx, true));
+            }
+            return rendered;
+        }));
     }
 }
 
@@ -213,13 +220,19 @@ export class Split extends Component {
     }
 
     render(ctx) {
+        const revealPanes = this.options.reveal === "panes";
+        const leftPane = h("div", {
+            class: "split-pane",
+            dataset: stepAttrs(ctx, revealPanes),
+        }, this.left.map(child => renderChild(child, ctx)));
+        const rightPane = h("div", {
+            class: "split-pane",
+            dataset: stepAttrs(ctx, revealPanes),
+        }, this.right.map(child => renderChild(child, ctx)));
         return h("div", {
             class: `split-block split-block--${this.options.align || "center"}`,
             style: { "--split-ratio": this.options.ratio },
-        }, [
-            h("div", { class: "split-pane" }, this.left.map(child => renderChild(child, ctx))),
-            h("div", { class: "split-pane" }, this.right.map(child => renderChild(child, ctx))),
-        ]);
+        }, [leftPane, rightPane]);
     }
 }
 

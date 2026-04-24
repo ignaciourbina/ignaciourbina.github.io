@@ -70,6 +70,7 @@
         {
           "type": "grid",
           "columns": 3,
+          "reveal": "items",
           "items": [
             { "type": "metric", "label": "Self-interest", "value": "Risk → redistribution", "detail": "Workers facing losses seek compensatory policy (Meltzer & Richard 1981)", "tone": "green" },
             { "type": "metric", "label": "Threat-motivated cognition", "value": "Anxiety → policy search", "detail": "Threat perception focuses attention on protection (Albertson & Gadarian 2015)", "tone": "green" },
@@ -108,6 +109,7 @@
         {
           "type": "split",
           "ratio": "1fr 1fr",
+          "reveal": "panes",
           "left": [
             {
               "type": "callout",
@@ -137,9 +139,11 @@
         {
           "type": "split",
           "ratio": "0.6fr 1.4fr",
+          "reveal": "panes",
           "left": [
             {
               "type": "flow",
+              "reveal": "items",
               "steps": [
                 { "title": "Information", "detail": "Expert risk estimate" },
                 { "title": "Source trust", "detail": "Accept or reject" },
@@ -151,6 +155,7 @@
           "right": [
             {
               "type": "bullets",
+              "reveal": "items",
               "items": [
                 { "title": "Source trust: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
                 { "title": "Activation: joint requirement", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
@@ -171,6 +176,7 @@
         {
           "type": "grid",
           "columns": 3,
+          "reveal": "items",
           "items": [
             { "type": "metric", "label": "1. Source rejection", "value": "Skeptics", "detail": "Information fails the trust gate; no downstream processing regardless of gap magnitude or anxiety level", "tone": "red" },
             { "type": "metric", "label": "2. Cool cognition", "value": "Below-threshold trusters", "detail": "Information is accepted and beliefs update, but insufficient vigilance to initiate policy search", "tone": "amber" },
@@ -180,6 +186,7 @@
         {
           "type": "callout",
           "label": "Prediction",
+          "reveal": true,
           "text": "If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup — producing the null or weak aggregate effects observed in prior work.",
           "tone": "amber"
         }
@@ -198,6 +205,7 @@
           "left": [
             {
               "type": "numbers",
+              "reveal": "items",
               "items": [
                 "Explain expert methodology (comprehension: 93.4%)",
                 "Elicit subjective risk belief (0–100 percentile)",
@@ -347,6 +355,7 @@
         {
           "type": "split",
           "ratio": "1fr 1fr",
+          "reveal": "panes",
           "left": [
             {
               "type": "metric",
@@ -369,6 +378,7 @@
         {
           "type": "callout",
           "label": "Finding",
+          "reveal": true,
           "text": "Source rejection functions as a strict binary filter: treatment modulation is absent regardless of informational shock or dispositional vigilance.",
           "tone": "amber"
         }
@@ -422,6 +432,7 @@
           "left": [
             {
               "type": "numbers",
+              "reveal": "items",
               "items": [
                 "Theoretical: two-gate model resolves conflicting results as composition effects across three pathways.",
                 "Methodological: BFMM addresses latent classification with collider-biased post-treatment moderators.",

@@ -153,11 +153,89 @@
       ]
     },
     {
+      "id": "example-considerations",
+      "kicker": "Scenario · Considerations",
+      "headline": "Ten considerations, drawn from 30 moderated statements via semantic clustering.",
+      "subhead": "Each consideration \\(c = (\\ell_c,\\, d_c,\\, s_c)\\): a statement label, a direction (pro/con), and a persuasiveness score derived from the empirical endorsement rate, normalized to \\([0.3,\\, 0.9]\\).",
+      "notes": "These are verbatim Polis statements written by participants during Seattle's 2014 $15/hour fight — not researcher-authored prompts. Persuasiveness is the share of directional voters who agreed, rescaled so that the weakest item still exerts some pull (0.3) and the strongest does not dominate (0.9). The audience should notice two things: (i) the pro side has stronger endorsement on average, and (ii) the weakest argument in the pool (C₃, inflation-penalizes-the-rich) is also the most easily attacked — a correlation the model inherits from the data, not from a design choice.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 2,
+          "items": [
+            {
+              "type": "metric",
+              "label": "C₅ · Pro · s = 0.90",
+              "value": "\"Something needs to be done to address income inequality and this is a good if imperfect start.\"",
+              "detail": "Highest endorsement (82%); strongest pull in the pool",
+              "tone": "green"
+            },
+            {
+              "type": "metric",
+              "label": "C₁ · Pro · s = 0.72",
+              "value": "\"Businesses shouldn't be able to pay workers anything below a livable wage. Why should we subsidize businesses that depend on inadequate wages?\"",
+              "detail": "Endorsement 67%; attacks C₃ and C₆",
+              "tone": "green"
+            },
+            {
+              "type": "metric",
+              "label": "C₇ · Con · s = 0.67",
+              "value": "\"It's just going to speed up the adoption of robotics in industries with unskilled or low-skilled workers.\"",
+              "detail": "Endorsement 63%; automation-threat framing",
+              "tone": "amber"
+            },
+            {
+              "type": "metric",
+              "label": "C₃ · Con · s = 0.30",
+              "value": "\"$15 min wage will lead to inflation. Higher income population is penalized for this reason and therefore I don't think it is fair.\"",
+              "detail": "Lowest endorsement (34%); weakest consideration in the pool",
+              "tone": "red"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "covote-graph",
+      "kicker": "Scenario · Co-vote structure",
+      "headline": "Attack and support edges emerge from observed voting, not researcher judgment.",
+      "subhead": "Yule's \\(Q\\) on each statement pair: \\(Q = (n_{\\text{concordant}} - n_{\\text{discordant}}) / (n_{\\text{concordant}} + n_{\\text{discordant}})\\). Negative \\(Q\\) → attack; positive \\(Q\\) → support. Threshold \\(|Q| \\geq 0.2\\), minimum 10 co-voters.",
+      "notes": "The graph has 15 attack pairs and 19 support pairs across 10 nodes. Attack edges fall almost exclusively between the pro block (C₁, C₂, C₄, C₅, C₈) and the con block (C₃, C₆, C₇, C₉, C₁₀); support edges fall within each block. The strongest attack (Q = −0.62) links C₁ (livable-wage mandate) to C₁₀ (reactionary-liberal critique); the weakest retained support (Q = +0.34) links C₇ (robotics) to C₉ (self-service). This bipartite-like structure is an empirical result — the Polis electorate sorted itself into two co-voting camps, and the model inherits that polarization through the graph rather than imposing it.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 2,
+          "items": [
+            {
+              "type": "metric",
+              "label": "Attack example: C₁ ↔ C₁₀",
+              "value": "Q = −0.62",
+              "detail": "\"Livable wage\" vs. \"Reactionary liberal trash\" — voters who endorsed one opposed the other",
+              "tone": "red"
+            },
+            {
+              "type": "metric",
+              "label": "Support example: C₅ ↔ C₂",
+              "value": "Q = +0.73",
+              "detail": "\"Good start on inequality\" & \"Workers must keep fighting inflation\" — co-endorsed",
+              "tone": "green"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Edge strength",
+          "text": "\\(\\text{strength} = 0.2 + 0.6 \\times \\min(|Q|,\\, 1)\\); maps co-vote intensity to \\([0.2,\\, 0.8]\\). Persuasiveness \\(s_c\\) is the endorsement rate; edge strength is the co-vote correlation — they measure different things.",
+          "tone": "amber"
+        }
+      ]
+    },
+    {
       "id": "data-use",
-      "kicker": "Data use",
+      "kicker": "Data use · Summary",
       "headline": "One vote matrix grounds pool, graph, and initialization.",
-      "subhead": "Co-voting via Yule's \\(Q\\); sparse repertoires via Ising-based profile reconstruction. Sparse init mean \\(|R_i^{(0)}| \\approx 5.4\\) of \\(10\\); new considerations enter later through Reflect.",
-      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool; (2) pairwise co-voting identifies attack/support structure and item persuasiveness via Yule's Q; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. Sparsity matters because the model does not begin from full information — it begins from unequal, empirically grounded informational endowments.",
+      "subhead": "Sparse repertoires via Ising-based profile reconstruction. Sparse init mean \\(|R_i^{(0)}| \\approx 5.4\\) of \\(10\\); new considerations enter later through Reflect.",
+      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool (previous two slides); (2) pairwise co-voting identifies attack/support structure and item persuasiveness via Yule's Q; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. The Ising model treats the Q matrix as coupling strengths and imputes unobserved votes via mean-field inference — a participant who agreed with three pro statements and disagreed with one con statement gets predicted soft votes on the remaining six. Coherence is the z-scored negative energy of the full profile: high-coherence agents hold tightly aligned consideration sets, low-coherence agents hold contradictory ones. Sparsity matters because the model does not begin from full information — it begins from unequal, empirically grounded informational endowments.",
       "blocks": [
         {
           "type": "matrix",
@@ -165,8 +243,8 @@
           "columns": ["Grounded by", "Use in the model"],
           "cells": [
             ["Moderated statements", "reasons available to voice and adopt"],
-            ["Co-voting (Yule's Q)", "neighborhood weights and persuasiveness"],
-            ["Ising-reconstructed profiles", "sparse starting repertoires"]
+            ["Co-voting (Yule's Q)", "edge type, edge strength, and persuasiveness"],
+            ["Ising-reconstructed profiles", "sparse starting repertoires and coherence scores"]
           ]
         }
       ]
