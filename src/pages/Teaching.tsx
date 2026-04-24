@@ -114,15 +114,6 @@ export default function Teaching() {
           </li>
         ))}
       </ul>
-
-      {/* Request Materials */}
-      <div className="border border-line rounded-lg p-10 text-center">
-        <h3 className="text-xl font-bold text-ink mb-3">{teaching.sections.request.title}</h3>
-        <p className="text-muted mb-6 max-w-lg mx-auto">{teaching.sections.request.description}</p>
-        <Button href={teaching.sections.request.buttonUrl} variant="outline">
-          {teaching.sections.request.buttonLabel}
-        </Button>
-      </div>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Tools from './pages/Tools'
 import Research from './pages/Research'
 import Teaching from './pages/Teaching'
 import About from './pages/About'
+import CV from './pages/CV'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="research" element={<Research />} />
         <Route path="teaching" element={<Teaching />} />
         <Route path="about" element={<About />} />
+        <Route path="cv" element={<CV />} />
       </Route>
     </Routes>
   )

@@ -13,7 +13,8 @@
       { "to": "/tools", "label": "Tools" },
       { "to": "/research", "label": "Research" },
       { "to": "/teaching", "label": "Teaching" },
-      { "to": "/about", "label": "About" }
+      { "to": "/about", "label": "About" },
+      { "to": "/cv", "label": "CV" }
     ]
   },
   "social": {
