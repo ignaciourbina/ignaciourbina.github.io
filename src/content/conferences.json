@@ -10,6 +10,13 @@
       "event": "MPSA 2026",
       "date": "April 2026",
       "description": "Comparing deliberation engines in a shared argument-theoretic environment. Open-source simulation using LLM agents as synthetic citizens to test how different institutional rules impact democratic consensus."
+    },
+    {
+      "slug": "cam-jmp",
+      "title": "The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation",
+      "event": "MPSA 2026 · Job Market Paper",
+      "date": "April 2026",
+      "description": "A two-gate framework explaining when citizens translate automation risk information into policy demand. Pre-registered experiment (N = 901) with Bayesian finite mixture model. Maximum conditional effect d = 0.61 — 2.5× the unconditional ATE."
     }
   ]
 }

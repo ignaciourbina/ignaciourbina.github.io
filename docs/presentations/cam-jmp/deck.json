@@ -1,0 +1,240 @@
+{
+  "title": "The Conditional Activation Model",
+  "durationMinutes": 15,
+  "features": {
+    "controls": true,
+    "fullscreen": true,
+    "hashNavigation": true,
+    "notes": true,
+    "outline": true,
+    "printMode": true,
+    "progress": true
+  },
+  "slides": [
+    {
+      "id": "title",
+      "format": "title",
+      "kicker": "MPSA 2026 · Job Market Paper",
+      "headline": "The Conditional Activation Model",
+      "subhead": "Uncovering Policy Demand Responses to AI-Driven Automation",
+      "notes": "Open with the aggregate null puzzle: why do information experiments on automation risk so often produce null or conflicting effects? The CAM framework resolves this as a composition effect — heterogeneous subgroups that cancel in the aggregate.",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "Author",
+          "text": "Ignacio Urbina · Stony Brook University · April 2026",
+          "tone": "green"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "kicker": "The puzzle",
+      "headline": "Information about automation risk often produces null aggregate effects.",
+      "subhead": "Zhang & Hou (2022): null. Magistro et al. (2024): null. Gallego et al. (2022): strong effects. Arntz et al. (2024): opposing effects that cancel. Is this preference stability, or hidden heterogeneity?",
+      "notes": "Walk through the conflicting findings. The key observation from Arntz et al. is that opposing subgroup effects can wash out in the aggregate. This motivates the theoretical contribution: a principled two-gate model that predicts when and for whom effects should appear.",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "Research question",
+          "text": "When do citizens translate information about AI-driven automation risk into policy demand — and why do aggregate experiments so often miss it?",
+          "tone": "amber"
+        }
+      ]
+    },
+    {
+      "id": "theory",
+      "kicker": "Theory",
+      "headline": "Two sequential gates between information and policy demand.",
+      "subhead": "The Conditional Activation Model: information must pass through source trust (Gate 1) and joint activation by belief gap and trait anxiety (Gate 2) before it translates into policy search.",
+      "notes": "Gate 1 is discrete (trust/reject), not continuous. Gate 2 requires BOTH a positive informational shock AND dispositional vigilance. Below either threshold, even credible information produces cool cognition — belief updating without policy urgency. This generates three distinct pathways.",
+      "blocks": [
+        {
+          "type": "flow",
+          "steps": [
+            { "title": "Information", "detail": "Expert automation risk estimate" },
+            { "title": "Gate 1: Trust", "detail": "Accept or reject the source" },
+            { "title": "Gate 2: Activation", "detail": "Belief Gap × Trait Anxiety" },
+            { "title": "Policy demand", "detail": "Government protection preferences" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pathways",
+      "kicker": "Theory · Pathways",
+      "headline": "Three cognitive pathways explain the mixed literature.",
+      "subhead": "Null aggregate effects are a composition artifact — heterogeneous subgroups that cancel, not genuine preference stability.",
+      "notes": "Source rejection: ~62% of respondents. Shallow priming from treatment framing, but zero modulation by belief gap or anxiety. Cool cognition: trusters with low anxiety. Belief updating occurs but does not trigger policy search. Deep persuasion: trusters with high anxiety AND large belief gaps. Both gates satisfied — sustained elaboration translates into policy updating.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 3,
+          "items": [
+            { "type": "metric", "label": "Source rejection", "value": "~62%", "detail": "Skeptics: shallow priming, no modulation", "tone": "red" },
+            { "type": "metric", "label": "Cool cognition", "value": "Low-anxiety trusters", "detail": "Belief updating without policy urgency", "tone": "amber" },
+            { "type": "metric", "label": "Deep persuasion", "value": "High-anxiety trusters", "detail": "Both gates satisfied → d = 0.61", "tone": "green" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "kicker": "Design",
+      "headline": "Pre-registered experiment with 901 U.S. workers.",
+      "subhead": "Randomized between-subjects (475 treatment, 426 control), block randomized by occupation. Recruited via CloudResearch Connect.",
+      "notes": "The treatment is a three-step belief correction protocol, not a standard vignette. Step 1: explain expert methodology (93.4% comprehension). Step 2: elicit subjective automation risk belief (0-100 percentile). Step 3: reveal expert risk score (Frey & Osborne 2017) and visualize the belief gap. This creates individualized treatment intensity that varies naturally across respondents.",
+      "blocks": [
+        {
+          "type": "split",
+          "ratio": "1fr 1fr",
+          "left": [
+            {
+              "type": "numbers",
+              "items": [
+                "Explain expert methodology (comprehension check: 93.4%)",
+                "Elicit subjective automation risk belief (0–100 percentile)",
+                "Reveal expert risk score; visualize belief gap"
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "callout",
+              "label": "Design property",
+              "text": "Individualized treatment intensity: the belief gap varies naturally across respondents, creating continuous variation in informational shock.",
+              "tone": "green"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "identification",
+      "kicker": "Identification",
+      "headline": "Trust is a post-treatment collider — naive subsetting fails.",
+      "subhead": "Observed trust is caused by both dispositional trust (S) and the belief gap. Conditioning on it opens a spurious path. The BFMM blocks this via principal stratification.",
+      "notes": "The core identification problem: trust is measured only for treated units and is caused by both the latent disposition AND the treatment (via belief gap). Naive splits by observed trust conflate epistemic validation with dispositional trust. The Bayesian finite mixture model includes Gap and Gap-squared as covariates in the ordinal logistic model for observed trust, blocking the collider path and isolating the dispositional component.",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            { "title": "Collider bias", "detail": "Gap → Q_obs ← S; conditioning conflates information congruence with disposition" },
+            { "title": "Post-treatment conditioning", "detail": "Trust measured only for treated units; breaks randomization balance" },
+            { "title": "BFMM solution", "detail": "Include Gap and Gap² as covariates; isolate dispositional trust orthogonal to information" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model",
+      "kicker": "Model",
+      "headline": "Bayesian Finite Mixture Model: three integrated components.",
+      "subhead": "Trust mixture (Gate 1) + measurement models (CFA) + structural model (Gate 2). 6 chains × 4,000 draws; all R̂ < 1.01, zero divergent transitions.",
+      "notes": "Component 1: ordinal logistic mixture classifies respondents into latent Trusters vs Skeptics, with Gap and Gap-squared blocking the collider. Component 2: CFA measurement models for trait anxiety (omega = 0.90) and policy demand (omega = 0.85) on raw scales. Component 3: type-specific CATE functions with Gap, Anxiety, and their interaction. Separation parameter delta = 2.09 indicates strong class differentiation.",
+      "blocks": [
+        {
+          "type": "architecture",
+          "layers": [
+            { "label": "Gate 1", "items": ["ordinal logistic mixture", "latent Trusters vs Skeptics", "δ = 2.09"] },
+            { "label": "Measurement", "items": ["trait anxiety CFA (ω = 0.90)", "policy demand CFA (ω = 0.85)"] },
+            { "label": "Gate 2", "items": ["type-specific CATEs", "Gap × Anxiety interaction", "non-negativity constraint"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results-ate",
+      "kicker": "Results I · Unconditional",
+      "headline": "Positive but modest unconditional ATE — consistent across five estimators.",
+      "subhead": "The aggregate effect exists but understates the responsive subgroup by a factor of 2.5.",
+      "notes": "All five estimators converge: OLS without controls, OLS with controls, SEM, and the BFMM (pi-weighted). This is an important robustness check — the BFMM reproduces the unconditional ATE exactly while also decomposing it. The modest effect is the starting point; the question is where it concentrates.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 4,
+          "items": [
+            { "type": "metric", "label": "OLS (raw)", "value": "d = 0.27", "detail": "95% CI: [0.14, 0.40]", "tone": "green" },
+            { "type": "metric", "label": "OLS (controls)", "value": "d = 0.24", "detail": "95% CI: [0.13, 0.36]", "tone": "green" },
+            { "type": "metric", "label": "SEM", "value": "d = 0.24", "detail": "95% CI: [0.13, 0.36]", "tone": "green" },
+            { "type": "metric", "label": "BFMM (π-wtd)", "value": "d = 0.27", "detail": "95% CI: [0.14, 0.39]", "tone": "green" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results-gate1",
+      "kicker": "Results II · Gate 1",
+      "headline": "Trust is a discrete gate: Skeptics show null effects across all conditions.",
+      "subhead": "Skeptic prevalence π ≈ 62%. Truster baseline effect (d = 0.44) is nearly double the Skeptic baseline (d = 0.23). Skeptic coefficients for Gap, Anxiety, and their interaction are all null.",
+      "notes": "This is the core Gate 1 finding. Even among Skeptics who receive large, expectation-violating belief gaps AND are dispositionally high in anxiety, treatment effects remain null. The trust differential (beta_delta,0 = 0.21, 95% CI: [0.02, 0.50]) is the key contrast. This is NOT how trust works in standard persuasion literature, where it's treated as a continuous moderator.",
+      "blocks": [
+        {
+          "type": "split",
+          "ratio": "1fr 1fr",
+          "left": [
+            { "type": "metric", "label": "Skeptics (≈62%)", "value": "d = 0.23", "detail": "Null Gap, Anxiety, and interaction coefficients", "tone": "red" }
+          ],
+          "right": [
+            { "type": "metric", "label": "Trusters (≈38%)", "value": "d = 0.44", "detail": "Positive Gap, Anxiety, and interaction coefficients", "tone": "green" }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Key finding",
+          "text": "Source rejection is strict: Skeptics show zero modulation regardless of informational shock or dispositional vigilance.",
+          "tone": "amber"
+        }
+      ]
+    },
+    {
+      "id": "results-gate2",
+      "kicker": "Results III · Gate 2",
+      "headline": "Among Trusters: joint activation by Belief Gap × Trait Anxiety.",
+      "subhead": "The interaction is the core of the conditional activation hypothesis. At maximum activation, effects reach d = 0.61 — 2.5× the unconditional ATE.",
+      "notes": "Among Trusters: Gap coefficient = 0.14 (P > 0: 92%), Anxiety coefficient = 0.14 (P > 0: 93%), Gap × Anxiety interaction = 0.13 (P > 0: 92%). The activation threshold emerges at approximately the 20th percentile of trait anxiety. Below this threshold, even Trusters with large belief gaps show null effects — this is the cool cognition pattern.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 3,
+          "items": [
+            { "type": "metric", "label": "Baseline CATE", "value": "d = 0.29", "detail": "mean Gap × mean Anxiety", "tone": "amber" },
+            { "type": "metric", "label": "Maximum CATE", "value": "d = 0.61", "detail": "high Gap × high Anxiety", "tone": "green" },
+            { "type": "metric", "label": "Activation threshold", "value": "20th %ile", "detail": "of trait anxiety (z ≈ −0.84)", "tone": "amber" }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Headline result",
+          "text": "The maximum conditional effect (d = 0.61) is 2.5× the unconditional ATE and 2.7× the baseline CATE. All pairwise contrasts show P(Δ > 0) > 0.97.",
+          "tone": "green"
+        }
+      ]
+    },
+    {
+      "id": "discussion",
+      "format": "closing",
+      "kicker": "Discussion & contributions",
+      "headline": "Null aggregate effects are a composition artifact, not preference stability.",
+      "subhead": "The two-gate framework transfers beyond automation: any persuasion domain with expert sources and dispositional moderators (climate, vaccines, trade).",
+      "notes": "Four contributions: (1) Theoretical — the two-gate model explains null effects as composition artifacts. (2) Methodological — the BFMM handles latent classes with collider-biased post-treatment moderators. (3) Empirical — largest conditional effect (d = 0.61) is more than double the unconditional ATE. (4) Policy — identifies the responsive subgroup (38% trusters with positive belief gaps and high anxiety) for targeted risk communication. Scope conditions: U.S. workers, liberal skew, single trust measure, immediate outcomes.",
+      "blocks": [
+        {
+          "type": "numbers",
+          "items": [
+            "Theoretical: two-gate model resolves conflicting findings as composition effects.",
+            "Methodological: BFMM for latent classes with collider-biased post-treatment moderators.",
+            "Empirical: maximum CATE (d = 0.61) more than doubles the unconditional ATE.",
+            "Policy: identifies responsive subgroup for targeted risk communication design."
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Scope",
+          "text": "U.S. workers (N = 901, CloudResearch). Liberal skew (62% Democrat). Immediate post-treatment. Frey & Osborne 2017 risk estimates.",
+          "tone": "amber"
+        }
+      ]
+    }
+  ]
+}
