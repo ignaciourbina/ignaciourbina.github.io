@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# PDFs (except CV in public folder)
+# PDFs (except files served on the site)
 *.pdf
-!public/files/cv.pdf
-!docs/files/cv.pdf
+!public/files/*.pdf
+!docs/files/*.pdf

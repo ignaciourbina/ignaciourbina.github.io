@@ -28,12 +28,14 @@ export default function CV() {
         className="mt-10 border border-line rounded-lg overflow-hidden bg-panel"
         style={{ height: 'calc(100vh - 20rem)' }}
       >
-        <iframe
-          src={about.profile.cvUrl}
-          title="Curriculum Vitae"
-          className="w-full h-full"
-          style={{ border: 'none' }}
-        />
+        <object data={about.profile.cvUrl} type="application/pdf" className="w-full h-full">
+          <div className="flex flex-col items-center justify-center h-full gap-4 p-8">
+            <p className="text-muted text-center">PDF preview is not available in this browser.</p>
+            <Button href={about.profile.cvUrl} variant="primary">
+              Download CV (PDF)
+            </Button>
+          </div>
+        </object>
       </div>
     </div>
   )
