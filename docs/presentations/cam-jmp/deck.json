@@ -164,22 +164,23 @@
     {
       "id": "pathways",
       "kicker": "Predicted pathways",
-      "headline": "The model predicts three distinct cognitive pathways generating the observed heterogeneity.",
-      "notes": "Source rejection: ~62%. Cool cognition: trusters with below-threshold anxiety. Activated persuasion: trusters exceeding both thresholds.",
+      "headline": "The two-gate structure predicts three qualitatively distinct cognitive pathways.",
+      "subhead": "Each pathway corresponds to a different exit point in the information-processing sequence. A population-level null ATE is the expected signature when the three pathways are mixed.",
+      "notes": "This is a theoretical slide — no empirical numbers yet. The three pathways are derived from the gate structure, not from data. The key theoretical claim is that aggregate nulls are predicted by the model under heterogeneous mixing, not anomalous.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "1. Source rejection", "value": "π ≈ 62%", "detail": "Information discounted; effects unmodulated by Gap or Anxiety", "tone": "red" },
-            { "type": "metric", "label": "2. Cool cognition", "value": "Low-anxiety trusters", "detail": "Belief updating without policy search activation", "tone": "amber" },
-            { "type": "metric", "label": "3. Activated persuasion", "value": "CATE = 0.61 SD", "detail": "Both gates exceeded; elaboration translates to policy demand", "tone": "green" }
+            { "type": "metric", "label": "1. Source rejection", "value": "Skeptics", "detail": "Information fails the trust gate; no downstream processing regardless of gap magnitude or anxiety level", "tone": "red" },
+            { "type": "metric", "label": "2. Cool cognition", "value": "Below-threshold trusters", "detail": "Information is accepted and beliefs update, but insufficient vigilance to initiate policy search", "tone": "amber" },
+            { "type": "metric", "label": "3. Activated persuasion", "value": "Above-threshold trusters", "detail": "Both gates cleared; sustained elaboration of threat translates into demand for protective policy", "tone": "green" }
           ]
         },
         {
           "type": "callout",
-          "label": "Implication",
-          "text": "Null aggregate ATEs are a weighted average of these three pathways — a composition artifact, not preference stability.",
+          "label": "Prediction",
+          "text": "If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup — producing the null or weak aggregate effects observed in prior work.",
           "tone": "amber"
         }
       ]
