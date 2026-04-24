@@ -225,6 +225,25 @@
       ]
     },
     {
+      "id": "measures",
+      "kicker": "Measurement",
+      "headline": "Policy demand index: five items capturing support for government responses to automation (ω = 0.85).",
+      "subhead": "Respondents rate agreement on a 7-point scale (strongly disagree to strongly agree). Items span redistribution, regulation, retraining, labor protections, and employment limits.",
+      "notes": "The battery deliberately covers multiple policy instruments — not just redistribution. This avoids anchoring to a single ideological frame. Scale reliability is good (McDonald's omega = 0.85). Items are measured post-treatment for all respondents.",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            { "title": "Q1 · Redistribution", "detail": "\"The government should expand unemployment benefits and income subsidies for workers displaced by AI and automation.\"" },
+            { "title": "Q2 · Regulation", "detail": "\"The federal government should impose stricter regulations on AI, including mandatory ethical reviews before deployment.\"" },
+            { "title": "Q3 · Retraining", "detail": "\"The government and private sector should invest more in retraining programs for workers whose jobs are at risk of automation.\"" },
+            { "title": "Q4 · Labor protections", "detail": "\"The government should strengthen labor protections and support unionization to help workers negotiate with employers using AI.\"" },
+            { "title": "Q5 · Employment limits", "detail": "\"There should be limits on how many jobs can be replaced by AI and automated systems.\"" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "identification",
       "kicker": "Identification",
       "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
