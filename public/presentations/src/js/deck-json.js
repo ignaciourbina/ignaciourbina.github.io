@@ -5,6 +5,7 @@ import {
     Callout,
     ChatRound,
     DesignMatrix,
+    DotPlot,
     FlowDiagram,
     Grid,
     MetricCard,
@@ -121,6 +122,19 @@ export function componentFromSpec(spec, features = {}) {
 
     if (type === "chat-round" || type === "chat") {
         return new ChatRound(spec.messages || spec.items || [], opts);
+    }
+
+    if (type === "dot-plot" || type === "dotplot" || type === "coefficient-plot") {
+        return new DotPlot(spec.points || spec.items || [], {
+            ...opts,
+            title: spec.title,
+            xLabel: spec.xLabel,
+            referenceLine: spec.referenceLine,
+            labelWidth: spec.labelWidth,
+            showValues: spec.showValues,
+            ticks: spec.ticks,
+            tone: spec.tone,
+        });
     }
 
     if (type === "plot" || type === "tradeoff-plot") {

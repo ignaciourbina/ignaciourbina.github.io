@@ -406,6 +406,138 @@ export class TradeoffPlot extends Component {
     }
 }
 
+export class DotPlot extends Component {
+    constructor(points = [], options = {}) {
+        super(options);
+        this.points = points;
+    }
+
+    render(ctx) {
+        const refLine = this.options.referenceLine ?? 0;
+        const labelWidth = this.options.labelWidth || "10rem";
+
+        // Compute axis range from data
+        let allVals = [];
+        for (const pt of this.points) {
+            allVals.push(pt.estimate);
+            if (pt.ci) { allVals.push(pt.ci[0], pt.ci[1]); }
+        }
+        const dataMin = Math.min(...allVals, refLine);
+        const dataMax = Math.max(...allVals, refLine);
+        const pad = (dataMax - dataMin) * 0.15 || 0.1;
+        const axMin = dataMin - pad;
+        const axMax = dataMax + pad;
+        const range = axMax - axMin;
+
+        const toPercent = (v) => ((v - axMin) / range) * 100;
+
+        // Color palette
+        const defaultColors = {
+            green: "var(--green)",
+            red: "var(--red)",
+            amber: "var(--amber)",
+            blue: "var(--blue)",
+        };
+        const getColor = (tone) => defaultColors[tone] || tone || "var(--green)";
+
+        // Build rows
+        const rows = this.points.map((pt) => {
+            const color = getColor(pt.tone || pt.color || this.options.tone || "green");
+            const track = h("div", { class: "dot-plot-track" });
+
+            // Reference line
+            track.append(h("span", {
+                class: "dot-plot-ref",
+                style: { left: `${toPercent(refLine)}%` },
+            }));
+
+            // CI whisker
+            if (pt.ci) {
+                const left = toPercent(pt.ci[0]);
+                const right = toPercent(pt.ci[1]);
+                track.append(h("span", {
+                    class: "dot-plot-ci",
+                    style: { left: `${left}%`, width: `${right - left}%`, background: color },
+                }));
+            }
+
+            // Point
+            track.append(h("span", {
+                class: "dot-plot-point",
+                style: { left: `${toPercent(pt.estimate)}%`, background: color },
+            }));
+
+            // Value annotation
+            if (this.options.showValues !== false) {
+                const valLeft = toPercent(pt.ci ? pt.ci[1] : pt.estimate);
+                track.append(h("span", {
+                    class: "dot-plot-value",
+                    text: pt.valueLabel || pt.estimate.toFixed(2),
+                    style: { left: `calc(${valLeft}% + 0.5rem)` },
+                }));
+            }
+
+            return h("div", {
+                class: "dot-plot-row",
+                style: { "--label-width": labelWidth },
+                dataset: stepAttrs(ctx, this.options.reveal === "items"),
+            }, [
+                h("span", { class: "dot-plot-label", text: pt.label || "" }),
+                track,
+            ]);
+        });
+
+        // Axis ticks
+        const nTicks = this.options.ticks || 5;
+        const step = range / (nTicks - 1);
+        const ticks = [];
+        for (let i = 0; i < nTicks; i++) {
+            const val = axMin + step * i;
+            ticks.push(h("span", {
+                class: "dot-plot-tick",
+                text: val.toFixed(2),
+                style: { left: `${toPercent(val)}%` },
+            }));
+        }
+
+        const axisTrack = h("div", { class: "dot-plot-axis-track" }, ticks);
+        const axis = h("div", {
+            class: "dot-plot-axis",
+            style: { "--label-width": labelWidth },
+        }, [
+            h("span"), // empty label column
+            axisTrack,
+        ]);
+
+        // Legend (if groups have different colors)
+        const legendItems = [];
+        const seenColors = new Set();
+        for (const pt of this.points) {
+            const key = pt.group || pt.tone || pt.color;
+            if (key && !seenColors.has(key)) {
+                seenColors.add(key);
+                legendItems.push(h("span", { class: "dot-plot-legend-item" }, [
+                    h("span", { class: "dot-plot-legend-dot", style: { background: getColor(key) } }),
+                    pt.groupLabel || key,
+                ]));
+            }
+        }
+
+        const container = h("div", {
+            class: "dot-plot",
+            dataset: stepAttrs(ctx, this.options.reveal === true),
+        }, [
+            this.options.title ? h("p", { class: "dot-plot-title", text: this.options.title }) : null,
+            ...rows,
+            axis,
+            this.options.xLabel ? h("span", { class: "dot-plot-axis-label", text: this.options.xLabel }) : null,
+            legendItems.length > 1 ? h("div", { class: "dot-plot-legend" }, legendItems) : null,
+        ]);
+
+        return container;
+    }
+}
+
 export class ChatRound extends Component {
     constructor(messages = [], options = {}) {
         super(options);

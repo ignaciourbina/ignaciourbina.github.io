@@ -335,13 +335,17 @@
       "notes": "Starting point — aggregate effect exists but understates responsive subgroup by factor 2.5.",
       "blocks": [
         {
-          "type": "grid",
-          "columns": 4,
-          "items": [
-            { "type": "metric", "label": "OLS (unadjusted)", "value": "d = 0.27", "detail": "[0.14, 0.40]", "tone": "green" },
-            { "type": "metric", "label": "OLS (adjusted)", "value": "d = 0.24", "detail": "[0.13, 0.36]", "tone": "green" },
-            { "type": "metric", "label": "SEM", "value": "d = 0.24", "detail": "[0.13, 0.36]", "tone": "green" },
-            { "type": "metric", "label": "BFMM (π-weighted)", "value": "d = 0.27", "detail": "[0.14, 0.39]", "tone": "green" }
+          "type": "dot-plot",
+          "xLabel": "Standardized effect (d)",
+          "referenceLine": 0,
+          "labelWidth": "10rem",
+          "ticks": 6,
+          "reveal": "items",
+          "points": [
+            { "label": "OLS (unadjusted)", "estimate": 0.27, "ci": [0.14, 0.40], "tone": "green" },
+            { "label": "OLS (adjusted)", "estimate": 0.24, "ci": [0.13, 0.36], "tone": "green" },
+            { "label": "SEM", "estimate": 0.24, "ci": [0.13, 0.36], "tone": "green" },
+            { "label": "BFMM (π-weighted)", "estimate": 0.27, "ci": [0.14, 0.39], "tone": "green" }
           ]
         }
       ]
@@ -358,20 +362,36 @@
           "reveal": "panes",
           "left": [
             {
-              "type": "metric",
-              "label": "Skeptics (π ≈ 62%)",
-              "value": "d = 0.23",
-              "detail": "Gap β = −0.06 · Anx β = −0.06 · Interaction β = −0.07; all P(β > 0) < 0.30",
-              "tone": "red"
+              "type": "dot-plot",
+              "title": "Skeptics (π ≈ 62%)",
+              "xLabel": "β (posterior mean)",
+              "referenceLine": 0,
+              "labelWidth": "6rem",
+              "ticks": 5,
+              "tone": "red",
+              "points": [
+                { "label": "Intercept (β₀)", "estimate": 0.23, "ci": [0.00, 0.41], "tone": "red", "valueLabel": "0.23" },
+                { "label": "Gap (β₁)", "estimate": -0.06, "ci": [-0.26, 0.08], "tone": "red", "valueLabel": "−0.06" },
+                { "label": "Anxiety (β₂)", "estimate": -0.06, "ci": [-0.27, 0.07], "tone": "red", "valueLabel": "−0.06" },
+                { "label": "Gap × Anx (β₃)", "estimate": -0.07, "ci": [-0.27, 0.05], "tone": "red", "valueLabel": "−0.07" }
+              ]
             }
           ],
           "right": [
             {
-              "type": "metric",
-              "label": "Trusters (π ≈ 38%)",
-              "value": "d = 0.44",
-              "detail": "Gap β = 0.14 · Anx β = 0.14 · Interaction β = 0.13; all P(β > 0) > 0.92",
-              "tone": "green"
+              "type": "dot-plot",
+              "title": "Trusters (π ≈ 38%)",
+              "xLabel": "β (posterior mean)",
+              "referenceLine": 0,
+              "labelWidth": "6rem",
+              "ticks": 5,
+              "tone": "green",
+              "points": [
+                { "label": "Intercept (β₀)", "estimate": 0.44, "ci": [0.23, 0.74], "tone": "green", "valueLabel": "0.44" },
+                { "label": "Gap (β₁)", "estimate": 0.14, "ci": [-0.04, 0.42], "tone": "green", "valueLabel": "0.14" },
+                { "label": "Anxiety (β₂)", "estimate": 0.14, "ci": [-0.03, 0.41], "tone": "green", "valueLabel": "0.14" },
+                { "label": "Gap × Anx (β₃)", "estimate": 0.13, "ci": [-0.03, 0.40], "tone": "green", "valueLabel": "0.13" }
+              ]
             }
           ]
         },
@@ -396,11 +416,16 @@
           "ratio": "1fr 1fr",
           "left": [
             {
-              "type": "grid",
-              "columns": 1,
-              "items": [
-                { "type": "metric", "label": "Baseline CATE (mean × mean)", "value": "d = 0.29", "detail": "Population-average Gap and Anxiety among Trusters", "tone": "amber" },
-                { "type": "metric", "label": "Maximum CATE (high × high)", "value": "d = 0.61", "detail": "2.5× unconditional ATE; 95% CI: [0.40, 0.86]", "tone": "green" }
+              "type": "dot-plot",
+              "title": "Conditional Average Treatment Effects",
+              "xLabel": "Standardized effect (d)",
+              "referenceLine": 0,
+              "labelWidth": "9rem",
+              "ticks": 5,
+              "points": [
+                { "label": "Unconditional ATE", "estimate": 0.27, "ci": [0.14, 0.39], "tone": "blue", "valueLabel": "d = 0.27" },
+                { "label": "CATE (mean × mean)", "estimate": 0.29, "ci": [0.15, 0.46], "tone": "amber", "valueLabel": "d = 0.29" },
+                { "label": "CATE (high × high)", "estimate": 0.61, "ci": [0.40, 0.86], "tone": "green", "valueLabel": "d = 0.61" }
               ]
             }
           ],
@@ -411,7 +436,7 @@
                 { "title": "Activation threshold", "detail": "≈ 20th percentile of trait anxiety (z ≈ −0.84)" },
                 { "title": "Below threshold", "detail": "Large gaps → null CATEs (cool cognition)" },
                 { "title": "Above threshold", "detail": "CATEs scale linearly with Gap × Anxiety" },
-                { "title": "Pairwise contrasts", "detail": "All: P(Δ > 0) > 0.97" }
+                { "title": "Maximum CATE", "detail": "2.5× the unconditional ATE" }
               ]
             }
           ]
