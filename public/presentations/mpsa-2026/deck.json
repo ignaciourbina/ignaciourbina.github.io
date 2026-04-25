@@ -85,20 +85,28 @@
       "notes": "Voice: agent selects one held consideration. Evaluate: listeners score its influence given their currently held attackers and supporters. Reflect: weights move toward endorsement or rejection at a rate set by persuasiveness and agent inertia; previously unheld considerations can be adopted when influence clears a threshold. The rule-based engine realizes these hooks via attack-support arithmetic on the graph; the LLM engine realizes them via tool-constrained action calls.",
       "blocks": [
         {
-          "type": "architecture",
-          "layers": [
-            { "label": "Protocol", "items": ["town hall", "voice budget", "round count"] },
-            { "label": "State", "items": ["considerations", "attack–support graph", "weighted repertoires"] },
-            { "label": "Engine", "items": ["empirical rule-based", "tool-constrained LLM"] },
-            { "label": "Outcomes", "items": ["epistemic", "distributional", "procedural"] }
-          ]
-        },
-        {
-          "type": "bullets",
-          "items": [
-            { "title": "Voice", "detail": "Select one held consideration to speak; budget = 1 per round." },
-            { "title": "Evaluate", "detail": "Score heard consideration's influence given held attackers and supporters." },
-            { "title": "Reflect", "detail": "Update weights toward endorsement or rejection; adopt new considerations if influence clears threshold." }
+          "type": "split",
+          "ratio": "1.1fr 0.9fr",
+          "left": [
+            {
+              "type": "architecture",
+              "layers": [
+                { "label": "Protocol", "items": ["town hall", "voice budget", "round count"] },
+                { "label": "State", "items": ["considerations", "attack–support graph", "weighted repertoires"] },
+                { "label": "Engine", "items": ["empirical rule-based", "tool-constrained LLM"] },
+                { "label": "Outcomes", "items": ["epistemic", "distributional", "procedural"] }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "bullets",
+              "items": [
+                { "title": "Voice", "detail": "Select one held consideration to speak; budget = 1 per round." },
+                { "title": "Evaluate", "detail": "Score heard consideration's influence given held attackers and supporters." },
+                { "title": "Reflect", "detail": "Update weights toward endorsement or rejection; adopt new considerations if influence clears threshold." }
+              ]
+            }
           ]
         }
       ]
