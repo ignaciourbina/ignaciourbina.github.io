@@ -763,6 +763,7 @@ button {
 .design-matrix {
     display: grid;
     grid-template-columns: repeat(var(--matrix-columns), minmax(0, 1fr));
+    max-width: 52rem;
     border: 1px solid var(--line);
     border-radius: 6px;
     overflow: hidden;
@@ -771,8 +772,10 @@ button {
 
 .matrix-corner, .matrix-head, .matrix-row-head, .matrix-cell {
     min-height: 2.25rem;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 0.12rem;
     padding: 0.55rem;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -780,7 +783,7 @@ button {
 }
 
 .matrix-head { background: var(--ink); color: white; font-weight: 800; }
-.matrix-row-head { background: var(--paper); color: var(--ink); font-weight: 800; }
+.matrix-row-head { background: var(--paper); color: var(--ink); font-weight: 800; white-space: nowrap; }
 .matrix-cell--active { color: var(--green); font-weight: 750; }
 
 /* --- Tradeoff plot --- */
