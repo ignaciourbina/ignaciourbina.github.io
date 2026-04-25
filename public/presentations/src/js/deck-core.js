@@ -654,7 +654,7 @@ export class DeckRenderer {
         this.sidebarList = h("ol", { class: "deck-sidebar-list" },
             this.deck.slides.map((slide, index) =>
                 h("li", {
-                    on: { click: () => { this.goTo(index); this.toggleSidebar(); } },
+                    on: { click: () => { this.goTo(index); this.closeSidebar(); } },
                 }, [
                     h("span", { class: "sidebar-slide-number", text: String(index + 1).padStart(2, "0") }),
                     h("span", { class: "sidebar-slide-title", text: slide.kickerText || slide.title }),
@@ -702,7 +702,31 @@ export class DeckRenderer {
     }
 
     toggleSidebar() {
-        if (this.sidebar) this.sidebar.classList.toggle("is-open");
+        if (!this.sidebar) return;
+        const opening = !this.sidebar.classList.contains("is-open");
+        this.sidebar.classList.toggle("is-open");
+        if (opening) {
+            this.sidebarBackdrop = h("div", {
+                class: "sidebar-backdrop",
+                on: { click: () => this.closeSidebar() },
+            });
+            this.root.append(this.sidebarBackdrop);
+        } else {
+            this.removeSidebarBackdrop();
+        }
+    }
+
+    closeSidebar() {
+        if (!this.sidebar) return;
+        this.sidebar.classList.remove("is-open");
+        this.removeSidebarBackdrop();
+    }
+
+    removeSidebarBackdrop() {
+        if (this.sidebarBackdrop) {
+            this.sidebarBackdrop.remove();
+            this.sidebarBackdrop = null;
+        }
     }
 
     updateSidebar() {
@@ -885,6 +909,8 @@ export class DeckRenderer {
             this.toggleNotes();
         } else if (this.features.fullscreen && event.key.toLowerCase() === "f") {
             this.toggleFullscreen();
+        } else if (event.key === "Escape") {
+            this.closeSidebar();
         } else if (event.key.toLowerCase() === "s") {
             this.toggleSidebar();
         } else if (event.key === "Home") {
