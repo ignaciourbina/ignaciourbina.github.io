@@ -133,6 +133,7 @@ export function componentFromSpec(spec, features = {}) {
             referenceLine: spec.referenceLine,
             labelWidth: spec.labelWidth,
             showValues: spec.showValues,
+            showLegend: spec.showLegend,
             ticks: spec.ticks,
             tone: spec.tone,
         });

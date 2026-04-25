@@ -371,17 +371,43 @@
       "notes": "DRI asks whether opinion similarity is grounded in shared reason structure — it is the correlation between pairwise weight-vector cosine similarity and opinion proximity. Meta-consensus tracks convergence on what matters rather than what to do — measured as agreement on consideration salience (absolute weight magnitude) across agents. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in the LLM arm (the rule-based arm shows mixed or flat movement); better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim. An index-point change of +5 means the outcome grew 5 percentage points of its baseline distance over the deliberation period.",
       "blocks": [
         {
-          "type": "callout",
-          "label": "Measures",
-          "text": "DRI: correlation between pairwise opinion similarity and shared reason structure — do agents who agree also agree on why? Meta-consensus: convergence on what matters, not what to do.",
-          "tone": "green"
+          "type": "bullets",
+          "density": "compact",
+          "items": [
+            { "title": "DRI (Deliberative Reasoning Index)", "detail": "Correlation between pairwise opinion similarity and shared reason structure — do agents who agree also agree on why?" },
+            { "title": "Meta-consensus", "detail": "Convergence on what matters, not what to do — agreement on consideration salience across agents." }
+          ]
         },
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "DRI gap (LLM − rule)", "value": "\\(+5.04^{**}\\; /\\; +1.01\\; /\\; +9.23^{**}\\)", "detail": "polarized / symmetric / three-cluster; three-cluster largest (p = .006)", "tone": "green" },
-            { "type": "metric", "label": "Meta-consensus gap", "value": "\\(+1.40^{***}\\; /\\; +0.83^{***}\\; /\\; +1.15^{***}\\)", "detail": "polarized / symmetric / three-cluster; significant in all three", "tone": "green" }
+            {
+              "type": "dot-plot",
+              "title": "DRI gap (LLM − rule)",
+              "referenceLine": 0,
+              "xLabel": "index points",
+              "labelWidth": "7rem",
+              "ticks": 5,
+              "points": [
+                { "label": "polarized", "estimate": 5.04, "tone": "green", "valueLabel": "+5.04**" },
+                { "label": "symmetric", "estimate": 1.01, "tone": "amber", "valueLabel": "+1.01" },
+                { "label": "three-cluster", "estimate": 9.23, "tone": "green", "valueLabel": "+9.23**" }
+              ]
+            },
+            {
+              "type": "dot-plot",
+              "title": "Meta-consensus gap (LLM − rule)",
+              "referenceLine": 0,
+              "xLabel": "index points",
+              "labelWidth": "7rem",
+              "ticks": 5,
+              "points": [
+                { "label": "polarized", "estimate": 1.40, "tone": "green", "valueLabel": "+1.40***" },
+                { "label": "symmetric", "estimate": 0.83, "tone": "green", "valueLabel": "+0.83***" },
+                { "label": "three-cluster", "estimate": 1.15, "tone": "green", "valueLabel": "+1.15***" }
+              ]
+            }
           ]
         }
       ]
@@ -394,11 +420,43 @@
       "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−5.19, p = .001), is imprecise in three-cluster (−2.23, p = .148), and near zero in polarized (−0.10, p = .934). Plurality (held off-slide): the LLM arm compresses more; the rule-based arm is mixed or flat. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
       "blocks": [
         {
+          "type": "bullets",
+          "density": "compact",
+          "items": [
+            { "title": "Argument diversity", "detail": "Fraction of the consideration pool voiced at least once — how much of the shared argument space gets activated." },
+            { "title": "Cross-camp uptake", "detail": "Rate at which agents adopt considerations from the opposing policy camp." }
+          ]
+        },
+        {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "Argument diversity gap (LLM − rule)", "value": "\\(-22.41^{***}\\; /\\; -20.82^{***}\\; /\\; -21.67^{***}\\)", "detail": "polarized / symmetric / three-cluster; rule-based advantage in every composition; all p < .001", "tone": "amber" },
-            { "type": "metric", "label": "Cross-camp uptake gap", "value": "\\(-0.10\\; /\\; -5.19^{**}\\; /\\; -2.23\\)", "detail": "polarized / symmetric / three-cluster; clearest in symmetric (p = .001)", "tone": "amber" }
+            {
+              "type": "dot-plot",
+              "title": "Arg. diversity gap (LLM − rule)",
+              "referenceLine": 0,
+              "xLabel": "index points",
+              "labelWidth": "7rem",
+              "ticks": 5,
+              "points": [
+                { "label": "polarized", "estimate": -22.41, "tone": "amber", "valueLabel": "−22.41***" },
+                { "label": "symmetric", "estimate": -20.82, "tone": "amber", "valueLabel": "−20.82***" },
+                { "label": "three-cluster", "estimate": -21.67, "tone": "amber", "valueLabel": "−21.67***" }
+              ]
+            },
+            {
+              "type": "dot-plot",
+              "title": "Cross-camp uptake gap (LLM − rule)",
+              "referenceLine": 0,
+              "xLabel": "index points",
+              "labelWidth": "7rem",
+              "ticks": 5,
+              "points": [
+                { "label": "polarized", "estimate": -0.10, "tone": "amber", "valueLabel": "−0.10" },
+                { "label": "symmetric", "estimate": -5.19, "tone": "green", "valueLabel": "−5.19**" },
+                { "label": "three-cluster", "estimate": -2.23, "tone": "amber", "valueLabel": "−2.23" }
+              ]
+            }
           ]
         }
       ]
