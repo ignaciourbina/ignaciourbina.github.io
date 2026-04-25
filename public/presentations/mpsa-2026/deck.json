@@ -392,6 +392,7 @@
           "items": [
             {
               "type": "dot-plot",
+              "showLegend": false,
               "title": "DRI gap (LLM − rule)",
               "referenceLine": 0,
               "xLabel": "index points",
@@ -405,6 +406,7 @@
             },
             {
               "type": "dot-plot",
+              "showLegend": false,
               "title": "Meta-consensus gap (LLM − rule)",
               "referenceLine": 0,
               "xLabel": "index points",
@@ -441,6 +443,7 @@
           "items": [
             {
               "type": "dot-plot",
+              "showLegend": false,
               "title": "Arg. diversity gap (LLM − rule)",
               "referenceLine": 0,
               "xLabel": "index points",
@@ -454,6 +457,7 @@
             },
             {
               "type": "dot-plot",
+              "showLegend": false,
               "title": "Cross-camp uptake gap (LLM − rule)",
               "referenceLine": 0,
               "xLabel": "index points",
