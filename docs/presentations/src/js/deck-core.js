@@ -406,6 +406,236 @@ export class TradeoffPlot extends Component {
     }
 }
 
+export class NetworkGraph extends Component {
+    constructor(nodes = [], edges = [], options = {}) {
+        super(options);
+        this.nodes = nodes;
+        this.edges = edges;
+    }
+
+    render(ctx) {
+        const container = h("div", { class: "network-graph" });
+
+        // Build the graph panel (starts hidden when control button is present)
+        const hasControl = !!this.options.control;
+        const panel = h("div", {
+            class: hasControl ? "network-graph-panel" : "network-graph-panel is-visible",
+        });
+
+        // Tooltip element (positioned absolutely within panel)
+        const tooltip = h("div", { class: "network-graph-tooltip" });
+
+        // Node lookup for edge drawing
+        const nodeMap = {};
+        for (const node of this.nodes) nodeMap[node.id] = node;
+
+        // SVG edge layer
+        const NS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("class", "network-graph-edges");
+        svg.setAttribute("viewBox", "0 0 100 100");
+        svg.setAttribute("preserveAspectRatio", "none");
+
+        for (const edge of this.edges) {
+            const src = nodeMap[edge.source];
+            const tgt = nodeMap[edge.target];
+            if (!src || !tgt) continue;
+
+            const line = document.createElementNS(NS, "line");
+            line.setAttribute("x1", src.x);
+            line.setAttribute("y1", 100 - src.y);
+            line.setAttribute("x2", tgt.x);
+            line.setAttribute("y2", 100 - tgt.y);
+            line.setAttribute("class", `edge edge--${edge.type || "attack"}`);
+            if (edge.strength) {
+                line.style.opacity = String(0.25 + 0.55 * edge.strength);
+            }
+            svg.appendChild(line);
+        }
+        panel.append(svg);
+
+        // Node layer
+        this.nodes.forEach(node => {
+            const point = h("span", {
+                class: `network-node network-node--${node.tone || "default"}`,
+                text: node.id,
+                style: {
+                    left: `${node.x}%`,
+                    bottom: `${node.y}%`,
+                },
+                dataset: stepAttrs(ctx, this.options.reveal === "nodes"),
+                on: {
+                    mouseenter: () => {
+                        tooltip.textContent = node.label;
+                        tooltip.style.left = `${node.x}%`;
+                        tooltip.style.bottom = `calc(${node.y}% + 2.2rem)`;
+                        tooltip.classList.add("is-visible");
+                    },
+                    mouseleave: () => {
+                        tooltip.classList.remove("is-visible");
+                    },
+                },
+            });
+            panel.append(point);
+        });
+
+        panel.append(tooltip);
+
+        // Toggle button (optional)
+        if (hasControl) {
+            const label = this.options.control;
+            const button = h("button", {
+                class: "network-graph-toggle",
+                text: label,
+                attrs: { "aria-pressed": "false" },
+                on: {
+                    click: () => {
+                        const visible = panel.classList.toggle("is-visible");
+                        button.setAttribute("aria-pressed", visible ? "true" : "false");
+                        button.textContent = visible ? "Hide graph" : label;
+                    },
+                },
+            });
+            container.append(button);
+        }
+
+        container.append(panel);
+        return container;
+    }
+}
+
+export class DotPlot extends Component {
+    constructor(points = [], options = {}) {
+        super(options);
+        this.points = points;
+    }
+
+    render(ctx) {
+        const refLine = this.options.referenceLine ?? 0;
+        const labelWidth = this.options.labelWidth || "10rem";
+
+        // Compute axis range from data
+        let allVals = [];
+        for (const pt of this.points) {
+            allVals.push(pt.estimate);
+            if (pt.ci) { allVals.push(pt.ci[0], pt.ci[1]); }
+        }
+        const dataMin = Math.min(...allVals, refLine);
+        const dataMax = Math.max(...allVals, refLine);
+        const pad = (dataMax - dataMin) * 0.15 || 0.1;
+        const axMin = dataMin - pad;
+        const axMax = dataMax + pad;
+        const range = axMax - axMin;
+
+        const toPercent = (v) => ((v - axMin) / range) * 100;
+
+        // Color palette
+        const defaultColors = {
+            green: "var(--green)",
+            red: "var(--red)",
+            amber: "var(--amber)",
+            blue: "var(--blue)",
+        };
+        const getColor = (tone) => defaultColors[tone] || tone || "var(--green)";
+
+        // Build rows
+        const rows = this.points.map((pt) => {
+            const color = getColor(pt.tone || pt.color || this.options.tone || "green");
+            const track = h("div", { class: "dot-plot-track" });
+
+            // Reference line
+            track.append(h("span", {
+                class: "dot-plot-ref",
+                style: { left: `${toPercent(refLine)}%` },
+            }));
+
+            // CI whisker
+            if (pt.ci) {
+                const left = toPercent(pt.ci[0]);
+                const right = toPercent(pt.ci[1]);
+                track.append(h("span", {
+                    class: "dot-plot-ci",
+                    style: { left: `${left}%`, width: `${right - left}%`, background: color },
+                }));
+            }
+
+            // Point
+            track.append(h("span", {
+                class: "dot-plot-point",
+                style: { left: `${toPercent(pt.estimate)}%`, background: color },
+            }));
+
+            // Value annotation
+            if (this.options.showValues !== false) {
+                const valLeft = toPercent(pt.ci ? pt.ci[1] : pt.estimate);
+                track.append(h("span", {
+                    class: "dot-plot-value",
+                    text: pt.valueLabel || pt.estimate.toFixed(2),
+                    style: { left: `calc(${valLeft}% + 0.5rem)` },
+                }));
+            }
+
+            return h("div", {
+                class: "dot-plot-row",
+                style: { "--label-width": labelWidth },
+                dataset: stepAttrs(ctx, this.options.reveal === "items"),
+            }, [
+                h("span", { class: "dot-plot-label", text: pt.label || "" }),
+                track,
+            ]);
+        });
+
+        // Axis ticks
+        const nTicks = this.options.ticks || 5;
+        const step = range / (nTicks - 1);
+        const ticks = [];
+        for (let i = 0; i < nTicks; i++) {
+            const val = axMin + step * i;
+            ticks.push(h("span", {
+                class: "dot-plot-tick",
+                text: val.toFixed(2),
+                style: { left: `${toPercent(val)}%` },
+            }));
+        }
+
+        const axisTrack = h("div", { class: "dot-plot-axis-track" }, ticks);
+        const axis = h("div", {
+            class: "dot-plot-axis",
+            style: { "--label-width": labelWidth },
+        }, [
+            h("span"), // empty label column
+            axisTrack,
+        ]);
+
+        // Legend (if groups have different colors)
+        const legendItems = [];
+        const seenColors = new Set();
+        for (const pt of this.points) {
+            const key = pt.group || pt.tone || pt.color;
+            if (key && !seenColors.has(key)) {
+                seenColors.add(key);
+                legendItems.push(h("span", { class: "dot-plot-legend-item" }, [
+                    h("span", { class: "dot-plot-legend-dot", style: { background: getColor(key) } }),
+                    pt.groupLabel || key,
+                ]));
+            }
+        }
+
+        const container = h("div", {
+            class: "dot-plot",
+            dataset: stepAttrs(ctx, this.options.reveal === true),
+        }, [
+            this.options.title ? h("p", { class: "dot-plot-title", text: this.options.title }) : null,
+            ...rows,
+            axis,
+            this.options.xLabel ? h("span", { class: "dot-plot-axis-label", text: this.options.xLabel }) : null,
+            legendItems.length > 1 ? h("div", { class: "dot-plot-legend" }, legendItems) : null,
+        ]);
+
+        return container;
+    }
+}
+
 export class ChatRound extends Component {
     constructor(messages = [], options = {}) {
         super(options);
@@ -631,6 +861,11 @@ export class DeckRenderer {
                 if (e.target.closest("button, a, .deck-controls, .deck-sidebar, .agent-loop-stage")) return;
                 this.next();
             });
+            document.addEventListener("mousemove", (e) => {
+                if (!this.sidebarToggle) return;
+                const show = e.clientX < 80;
+                this.sidebarToggle.classList.toggle("is-visible", show);
+            });
         }
         this.render();
     }
@@ -647,9 +882,6 @@ export class DeckRenderer {
             button("<", "Previous slide or reveal", () => this.prev()),
             this.counter,
             button(">", "Next slide or reveal", () => this.next()),
-            this.features.notes ? button("P", "Toggle speaker notes", () => this.toggleNotes()) : null,
-            this.features.outline ? button("O", "Toggle outline mode", () => this.toggleOutline()) : null,
-            this.features.fullscreen ? button("F", "Toggle fullscreen", () => this.toggleFullscreen()) : null,
         ]);
     }
 
@@ -657,13 +889,28 @@ export class DeckRenderer {
         this.sidebarList = h("ol", { class: "deck-sidebar-list" },
             this.deck.slides.map((slide, index) =>
                 h("li", {
-                    on: { click: () => { this.goTo(index); this.toggleSidebar(); } },
+                    on: { click: () => { this.goTo(index); this.closeSidebar(); } },
                 }, [
                     h("span", { class: "sidebar-slide-number", text: String(index + 1).padStart(2, "0") }),
                     h("span", { class: "sidebar-slide-title", text: slide.kickerText || slide.title }),
                 ])
             )
         );
+
+        const footerButtons = [
+            this.features.notes ? h("button", {
+                class: "sidebar-action",
+                text: "Notes",
+                attrs: { type: "button", "aria-label": "Toggle speaker notes" },
+                on: { click: () => this.toggleNotes() },
+            }) : null,
+            this.features.fullscreen ? h("button", {
+                class: "sidebar-action",
+                text: "Fullscreen",
+                attrs: { type: "button", "aria-label": "Toggle fullscreen" },
+                on: { click: () => this.toggleFullscreen() },
+            }) : null,
+        ].filter(Boolean);
 
         return h("aside", { class: "deck-sidebar" }, [
             h("div", { class: "deck-sidebar-header" }, [
@@ -676,6 +923,7 @@ export class DeckRenderer {
                 }),
             ]),
             this.sidebarList,
+            footerButtons.length ? h("div", { class: "deck-sidebar-footer" }, footerButtons) : null,
         ]);
     }
 
@@ -689,7 +937,31 @@ export class DeckRenderer {
     }
 
     toggleSidebar() {
-        if (this.sidebar) this.sidebar.classList.toggle("is-open");
+        if (!this.sidebar) return;
+        const opening = !this.sidebar.classList.contains("is-open");
+        this.sidebar.classList.toggle("is-open");
+        if (opening) {
+            this.sidebarBackdrop = h("div", {
+                class: "sidebar-backdrop",
+                on: { click: () => this.closeSidebar() },
+            });
+            this.root.append(this.sidebarBackdrop);
+        } else {
+            this.removeSidebarBackdrop();
+        }
+    }
+
+    closeSidebar() {
+        if (!this.sidebar) return;
+        this.sidebar.classList.remove("is-open");
+        this.removeSidebarBackdrop();
+    }
+
+    removeSidebarBackdrop() {
+        if (this.sidebarBackdrop) {
+            this.sidebarBackdrop.remove();
+            this.sidebarBackdrop = null;
+        }
     }
 
     updateSidebar() {
@@ -870,10 +1142,10 @@ export class DeckRenderer {
             this.prev();
         } else if (this.features.notes && event.key.toLowerCase() === "p") {
             this.toggleNotes();
-        } else if (this.features.outline && event.key.toLowerCase() === "o") {
-            this.toggleOutline();
         } else if (this.features.fullscreen && event.key.toLowerCase() === "f") {
             this.toggleFullscreen();
+        } else if (event.key === "Escape") {
+            this.closeSidebar();
         } else if (event.key.toLowerCase() === "s") {
             this.toggleSidebar();
         } else if (event.key === "Home") {

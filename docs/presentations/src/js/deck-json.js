@@ -5,9 +5,11 @@ import {
     Callout,
     ChatRound,
     DesignMatrix,
+    DotPlot,
     FlowDiagram,
     Grid,
     MetricCard,
+    NetworkGraph,
     NumberedList,
     QuoteBlock,
     Slide,
@@ -123,11 +125,31 @@ export function componentFromSpec(spec, features = {}) {
         return new ChatRound(spec.messages || spec.items || [], opts);
     }
 
+    if (type === "dot-plot" || type === "dotplot" || type === "coefficient-plot") {
+        return new DotPlot(spec.points || spec.items || [], {
+            ...opts,
+            title: spec.title,
+            xLabel: spec.xLabel,
+            referenceLine: spec.referenceLine,
+            labelWidth: spec.labelWidth,
+            showValues: spec.showValues,
+            ticks: spec.ticks,
+            tone: spec.tone,
+        });
+    }
+
     if (type === "plot" || type === "tradeoff-plot") {
         return new TradeoffPlot(spec.points || [], {
             ...opts,
             xLabel: spec.xLabel,
             yLabel: spec.yLabel,
+        });
+    }
+
+    if (type === "network-graph" || type === "network") {
+        return new NetworkGraph(spec.nodes || [], spec.edges || [], {
+            ...opts,
+            control: spec.control,
         });
     }
 

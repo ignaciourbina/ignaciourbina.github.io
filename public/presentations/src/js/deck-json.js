@@ -9,6 +9,7 @@ import {
     FlowDiagram,
     Grid,
     MetricCard,
+    NetworkGraph,
     NumberedList,
     QuoteBlock,
     Slide,
@@ -142,6 +143,13 @@ export function componentFromSpec(spec, features = {}) {
             ...opts,
             xLabel: spec.xLabel,
             yLabel: spec.yLabel,
+        });
+    }
+
+    if (type === "network-graph" || type === "network") {
+        return new NetworkGraph(spec.nodes || [], spec.edges || [], {
+            ...opts,
+            control: spec.control,
         });
     }
 

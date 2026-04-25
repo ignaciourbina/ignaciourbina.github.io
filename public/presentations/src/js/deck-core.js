@@ -406,6 +406,104 @@ export class TradeoffPlot extends Component {
     }
 }
 
+export class NetworkGraph extends Component {
+    constructor(nodes = [], edges = [], options = {}) {
+        super(options);
+        this.nodes = nodes;
+        this.edges = edges;
+    }
+
+    render(ctx) {
+        const container = h("div", { class: "network-graph" });
+
+        // Build the graph panel (starts hidden when control button is present)
+        const hasControl = !!this.options.control;
+        const panel = h("div", {
+            class: hasControl ? "network-graph-panel" : "network-graph-panel is-visible",
+        });
+
+        // Tooltip element (positioned absolutely within panel)
+        const tooltip = h("div", { class: "network-graph-tooltip" });
+
+        // Node lookup for edge drawing
+        const nodeMap = {};
+        for (const node of this.nodes) nodeMap[node.id] = node;
+
+        // SVG edge layer
+        const NS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("class", "network-graph-edges");
+        svg.setAttribute("viewBox", "0 0 100 100");
+        svg.setAttribute("preserveAspectRatio", "none");
+
+        for (const edge of this.edges) {
+            const src = nodeMap[edge.source];
+            const tgt = nodeMap[edge.target];
+            if (!src || !tgt) continue;
+
+            const line = document.createElementNS(NS, "line");
+            line.setAttribute("x1", src.x);
+            line.setAttribute("y1", 100 - src.y);
+            line.setAttribute("x2", tgt.x);
+            line.setAttribute("y2", 100 - tgt.y);
+            line.setAttribute("class", `edge edge--${edge.type || "attack"}`);
+            if (edge.strength) {
+                line.style.opacity = String(0.25 + 0.55 * edge.strength);
+            }
+            svg.appendChild(line);
+        }
+        panel.append(svg);
+
+        // Node layer
+        this.nodes.forEach(node => {
+            const point = h("span", {
+                class: `network-node network-node--${node.tone || "default"}`,
+                text: node.id,
+                style: {
+                    left: `${node.x}%`,
+                    bottom: `${node.y}%`,
+                },
+                dataset: stepAttrs(ctx, this.options.reveal === "nodes"),
+                on: {
+                    mouseenter: () => {
+                        tooltip.textContent = node.label;
+                        tooltip.style.left = `${node.x}%`;
+                        tooltip.style.bottom = `calc(${node.y}% + 2.2rem)`;
+                        tooltip.classList.add("is-visible");
+                    },
+                    mouseleave: () => {
+                        tooltip.classList.remove("is-visible");
+                    },
+                },
+            });
+            panel.append(point);
+        });
+
+        panel.append(tooltip);
+
+        // Toggle button (optional)
+        if (hasControl) {
+            const label = this.options.control;
+            const button = h("button", {
+                class: "network-graph-toggle",
+                text: label,
+                attrs: { "aria-pressed": "false" },
+                on: {
+                    click: () => {
+                        const visible = panel.classList.toggle("is-visible");
+                        button.setAttribute("aria-pressed", visible ? "true" : "false");
+                        button.textContent = visible ? "Hide graph" : label;
+                    },
+                },
+            });
+            container.append(button);
+        }
+
+        container.append(panel);
+        return container;
+    }
+}
+
 export class DotPlot extends Component {
     constructor(points = [], options = {}) {
         super(options);
