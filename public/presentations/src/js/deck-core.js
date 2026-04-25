@@ -763,6 +763,11 @@ export class DeckRenderer {
                 if (e.target.closest("button, a, .deck-controls, .deck-sidebar, .agent-loop-stage")) return;
                 this.next();
             });
+            document.addEventListener("mousemove", (e) => {
+                if (!this.sidebarToggle) return;
+                const show = e.clientX < 80;
+                this.sidebarToggle.classList.toggle("is-visible", show);
+            });
         }
         this.render();
     }
