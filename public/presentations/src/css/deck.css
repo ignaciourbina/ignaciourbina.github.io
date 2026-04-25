@@ -880,17 +880,22 @@ button {
     position: fixed;
     display: none;
     transform: translate(-50%, -100%);
-    max-width: 22rem;
-    padding: 0.4rem 0.6rem;
+    max-width: 24rem;
+    padding: 0.45rem 0.7rem;
     border: 1px solid var(--line);
     border-radius: 6px;
     background: white;
     color: var(--ink);
-    font-size: clamp(0.55rem, 0.9vw, 0.68rem);
-    line-height: 1.35;
+    font-size: clamp(0.58rem, 0.95vw, 0.72rem);
+    line-height: 1.4;
     box-shadow: 0 6px 20px rgba(23, 33, 31, 0.16);
     pointer-events: none;
-    z-index: 10;
+    z-index: 910;
+}
+
+.network-graph-tooltip em {
+    font-style: italic;
+    color: var(--muted);
 }
 
 .network-graph-tooltip.is-visible {

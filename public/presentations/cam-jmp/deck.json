@@ -13,6 +13,7 @@
   "slides": [
     {
       "id": "title",
+      "section": "Puzzle",
       "format": "title",
       "kicker": "MPSA 2026 · Job Market Paper",
       "headline": "The Conditional Activation Model",
@@ -29,6 +30,7 @@
     },
     {
       "id": "setting",
+      "section": "Puzzle",
       "kicker": "Context",
       "headline": "Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive.",
       "subhead": "Frey & Osborne (2017) estimate 47% of U.S. occupations face high automation risk. Public awareness is high (Pew 2023), but experiments linking risk information to policy preferences yield mixed results.",
@@ -42,7 +44,6 @@
               "type": "bullets",
               "items": [
                 { "title": "Structural labor market shift", "detail": "Routine cognitive and manual tasks face increasing automation pressure" },
-                { "title": "High public salience", "detail": "62% of Americans report major concern about AI workforce impact (Pew 2023)" },
                 { "title": "Policy demand channel", "detail": "Standard models predict risk exposure → demand for retraining, regulation, redistribution" },
                 { "title": "Empirical gap", "detail": "Experimental tests of this channel produce inconsistent or null aggregate effects" }
               ]
@@ -50,11 +51,12 @@
           ],
           "right": [
             {
-              "type": "metric",
-              "label": "Estimated high-risk occupations",
-              "value": "47%",
-              "detail": "of U.S. employment (Frey & Osborne 2017)",
-              "tone": "red"
+              "type": "grid",
+              "columns": 1,
+              "items": [
+                { "type": "metric", "label": "High-risk occupations", "value": "47%", "detail": "of U.S. employment (Frey & Osborne 2017)", "tone": "red" },
+                { "type": "metric", "label": "Public concern", "value": "62%", "detail": "major concern about AI workforce impact (Pew 2023)", "tone": "amber" }
+              ]
             }
           ]
         }
@@ -62,6 +64,7 @@
     },
     {
       "id": "expectation",
+      "section": "Puzzle",
       "kicker": "Theoretical prediction",
       "headline": "Three traditions converge: personal risk information should increase policy demand.",
       "subhead": "Self-interest theory, threat-motivated cognition, and egotropic economic voting each predict that learning one's occupation faces automation risk should increase support for protective policies.",
@@ -81,26 +84,26 @@
     },
     {
       "id": "evidence",
+      "section": "Puzzle",
       "kicker": "Prior evidence",
       "headline": "Experimental results are inconsistent: null, positive, and opposing effects coexist.",
       "subhead": "Studies examining conditional effects find heterogeneity that washes out in the aggregate.",
-      "notes": "The pivot comes from Arntz et al. (2024), who find opposing subgroup effects that cancel at the aggregate level.",
+      "notes": "The pivot comes from Arntz et al. (2024), who find opposing subgroup effects that cancel at the aggregate level. Wu (2022) and Im (2023) provide further evidence for conditional moderation by ideology, education, and prior beliefs.",
       "blocks": [
         {
           "type": "bullets",
           "reveal": "items",
           "items": [
-            { "title": "Zhang & Hou (2022)", "detail": "Automation risk information → null aggregate effect on policy preferences" },
-            { "title": "Magistro et al. (2024)", "detail": "Personalized risk information → null aggregate effect on redistribution support" },
-            { "title": "Gallego et al. (2022)", "detail": "Positive effects — but distinct treatment and sample" },
-            { "title": "Arntz et al. (2024)", "detail": "Opposing subgroup effects cancel in the aggregate ATE" },
-            { "title": "Wu (2022); Im (2023)", "detail": "Conditional effects moderated by ideology, education, or prior beliefs" }
+            { "title": "Null aggregate effects are common", "detail": "Zhang & Hou (2022), Magistro et al. (2024): personalized risk information → null ATE on policy preferences" },
+            { "title": "Positive findings exist but with different designs", "detail": "Gallego et al. (2022): distinct treatment and sample yield positive effects" },
+            { "title": "Subgroup heterogeneity drives cancellation", "detail": "Arntz et al. (2024): opposing subgroup effects cancel in the aggregate. Wu (2022), Im (2023): effects moderated by ideology, education, prior beliefs" }
           ]
         }
       ]
     },
     {
       "id": "diagnosis",
+      "section": "Theory",
       "kicker": "Reframing the estimand",
       "headline": "The unconditional ATE averages over heterogeneous subgroups — the estimand is misspecified.",
       "subhead": "Null aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on trust type and activation state.",
@@ -131,6 +134,7 @@
     },
     {
       "id": "theory",
+      "section": "Theory",
       "kicker": "CAM framework",
       "headline": "Two sequential gates: source trust (discrete) and joint activation (Gap × Anxiety).",
       "subhead": "Source trust operates as a binary filter, not a continuous moderator. Activation requires the joint presence of informational shock and dispositional vigilance.",
@@ -138,8 +142,7 @@
       "blocks": [
         {
           "type": "split",
-          "ratio": "0.6fr 1.4fr",
-          "reveal": "panes",
+          "ratio": "1fr 1fr",
           "left": [
             {
               "type": "flow",
@@ -155,7 +158,6 @@
           "right": [
             {
               "type": "bullets",
-              "reveal": "items",
               "items": [
                 { "title": "Source trust: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
                 { "title": "Activation: joint requirement", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
@@ -168,6 +170,7 @@
     },
     {
       "id": "pathways",
+      "section": "Theory",
       "kicker": "Predicted pathways",
       "headline": "The two-gate structure predicts three qualitatively distinct cognitive pathways.",
       "subhead": "Each pathway corresponds to a different exit point in the information-processing sequence. A population-level null ATE is the expected signature when the three pathways are mixed.",
@@ -194,6 +197,7 @@
     },
     {
       "id": "design",
+      "section": "Design",
       "kicker": "Experimental design",
       "headline": "Pre-registered between-subjects experiment, N = 901 U.S. workers.",
       "subhead": "Three-step belief correction protocol with individualized treatment intensity. 475 treatment, 426 control; block randomized by occupation.",
@@ -234,62 +238,54 @@
       ]
     },
     {
-      "id": "measures",
-      "kicker": "Outcome measure",
-      "headline": "Policy demand index: five items capturing support for government responses to automation (ω = 0.85).",
-      "subhead": "Respondents rate agreement on a 7-point scale (strongly disagree to strongly agree). Items span redistribution, regulation, retraining, labor protections, and employment limits.",
-      "notes": "The battery deliberately covers multiple policy instruments — not just redistribution. This avoids anchoring to a single ideological frame.",
+      "id": "operationalization",
+      "section": "Design",
+      "kicker": "Measures",
+      "headline": "Five-item policy demand index and three moderators operationalize the two-gate structure.",
+      "subhead": "Policy demand: 5 items, 7-pt scale (ω = 0.85). Trust and gap are post-treatment; anxiety is pre-treatment.",
+      "notes": "The battery deliberately spans redistribution, regulation, retraining, labor protections, and employment limits to avoid anchoring to a single ideological frame. Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Gap is computed (expert minus subjective), not self-reported. Anxiety uses a validated Big Five facet scale.",
       "blocks": [
         {
-          "type": "bullets",
-          "items": [
-            { "title": "Q1 · Redistribution", "detail": "\"The government should expand unemployment benefits and income subsidies for workers displaced by AI and automation.\"" },
-            { "title": "Q2 · Regulation", "detail": "\"The federal government should impose stricter regulations on AI, including mandatory ethical reviews before deployment.\"" },
-            { "title": "Q3 · Retraining", "detail": "\"The government and private sector should invest more in retraining programs for workers whose jobs are at risk of automation.\"" },
-            { "title": "Q4 · Labor protections", "detail": "\"The government should strengthen labor protections and support unionization to help workers negotiate with employers using AI.\"" },
-            { "title": "Q5 · Employment limits", "detail": "\"There should be limits on how many jobs can be replaced by AI and automated systems.\"" }
+          "type": "design-matrix",
+          "rows": ["Policy demand (Y)", "Source trust (S)", "Belief gap (Gap)", "Trait anxiety (η)"],
+          "columns": ["Operationalization", "Gate / Role"],
+          "cells": [
+            ["5 items, 7-pt scale (ω = 0.85): redistribution, regulation, retraining, labor protections, employment limits", "Outcome"],
+            ["Single 5-pt item, post-treatment only", "Gate 1: binary filter"],
+            ["Expert percentile − subjective prior (computed)", "Gate 2: informational shock"],
+            ["4-item Big Five facet scale, pre-treatment (ω = 0.90)", "Gate 2: dispositional vigilance"]
           ]
+        },
+        {
+          "type": "callout",
+          "label": "Asymmetry",
+          "text": "Trust and gap are post-treatment (treated only); anxiety is pre-treatment (all respondents). The BFMM handles the resulting collider structure.",
+          "tone": "amber"
         }
       ]
     },
     {
-      "id": "moderators",
-      "kicker": "Moderator measures",
-      "headline": "Source trust, belief gap, and trait anxiety operationalize the two gates.",
-      "notes": "Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Belief gap is computed, not self-reported. Trait anxiety uses a validated Big Five facet scale with excellent reliability.",
+      "id": "manipulation-check",
+      "section": "Design",
+      "kicker": "Manipulation check",
+      "headline": "The treatment successfully shifted beliefs; belief gap provides continuous within-treatment variation.",
+      "subhead": "93.4% comprehension pass rate. Mean gap = 2.44 (SD = 36), range [−89, +85].",
+      "notes": "Workers compress beliefs toward 30–40 regardless of actual risk. The metacognitive failure (r = −0.004 between certainty and accuracy) means subjective confidence does not track objective accuracy. This is what makes the gap a genuine informational shock rather than a confirmation exercise.",
       "blocks": [
         {
-          "type": "split",
-          "ratio": "1fr 1fr",
-          "left": [
-            {
-              "type": "bullets",
-              "items": [
-                { "title": "Source trust", "detail": "\"How trustworthy is the Oxford researchers' assessment of your occupation?\" — single 5-point item, post-treatment only" },
-                { "title": "Belief gap", "detail": "Gap = Expert percentile − Subjective prior (both 0–100). Mean = 2.44, SD = 36. Computed, not self-reported" }
-              ]
-            }
-          ],
-          "right": [
-            {
-              "type": "bullets",
-              "items": [
-                { "title": "Trait anxiety (ω = 0.90)", "detail": "Four items on 7-point agreement scale, measured pre-treatment:" },
-                { "title": "", "detail": "\"I worry easily\" · \"I get stressed easily\" · \"I am easily disturbed\" · \"I get upset easily\"" }
-              ]
-            },
-            {
-              "type": "callout",
-              "label": "Asymmetry",
-              "text": "Trust and gap are post-treatment (treated only). Anxiety is pre-treatment (all respondents).",
-              "tone": "amber"
-            }
+          "type": "grid",
+          "columns": 3,
+          "items": [
+            { "type": "metric", "label": "Comprehension", "value": "93.4%", "detail": "passed methodology check", "tone": "green" },
+            { "type": "metric", "label": "Mean belief gap", "value": "2.44", "detail": "SD = 36, range [−89, +85]", "tone": "amber" },
+            { "type": "metric", "label": "Certainty × accuracy", "value": "r = −0.004", "detail": "Metacognitive failure: confidence does not track accuracy", "tone": "red" }
           ]
         }
       ]
     },
     {
       "id": "identification",
+      "section": "Results",
       "kicker": "Identification",
       "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
       "subhead": "The BFMM uses principal stratification: Gap and Gap² block the collider path and isolate dispositional trust.",
@@ -300,11 +296,11 @@
           "ratio": "1fr 1fr",
           "left": [
             {
-              "type": "bullets",
-              "items": [
-                { "title": "Collider structure", "detail": "Gap → Q_obs ← S; conditioning opens spurious path" },
-                { "title": "Post-treatment selection", "detail": "Trust observed only for treated; subsetting breaks randomization" },
-                { "title": "Measurement error", "detail": "Latent constructs with non-trivial noise; attenuation up to 50%" }
+              "type": "flow",
+              "steps": [
+                { "title": "Problem", "detail": "Gap → Q_obs ← S creates collider bias" },
+                { "title": "Block", "detail": "Gap, Gap² block the collider path" },
+                { "title": "Classify", "detail": "Ordinal mixture → Trusters vs. Skeptics" }
               ]
             },
             {
@@ -329,6 +325,7 @@
     },
     {
       "id": "results-ate",
+      "section": "Results",
       "kicker": "Results: unconditional",
       "headline": "Unconditional ATE is positive and robust across estimators (d ≈ 0.24–0.27).",
       "subhead": "All specifications converge. The BFMM reproduces the ATE while decomposing it into type-specific components.",
@@ -352,60 +349,34 @@
     },
     {
       "id": "results-trust",
+      "section": "Results",
       "kicker": "Results: source trust",
       "headline": "Source trust operates as a discrete gate: Skeptic effects are null across all moderator values.",
-      "notes": "Even Skeptics with large gaps AND high anxiety show null effects. Inconsistent with continuous moderator models.",
+      "notes": "Even Skeptics with large gaps AND high anxiety show null effects (all P(β > 0) < 0.30). Trusters show positive effects across all moderation coefficients (all P(β > 0) > 0.92). Inconsistent with continuous moderator models. Estimates from 24,000 posterior draws (6 chains × 4,000 post-warmup). All R-hat < 1.001.",
       "blocks": [
         {
-          "type": "split",
-          "ratio": "1fr 1fr",
-          "reveal": "panes",
-          "left": [
-            {
-              "type": "dot-plot",
-              "title": "Skeptics (π ≈ 62%)",
-              "xLabel": "β (posterior mean)",
-              "referenceLine": 0,
-              "labelWidth": "6rem",
-              "ticks": 5,
-              "tone": "red",
-              "points": [
-                { "label": "Intercept (β₀)", "estimate": 0.23, "ci": [0.00, 0.41], "tone": "red", "valueLabel": "0.23" },
-                { "label": "Gap (β₁)", "estimate": -0.06, "ci": [-0.26, 0.08], "tone": "red", "valueLabel": "−0.06" },
-                { "label": "Anxiety (β₂)", "estimate": -0.06, "ci": [-0.27, 0.07], "tone": "red", "valueLabel": "−0.06" },
-                { "label": "Gap × Anx (β₃)", "estimate": -0.07, "ci": [-0.27, 0.05], "tone": "red", "valueLabel": "−0.07" }
-              ]
-            }
-          ],
-          "right": [
-            {
-              "type": "dot-plot",
-              "title": "Trusters (π ≈ 38%)",
-              "xLabel": "β (posterior mean)",
-              "referenceLine": 0,
-              "labelWidth": "6rem",
-              "ticks": 5,
-              "tone": "green",
-              "points": [
-                { "label": "Intercept (β₀)", "estimate": 0.44, "ci": [0.23, 0.74], "tone": "green", "valueLabel": "0.44" },
-                { "label": "Gap (β₁)", "estimate": 0.14, "ci": [-0.04, 0.42], "tone": "green", "valueLabel": "0.14" },
-                { "label": "Anxiety (β₂)", "estimate": 0.14, "ci": [-0.03, 0.41], "tone": "green", "valueLabel": "0.14" },
-                { "label": "Gap × Anx (β₃)", "estimate": 0.13, "ci": [-0.03, 0.40], "tone": "green", "valueLabel": "0.13" }
-              ]
-            }
+          "type": "design-matrix",
+          "rows": ["β₀: Intercept", "β₁: Gap", "β₂: Anxiety", "β₃: Gap × Anx"],
+          "columns": ["Skeptics (π ≈ 62%)", "P(β > 0)", "Trusters (π ≈ 38%)", "P(β > 0)"],
+          "cells": [
+            ["+0.23", "0.98", "+0.44", "1.00"],
+            ["−0.06", "0.26", "+0.14", "0.92"],
+            ["−0.06", "0.23", "+0.14", "0.93"],
+            ["−0.07", "0.18", "+0.13", "0.92"]
           ]
         },
         {
           "type": "callout",
           "label": "Finding",
           "reveal": true,
-          "text": "Source rejection functions as a strict binary filter: treatment modulation is absent regardless of informational shock or dispositional vigilance.",
+          "text": "Source rejection functions as a strict binary filter: all Skeptic moderation coefficients have P(β > 0) < 0.30; all Truster coefficients have P(β > 0) > 0.92.",
           "tone": "amber"
         }
       ]
     },
     {
       "id": "results-activation",
+      "section": "Results",
       "kicker": "Results: activation",
       "headline": "Among Trusters, effects are jointly activated by belief gap and trait anxiety (β₃ = 0.13, P > 0: 0.92).",
       "subhead": "Activation threshold at ≈ 20th percentile of trait anxiety. Below threshold, large gaps produce null CATEs.",
@@ -445,11 +416,12 @@
     },
     {
       "id": "discussion",
+      "section": "Discussion",
       "format": "closing",
       "kicker": "Contributions",
       "headline": "Null aggregate effects reflect composition across heterogeneous pathways, not preference stability.",
       "subhead": "The two-gate architecture generalizes to any persuasion domain with expert sources and dispositional moderators.",
-      "notes": "Scope: U.S. workers, liberal skew, single trust item, immediate measurement, F&O 2017 estimates.",
+      "notes": "Scope: U.S. workers, liberal skew, single trust item, immediate measurement, F&O 2017 estimates. Generalization domains: climate, vaccines, trade.",
       "blocks": [
         {
           "type": "split",
@@ -461,23 +433,26 @@
               "items": [
                 "Theoretical: two-gate model resolves conflicting results as composition effects across three pathways.",
                 "Methodological: BFMM addresses latent classification with collider-biased post-treatment moderators.",
-                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications.",
-                "Applied: identifies responsive subgroup for targeted risk communication."
+                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications."
               ]
             }
           ],
           "right": [
             {
-              "type": "callout",
-              "label": "Scope conditions",
-              "text": "N = 901 U.S. workers (CloudResearch). 62% Democrat. Immediate measurement. F&O 2017 estimates.",
-              "tone": "amber"
+              "type": "plot",
+              "xLabel": "Source trust →",
+              "yLabel": "Gap × Anxiety →",
+              "points": [
+                { "label": "Skeptics", "x": 15, "y": 50, "tone": "red" },
+                { "label": "Cool cognition", "x": 75, "y": 20, "tone": "amber" },
+                { "label": "Activated", "x": 75, "y": 80, "tone": "green" }
+              ]
             },
             {
               "type": "callout",
-              "label": "Generalization",
-              "text": "Climate, vaccines, trade — any domain where expert information meets dispositional heterogeneity.",
-              "tone": "green"
+              "label": "Scope",
+              "text": "N = 901 U.S. workers · 62% Democrat · immediate measurement · F&O 2017 estimates. Generalizes to climate, vaccines, trade.",
+              "tone": "amber"
             }
           ]
         }

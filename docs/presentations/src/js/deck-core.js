@@ -528,24 +528,39 @@ export class NetworkGraph extends Component {
                 ],
             });
 
-            // Edge opacity from strength
+            // Edge width + opacity from strength
+            const edgeWidth = str => 1 + 3.5 * str;
+            const edgeOpacity = str => 0.18 + 0.6 * str;
+
             cyInstance.edges().forEach(edge => {
                 const str = edge.data("strength");
-                edge.style("opacity", 0.15 + 0.65 * str);
+                edge.style({ width: edgeWidth(str), opacity: edgeOpacity(str) });
             });
 
-            // Hover: highlight node + show tooltip
+            // Build node-tone lookup for edge hover labels
+            const toneLookup = {};
+            cyInstance.nodes().forEach(n => { toneLookup[n.id()] = n.data("tone"); });
+
+            const showTooltip = (x, y, content) => {
+                tooltip.innerHTML = content;
+                const cyRect = cyContainer.getBoundingClientRect();
+                tooltip.style.left = `${cyRect.left + x}px`;
+                tooltip.style.top = `${cyRect.top + y - 28}px`;
+                tooltip.classList.add("is-visible");
+            };
+
+            const hideTooltip = () => { tooltip.classList.remove("is-visible"); };
+
+            // Hover node: highlight + show statement
             cyInstance.on("mouseover", "node", evt => {
                 const node = evt.target;
                 node.style({ "border-width": 4, "z-index": 10 });
-                node.connectedEdges().style({ width: 2.5, opacity: 0.7 });
-
+                node.connectedEdges().forEach(edge => {
+                    const str = edge.data("strength");
+                    edge.style({ width: edgeWidth(str) + 1.5, opacity: 0.8 });
+                });
                 const pos = node.renderedPosition();
-                const cyRect = cyContainer.getBoundingClientRect();
-                tooltip.textContent = node.data("label");
-                tooltip.style.left = `${cyRect.left + pos.x}px`;
-                tooltip.style.top = `${cyRect.top + pos.y - 28}px`;
-                tooltip.classList.add("is-visible");
+                showTooltip(pos.x, pos.y, node.data("label"));
             });
 
             cyInstance.on("mouseout", "node", evt => {
@@ -553,9 +568,37 @@ export class NetworkGraph extends Component {
                 node.style({ "border-width": 2.5, "z-index": 0 });
                 node.connectedEdges().forEach(edge => {
                     const str = edge.data("strength");
-                    edge.style({ width: 1.5, opacity: 0.15 + 0.65 * str });
+                    edge.style({ width: edgeWidth(str), opacity: edgeOpacity(str) });
                 });
-                tooltip.classList.remove("is-visible");
+                hideTooltip();
+            });
+
+            // Hover edge: highlight + show opposing-camp consideration
+            cyInstance.on("mouseover", "edge", evt => {
+                const edge = evt.target;
+                const str = edge.data("strength");
+                const etype = edge.data("etype");
+                edge.style({ width: edgeWidth(str) + 2, opacity: 0.9 });
+                edge.connectedNodes().style({ "border-width": 4 });
+
+                const src = edge.source();
+                const tgt = edge.target();
+                const symbol = etype === "attack" ? "attacks" : "supports";
+                const qSign = etype === "attack" ? "\u2212" : "+";
+                const qVal = (Math.round(str * 100) / 100).toFixed(2);
+                const html = `<strong>${src.id()}</strong> ${symbol} <strong>${tgt.id()}</strong> &nbsp; <span style="color:var(--muted)">Q\u2009=\u2009${qSign}${qVal}</span>`
+                    + `<br><em>${tgt.data("label")}</em>`;
+
+                const mid = edge.midpoint();
+                showTooltip(mid.x, mid.y, html);
+            });
+
+            cyInstance.on("mouseout", "edge", evt => {
+                const edge = evt.target;
+                const str = edge.data("strength");
+                edge.style({ width: edgeWidth(str), opacity: edgeOpacity(str) });
+                edge.connectedNodes().style({ "border-width": 2.5 });
+                hideTooltip();
             });
         };
 
