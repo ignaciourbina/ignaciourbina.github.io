@@ -12,9 +12,24 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+    <style>
+        .dl-btn { position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 800;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.45rem 0.9rem; border: 1.5px solid rgba(31,122,91,0.4);
+            border-radius: 999px; background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(6px); color: #1f7a5b; font: 700 0.72rem/1 Inter, system-ui, sans-serif;
+            text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: border-color 160ms, background 160ms; }
+        .dl-btn:hover { background: #dff1e9; border-color: #1f7a5b; }
+        .dl-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    </style>
 </head>
 <body>
     <main id="deck" aria-label="Slide deck"></main>
+    <a class="dl-btn" href="/files/mpsa-beamer.pdf" download>
+        <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+        PDF
+    </a>
 
     <script type="module" src="../src/js/main.js"></script>
 </body>

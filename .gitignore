@@ -23,6 +23,13 @@ dist-ssr
 *.sln
 *.sw?
 
+# LaTeX build artifacts
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+
 # PDFs (except files served on the site)
 *.pdf
 !public/files/*.pdf
