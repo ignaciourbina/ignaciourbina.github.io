@@ -217,6 +217,8 @@ button {
     grid-template-rows: 1fr;
     padding: 0.5rem;
     position: relative;
+    user-select: none;
+    cursor: default;
     overflow: hidden;
 }
 
