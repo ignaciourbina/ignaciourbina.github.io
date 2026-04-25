@@ -415,73 +415,162 @@ export class NetworkGraph extends Component {
 
     render(ctx) {
         const container = h("div", { class: "network-graph" });
-
-        // Build the graph panel (starts hidden when control button is present)
         const hasControl = !!this.options.control;
+
         const panel = h("div", {
             class: hasControl ? "network-graph-panel" : "network-graph-panel is-visible",
         });
 
-        // Tooltip element (positioned absolutely within panel)
+        const cyContainer = h("div", { class: "network-graph-cy" });
         const tooltip = h("div", { class: "network-graph-tooltip" });
+        panel.append(cyContainer, tooltip);
 
-        // Node lookup for edge drawing
-        const nodeMap = {};
-        for (const node of this.nodes) nodeMap[node.id] = node;
-
-        // SVG edge layer
-        const NS = "http://www.w3.org/2000/svg";
-        const svg = document.createElementNS(NS, "svg");
-        svg.setAttribute("class", "network-graph-edges");
-        svg.setAttribute("viewBox", "0 0 100 100");
-        svg.setAttribute("preserveAspectRatio", "none");
-
-        for (const edge of this.edges) {
-            const src = nodeMap[edge.source];
-            const tgt = nodeMap[edge.target];
-            if (!src || !tgt) continue;
-
-            const line = document.createElementNS(NS, "line");
-            line.setAttribute("x1", src.x);
-            line.setAttribute("y1", 100 - src.y);
-            line.setAttribute("x2", tgt.x);
-            line.setAttribute("y2", 100 - tgt.y);
-            line.setAttribute("class", `edge edge--${edge.type || "attack"}`);
-            if (edge.strength) {
-                line.style.opacity = String(0.25 + 0.55 * edge.strength);
+        // Click backdrop to close
+        panel.addEventListener("click", e => {
+            if (e.target === panel) {
+                panel.classList.remove("is-visible");
+                if (hasControl) {
+                    container.querySelector(".network-graph-toggle")
+                        ?.setAttribute("aria-pressed", "false");
+                    const btn = container.querySelector(".network-graph-toggle");
+                    if (btn) btn.textContent = this.options.control;
+                }
             }
-            svg.appendChild(line);
-        }
-        panel.append(svg);
-
-        // Node layer
-        this.nodes.forEach(node => {
-            const point = h("span", {
-                class: `network-node network-node--${node.tone || "default"}`,
-                text: node.id,
-                style: {
-                    left: `${node.x}%`,
-                    bottom: `${node.y}%`,
-                },
-                dataset: stepAttrs(ctx, this.options.reveal === "nodes"),
-                on: {
-                    mouseenter: () => {
-                        tooltip.textContent = node.label;
-                        tooltip.style.left = `${node.x}%`;
-                        tooltip.style.bottom = `calc(${node.y}% + 2.2rem)`;
-                        tooltip.classList.add("is-visible");
-                    },
-                    mouseleave: () => {
-                        tooltip.classList.remove("is-visible");
-                    },
-                },
-            });
-            panel.append(point);
         });
 
-        panel.append(tooltip);
+        // Lazy Cytoscape init — fires once the container has dimensions
+        let cyInstance = null;
+        const nodes = this.nodes;
+        const edges = this.edges;
 
-        // Toggle button (optional)
+        const initCy = () => {
+            if (cyInstance || !window.cytoscape) return;
+            const w = cyContainer.offsetWidth;
+            const ht = cyContainer.offsetHeight;
+            if (w === 0 || ht === 0) return;
+
+            const pad = 36;
+            const elements = [
+                ...nodes.map(n => ({
+                    data: { id: n.id, label: n.label, tone: n.tone || "default" },
+                    position: {
+                        x: pad + (n.x / 100) * (w - 2 * pad),
+                        y: pad + ((100 - n.y) / 100) * (ht - 2 * pad),
+                    },
+                })),
+                ...edges.map((e, i) => ({
+                    data: { id: `e${i}`, source: e.source, target: e.target, etype: e.type || "attack", strength: e.strength || 0.5 },
+                })),
+            ];
+
+            const s = getComputedStyle(document.documentElement);
+            const green = s.getPropertyValue("--green").trim() || "#1f7a5b";
+            const red = s.getPropertyValue("--red").trim() || "#a63d40";
+            const ink = s.getPropertyValue("--ink").trim() || "#17211f";
+
+            cyInstance = window.cytoscape({
+                container: cyContainer,
+                elements,
+                layout: { name: "preset" },
+                userZoomingEnabled: false,
+                userPanningEnabled: false,
+                boxSelectionEnabled: false,
+                autoungrabify: true,
+                style: [
+                    {
+                        selector: "node",
+                        style: {
+                            label: "data(id)",
+                            width: 38,
+                            height: 38,
+                            "background-color": "#fff",
+                            "border-width": 2.5,
+                            "border-color": ink,
+                            "font-size": 10,
+                            "font-weight": 700,
+                            "font-family": "Inter, system-ui, sans-serif",
+                            "text-valign": "center",
+                            "text-halign": "center",
+                            color: ink,
+                        },
+                    },
+                    {
+                        selector: 'node[tone = "green"]',
+                        style: { "border-color": green, color: green },
+                    },
+                    {
+                        selector: 'node[tone = "red"]',
+                        style: { "border-color": red, color: red },
+                    },
+                    {
+                        selector: "edge",
+                        style: {
+                            width: 1.5,
+                            "curve-style": "bezier",
+                            opacity: 0.35,
+                        },
+                    },
+                    {
+                        selector: 'edge[etype = "attack"]',
+                        style: {
+                            "line-color": red,
+                            "line-style": "dashed",
+                            "line-dash-pattern": [6, 4],
+                        },
+                    },
+                    {
+                        selector: 'edge[etype = "support"]',
+                        style: {
+                            "line-color": green,
+                            "line-style": "solid",
+                        },
+                    },
+                ],
+            });
+
+            // Edge opacity from strength
+            cyInstance.edges().forEach(edge => {
+                const str = edge.data("strength");
+                edge.style("opacity", 0.15 + 0.65 * str);
+            });
+
+            // Hover: highlight node + show tooltip
+            cyInstance.on("mouseover", "node", evt => {
+                const node = evt.target;
+                node.style({ "border-width": 4, "z-index": 10 });
+                node.connectedEdges().style({ width: 2.5, opacity: 0.7 });
+
+                const pos = node.renderedPosition();
+                const cyRect = cyContainer.getBoundingClientRect();
+                tooltip.textContent = node.data("label");
+                tooltip.style.left = `${cyRect.left + pos.x}px`;
+                tooltip.style.top = `${cyRect.top + pos.y - 28}px`;
+                tooltip.classList.add("is-visible");
+            });
+
+            cyInstance.on("mouseout", "node", evt => {
+                const node = evt.target;
+                node.style({ "border-width": 2.5, "z-index": 0 });
+                node.connectedEdges().forEach(edge => {
+                    const str = edge.data("strength");
+                    edge.style({ width: 1.5, opacity: 0.15 + 0.65 * str });
+                });
+                tooltip.classList.remove("is-visible");
+            });
+        };
+
+        // Observe when container gets non-zero dimensions
+        const ro = new ResizeObserver(entries => {
+            for (const entry of entries) {
+                if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+                    ro.disconnect();
+                    initCy();
+                }
+            }
+        });
+        ro.observe(cyContainer);
+
+        // Toggle button
         if (hasControl) {
             const label = this.options.control;
             const button = h("button", {
