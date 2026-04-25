@@ -1,0 +1,9 @@
+Statement of Interest — Discussant, APSA 2026
+
+I am a Ph.D. candidate in Political Science at Stony Brook University. My research examines how citizens form beliefs and attitudes about artificial intelligence and how these shape political behavior and policy preferences. I work at the intersection of political behavior, public opinion, political economy, and computational social science, combining experimental methods with computational modeling.
+
+My active research spans three areas. First, the political economy of AI-driven automation: my job market paper introduces a conditional activation framework for when workers update policy demands in response to automation risk, using a pre-registered experiment and Bayesian finite mixture modeling. Second, AI and democratic institutions: I am developing an open-source agent-based simulation that uses LLM agents as synthetic citizens to test how deliberative institutional designs affect consensus formation. Third, public attitudes toward AI: ongoing work maps the multidimensional structure of AI attitudes across domains using nationally representative U.S. data. Additional projects address human-AI cooperation in strategic settings, misinformation susceptibility under cognitive overload, the effects of state violence on political trust in Latin America, and immigration labor market perceptions.
+
+Methodologically, I work with survey experiments, causal inference, Bayesian statistics, agent-based modeling, and factor analysis. I have served as a discussant at APSA (2024), MPSA (2024), and the IPSA World Congress (2023).
+
+I would welcome the opportunity to discuss panels on political behavior, public opinion, the politics of AI and automation, computational approaches to political science, democratic deliberation, or Latin American politics.

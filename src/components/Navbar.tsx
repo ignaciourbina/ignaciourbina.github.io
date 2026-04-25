@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { site } from '../content'
 
 const navLinks = site.navigation.links
@@ -21,6 +21,15 @@ export default function Navbar() {
   const handleClose = () => {
     setIsOpen(false)
   }
+
+  useEffect(() => {
+    if (!isOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleClose()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [isOpen])
 
   return (
     <nav className="bg-paper/80 backdrop-blur-md border-b border-line sticky top-0 z-50">
@@ -73,40 +82,43 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  onClick={handleClose}
-                  className={({ isActive }) =>
-                    `px-3 py-2 rounded text-sm font-medium ${
-                      isActive
-                        ? 'text-green bg-green-soft'
-                        : 'text-muted hover:text-ink hover:bg-paper'
-                    }`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+          <>
+            <div className="fixed inset-0 z-40" onClick={handleClose} aria-hidden="true" />
+            <div className="md:hidden pb-4 relative z-50">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    onClick={handleClose}
+                    className={({ isActive }) =>
+                      `px-3 py-2 rounded text-sm font-medium ${
+                        isActive
+                          ? 'text-green bg-green-soft'
+                          : 'text-muted hover:text-ink hover:bg-paper'
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+              </div>
+              <div className="flex items-center gap-2 mt-4 pt-4 border-t border-line">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-muted hover:text-green transition-colors"
+                    aria-label={link.label}
+                  >
+                    <link.icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2 mt-4 pt-4 border-t border-line">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-muted hover:text-green transition-colors"
-                  aria-label={link.label}
-                >
-                  <link.icon size={18} />
-                </a>
-              ))}
-            </div>
-          </div>
+          </>
         )}
       </div>
     </nav>
