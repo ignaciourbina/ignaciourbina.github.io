@@ -1,0 +1,425 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{default}
+\usecolortheme{dove}
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\definecolor{sbured}{RGB}{166,61,64}
+\definecolor{sbugreen}{RGB}{31,122,91}
+\definecolor{sbuamber}{RGB}{179,106,21}
+\definecolor{sbublue}{RGB}{49,95,134}
+
+\title{The Conditional Activation Model}
+\subtitle{Uncovering Policy Demand Responses to AI-Driven Automation}
+\author{Ignacio Urbina}
+\institute{Stony Brook University}
+\date{MPSA 2026 \(\cdot\) Job Market Paper}
+
+\begin{document}
+
+% ===================================================================
+% TITLE
+% ===================================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ===================================================================
+% PUZZLE
+% ===================================================================
+\section{Puzzle}
+
+% -------------------------------------------------------------------
+\begin{frame}{Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive}
+
+\begin{columns}[T]
+\column{0.6\textwidth}
+\begin{itemize}
+    \item \textbf{Structural labor market shift} \\
+    {\small Routine cognitive and manual tasks face increasing automation pressure}
+    \item \textbf{Policy demand channel} \\
+    {\small Standard models predict risk exposure $\to$ demand for retraining, regulation, redistribution}
+    \item \textbf{Empirical gap} \\
+    {\small Experimental tests of this channel produce inconsistent or null aggregate effects}
+\end{itemize}
+
+\column{0.35\textwidth}
+\begin{block}{High-risk occupations}
+\centering \textbf{\Large 47\%} \\
+{\small of U.S.\ employment \\ (Frey \& Osborne 2017)}
+\end{block}
+\vspace{0.3cm}
+\begin{block}{Public concern}
+\centering \textbf{\Large 62\%} \\
+{\small major concern about AI \\ workforce impact (Pew 2023)}
+\end{block}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Three traditions converge: personal risk information should increase policy demand}
+
+\begin{columns}[T]
+\column{0.32\textwidth}
+\begin{alertblock}{Self-interest}
+\centering Risk $\to$ redistribution \\[4pt]
+{\small Workers facing losses seek compensatory policy (Meltzer \& Richard 1981)}
+\end{alertblock}
+
+\column{0.32\textwidth}
+\begin{alertblock}{Threat-motivated cognition}
+\centering Anxiety $\to$ policy search \\[4pt]
+{\small Threat perception focuses attention on protection (Albertson \& Gadarian 2015)}
+\end{alertblock}
+
+\column{0.32\textwidth}
+\begin{alertblock}{Egotropic voting}
+\centering Personal shock $\to$ preferences \\[4pt]
+{\small Individual economic exposure drives policy demand (Kinder \& Kiewiet 1981)}
+\end{alertblock}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Experimental results are inconsistent: null, positive, and opposing effects coexist}
+
+\begin{itemize}
+    \item \textbf{Null aggregate effects are common} \\
+    {\small Zhang \& Hou (2022), Magistro et al.\ (2024): personalized risk information $\to$ null ATE on policy preferences}
+    \item \textbf{Positive findings exist but with different designs} \\
+    {\small Gallego et al.\ (2022): distinct treatment and sample yield positive effects}
+    \item \textbf{Subgroup heterogeneity drives cancellation} \\
+    {\small Arntz et al.\ (2024): opposing subgroup effects cancel in the aggregate. Wu (2022), Im (2023): effects moderated by ideology, education, prior beliefs}
+\end{itemize}
+
+\end{frame}
+
+% ===================================================================
+% THEORY
+% ===================================================================
+\section{Theory}
+
+% -------------------------------------------------------------------
+\begin{frame}{The unconditional ATE averages over heterogeneous subgroups}
+
+\begin{columns}[c]
+\column{0.45\textwidth}
+\begin{block}{Standard estimand}
+$E[Y(1) - Y(0)]$: unconditional ATE across full sample
+\end{block}
+
+\column{0.45\textwidth}
+\begin{exampleblock}{Proposed estimand}
+$E[Y(1) - Y(0) \mid S, \text{Gap}, \eta_{\text{anx}}]$: CATE stratified by trust type and activation state
+\end{exampleblock}
+\end{columns}
+
+\vspace{0.5cm}
+{\small Null aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on trust type and activation state.}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{CAM framework: two sequential gates}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Processing sequence:}
+\begin{enumerate}
+    \item \textbf{Information} --- Expert risk estimate
+    \item \textbf{Source trust} --- Accept or reject
+    \item \textbf{Activation} --- Gap $\times$ Anxiety
+    \item \textbf{Policy demand} --- Protection preferences
+\end{enumerate}
+
+\column{0.5\textwidth}
+\begin{itemize}
+    \item \textbf{Source trust: discrete classification} \\
+    {\small Latent mixture separates Trusters from Skeptics --- not a continuous moderator}
+    \item \textbf{Activation: joint requirement} \\
+    {\small Neither belief gap nor trait anxiety alone is sufficient to trigger policy search}
+    \item \textbf{Below-threshold pathway} \\
+    {\small Beliefs update without policy preference change (cool cognition)}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Three qualitatively distinct cognitive pathways}
+
+\begin{columns}[T]
+\column{0.3\textwidth}
+\begin{block}{\textcolor{sbured}{1. Source rejection}}
+\centering \textbf{Skeptics} \\[4pt]
+{\small Information fails the trust gate; no downstream processing regardless of gap or anxiety}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{\textcolor{sbuamber}{2. Cool cognition}}
+\centering \textbf{Below-threshold trusters} \\[4pt]
+{\small Information is accepted and beliefs update, but insufficient vigilance to initiate policy search}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{\textcolor{sbugreen}{3. Activated persuasion}}
+\centering \textbf{Above-threshold trusters} \\[4pt]
+{\small Both gates cleared; sustained elaboration of threat translates into demand for protective policy}
+\end{block}
+\end{columns}
+
+\vspace{0.4cm}
+\begin{center}
+{\small \textit{If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup --- producing the null or weak aggregate effects observed in prior work.}}
+\end{center}
+
+\end{frame}
+
+% ===================================================================
+% DESIGN
+% ===================================================================
+\section{Design}
+
+% -------------------------------------------------------------------
+\begin{frame}{Pre-registered between-subjects experiment, $N = 901$ U.S.\ workers}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Three-step belief correction protocol:}
+\begin{enumerate}
+    \item Explain expert methodology \\ {\small (comprehension: 93.4\%)}
+    \item Elicit subjective risk belief \\ {\small (0--100 percentile)}
+    \item Reveal expert estimate; display belief gap
+\end{enumerate}
+
+\vspace{0.3cm}
+{\small \textcolor{sbugreen}{\textbf{Design property:}} Treatment intensity varies naturally via belief gap, creating continuous within-treatment variation.}
+
+\column{0.5\textwidth}
+\begin{itemize}
+    \item \textbf{Outcome} \\
+    {\small Policy demand index: 5 items, 7-pt scale ($\omega = 0.85$)}
+    \item \textbf{Source trust} \\
+    {\small 5-point item, post-treatment only}
+    \item \textbf{Belief gap} \\
+    {\small Expert percentile $-$ subjective prior}
+    \item \textbf{Trait anxiety} \\
+    {\small 4-item scale, pre-treatment ($\omega = 0.90$)}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Operationalization of the two-gate structure}
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable} & \textbf{Operationalization} & \textbf{Gate / Role} \\
+\midrule
+Policy demand ($Y$) & 5 items, 7-pt scale ($\omega = 0.85$) & Outcome \\
+Source trust ($S$) & Single 5-pt item, post-treatment only & Gate 1: binary filter \\
+Belief gap (Gap) & Expert percentile $-$ subjective prior & Gate 2: info.\ shock \\
+Trait anxiety ($\eta$) & 4-item Big Five facet ($\omega = 0.90$) & Gate 2: vigilance \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+{\small \textcolor{sbuamber}{\textbf{Asymmetry:}} Trust and gap are post-treatment (treated only); anxiety is pre-treatment (all respondents). The BFMM handles the resulting collider structure.}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Manipulation check}
+
+\begin{columns}[T]
+\column{0.3\textwidth}
+\begin{block}{Comprehension}
+\centering \textbf{\Large 93.4\%} \\
+{\small passed methodology check}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{Mean belief gap}
+\centering \textbf{\Large 2.44} \\
+{\small SD = 36, range [$-89$, $+85$]}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{Certainty $\times$ accuracy}
+\centering \textbf{\Large $r = -0.004$} \\
+{\small Metacognitive failure: confidence does not track accuracy}
+\end{block}
+\end{columns}
+
+\end{frame}
+
+% ===================================================================
+% RESULTS
+% ===================================================================
+\section{Results}
+
+% -------------------------------------------------------------------
+\begin{frame}{Identification: observed trust is a post-treatment collider}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Identification strategy:}
+\begin{enumerate}
+    \item \textbf{Problem} --- Gap $\to$ $Q_{\text{obs}}$ $\leftarrow$ $S$ creates collider bias
+    \item \textbf{Block} --- Gap, Gap$^2$ block the collider path
+    \item \textbf{Classify} --- Ordinal mixture $\to$ Trusters vs.\ Skeptics
+\end{enumerate}
+
+\vspace{0.3cm}
+\begin{exampleblock}{Type-specific CATE}
+\small
+$\tau_T(\text{Gap}, \eta) = \beta_0^T + \beta_1^T \cdot \text{Gap} + \beta_2^T \cdot \eta + \beta_3^T \cdot \text{Gap} \times \eta$
+\end{exampleblock}
+
+\column{0.5\textwidth}
+\textbf{BFMM architecture:}
+\begin{itemize}
+    \item \textbf{Trust layer} \\
+    {\small Ordinal logistic mixture, Trusters vs.\ Skeptics, $\delta = 2.09$}
+    \item \textbf{Measurement layer} \\
+    {\small Anxiety CFA ($\omega = .90$), Policy CFA ($\omega = .85$)}
+    \item \textbf{Activation layer} \\
+    {\small Type-specific CATEs, Gap $\times$ $\eta_{\text{anx}}$ interaction, non-negativity}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Unconditional ATE is positive and robust ($d \approx 0.24$--$0.27$)}
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Estimator} & \textbf{$d$} & \textbf{95\% CI} & \\
+\midrule
+OLS (unadjusted)    & 0.27 & [0.14, 0.40] & \textcolor{sbugreen}{$\bullet$} \\
+OLS (adjusted)       & 0.24 & [0.13, 0.36] & \textcolor{sbugreen}{$\bullet$} \\
+SEM                  & 0.24 & [0.13, 0.36] & \textcolor{sbugreen}{$\bullet$} \\
+BFMM ($\pi$-weighted) & 0.27 & [0.14, 0.39] & \textcolor{sbugreen}{$\bullet$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+{\small All specifications converge. The BFMM reproduces the ATE while decomposing it into type-specific components.}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Source trust operates as a discrete gate}
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Skeptics ($\pi \approx 62\%$)}} & \multicolumn{2}{c}{\textbf{Trusters ($\pi \approx 38\%$)}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & Estimate & $P(\beta > 0)$ & Estimate & $P(\beta > 0)$ \\
+\midrule
+$\beta_0$: Intercept        & $+0.23$ & 0.98 & $+0.44$ & 1.00 \\
+$\beta_1$: Gap               & $-0.06$ & 0.26 & $+0.14$ & 0.92 \\
+$\beta_2$: Anxiety            & $-0.06$ & 0.23 & $+0.14$ & 0.93 \\
+$\beta_3$: Gap $\times$ Anx   & $-0.07$ & 0.18 & $+0.13$ & 0.92 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+{\small \textcolor{sbuamber}{\textbf{Finding:}} Source rejection functions as a strict binary filter: all Skeptic moderation coefficients have $P(\beta > 0) < 0.30$; all Truster coefficients have $P(\beta > 0) > 0.92$.}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Among Trusters, effects are jointly activated by Gap $\times$ Anxiety}
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Condition} & \textbf{$d$} & \textbf{95\% CI} \\
+\midrule
+Unconditional ATE & 0.27 & [0.14, 0.39] \\
+\midrule
+High Gap $\times$ Low Anx  & 0.17 & [$-$0.13, 0.46] \\
+Low Gap $\times$ High Anx  & 0.21 & [$-$0.07, 0.49] \\
+Mean $\times$ Mean          & 0.29 & [0.18, 0.41] \\
+\textcolor{sbugreen}{\textbf{High $\times$ High}} & \textcolor{sbugreen}{\textbf{0.61}} & \textcolor{sbugreen}{\textbf{[0.40, 0.86]}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+{\footnotesize \textcolor{sbugreen}{\textbf{Pairwise contrasts (High $\times$ High vs.):}} \\
+vs.\ High Gap $\times$ Low Anx: $P(\Delta > 0) = 0.98$ \\
+vs.\ Low Gap $\times$ High Anx: $P(\Delta > 0) = 0.98$ \\
+vs.\ Mean $\times$ Mean: $P(\Delta > 0) = 0.99$}
+
+\column{0.48\textwidth}
+\begin{itemize}
+    \item \textbf{Gap alone insufficient} \\
+    {\small High Gap $\times$ Low Anxiety: CI crosses zero ($d = 0.17$)}
+    \item \textbf{Anxiety alone insufficient} \\
+    {\small Low Gap $\times$ High Anxiety: CI crosses zero ($d = 0.21$)}
+    \item \textbf{Joint activation required} \\
+    {\small High $\times$ High: $d = 0.61$ --- 2.5$\times$ the unconditional ATE}
+    \item \textbf{Activation threshold} \\
+    {\small $\approx$ 20th percentile of trait anxiety ($z \approx -0.84$)}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+% ===================================================================
+% DISCUSSION
+% ===================================================================
+\section{Discussion}
+
+% -------------------------------------------------------------------
+\begin{frame}{Null aggregate effects reflect composition, not preference stability}
+
+\begin{columns}[T]
+\column{0.55\textwidth}
+\begin{enumerate}
+    \item \textbf{Theoretical:} Two-gate model resolves conflicting results as composition effects across three pathways.
+    \item \textbf{Methodological:} BFMM addresses latent classification with collider-biased post-treatment moderators.
+    \item \textbf{Empirical:} Maximum CATE ($d = 0.61$) exceeds ATE by factor 2.5; robust across specifications.
+    \item \textbf{Implication:} Most workers dismiss expert warnings outright; among those who listen, policy demand activates only when the information surprises them and they are dispositionally vigilant.
+\end{enumerate}
+
+\column{0.4\textwidth}
+\vspace{0.5cm}
+{\small \textcolor{sbuamber}{\textbf{Scope:}} $N = 901$ U.S.\ workers $\cdot$ 62\% Democrat $\cdot$ immediate measurement $\cdot$ F\&O 2017 estimates. Generalizes to climate, vaccines, trade.}
+\end{columns}
+
+\end{frame}
+
+\end{document}
