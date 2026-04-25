@@ -444,7 +444,8 @@
               "items": [
                 "Theoretical: two-gate model resolves conflicting results as composition effects across three pathways.",
                 "Methodological: BFMM addresses latent classification with collider-biased post-treatment moderators.",
-                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications."
+                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications.",
+                "Implication: most workers dismiss expert warnings outright; among those who listen, policy demand activates only when the information surprises them and they are dispositionally vigilant — risk communication that ignores these gates will underestimate public responsiveness."
               ]
             }
           ],
