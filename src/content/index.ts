@@ -15,6 +15,7 @@ export interface Presentation {
   event: string
   date: string
   description: string
+  pdfUrl?: string
 }
 
 export const site = siteContent

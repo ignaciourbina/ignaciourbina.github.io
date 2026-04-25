@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Maximize2 } from 'lucide-react'
+import { ArrowLeft, Download, Maximize2 } from 'lucide-react'
 import { conferences } from '../content'
 
 export default function ConferenceViewer() {
@@ -37,16 +37,29 @@ export default function ConferenceViewer() {
             </p>
           </div>
         </div>
-        <a
-          href={presentationUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
-          title="Open in new tab"
-        >
-          <Maximize2 size={14} />
-          <span className="hidden sm:inline">Full screen</span>
-        </a>
+        <div className="flex items-center gap-4">
+          {pres.pdfUrl && (
+            <a
+              href={pres.pdfUrl}
+              download
+              className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
+              title="Download PDF"
+            >
+              <Download size={14} />
+              <span className="hidden sm:inline">PDF</span>
+            </a>
+          )}
+          <a
+            href={presentationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
+            title="Open in new tab"
+          >
+            <Maximize2 size={14} />
+            <span className="hidden sm:inline">Full screen</span>
+          </a>
+        </div>
       </div>
 
       <iframe

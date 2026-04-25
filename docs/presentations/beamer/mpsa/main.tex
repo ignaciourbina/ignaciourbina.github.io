@@ -1,0 +1,321 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{default}
+\usecolortheme{dove}
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\definecolor{sbured}{RGB}{166,61,64}
+\definecolor{sbugreen}{RGB}{31,122,91}
+\definecolor{sbuamber}{RGB}{179,106,21}
+\definecolor{sbublue}{RGB}{49,95,134}
+
+\title{Simulating Open Democracy}
+\subtitle{Comparing Deliberation Engines in a Shared Argument-Theoretic Environment}
+\author{Ignacio Urbina}
+\institute{Stony Brook University}
+\date{MPSA 2026}
+
+\begin{document}
+
+% ===================================================================
+% TITLE
+% ===================================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ===================================================================
+% MOTIVATION
+% ===================================================================
+\section{Motivation}
+
+\begin{frame}{Deliberation exchanges reasons; ABMs rarely model that exchange}
+
+\begin{itemize}
+    \item \textbf{Normative} \\
+    {\small Deliberation = public exchange of reasons, not preference aggregation (Habermas 1996; Mansbridge et al.\ 2012)}
+    \item \textbf{Empirical} \\
+    {\small Mini-publics confirm facilitation, composition, and closure matter --- but bundle them (Fishkin et al.\ 2021; Niemeyer et al.\ 2024)}
+    \item \textbf{Classical ABMs} \\
+    {\small Opinion-dynamics models isolate mechanisms but fix cognition in the update rule (DeGroot 1974; Deffuant et al.\ 2000; Hegselmann \& Krause 2002)}
+    \item \textbf{Argument-theoretic ABMs} \\
+    {\small Take reasons as primitive, but rarely vary cognition under a shared protocol (Gabbriellini \& Torroni 2014; Shugars 2021)}
+\end{itemize}
+
+\vspace{0.3cm}
+\begin{alertblock}{Research question}
+Does cognitive implementation change the kind of deliberation an ABM produces, once the forum, argument pool, and outcome metrics are held fixed?
+\end{alertblock}
+
+\end{frame}
+
+% ===================================================================
+% MODEL
+% ===================================================================
+\section{Model}
+
+\begin{frame}{Argument-theoretic state space}
+
+Considerations $c = (\ell_c, d_c, s_c)$ with direction $d_c \in [-1,1]$ and persuasiveness $s_c \in [0,1]$; sparse signed weights $w_{ic} \in [-1,1]$ over a repertoire $R_i \subseteq \mathcal{C}$ (cf.\ Dung 1995; Gabbriellini \& Torroni 2014).
+
+\begin{exampleblock}{Expressed opinion}
+\[
+o_i = \operatorname{clip}\!\left(\frac{1}{|R_i|}\sum_{c \in R_i} w_{ic}\, d_c\right)
+\]
+\end{exampleblock}
+
+\vspace{0.2cm}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Domain} \\
+\midrule
+$c = (\ell, d, s)$ & consideration: label, direction, persuasiveness & pool $\mathcal{C}$, $|\mathcal{C}|=10$ \\
+$w_{ic}$ & agent $i$'s signed weight on $c$ & $[-1, 1]$; sparse \\
+$R_i \subseteq \mathcal{C}$ & agent $i$'s repertoire (voted subset) & mean $|R| \approx 5.4$ of 10 \\
+$o_i$ & expressed opinion (derived, not free) & $[-1, 1]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Voice $\to$ Evaluate $\to$ Reflect, one voice per agent per round}
+
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{Architecture layers:}
+\begin{description}
+    \item[Protocol] town hall, voice budget, round count
+    \item[State] considerations, attack--support graph, weighted repertoires
+    \item[Engine] empirical rule-based \textit{or} tool-constrained LLM
+    \item[Outcomes] epistemic, distributional, procedural
+\end{description}
+
+\column{0.45\textwidth}
+\textbf{Three hooks:}
+\begin{itemize}
+    \item \textbf{Voice} \\
+    {\small Select one held consideration to speak; budget = 1 per round}
+    \item \textbf{Evaluate} \\
+    {\small Score heard consideration's influence given held attackers and supporters}
+    \item \textbf{Reflect} \\
+    {\small Update weights toward endorsement or rejection; adopt new considerations if influence clears threshold}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+% ===================================================================
+% SCENARIO
+% ===================================================================
+\section{Scenario}
+
+\begin{frame}{Seattle 2014 \$15/hour Polis conversation}
+
+{\small Computational Democracy Project open-data release (pol.is/2demo); a documented controversy, not a binding mini-public.}
+
+\vspace{0.3cm}
+\begin{columns}[T]
+\column{0.3\textwidth}
+\begin{block}{Participants}
+\centering \textbf{\Large 339 $\to$ 108} \\
+{\small 108 pass inclusion filter ($\geq 3$ votes)}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{Statements}
+\centering \textbf{\Large 54 $\to$ 30} \\
+{\small moderated statements retained}
+\end{block}
+
+\column{0.3\textwidth}
+\begin{block}{Agents per room}
+\centering \textbf{\Large 6} \\
+{\small drawn from 3$\times$3 grid}
+\end{block}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Composition} & \textbf{Structure} & \textbf{Detail} \\
+\midrule
+Symmetric & No coherent anchors & 2 Pro/Mix $\cdot$ 1 Pro/Amb $\cdot$ 2 Con/Mix $\cdot$ 1 Con/Amb \\
+Polarized & Tight anchors at both poles & 2 Pro/Coh $\cdot$ 1 Pro/Mix $\cdot$ 2 Con/Coh $\cdot$ 1 Con/Mix \\
+Three-cluster & Anchors + true center & 1 Pro/Coh $\cdot$ 1 Pro/Mix $\cdot$ 2 Amb $\cdot$ 1 Con/Mix $\cdot$ 1 Con/Coh \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Co-vote structure: attack and support edges from observed voting}
+
+Yule's $Q$ on each statement pair: $Q = (n_{\text{conc}} - n_{\text{disc}}) / (n_{\text{conc}} + n_{\text{disc}})$.
+Negative $Q$ $\to$ attack; positive $Q$ $\to$ support. Threshold $|Q| \geq 0.2$, min 10 co-voters.
+
+\vspace{0.3cm}
+\begin{columns}[c]
+\column{0.45\textwidth}
+\begin{block}{15 attack pairs, 19 support edges}
+{\small Attacks fall almost exclusively between the pro block (C$_1$, C$_2$, C$_4$, C$_5$, C$_8$) and the con block (C$_3$, C$_6$, C$_7$, C$_9$, C$_{10}$). Bipartite-like structure inherited from Polis co-voting.}
+\end{block}
+
+\column{0.45\textwidth}
+\begin{itemize}
+    \item \textbf{Strongest attack:} C$_1$ $\leftrightarrow$ C$_{10}$, $Q = -0.69$
+    \item \textbf{Strongest support:} C$_1$ $\leftrightarrow$ C$_2$, $Q = +0.74$
+    \item \textbf{Edge strength:} $0.2 + 0.6 \times \min(|Q|, 1)$
+\end{itemize}
+
+\vspace{0.2cm}
+{\small Persuasiveness $s_c$ is the cross-over endorsement rate (opposing-side agreement); edge strength is the co-vote correlation.}
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{One vote matrix grounds pool, graph, and initialization}
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Component} & \textbf{Grounded by} & \textbf{Use in the model} \\
+\midrule
+Consideration pool & Moderated statements & Reasons available to voice and adopt \\
+Attack--support graph & Co-voting (Yule's $Q$) & Edge type and edge strength \\
+Persuasiveness & Cross-over endorsement (IRT) & Intrinsic persuasive reach into opposing camp \\
+Agent initialization & Ising-reconstructed profiles & Sparse starting repertoires and coherence scores \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+{\small Sparse init mean $|R_i^{(0)}| \approx 5.4$ of 10; new considerations enter later through Reflect.}
+
+\end{frame}
+
+% ===================================================================
+% ESTIMATION
+% ===================================================================
+\section{Design}
+
+\begin{frame}{Pooled finite-difference indexed model, clustered by run}
+
+964 runs (600 rule-based, 364 LLM) over 8 rounds, $n=6$ agents each; 6,748 adjacent run-round observations.
+
+\begin{exampleblock}{Pooled specification}
+\[
+\Delta\, \text{index}^{(k)}_{it} \;\sim\; \bigl(\log t - \log(t-1)\bigr) \,\times\, \text{arm}_i \,\times\, \text{composition}_i
+\]
+\end{exampleblock}
+
+\vspace{0.2cm}
+{\small Outcomes indexed as $\text{index}^{(k)}_{it} = 100 + 100\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\bigr)$. Clustered standard errors at the run level (Cameron \& Miller 2015). An index-point change of $+5$ means the outcome grew 5 percentage points of its baseline distance over the deliberation period.}
+
+\end{frame}
+
+% ===================================================================
+% RESULTS
+% ===================================================================
+\section{Results}
+
+\begin{frame}{Results I: LLM engine shows positive gaps on epistemic alignment}
+
+\begin{itemize}
+    \item \textbf{DRI (Deliberative Reasoning Index):} correlation between pairwise opinion similarity and shared reason structure
+    \item \textbf{Meta-consensus:} convergence on what matters, not what to do
+\end{itemize}
+
+\vspace{0.3cm}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Outcome} & \textbf{Polarized} & \textbf{Symmetric} & \textbf{Three-cluster} \\
+\midrule
+DRI gap (LLM $-$ rule) & $+5.04^{**}$ & $+1.01$ & $+9.23^{**}$ \\
+ & {\scriptsize $p = .002$} & {\scriptsize $p = .734$} & {\scriptsize $p = .006$} \\[4pt]
+Meta-consensus gap & $+1.40^{***}$ & $+0.83^{***}$ & $+1.15^{***}$ \\
+ & {\scriptsize $p < .001$} & {\scriptsize $p < .001$} & {\scriptsize $p < .001$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+{\small Three-cluster largest for DRI; meta-consensus uniformly significant across all compositions.}
+
+\end{frame}
+
+% -------------------------------------------------------------------
+\begin{frame}{Results II: Rule-based engine shows negative gaps on argument circulation}
+
+\begin{itemize}
+    \item \textbf{Argument diversity:} fraction of the consideration pool voiced at least once
+    \item \textbf{Cross-camp uptake:} rate at which agents adopt considerations from the opposing camp
+\end{itemize}
+
+\vspace{0.3cm}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Outcome} & \textbf{Polarized} & \textbf{Symmetric} & \textbf{Three-cluster} \\
+\midrule
+Arg.\ diversity gap (LLM $-$ rule) & $-22.41^{***}$ & $-20.82^{***}$ & $-21.67^{***}$ \\
+ & {\scriptsize $p < .001$} & {\scriptsize $p < .001$} & {\scriptsize $p < .001$} \\[4pt]
+Cross-camp uptake gap & $-0.10$ & $-5.19^{**}$ & $-2.23$ \\
+ & {\scriptsize $p = .934$} & {\scriptsize $p = .001$} & {\scriptsize $p = .148$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+{\small Rule-based advantage $\sim 21$ index points on diversity in every composition. Cross-camp uptake clearest in symmetric rooms.}
+
+\end{frame}
+
+% ===================================================================
+% DISCUSSION
+% ===================================================================
+\section{Discussion}
+
+\begin{frame}{Different cognitive regimes, identical forums}
+
+{\small Epistemic integration and argumentative activation can come apart (Mansbridge et al.\ 2012; Landemore 2020).}
+
+\vspace{0.3cm}
+\begin{enumerate}
+    \item \textbf{LLM engine} $\to$ stronger reason-level alignment (DRI, meta-consensus).
+    \item \textbf{Rule-based engine} $\to$ stronger argumentative circulation (diversity, uptake).
+    \item \textbf{Composition moderates magnitude;} the claim is directional, not uniform.
+\end{enumerate}
+
+\vspace{0.4cm}
+{\small Bounded comparative exercise --- one issue, six-agent rooms, 600 vs.\ 364 runs. Engine choice is a design result, not a technical detail.}
+
+\end{frame}
+
+\end{document}
