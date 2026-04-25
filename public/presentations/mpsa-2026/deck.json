@@ -36,6 +36,7 @@
       "blocks": [
         {
           "type": "bullets",
+          "reveal": "items",
           "items": [
             { "title": "Normative", "detail": "Deliberation = public exchange of reasons, not preference aggregation (Habermas 1996; Mansbridge et al. 2012)." },
             { "title": "Empirical", "detail": "Mini-publics confirm facilitation, composition, and closure matter — but bundle them (Fishkin et al. 2021; Niemeyer et al. 2024)." },
@@ -45,6 +46,7 @@
         },
         {
           "type": "callout",
+          "reveal": true,
           "label": "Research question",
           "text": "Does cognitive implementation change the kind of deliberation an ABM produces, once the forum, argument pool, and outcome metrics are held fixed?",
           "tone": "amber"
@@ -87,6 +89,7 @@
         {
           "type": "split",
           "ratio": "1.1fr 0.9fr",
+          "reveal": "panes",
           "left": [
             {
               "type": "architecture",
@@ -381,6 +384,7 @@
         {
           "type": "bullets",
           "density": "compact",
+          "reveal": "items",
           "items": [
             { "title": "DRI (Deliberative Reasoning Index)", "detail": "Correlation between pairwise opinion similarity and shared reason structure — do agents who agree also agree on why?" },
             { "title": "Meta-consensus", "detail": "Convergence on what matters, not what to do — agreement on consideration salience across agents." }
@@ -389,6 +393,7 @@
         {
           "type": "grid",
           "columns": 2,
+          "reveal": true,
           "items": [
             {
               "type": "dot-plot",
@@ -432,6 +437,7 @@
         {
           "type": "bullets",
           "density": "compact",
+          "reveal": "items",
           "items": [
             { "title": "Argument diversity", "detail": "Fraction of the consideration pool voiced at least once — how much of the shared argument space gets activated." },
             { "title": "Cross-camp uptake", "detail": "Rate at which agents adopt considerations from the opposing policy camp." }
@@ -440,6 +446,7 @@
         {
           "type": "grid",
           "columns": 2,
+          "reveal": true,
           "items": [
             {
               "type": "dot-plot",
@@ -483,9 +490,11 @@
         {
           "type": "split",
           "ratio": "1fr 1fr",
+          "reveal": "panes",
           "left": [
             {
               "type": "numbers",
+              "reveal": "items",
               "items": [
                 "LLM engine → stronger reason-level alignment (DRI, meta-consensus).",
                 "Rule-based engine → stronger argumentative circulation (diversity, uptake).",
