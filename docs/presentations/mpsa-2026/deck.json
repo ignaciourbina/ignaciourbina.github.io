@@ -63,6 +63,17 @@
           "label": "Expressed opinion",
           "text": "\\[ o_i \\;=\\; \\operatorname{clip}\\!\\left(\\frac{1}{|R_i|}\\sum_{c \\in R_i} w_{ic}\\, d_c\\right) \\]",
           "tone": "green"
+        },
+        {
+          "type": "matrix",
+          "rows": ["\\(c = (\\ell,\\, d,\\, s)\\)", "\\(w_{ic}\\)", "\\(R_i \\subseteq \\mathcal{C}\\)", "\\(o_i\\)"],
+          "columns": ["Meaning", "Domain"],
+          "cells": [
+            ["consideration: label, direction, persuasiveness", "pool \\(\\mathcal{C}\\), \\(|\\mathcal{C}|=10\\)"],
+            ["agent \\(i\\)'s signed weight on \\(c\\)", "\\([-1,\\, 1]\\); sparse"],
+            ["agent \\(i\\)'s repertoire (voted subset)", "mean \\(|R| \\approx 5.4\\) of 10"],
+            ["expressed opinion (derived, not free)", "\\([-1,\\, 1]\\)"]
+          ]
         }
       ]
     },
@@ -80,6 +91,14 @@
             { "label": "State", "items": ["considerations", "attack–support graph", "weighted repertoires"] },
             { "label": "Engine", "items": ["empirical rule-based", "tool-constrained LLM"] },
             { "label": "Outcomes", "items": ["epistemic", "distributional", "procedural"] }
+          ]
+        },
+        {
+          "type": "bullets",
+          "items": [
+            { "title": "Voice", "detail": "Select one held consideration to speak; budget = 1 per round." },
+            { "title": "Evaluate", "detail": "Score heard consideration's influence given held attackers and supporters." },
+            { "title": "Reflect", "detail": "Update weights toward endorsement or rejection; adopt new considerations if influence clears threshold." }
           ]
         }
       ]
@@ -139,15 +158,42 @@
       "kicker": "Scenario",
       "headline": "Seattle 2014 $15/hour Polis conversation.",
       "subhead": "Computational Democracy Project open-data release (pol.is/2demo); a documented controversy, not a binding mini-public.",
-      "notes": "CompDemocracy documents this case as a long-running demonstration conversation rather than an official City of Seattle mini-public, but it is tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This gives the model access to publicly available reasons on both sides of a live policy controversy rather than to an abstract survey prompt.",
+      "notes": "CompDemocracy documents this case as a long-running demonstration conversation rather than an official City of Seattle mini-public, but it is tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This gives the model access to publicly available reasons on both sides of a live policy controversy rather than to an abstract survey prompt. The three compositions test whether the engine comparison holds across different room structures. Symmetric rooms have no coherent anchors — all agents hold mixed or ambivalent consideration sets. Polarized rooms plant tight ideological anchors at both poles. Three-cluster rooms add a true center: two agents who are ambivalent on both policy and coherence, flanked by one coherent and one mixed agent on each side.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "Participants", "value": "339", "detail": "15-per-hour Polis export", "tone": "green" },
+            { "type": "metric", "label": "Participants", "value": "339 → 108", "detail": "108 pass inclusion filter (≥ 3 votes on selected considerations)", "tone": "green" },
             { "type": "metric", "label": "Statements", "value": "54 → 30", "detail": "moderated statements retained", "tone": "amber" },
-            { "type": "metric", "label": "Compositions", "value": "3", "detail": "symmetric · polarized · three-cluster", "tone": "red" }
+            { "type": "metric", "label": "Agents per room", "value": "6", "detail": "drawn from the 3×3 policy–coherence grid", "tone": "red" }
+          ]
+        },
+        {
+          "type": "grid",
+          "columns": 3,
+          "items": [
+            {
+              "type": "metric",
+              "label": "Symmetric",
+              "value": "No coherent anchors",
+              "detail": "2 Pro/Mixed · 1 Pro/Ambiv · 2 Con/Mixed · 1 Con/Ambiv",
+              "tone": "green"
+            },
+            {
+              "type": "metric",
+              "label": "Polarized",
+              "value": "Tight anchors at both poles",
+              "detail": "2 Pro/Coherent · 1 Pro/Mixed · 2 Con/Coherent · 1 Con/Mixed",
+              "tone": "amber"
+            },
+            {
+              "type": "metric",
+              "label": "Three-cluster",
+              "value": "Anchors + true center",
+              "detail": "1 Pro/Coh · 1 Pro/Mix · 2 Ambiv/Ambiv · 1 Con/Mix · 1 Con/Coh",
+              "tone": "red"
+            }
           ]
         }
       ]
@@ -156,8 +202,8 @@
       "id": "example-considerations",
       "kicker": "Scenario · Considerations",
       "headline": "Ten considerations, drawn from 30 moderated statements via semantic clustering.",
-      "subhead": "Each consideration \\(c = (\\ell_c,\\, d_c,\\, s_c)\\): a statement label, a direction (pro/con), and a persuasiveness score derived from the empirical endorsement rate, normalized to \\([0.3,\\, 0.9]\\).",
-      "notes": "These are verbatim Polis statements written by participants during Seattle's 2014 $15/hour fight — not researcher-authored prompts. Persuasiveness is the share of directional voters who agreed, rescaled so that the weakest item still exerts some pull (0.3) and the strongest does not dominate (0.9). The audience should notice two things: (i) the pro side has stronger endorsement on average, and (ii) the weakest argument in the pool (C₃, inflation-penalizes-the-rich) is also the most easily attacked — a correlation the model inherits from the data, not from a design choice.",
+      "subhead": "Each consideration \\(c = (\\ell_c,\\, d_c,\\, s_c)\\): a statement label, a direction (pro/con), and a persuasiveness score derived from the cross-over endorsement rate (opposing-side agreement via IRT), normalized to \\([0.3,\\, 0.9]\\).",
+      "notes": "These are verbatim Polis statements written by participants during Seattle's 2014 $15/hour fight — not researcher-authored prompts. Selection procedure: the 29 moderated statements are embedded with e5-large-v2, then clustered into 10 topical groups via hierarchical agglomerative clustering (cosine distance, average linkage). Within each cluster, we pick the statement with the highest separation power — defined as max over other clusters C' of mean |Q(i,j)| for j in C'. This ensures the representative is both topically representative and maximally opinion-active across clusters. Ties broken by number of directional votes. Persuasiveness is the cross-over endorsement rate: the share of opposing-side participants (by IRT theta) who agreed, rescaled so that the weakest item still exerts some pull (0.3) and the strongest does not dominate (0.9). The audience should notice two things: (i) the pro side has stronger cross-camp reach on average, and (ii) the weakest argument in the pool (C₃, inflation-penalizes-the-rich) is also the most easily attacked — a correlation the model inherits from the data, not from a design choice.",
       "blocks": [
         {
           "type": "grid",
@@ -165,30 +211,30 @@
           "items": [
             {
               "type": "metric",
-              "label": "C₅ · Pro · s = 0.90",
+              "label": "C₅ · Pro · s = 0.73",
               "value": "\"Something needs to be done to address income inequality and this is a good if imperfect start.\"",
-              "detail": "Highest endorsement (82%); strongest pull in the pool",
+              "detail": "Cross-over rate 40%; high reach into opposing camp",
               "tone": "green"
             },
             {
               "type": "metric",
-              "label": "C₁ · Pro · s = 0.72",
+              "label": "C₁ · Pro · s = 0.82",
               "value": "\"Businesses shouldn't be able to pay workers anything below a livable wage. Why should we subsidize businesses that depend on inadequate wages?\"",
-              "detail": "Endorsement 67%; attacks C₃ and C₆",
+              "detail": "Cross-over rate 47%; attacks C₃ and C₆",
               "tone": "green"
             },
             {
               "type": "metric",
-              "label": "C₇ · Con · s = 0.67",
+              "label": "C₇ · Con · s = 0.77",
               "value": "\"It's just going to speed up the adoption of robotics in industries with unskilled or low-skilled workers.\"",
-              "detail": "Endorsement 63%; automation-threat framing",
+              "detail": "Cross-over rate 43%; automation-threat framing",
               "tone": "amber"
             },
             {
               "type": "metric",
               "label": "C₃ · Con · s = 0.30",
               "value": "\"$15 min wage will lead to inflation. Higher income population is penalized for this reason and therefore I don't think it is fair.\"",
-              "detail": "Lowest endorsement (34%); weakest consideration in the pool",
+              "detail": "Cross-over rate 3%; weakest consideration in the pool",
               "tone": "red"
             }
           ]
@@ -200,7 +246,7 @@
       "kicker": "Scenario · Co-vote structure",
       "headline": "Attack and support edges emerge from observed voting, not researcher judgment.",
       "subhead": "Yule's \\(Q\\) on each statement pair: \\(Q = (n_{\\text{concordant}} - n_{\\text{discordant}}) / (n_{\\text{concordant}} + n_{\\text{discordant}})\\). Negative \\(Q\\) → attack; positive \\(Q\\) → support. Threshold \\(|Q| \\geq 0.2\\), minimum 10 co-voters.",
-      "notes": "The graph has 15 attack pairs and 19 support pairs across 10 nodes. Attack edges fall almost exclusively between the pro block (C₁, C₂, C₄, C₅, C₈) and the con block (C₃, C₆, C₇, C₉, C₁₀); support edges fall within each block. The strongest attack (Q = −0.62) links C₁ (livable-wage mandate) to C₁₀ (reactionary-liberal critique); the weakest retained support (Q = +0.34) links C₇ (robotics) to C₉ (self-service). This bipartite-like structure is an empirical result — the Polis electorate sorted itself into two co-voting camps, and the model inherits that polarization through the graph rather than imposing it.",
+      "notes": "The graph has 15 attack pairs and 19 support pairs across 10 nodes. Attack edges fall almost exclusively between the pro block (C₁, C₂, C₄, C₅, C₈) and the con block (C₃, C₆, C₇, C₉, C₁₀); support edges fall within each block. The strongest attack (Q = −0.69) links C₁ (livable-wage mandate) to C₁₀ (reactionary-liberal critique); the weakest retained support (Q = +0.23) links C₉ (self-service) to C₁₀ (systemic-critique). This bipartite-like structure is an empirical result — the Polis electorate sorted itself into two co-voting camps, and the model inherits that polarization through the graph rather than imposing it.",
       "blocks": [
         {
           "type": "grid",
@@ -209,23 +255,35 @@
             {
               "type": "metric",
               "label": "Attack example: C₁ ↔ C₁₀",
-              "value": "Q = −0.62",
+              "value": "Q = −0.69",
               "detail": "\"Livable wage\" vs. \"Reactionary liberal trash\" — voters who endorsed one opposed the other",
               "tone": "red"
             },
             {
               "type": "metric",
               "label": "Support example: C₅ ↔ C₂",
-              "value": "Q = +0.73",
+              "value": "Q = +0.54",
               "detail": "\"Good start on inequality\" & \"Workers must keep fighting inflation\" — co-endorsed",
               "tone": "green"
             }
           ]
         },
         {
+          "type": "matrix",
+          "rows": ["C₁ Pro", "C₂ Pro", "C₄ Pro", "C₅ Pro", "C₈ Pro"],
+          "columns": ["C₃", "C₆", "C₇", "C₉", "C₁₀"],
+          "cells": [
+            ["−.43", "−.20", " ", " ", "−.69"],
+            ["−.57", "−.48", " ", " ", "−.52"],
+            ["−.52", "−.57", "−.31", " ", "−.49"],
+            ["−.56", "−.39", " ", " ", "−.58"],
+            ["−.36", " ", " ", " ", "−.25"]
+          ]
+        },
+        {
           "type": "callout",
           "label": "Edge strength",
-          "text": "\\(\\text{strength} = 0.2 + 0.6 \\times \\min(|Q|,\\, 1)\\); maps co-vote intensity to \\([0.2,\\, 0.8]\\). Persuasiveness \\(s_c\\) is the endorsement rate; edge strength is the co-vote correlation — they measure different things.",
+          "text": "\\(\\text{strength} = 0.2 + 0.6 \\times \\min(|Q|,\\, 1)\\); maps co-vote intensity to \\([0.2,\\, 0.8]\\). Persuasiveness \\(s_c\\) is the cross-over endorsement rate (opposing-side agreement); edge strength is the co-vote correlation — they measure different things.",
           "tone": "amber"
         }
       ]
@@ -235,15 +293,16 @@
       "kicker": "Data use · Summary",
       "headline": "One vote matrix grounds pool, graph, and initialization.",
       "subhead": "Sparse repertoires via Ising-based profile reconstruction. Sparse init mean \\(|R_i^{(0)}| \\approx 5.4\\) of \\(10\\); new considerations enter later through Reflect.",
-      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool (previous two slides); (2) pairwise co-voting identifies attack/support structure and item persuasiveness via Yule's Q; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. The Ising model treats the Q matrix as coupling strengths and imputes unobserved votes via mean-field inference — a participant who agreed with three pro statements and disagreed with one con statement gets predicted soft votes on the remaining six. Coherence is the z-scored negative energy of the full profile: high-coherence agents hold tightly aligned consideration sets, low-coherence agents hold contradictory ones. Sparsity matters because the model does not begin from full information — it begins from unequal, empirically grounded informational endowments.",
+      "notes": "Three distinct uses of the same Polis export: (1) moderated statements supply the argument pool (previous two slides); (2) pairwise co-voting (Yule's Q) identifies attack/support structure, and cross-over endorsement rates (opposing-side agreement via IRT theta) set item persuasiveness; (3) an Ising-based reconstruction of belief profiles seeds agent initialization. The Ising model treats the Q matrix as coupling strengths and imputes unobserved votes via mean-field inference — a participant who agreed with three pro statements and disagreed with one con statement gets predicted soft votes on the remaining six. Coherence is the z-scored negative energy of the full profile: high-coherence agents hold tightly aligned consideration sets, low-coherence agents hold contradictory ones. Sparsity matters because the model does not begin from full information — it begins from unequal, empirically grounded informational endowments.",
       "blocks": [
         {
           "type": "matrix",
-          "rows": ["Consideration pool", "Attack–support graph", "Agent initialization"],
+          "rows": ["Consideration pool", "Attack–support graph", "Persuasiveness", "Agent initialization"],
           "columns": ["Grounded by", "Use in the model"],
           "cells": [
             ["Moderated statements", "reasons available to voice and adopt"],
-            ["Co-voting (Yule's Q)", "edge type, edge strength, and persuasiveness"],
+            ["Co-voting (Yule's Q)", "edge type and edge strength"],
+            ["Cross-over endorsement (IRT)", "intrinsic persuasive reach into opposing camp"],
             ["Ising-reconstructed profiles", "sparse starting repertoires and coherence scores"]
           ]
         }
@@ -253,8 +312,8 @@
       "id": "estimation",
       "kicker": "Design · Estimation",
       "headline": "Pooled finite-difference indexed model, clustered by run.",
-      "subhead": "886 runs (600 rule-based, 286 LLM) over 8 rounds, \\(n=6\\) agents each; 6{,}202 adjacent run-round observations. Arms interacted with composition; outcomes indexed as \\(\\text{index}^{(k)}_{it} = 100 + 100\\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\\bigr)\\).",
-      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The empirical rule-based engine is grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage (600 vs. 286), so comparisons are reported as directional slope contrasts rather than point-estimate decompositions. Clustered standard errors at the run level (Cameron & Miller 2015).",
+      "subhead": "964 runs (600 rule-based, 364 LLM) over 8 rounds, \\(n=6\\) agents each; 6,748 adjacent run-round observations. Arms interacted with composition; outcomes indexed as \\(\\text{index}^{(k)}_{it} = 100 + 100\\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\\bigr)\\).",
+      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The empirical rule-based engine is grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage (600 vs. 364), so comparisons are reported as directional slope contrasts rather than point-estimate decompositions. Clustered standard errors at the run level (Cameron & Miller 2015). Index-point interpretation: an index-point change of +5 means the outcome grew 5 percentage points of its baseline distance over the deliberation period. All outcomes are normalized to a common 100-point baseline so cross-outcome comparisons use comparable units.",
       "blocks": [
         {
           "type": "callout",
@@ -269,14 +328,20 @@
       "kicker": "Results I · Epistemic alignment",
       "headline": "LLM engine: positive slope gaps on reason-level outcomes.",
       "subhead": "Deliberative Reasoning Index (Niemeyer et al. 2024; Veri & Niemeyer 2025) and meta-consensus on salience (Curato et al. 2017). Triplets: polarized / symmetric / three-cluster.",
-      "notes": "DRI asks whether opinion similarity is grounded in shared reason structure. Meta-consensus tracks convergence on what matters rather than what to do. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in both arms; better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim.",
+      "notes": "DRI asks whether opinion similarity is grounded in shared reason structure — it is the correlation between pairwise weight-vector cosine similarity and opinion proximity. Meta-consensus tracks convergence on what matters rather than what to do — measured as agreement on consideration salience (absolute weight magnitude) across agents. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in the LLM arm (the rule-based arm shows mixed or flat movement); better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim. An index-point change of +5 means the outcome grew 5 percentage points of its baseline distance over the deliberation period.",
       "blocks": [
+        {
+          "type": "callout",
+          "label": "Measures",
+          "text": "DRI: correlation between pairwise opinion similarity and shared reason structure — do agents who agree also agree on why? Meta-consensus: convergence on what matters, not what to do.",
+          "tone": "green"
+        },
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "DRI slope gap (LLM − rule)", "value": "+5.72** / +2.48 / +9.21*", "detail": "three-cluster largest (p = .012); polarized p = .001; symmetric imprecise (p = .422)", "tone": "green" },
-            { "type": "metric", "label": "Meta-consensus slope gap", "value": "+1.34*** / +0.82** / +1.02***", "detail": "significant in all three compositions", "tone": "green" }
+            { "type": "metric", "label": "DRI gap (LLM − rule)", "value": "\\(+5.04^{**}\\; /\\; +1.01\\; /\\; +9.23^{**}\\)", "detail": "polarized / symmetric / three-cluster; three-cluster largest (p = .006)", "tone": "green" },
+            { "type": "metric", "label": "Meta-consensus gap", "value": "\\(+1.40^{***}\\; /\\; +0.83^{***}\\; /\\; +1.15^{***}\\)", "detail": "polarized / symmetric / three-cluster; significant in all three", "tone": "green" }
           ]
         }
       ]
@@ -286,14 +351,14 @@
       "kicker": "Results II · Argument circulation",
       "headline": "Rule-based engine: negative slope gaps on circulation outcomes.",
       "subhead": "Argument diversity and cross-camp uptake (cf. Stasser & Vaughan 1996; Mercier & Landemore 2012). Triplets: polarized / symmetric / three-cluster.",
-      "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−3.64, p = .043), is imprecise in three-cluster, and near zero in polarized. Plurality (held off-slide) also favors rule-based. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
+      "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−5.19, p = .001), is imprecise in three-cluster (−2.23, p = .148), and near zero in polarized (−0.10, p = .934). Plurality (held off-slide): the LLM arm compresses more; the rule-based arm is mixed or flat. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
       "blocks": [
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "Argument diversity slope gap", "value": "−22.59*** / −19.92*** / −21.53***", "detail": "rule-based advantage in every composition; all p < .001", "tone": "amber" },
-            { "type": "metric", "label": "Cross-camp uptake slope gap", "value": "+0.24 / −3.64* / −1.26", "detail": "clearest in symmetric (p = .043); null in polarized and three-cluster", "tone": "amber" }
+            { "type": "metric", "label": "Argument diversity gap (LLM − rule)", "value": "\\(-22.41^{***}\\; /\\; -20.82^{***}\\; /\\; -21.67^{***}\\)", "detail": "polarized / symmetric / three-cluster; rule-based advantage in every composition; all p < .001", "tone": "amber" },
+            { "type": "metric", "label": "Cross-camp uptake gap", "value": "\\(-0.10\\; /\\; -5.19^{**}\\; /\\; -2.23\\)", "detail": "polarized / symmetric / three-cluster; clearest in symmetric (p = .001)", "tone": "amber" }
           ]
         }
       ]
@@ -314,9 +379,18 @@
           ]
         },
         {
+          "type": "plot",
+          "xLabel": "Argumentative circulation →",
+          "yLabel": "Epistemic alignment →",
+          "points": [
+            { "label": "LLM engine", "x": 25, "y": 80, "tone": "green" },
+            { "label": "Rule-based", "x": 80, "y": 30, "tone": "amber" }
+          ]
+        },
+        {
           "type": "callout",
           "label": "Scope",
-          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 286 runs. Engine choice is a design result, not a technical detail.",
+          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 364 runs. Engine choice is a design result, not a technical detail.",
           "tone": "green"
         }
       ]
