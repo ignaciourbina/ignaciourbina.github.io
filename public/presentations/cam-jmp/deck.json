@@ -415,6 +415,13 @@
               ]
             }
           ]
+        },
+        {
+          "type": "callout",
+          "label": "Pairwise contrasts: High × High vs.",
+          "reveal": true,
+          "text": "vs. High Gap × Low Anx: P(Δ > 0) = 0.98 · vs. Low Gap × High Anx: P(Δ > 0) = 0.98 · vs. Mean × Mean: P(Δ > 0) = 0.99",
+          "tone": "green"
         }
       ]
     },

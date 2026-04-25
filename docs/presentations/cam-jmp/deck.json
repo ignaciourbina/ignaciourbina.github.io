@@ -393,6 +393,7 @@
               "referenceLine": 0,
               "labelWidth": "10rem",
               "ticks": 5,
+              "showLegend": false,
               "reveal": "items",
               "points": [
                 { "label": "Unconditional ATE", "estimate": 0.27, "ci": [0.14, 0.39], "tone": "blue", "valueLabel": "d = 0.27" },
@@ -414,6 +415,13 @@
               ]
             }
           ]
+        },
+        {
+          "type": "callout",
+          "label": "Pairwise contrasts: High × High vs.",
+          "reveal": true,
+          "text": "vs. High Gap × Low Anx: P(Δ > 0) = 0.98 · vs. Low Gap × High Anx: P(Δ > 0) = 0.98 · vs. Mean × Mean: P(Δ > 0) = 0.99",
+          "tone": "green"
         }
       ]
     },

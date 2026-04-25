@@ -764,6 +764,7 @@ button {
     display: grid;
     grid-template-columns: repeat(var(--matrix-columns), minmax(0, 1fr));
     max-width: 52rem;
+    margin-inline: auto;
     border: 1px solid var(--line);
     border-radius: 6px;
     overflow: hidden;

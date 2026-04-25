@@ -761,7 +761,7 @@ export class DotPlot extends Component {
             ...rows,
             axis,
             this.options.xLabel ? h("span", { class: "dot-plot-axis-label", text: this.options.xLabel }) : null,
-            legendItems.length > 1 ? h("div", { class: "dot-plot-legend" }, legendItems) : null,
+            this.options.showLegend !== false && legendItems.length > 1 ? h("div", { class: "dot-plot-legend" }, legendItems) : null,
         ]);
 
         return container;
