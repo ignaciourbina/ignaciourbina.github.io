@@ -384,7 +384,7 @@ button {
 
 .list-detail {
     color: var(--muted);
-    font-size: clamp(0.68rem, 1vw, 0.8rem);
+    font-size: clamp(0.75rem, 1.1vw, 0.88rem);
     line-height: 1.3;
 }
 
@@ -443,7 +443,7 @@ button {
 
 .callout-label {
     color: var(--muted);
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
 }
@@ -486,7 +486,7 @@ button {
 
 .metric-label {
     color: var(--muted);
-    font-size: 0.6rem;
+    font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
 }
@@ -500,7 +500,7 @@ button {
 
 .metric-detail {
     color: var(--muted);
-    font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+    font-size: clamp(0.72rem, 1.1vw, 0.85rem);
     line-height: 1.3;
 }
 
@@ -745,7 +745,7 @@ button {
     background: white;
 }
 
-.architecture-label { color: var(--green); font-weight: 800; font-size: 0.82rem; }
+.architecture-label { color: var(--green); font-weight: 800; font-size: 0.88rem; }
 
 .architecture-items { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
@@ -754,7 +754,7 @@ button {
     border-radius: 999px;
     background: var(--paper);
     color: var(--ink);
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 700;
 }
 
@@ -779,7 +779,7 @@ button {
     padding: 0.55rem;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    font-size: clamp(0.62rem, 1vw, 0.8rem);
+    font-size: clamp(0.72rem, 1.1vw, 0.88rem);
 }
 
 .matrix-head { background: var(--ink); color: white; font-weight: 800; }
@@ -816,7 +816,7 @@ button {
     background: white;
     color: var(--blue);
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.78rem;
     font-weight: 800;
     box-shadow: 0 8px 20px rgba(23, 33, 31, 0.12);
 }
@@ -839,7 +839,7 @@ button {
     border-radius: 999px;
     background: var(--paper);
     color: var(--muted);
-    font-size: clamp(0.6rem, 1vw, 0.72rem);
+    font-size: clamp(0.72rem, 1.1vw, 0.82rem);
     font-weight: 700;
     cursor: pointer;
     transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
@@ -918,11 +918,11 @@ button {
 }
 
 .chat-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.45rem; }
-.chat-phase { font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(0.55rem, 0.7vw, 0.62rem); color: var(--ink); }
-.chat-agent { font-weight: 700; color: var(--ink); font-size: clamp(0.62rem, 0.85vw, 0.72rem); }
-.chat-tag { font-weight: 600; color: var(--muted); font-size: clamp(0.55rem, 0.75vw, 0.65rem); background: rgba(23, 33, 31, 0.06); padding: 0.08rem 0.35rem; border-radius: 4px; }
-.chat-text { margin: 0; font-style: italic; color: var(--ink); font-size: clamp(0.62rem, 0.9vw, 0.78rem); line-height: 1.35; }
-.chat-annotation { margin: 0; color: var(--muted); font-size: clamp(0.58rem, 0.8vw, 0.68rem); line-height: 1.3; }
+.chat-phase { font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(0.65rem, 0.85vw, 0.72rem); color: var(--ink); }
+.chat-agent { font-weight: 700; color: var(--ink); font-size: clamp(0.72rem, 1vw, 0.82rem); }
+.chat-tag { font-weight: 600; color: var(--muted); font-size: clamp(0.65rem, 0.85vw, 0.72rem); background: rgba(23, 33, 31, 0.06); padding: 0.08rem 0.35rem; border-radius: 4px; }
+.chat-text { margin: 0; font-style: italic; color: var(--ink); font-size: clamp(0.72rem, 1.1vw, 0.88rem); line-height: 1.35; }
+.chat-annotation { margin: 0; color: var(--muted); font-size: clamp(0.68rem, 0.95vw, 0.78rem); line-height: 1.3; }
 
 .chat-message--voice { border-left-color: var(--green); background: linear-gradient(90deg, rgba(31, 122, 91, 0.08), rgba(255, 255, 255, 0.92) 35%); }
 .chat-message--evaluate { border-left-color: var(--amber); background: linear-gradient(90deg, rgba(212, 150, 46, 0.1), rgba(255, 255, 255, 0.92) 35%); }
