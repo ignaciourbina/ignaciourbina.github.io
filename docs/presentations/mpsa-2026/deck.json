@@ -481,27 +481,29 @@
       "notes": "The two engines instantiate different models of successful deliberation, not different parameterizations of one mechanism. This is a directional comparative exercise — one issue domain, six-agent rooms, uneven arms — not a causal decomposition. The contribution is framework-level: a shared architecture in which institutional rules and cognitive implementation can be separately varied. For Landemore's (2020) open-democracy agenda, this matters because randomly-selected bodies need ways to inspect whether visible agreement is grounded in shared justificatory structure.",
       "blocks": [
         {
-          "type": "numbers",
-          "items": [
-            "LLM engine → stronger reason-level alignment (DRI, meta-consensus).",
-            "Rule-based engine → stronger argumentative circulation (diversity, uptake).",
-            "Composition moderates magnitude; the claim is directional, not uniform."
+          "type": "split",
+          "ratio": "1fr 1fr",
+          "left": [
+            {
+              "type": "numbers",
+              "items": [
+                "LLM engine → stronger reason-level alignment (DRI, meta-consensus).",
+                "Rule-based engine → stronger argumentative circulation (diversity, uptake).",
+                "Composition moderates magnitude; the claim is directional, not uniform."
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "plot",
+              "xLabel": "Argumentative circulation →",
+              "yLabel": "Epistemic alignment →",
+              "points": [
+                { "label": "LLM engine", "x": 25, "y": 80, "tone": "green" },
+                { "label": "Rule-based", "x": 80, "y": 30, "tone": "amber" }
+              ]
+            }
           ]
-        },
-        {
-          "type": "plot",
-          "xLabel": "Argumentative circulation →",
-          "yLabel": "Epistemic alignment →",
-          "points": [
-            { "label": "LLM engine", "x": 25, "y": 80, "tone": "green" },
-            { "label": "Rule-based", "x": 80, "y": 30, "tone": "amber" }
-          ]
-        },
-        {
-          "type": "callout",
-          "label": "Scope",
-          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 364 runs. Engine choice is a design result, not a technical detail.",
-          "tone": "green"
         }
       ]
     }
