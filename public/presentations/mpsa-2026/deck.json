@@ -139,7 +139,7 @@
       "kicker": "Scenario",
       "headline": "Seattle 2014 $15/hour Polis conversation.",
       "subhead": "Computational Democracy Project open-data release (pol.is/2demo); a documented controversy, not a binding mini-public.",
-      "notes": "CompDemocracy documents this case as a long-running demonstration conversation rather than an official City of Seattle mini-public, but it is tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This gives the model access to publicly available reasons on both sides of a live policy controversy rather than to an abstract survey prompt.",
+      "notes": "CompDemocracy documents this case as a long-running demonstration conversation rather than an official City of Seattle mini-public, but it is tied to Seattle's real 2014 fight over the $15 minimum wage — phase-in schedule, employer coverage, tips and benefits, enforcement. This gives the model access to publicly available reasons on both sides of a live policy controversy rather than to an abstract survey prompt. The three compositions test whether the engine comparison holds across different room structures. Symmetric rooms have no coherent anchors — all agents hold mixed or ambivalent consideration sets. Polarized rooms plant tight ideological anchors at both poles. Three-cluster rooms add a true center: two agents who are ambivalent on both policy and coherence, flanked by one coherent and one mixed agent on each side.",
       "blocks": [
         {
           "type": "grid",
@@ -147,7 +147,34 @@
           "items": [
             { "type": "metric", "label": "Participants", "value": "339", "detail": "15-per-hour Polis export", "tone": "green" },
             { "type": "metric", "label": "Statements", "value": "54 → 30", "detail": "moderated statements retained", "tone": "amber" },
-            { "type": "metric", "label": "Compositions", "value": "3", "detail": "symmetric · polarized · three-cluster", "tone": "red" }
+            { "type": "metric", "label": "Agents per room", "value": "6", "detail": "drawn from the 3×3 policy–coherence grid", "tone": "red" }
+          ]
+        },
+        {
+          "type": "grid",
+          "columns": 3,
+          "items": [
+            {
+              "type": "metric",
+              "label": "Symmetric",
+              "value": "No coherent anchors",
+              "detail": "2 Pro/Mixed · 1 Pro/Ambiv · 2 Con/Mixed · 1 Con/Ambiv",
+              "tone": "green"
+            },
+            {
+              "type": "metric",
+              "label": "Polarized",
+              "value": "Tight anchors at both poles",
+              "detail": "2 Pro/Coherent · 1 Pro/Mixed · 2 Con/Coherent · 1 Con/Mixed",
+              "tone": "amber"
+            },
+            {
+              "type": "metric",
+              "label": "Three-cluster",
+              "value": "Anchors + true center",
+              "detail": "1 Pro/Coh · 1 Pro/Mix · 2 Ambiv/Ambiv · 1 Con/Mix · 1 Con/Coh",
+              "tone": "red"
+            }
           ]
         }
       ]
@@ -253,8 +280,8 @@
       "id": "estimation",
       "kicker": "Design · Estimation",
       "headline": "Pooled finite-difference indexed model, clustered by run.",
-      "subhead": "886 runs (600 rule-based, 286 LLM) over 8 rounds, \\(n=6\\) agents each; 6{,}202 adjacent run-round observations. Arms interacted with composition; outcomes indexed as \\(\\text{index}^{(k)}_{it} = 100 + 100\\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\\bigr)\\).",
-      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The empirical rule-based engine is grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage (600 vs. 286), so comparisons are reported as directional slope contrasts rather than point-estimate decompositions. Clustered standard errors at the run level (Cameron & Miller 2015).",
+      "subhead": "964 runs (600 rule-based, 364 LLM) over 8 rounds, \\(n=6\\) agents each; 6,748 adjacent run-round observations. Arms interacted with composition; outcomes indexed as \\(\\text{index}^{(k)}_{it} = 100 + 100\\bigl(y^{(k)}_{it} - y^{(k)}_{i,t_0}\\bigr)\\).",
+      "notes": "Identical town-hall protocol, argument pool, round count, and outcome metrics across arms. The empirical rule-based engine is grounded through the co-vote structure; the LLM engine is tool-constrained (no gold demonstrations, no task-specific fine-tuning). Arm sample sizes are uneven by design stage (600 vs. 364), so comparisons are reported as directional slope contrasts rather than point-estimate decompositions. Clustered standard errors at the run level (Cameron & Miller 2015).",
       "blocks": [
         {
           "type": "callout",
@@ -269,14 +296,14 @@
       "kicker": "Results I · Epistemic alignment",
       "headline": "LLM engine: positive slope gaps on reason-level outcomes.",
       "subhead": "Deliberative Reasoning Index (Niemeyer et al. 2024; Veri & Niemeyer 2025) and meta-consensus on salience (Curato et al. 2017). Triplets: polarized / symmetric / three-cluster.",
-      "notes": "DRI asks whether opinion similarity is grounded in shared reason structure. Meta-consensus tracks convergence on what matters rather than what to do. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in both arms; better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim.",
+      "notes": "DRI asks whether opinion similarity is grounded in shared reason structure. Meta-consensus tracks convergence on what matters rather than what to do. The LLM signature is largest on three-cluster rooms for DRI and uniformly positive and statistically significant on meta-consensus. Two supporting outcomes are held off-slide: plurality moves downward in the LLM arm (the rule-based arm shows mixed or flat movement); better-argument-wins also favors the LLM arm but is not part of the core epistemic-alignment claim.",
       "blocks": [
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "DRI slope gap (LLM − rule)", "value": "+5.72** / +2.48 / +9.21*", "detail": "three-cluster largest (p = .012); polarized p = .001; symmetric imprecise (p = .422)", "tone": "green" },
-            { "type": "metric", "label": "Meta-consensus slope gap", "value": "+1.34*** / +0.82** / +1.02***", "detail": "significant in all three compositions", "tone": "green" }
+            { "type": "metric", "label": "DRI slope gap (LLM − rule)", "value": "\\(+5.04^{**}\\; /\\; +1.01\\; /\\; +9.23^{**}\\)", "detail": "three-cluster largest (p = .006); polarized p = .002; symmetric imprecise (p = .734)", "tone": "green" },
+            { "type": "metric", "label": "Meta-consensus slope gap", "value": "\\(+1.40^{***}\\; /\\; +0.83^{***}\\; /\\; +1.15^{***}\\)", "detail": "significant in all three compositions", "tone": "green" }
           ]
         }
       ]
@@ -286,14 +313,14 @@
       "kicker": "Results II · Argument circulation",
       "headline": "Rule-based engine: negative slope gaps on circulation outcomes.",
       "subhead": "Argument diversity and cross-camp uptake (cf. Stasser & Vaughan 1996; Mercier & Landemore 2012). Triplets: polarized / symmetric / three-cluster.",
-      "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−3.64, p = .043), is imprecise in three-cluster, and near zero in polarized. Plurality (held off-slide) also favors rule-based. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
+      "notes": "Argument diversity rises under both engines but much more under the rule-based arm; the gap is roughly −21 index points in every composition (all p < .001). Cross-camp uptake leans rule-based in symmetric (−5.19, p = .001), is imprecise in three-cluster (−2.23, p = .148), and near zero in polarized (−0.10, p = .934). Plurality (held off-slide): the LLM arm compresses more; the rule-based arm is mixed or flat. The pattern is argumentative activation and circulation without the same reason-level consolidation observed in the LLM arm.",
       "blocks": [
         {
           "type": "grid",
           "columns": 2,
           "items": [
-            { "type": "metric", "label": "Argument diversity slope gap", "value": "−22.59*** / −19.92*** / −21.53***", "detail": "rule-based advantage in every composition; all p < .001", "tone": "amber" },
-            { "type": "metric", "label": "Cross-camp uptake slope gap", "value": "+0.24 / −3.64* / −1.26", "detail": "clearest in symmetric (p = .043); null in polarized and three-cluster", "tone": "amber" }
+            { "type": "metric", "label": "Argument diversity slope gap", "value": "\\(-22.41^{***}\\; /\\; -20.82^{***}\\; /\\; -21.67^{***}\\)", "detail": "rule-based advantage in every composition; all p < .001", "tone": "amber" },
+            { "type": "metric", "label": "Cross-camp uptake slope gap", "value": "\\(-0.10\\; /\\; -5.19^{**}\\; /\\; -2.23\\)", "detail": "clearest in symmetric (p = .001); null in polarized (p = .934) and three-cluster (p = .148)", "tone": "amber" }
           ]
         }
       ]
@@ -316,7 +343,7 @@
         {
           "type": "callout",
           "label": "Scope",
-          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 286 runs. Engine choice is a design result, not a technical detail.",
+          "text": "Bounded comparative exercise — one issue, six-agent rooms, 600 vs. 364 runs. Engine choice is a design result, not a technical detail.",
           "tone": "green"
         }
       ]

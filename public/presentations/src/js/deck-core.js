@@ -647,9 +647,6 @@ export class DeckRenderer {
             button("<", "Previous slide or reveal", () => this.prev()),
             this.counter,
             button(">", "Next slide or reveal", () => this.next()),
-            this.features.notes ? button("P", "Toggle speaker notes", () => this.toggleNotes()) : null,
-            this.features.outline ? button("O", "Toggle outline mode", () => this.toggleOutline()) : null,
-            this.features.fullscreen ? button("F", "Toggle fullscreen", () => this.toggleFullscreen()) : null,
         ]);
     }
 
@@ -665,6 +662,21 @@ export class DeckRenderer {
             )
         );
 
+        const footerButtons = [
+            this.features.notes ? h("button", {
+                class: "sidebar-action",
+                text: "Notes",
+                attrs: { type: "button", "aria-label": "Toggle speaker notes" },
+                on: { click: () => this.toggleNotes() },
+            }) : null,
+            this.features.fullscreen ? h("button", {
+                class: "sidebar-action",
+                text: "Fullscreen",
+                attrs: { type: "button", "aria-label": "Toggle fullscreen" },
+                on: { click: () => this.toggleFullscreen() },
+            }) : null,
+        ].filter(Boolean);
+
         return h("aside", { class: "deck-sidebar" }, [
             h("div", { class: "deck-sidebar-header" }, [
                 h("strong", { text: this.deck.options.title }),
@@ -676,6 +688,7 @@ export class DeckRenderer {
                 }),
             ]),
             this.sidebarList,
+            footerButtons.length ? h("div", { class: "deck-sidebar-footer" }, footerButtons) : null,
         ]);
     }
 
@@ -870,8 +883,6 @@ export class DeckRenderer {
             this.prev();
         } else if (this.features.notes && event.key.toLowerCase() === "p") {
             this.toggleNotes();
-        } else if (this.features.outline && event.key.toLowerCase() === "o") {
-            this.toggleOutline();
         } else if (this.features.fullscreen && event.key.toLowerCase() === "f") {
             this.toggleFullscreen();
         } else if (event.key.toLowerCase() === "s") {

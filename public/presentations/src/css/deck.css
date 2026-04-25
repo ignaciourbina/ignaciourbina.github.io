@@ -144,6 +144,34 @@ button {
     overflow: hidden;
 }
 
+.deck-sidebar-footer {
+    flex-shrink: 0;
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.6rem 0.75rem;
+    border-top: 1px solid var(--line);
+}
+
+.sidebar-action {
+    flex: 1;
+    height: 1.8rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(23, 33, 31, 0.12);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 120ms ease, border-color 120ms ease;
+}
+
+.sidebar-action:hover {
+    color: var(--green);
+    border-color: var(--green);
+}
+
 .sidebar-toggle {
     position: fixed;
     top: 0.75rem;
