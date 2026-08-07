@@ -17,7 +17,7 @@
       "title": "The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation",
       "event": "MPSA 2026 · Job Market Paper",
       "date": "April 2026",
-      "description": "A two-gate framework explaining when citizens translate automation risk information into policy demand. Pre-registered experiment (N = 901) with Bayesian finite mixture model. Maximum conditional effect d = 0.61 — 2.5× the unconditional ATE.",
+      "description": "A two-gate framework explaining when citizens translate automation risk information into policy demand. Pre-registered experiment (N = 901), with principal-score weighting to recover trust-stratum effects. The high-trust effect is 0.40 SD, roughly three times the mid/low one, and reaches 0.69 SD in the high-anxiety × high-risk corner.",
       "pdfUrl": "/files/cam-beamer.pdf"
     }
   ]
