@@ -67,9 +67,13 @@ summary view is written to fit its slot with its button visible.
 
 ## Figures
 
-`img/` holds PNGs copied from the analysis output: `design-corner.png` (block 3),
-`results-cate.png` (block 4), `power-hajek.png` and `power-corner.png`
-(expanded block 5). Re-copy them when the figures are regenerated.
+`img/` holds PNGs copied from the analysis output: `results-cate.png` (block 4),
+`power-hajek.png` and `power-corner.png` (block 5, detail view). Re-copy them
+when the figures are regenerated.
+
+Block 3 carries no figure: it spends its space on the manipulation itself, which
+is described from `instrument/treatment-stimuli-VERBATIM.md` rather than
+paraphrased from the methods write-up.
 
 ## Editing
 
