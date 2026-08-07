@@ -10,7 +10,10 @@
 <div class="wrap">
 
   <section class="view" data-view="summary" tabindex="-1">
-    <p class="kicker">Results</p>
+    <div class="topbar">
+      <p class="kicker">Results</p>
+      <button class="swap" data-target="detail">Details &rarr;</button>
+    </div>
     <h1>Trust gates absorption: the effect among people who trust the source is roughly three times the effect among those who trust it less.</h1>
 
     <figure>
@@ -39,17 +42,13 @@
       <p>Among those who trust the source, the corner effect is 2.4× the effect outside it. Among those who trust it less, the corner adds nothing detectable. The conjunction only pays off for people who took the signal on board.</p>
     </div>
 
-    <div class="viewnav">
-      <button class="swap" data-target="detail">Full estimates and sensitivity →</button>
-    </div>
-  </section>
+    </section>
 
   <section class="view" data-view="detail" tabindex="-1" hidden>
-    <div class="viewnav" style="margin-top:0">
-      <button class="swap back" data-target="summary">← Back</button>
+    <div class="topbar">
+      <p class="kicker">Results</p>
+      <button class="swap back" data-target="summary">&larr; Back</button>
     </div>
-
-    <p class="kicker">Results</p>
     <h1>The unconditional effect is positive and stable across covariate sets (0.22–0.28 SD).</h1>
     <p class="lede">Policy demand η, standardized. Every specification excludes zero; adjustment moves the point estimate by less than 0.07.</p>
 

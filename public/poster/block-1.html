@@ -10,7 +10,10 @@
 <div class="wrap">
 
   <section class="view" data-view="summary" tabindex="-1">
-    <p class="kicker">The puzzle</p>
+    <div class="topbar">
+      <p class="kicker">The puzzle</p>
+      <button class="swap" data-target="detail">Details &rarr;</button>
+    </div>
     <h1>Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive.</h1>
 
     <div class="stats">
@@ -33,17 +36,13 @@
       <p>Weak aggregate effects may reflect composition rather than preference stability.</p>
     </div>
 
-    <div class="viewnav">
-      <button class="swap" data-target="detail">Prior evidence and the estimand →</button>
-    </div>
-  </section>
+    </section>
 
   <section class="view" data-view="detail" tabindex="-1" hidden>
-    <div class="viewnav" style="margin-top:0">
-      <button class="swap back" data-target="summary">← Back</button>
+    <div class="topbar">
+      <p class="kicker">The puzzle</p>
+      <button class="swap back" data-target="summary">&larr; Back</button>
     </div>
-
-    <p class="kicker">The puzzle</p>
     <h1>Experimental results are inconsistent: null, positive, and opposing effects coexist.</h1>
     <p class="lede">Frey &amp; Osborne (2017) estimate 47% of U.S. occupations face high automation risk. Public awareness is high (Pew 2023), but experiments linking risk information to policy preferences yield mixed results.</p>
 

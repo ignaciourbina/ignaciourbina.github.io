@@ -10,7 +10,10 @@
 <div class="wrap">
 
   <section class="view" data-view="summary" tabindex="-1">
-    <p class="kicker">Power, robustness &amp; sensitivity</p>
+    <div class="topbar">
+      <p class="kicker">Power, robustness &amp; sensitivity</p>
+      <button class="swap" data-target="detail">Details &rarr;</button>
+    </div>
     <h1>Two of the four headline quantities are well powered; the other two are not.</h1>
 
     <div class="stats">
@@ -22,17 +25,13 @@
 
     <p>The higher-trust results are the ones this design can carry.</p>
 
-    <div class="viewnav">
-      <button class="swap" data-target="detail">MDE tables, robustness, sensitivity →</button>
-    </div>
-  </section>
+    </section>
 
   <section class="view" data-view="detail" tabindex="-1" hidden>
-    <div class="viewnav" style="margin-top:0">
-      <button class="swap back" data-target="summary">← Back</button>
+    <div class="topbar">
+      <p class="kicker">Power, robustness &amp; sensitivity</p>
+      <button class="swap back" data-target="summary">&larr; Back</button>
     </div>
-
-    <p class="kicker">Power, robustness &amp; sensitivity</p>
     <h1>Minimum detectable effect at 80% power, from the same bootstrap standard errors the estimates use.</h1>
 
     <h2>Trust-stratum estimates</h2>

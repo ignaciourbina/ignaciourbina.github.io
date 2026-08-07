@@ -440,6 +440,23 @@ figcaption {
     display: none;
 }
 
+/* iPoster fixes the iframe size and offers no height field, so the frame can be
+   only ~200px tall. A control at the bottom of the document would sit below the
+   fold and look like it does not exist. The swap button therefore rides in the
+   header row, next to the kicker, where it is visible the moment the block
+   paints and stays visible once the block is enlarged. */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.topbar .kicker {
+    flex: 1 1 auto;
+}
+
 .viewnav {
     margin-top: auto;
     padding-top: calc(var(--gap) * 0.7);

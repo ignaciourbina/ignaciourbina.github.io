@@ -10,7 +10,10 @@
 <div class="wrap">
 
   <section class="view" data-view="summary" tabindex="-1">
-    <p class="kicker">Research design</p>
+    <div class="topbar">
+      <p class="kicker">Research design</p>
+      <button class="swap" data-target="detail">Details &rarr;</button>
+    </div>
     <h1>Pre-registered between-subjects experiment, N = 901 U.S. workers.</h1>
     <p class="lede">A three-step belief-correction protocol whose intensity is individualized: every respondent is shown the expert estimate for their <em>own</em> occupation. 475 treated, 426 control.</p>
 
@@ -47,17 +50,13 @@
     <h2>Identification</h2>
     <p>Expert trust is observed only in the treated arm. A pre-treatment proxy carries it into both: a random forest on 15 pre-treatment terms predicts the trust rating, a logit on that proxy gives the principal score p<sub>i</sub>, and arm means are Hájek-weighted by p<sub>i</sub> for the higher-trust stratum and by 1 − p<sub>i</sub> for the lower-trust one. Identified under randomization plus principal ignorability.</p>
 
-    <div class="viewnav">
-      <button class="swap" data-target="detail">The stimulus in full →</button>
-    </div>
-  </section>
+    </section>
 
   <section class="view" data-view="detail" tabindex="-1" hidden>
-    <div class="viewnav" style="margin-top:0">
-      <button class="swap back" data-target="summary">← Back</button>
+    <div class="topbar">
+      <p class="kicker">Research design</p>
+      <button class="swap back" data-target="summary">&larr; Back</button>
     </div>
-
-    <p class="kicker">Research design</p>
     <h1>What treated respondents actually saw.</h1>
 
     <h2>Step 1 · The neutral briefing</h2>

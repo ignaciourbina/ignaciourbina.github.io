@@ -7,13 +7,29 @@ Each page carries **both** views: the short version sized for the block, and a
 detail view behind a button inside the page. iPoster's OPEN control enlarges the
 same iframe, so a second link is neither needed nor possible.
 
-## Set an explicit height
+## How to embed
 
-iPoster's block container has no fixed height of its own, so an iframe set to
-`height:100%` has nothing to resolve the percentage against and collapses to a
-default box — the same small size in every block, including the two tall
-columns. **Give each iframe the pixel height of its slot**, from the table
-below. Width can stay `100%`.
+The block content area is a CKEditor field; the embed shows as a grey
+placeholder labelled IFRAME. **Double-click it** to open IFrame Properties,
+which offers exactly two things:
+
+| Field | Value |
+|---|---|
+| URL | the block link, from the table below |
+| Show frame border | leave **unchecked**, so it blends into the white card |
+
+Then OK, then SAVE.
+
+**The frame size is not adjustable.** iPoster fixes it and gives no width or
+height field, so every block renders in the same small box (roughly 365 × 205)
+regardless of whether it sits in a short slot or a tall column. The pages are
+built for that: each opens with its heading, a few figures for the eye, and a
+**Details →** button in the top-right corner that is visible without scrolling.
+Everything longer scrolls inside the frame, and iPoster's OPEN control enlarges
+the frame for comfortable reading.
+
+Nothing else needs setting, and `github.io` is already on iPoster's list of
+domains approved for embedding.
 
 ## The six blocks, in canvas order
 
