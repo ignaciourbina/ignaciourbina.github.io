@@ -10,6 +10,13 @@
 const SUMMARY = "summary";
 const DETAIL = "detail";
 
+// Browsers restore an iframe's previous scroll offset, and they do it AFTER
+// this script runs. A block would then open partway down its own summary, on
+// whatever the reader had scrolled to last. Opt out, and reassert the top once
+// more on load, after the restore would have happened.
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.addEventListener("load", () => window.scrollTo(0, 0));
+
 function show(name, { moveFocus = false } = {}) {
     for (const section of document.querySelectorAll(".view")) {
         section.hidden = section.dataset.view !== name;
