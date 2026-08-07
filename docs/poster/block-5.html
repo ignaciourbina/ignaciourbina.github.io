@@ -14,13 +14,13 @@
     <h1>Two of the four headline quantities are well powered; the other two are not.</h1>
 
     <div class="stats">
-      <div class="stat good"><div class="label">Truster CATE</div><div class="value">98%</div><div class="note">MDE 0.28</div></div>
-      <div class="stat good"><div class="label">Truster corner</div><div class="value">98%</div><div class="note">MDE 0.44</div></div>
-      <div class="stat warn"><div class="label">Stratum contrast</div><div class="value">62%</div><div class="note">below its MDE of 0.33</div></div>
-      <div class="stat bad"><div class="label">Mid/low corner δ</div><div class="value">32%</div><div class="note">below its MDE of 0.36</div></div>
+      <div class="stat good"><div class="label">Effect, higher trust</div><div class="value">98%</div><div class="note">MDE 0.28</div></div>
+      <div class="stat good"><div class="label">Corner, higher trust</div><div class="value">98%</div><div class="note">MDE 0.44</div></div>
+      <div class="stat warn"><div class="label">Difference between them</div><div class="value">62%</div><div class="note">below its MDE of 0.33</div></div>
+      <div class="stat bad"><div class="label">Corner increment, lower trust</div><div class="value">32%</div><div class="note">below its MDE of 0.36</div></div>
     </div>
 
-    <p>The Truster results are the ones this design can carry.</p>
+    <p>The higher-trust results are the ones this design can carry.</p>
 
     <div class="viewnav">
       <button class="swap" data-target="detail">MDE tables, robustness, sensitivity →</button>
@@ -40,17 +40,17 @@
       <table>
         <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">SE</th><th class="num">MDE</th><th class="num">Power</th><th>Clears</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Truster CATE, unadjusted</td><td class="num">0.402</td><td class="num">0.099</td><td class="num">0.277</td><td class="num">98%</td><td>yes</td></tr>
-          <tr><td>Truster CATE, adjusted</td><td class="num">0.329</td><td class="num">0.089</td><td class="num">0.249</td><td class="num">96%</td><td>yes</td></tr>
-          <tr><td>Stratum contrast, unadjusted</td><td class="num">0.265</td><td class="num">0.117</td><td class="num">0.328</td><td class="num">62%</td><td>no</td></tr>
-          <tr><td>Stratum contrast, adjusted</td><td class="num">0.219</td><td class="num">0.106</td><td class="num">0.297</td><td class="num">54%</td><td>no</td></tr>
+          <tr class="highlight"><td>Higher trust, unadjusted</td><td class="num">0.402</td><td class="num">0.099</td><td class="num">0.277</td><td class="num">98%</td><td>yes</td></tr>
+          <tr><td>Higher trust, adjusted</td><td class="num">0.329</td><td class="num">0.089</td><td class="num">0.249</td><td class="num">96%</td><td>yes</td></tr>
+          <tr><td>Difference between them, unadjusted</td><td class="num">0.265</td><td class="num">0.117</td><td class="num">0.328</td><td class="num">62%</td><td>no</td></tr>
+          <tr><td>Difference between them, adjusted</td><td class="num">0.219</td><td class="num">0.106</td><td class="num">0.297</td><td class="num">54%</td><td>no</td></tr>
         </tbody>
       </table>
     </div>
 
     <figure>
-      <img src="img/power-hajek.png" alt="Power curves for the Truster CATE and the stratum contrast under both specifications.">
-      <figcaption>Power curves for the Truster CATE and the stratum contrast, both specifications. The Truster CATE additionally shows a simulated cross-check with the principal score held fixed; that simulation understates the committed bootstrap's SE by 12–14%, so its curve is, if anything, optimistic.</figcaption>
+      <img src="img/power-hajek.png" alt="Power curves for the higher-trust effect and for the difference between the two trust groups, under both specifications.">
+      <figcaption>Power curves for the higher-trust effect and for the difference between the two trust groups, both specifications. The higher-trust effect additionally shows a simulated cross-check with the principal score held fixed; that simulation understates the committed bootstrap's SE by 12–14%, so its curve is, if anything, optimistic.</figcaption>
     </figure>
 
     <h2>The conjunctive corner</h2>
@@ -58,10 +58,10 @@
       <table>
         <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">MDE (analytic)</th><th class="num">MDE (bootstrap)</th><th class="num">Power</th><th>Clears</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Corner effect: Truster</td><td class="num">0.685</td><td class="num">0.440</td><td class="num">0.461</td><td class="num">98%</td><td>yes</td></tr>
-          <tr><td>Corner effect: Mid/low</td><td class="num">0.285</td><td class="num">0.368</td><td class="num">0.360</td><td class="num">59%</td><td>no</td></tr>
-          <tr><td>Increment δ: Truster</td><td class="num">0.397</td><td class="num">0.426</td><td class="num">0.445</td><td class="num">72%</td><td>no</td></tr>
-          <tr><td>Increment δ: Mid/low</td><td class="num">0.194</td><td class="num">0.364</td><td class="num">0.360</td><td class="num">32%</td><td>no</td></tr>
+          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.685</td><td class="num">0.440</td><td class="num">0.461</td><td class="num">98%</td><td>yes</td></tr>
+          <tr><td>Corner effect, lower trust</td><td class="num">0.285</td><td class="num">0.368</td><td class="num">0.360</td><td class="num">59%</td><td>no</td></tr>
+          <tr><td>Corner increment, higher trust</td><td class="num">0.397</td><td class="num">0.426</td><td class="num">0.445</td><td class="num">72%</td><td>no</td></tr>
+          <tr><td>Corner increment, lower trust</td><td class="num">0.194</td><td class="num">0.364</td><td class="num">0.360</td><td class="num">32%</td><td>no</td></tr>
         </tbody>
       </table>
     </div>
@@ -74,13 +74,13 @@
 
     <h2>Robustness</h2>
     <ul class="plain">
-      <li><span class="term">Covariate adjustment.</span><span class="def">Truster 0.329, mid/low 0.110, contrast 0.219: the same ordering, modestly attenuated.</span></li>
+      <li><span class="term">Covariate adjustment.</span><span class="def">higher trust 0.329, lower trust 0.110, difference 0.219: the same ordering, modestly attenuated.</span></li>
       <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile.</span></li>
       <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
     </ul>
 
     <h2>Sensitivity to the identifying assumption</h2>
-    <p>The trust-stratum estimates are identified under principal ignorability, which cannot be tested here because expert trust was never measured in the control arm. Driving the estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the stratum contrast: large in magnitude, and opposite in sign to the mechanism under study.</p>
+    <p>The trust-stratum estimates are identified under principal ignorability, which cannot be tested here because expert trust was never measured in the control arm. Driving the estimates to zero requires a hidden differential treatment response of −1.17 SD for the higher-trust effect and −0.52 SD for the difference between the two: large in magnitude, and opposite in sign to the mechanism under study.</p>
 
     <div class="callout">
       <span class="label">The design that would resolve it</span>

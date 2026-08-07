@@ -43,13 +43,13 @@
         <thead><tr><th>Quantity</th><th class="num">Estimate</th><th class="num">95% CI</th><th>Warrant</th></tr></thead>
         <tbody>
           <tr><td>Unconditional ATE</td><td class="num">0.230</td><td class="num">[0.114, 0.346]</td><td>Randomization</td></tr>
-          <tr class="highlight"><td>Truster CATE</td><td class="num">0.402</td><td class="num">[0.221, 0.608]</td><td>Randomization + PI</td></tr>
-          <tr><td>Mid/low CATE</td><td class="num">0.137</td><td class="num">[−0.016, 0.269]</td><td>Randomization + PI</td></tr>
-          <tr class="highlight"><td>Truster corner effect</td><td class="num">0.685</td><td class="num">[0.364, 0.980]</td><td>Randomization + PI</td></tr>
+          <tr class="highlight"><td>Effect, higher trust</td><td class="num">0.402</td><td class="num">[0.221, 0.608]</td><td>Randomization + PI</td></tr>
+          <tr><td>Effect, lower trust</td><td class="num">0.137</td><td class="num">[−0.016, 0.269]</td><td>Randomization + PI</td></tr>
+          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.685</td><td class="num">[0.364, 0.980]</td><td>Randomization + PI</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lede">Effects on standardized policy demand; PI = principal ignorability. The Truster effect is about three times the mid/low one, and among Trusters the high-anxiety × high-risk corner is roughly 2.4× the effect outside it.</p>
+    <p class="lede">Effects on standardized policy demand; PI = principal ignorability. The higher-trust effect is about three times the lower-trust one, and among those who trust the source the high-anxiety × high-risk corner is roughly 2.4× the effect outside it.</p>
 
     <div class="callout">
       <span class="label">Implication</span>
@@ -62,7 +62,7 @@
       <li><span class="term">Trust measurement.</span><span class="def">A single post-treatment item, asked in the treated arm only. This is why the trust results rest on principal ignorability.</span></li>
       <li><span class="term">Timing.</span><span class="def">Outcomes measured immediately.</span></li>
       <li><span class="term">Risk estimates.</span><span class="def">Occupational automation risk follows Frey &amp; Osborne (2017).</span></li>
-      <li><span class="term">Power.</span><span class="def">The stratum contrast and both corner increments fall below their own minimum detectable effects.</span></li>
+      <li><span class="term">Power.</span><span class="def">The difference between them and both corner increments fall below their own minimum detectable effects.</span></li>
     </ul>
 
     <h2>Where this goes</h2>
