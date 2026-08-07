@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research design — expanded</title>
+<link rel="stylesheet" href="css/poster.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Research design · expanded</p>
+  <h1>The treatment landed: respondents understood it, were surprised by it, and updated on it.</h1>
+
+  <div class="stats">
+    <div class="stat good"><div class="label">Factual check</div><div class="value">93.5%</div><div class="note">passed the expert-methodology check</div></div>
+    <div class="stat"><div class="label">Mean belief gap</div><div class="value">2.44</div><div class="note">SD = 36.1, range [−83, +94]</div></div>
+    <div class="stat good"><div class="label">Updating × gap</div><div class="value">ρ = 0.66</div><div class="note">larger gaps produce larger self-reported belief updating</div></div>
+  </div>
+  <p>The gap is wide in both directions, so the treatment is not a one-sided alarm: roughly as many respondents learn their risk is lower than they thought as higher. Self-reported belief updating tracks the size of the gap, which is what makes it a genuine informational shock rather than a confirmation exercise.</p>
+
+  <h2>Scale reliability</h2>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Scale</th><th class="num">Items</th><th class="num sym">α</th><th class="num sym">ω</th></tr></thead>
+      <tbody>
+        <tr><td>Policy demand</td><td class="num">5</td><td class="num">0.826</td><td class="num">0.832</td></tr>
+        <tr><td>Trait anxiety</td><td class="num">4</td><td class="num">0.913</td><td class="num">0.915</td></tr>
+        <tr><td>Job automation threat</td><td class="num">4</td><td class="num">0.930</td><td class="num">0.929</td></tr>
+        <tr><td>Economic worry</td><td class="num">3</td><td class="num">0.706</td><td class="num">0.727</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede">N = 901 throughout. The policy demand battery deliberately spans redistribution, regulation, retraining, labor protections and employment limits, to avoid anchoring to a single ideological frame.</p>
+
+  <h2>The trust proxy</h2>
+  <p>A random forest (500 trees, depth ≤ 10, minimum leaf size 5) is trained on the treated arm to predict the five-point expert-trust rating from 15 pre-treatment terms: education, numeracy, age, race, gender, Democrat and liberal indicators, and the automation-risk percentile, each as a level; the squares of education, numeracy and age; and the interactions age × race, age × education, race × education and numeracy × education.</p>
+  <p>Its prediction, standardized over the full sample, is the proxy Q̂. Because every input is pre-treatment, Q̂ is defined in both arms. A binary logit of Truster status on Q̂, fit in the treated arm, then yields p<sub>i</sub> = Pr(Truster | Q̂<sub>i</sub>) for every respondent.</p>
+  <p>The Truster CATE is the difference in self-normalized weighted arm means of η with weights p<sub>i</sub>; the mid/low CATE uses weights 1 − p<sub>i</sub>; the stratum contrast is their difference. Nothing post-treatment enters the weights, which is why the same weights can be applied in the control arm.</p>
+
+  <h2>Covariate balance</h2>
+  <p>No covariate difference survives Holm correction. Trait anxiety is the largest standardized mean difference at 0.144 (p = 0.031, Holm p = 0.400), followed by age at 0.120 and ideology at −0.110. Those three are the adjustment set for the covariate-adjusted variant of the trust-stratum estimates.</p>
+
+  <div class="callout warn">
+    <span class="label">The assumption, stated plainly</span>
+    <p>Principal ignorability is untestable in this design, because expert trust was never measured in the control arm. A design measuring trust before treatment would estimate the missing quantity directly.</p>
+  </div>
+
+  <p class="foot">Ignacio Urbina · Stony Brook University</p>
+</div>
+</body>
+</html>

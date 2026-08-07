@@ -1,0 +1,437 @@
+/* Shared styling for the CAM poster iframes.
+ *
+ * Every page here is embedded in an iPoster block or in an iPoster expanded
+ * panel, so each one is its own document with its own viewport. That is what
+ * makes vw-based clamp() the right sizing tool: 1vw is a percentage of the
+ * IFRAME's width, not the browser window's, so the same stylesheet reads well
+ * in a narrow tile and in a wide modal without media queries.
+ *
+ * Two rules the embedding imposes:
+ *   - never set a fixed height; the block scrolls internally instead
+ *   - carry no navigation chrome; iPoster owns movement between views
+ */
+
+:root {
+    --ink: #12211c;
+    --ink-soft: #45564f;
+    --ink-faint: #6f817a;
+    --accent: #1a7a54;
+    --accent-soft: #e4f1eb;
+    --amber: #b06d10;
+    --amber-soft: #fbf0dc;
+    --red: #a33a32;
+    --red-soft: #fbe6e3;
+    --blue: #2b5f8f;
+    --line: #dde5e1;
+    --paper: #ffffff;
+
+    --pad: clamp(0.85rem, 2.6vw, 1.9rem);
+    --gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    /* The block is a fixed box in iPoster; overflow scrolls here, inside it. */
+    height: 100%;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(0.82rem, 1.55vw, 1.06rem);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wrap {
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    min-height: 100%;
+    /* An expanded iPoster panel can be very wide; cap the measure so prose does
+       not run to 1500px lines. No effect inside a narrow block tile. */
+    max-width: 62rem;
+    margin-inline: auto;
+}
+
+/* Flex children default to min-width:auto, so a wide table would push the
+   .scroller past the container instead of scrolling inside it. */
+.wrap > * {
+    min-width: 0;
+}
+
+/* --- headings ---------------------------------------------------------- */
+
+.kicker {
+    font-size: clamp(0.6rem, 1.05vw, 0.74rem);
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(1.05rem, 2.5vw, 1.85rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin: 0.1em 0 0;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: clamp(0.92rem, 1.75vw, 1.22rem);
+    line-height: 1.25;
+    margin: 0.6em 0 0.2em;
+    font-weight: 700;
+}
+
+.lede {
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: clamp(0.8rem, 1.5vw, 1.02rem);
+}
+
+p {
+    margin: 0.35em 0;
+}
+
+/* --- stat tiles -------------------------------------------------------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+    gap: var(--gap);
+}
+
+.stat {
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    padding: calc(var(--pad) * 0.55);
+    background: var(--paper);
+}
+
+.stat .label {
+    font-size: clamp(0.58rem, 1vw, 0.7rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.stat .value {
+    font-size: clamp(1.15rem, 2.7vw, 1.9rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 0.12em;
+}
+
+.stat .note {
+    font-size: clamp(0.68rem, 1.2vw, 0.84rem);
+    color: var(--ink-faint);
+    margin-top: 0.2em;
+}
+
+.stat.good {
+    background: var(--accent-soft);
+    border-color: #bcdccd;
+}
+.stat.good .value {
+    color: var(--accent);
+}
+.stat.warn {
+    background: var(--amber-soft);
+    border-color: #edd6ab;
+}
+.stat.warn .value {
+    color: var(--amber);
+}
+.stat.bad {
+    background: var(--red-soft);
+    border-color: #eec4bf;
+}
+.stat.bad .value {
+    color: var(--red);
+}
+
+/* --- callout ----------------------------------------------------------- */
+
+.callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 0.4rem 0.4rem 0;
+    padding: calc(var(--pad) * 0.5) calc(var(--pad) * 0.65);
+}
+
+.callout.warn {
+    border-left-color: var(--amber);
+    background: var(--amber-soft);
+}
+
+.callout .label {
+    font-size: clamp(0.58rem, 1vw, 0.7rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 0.15em;
+}
+
+.callout p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* --- lists ------------------------------------------------------------- */
+
+ul.plain {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 0.6);
+}
+
+ul.plain > li {
+    padding-left: 0.9em;
+    position: relative;
+}
+
+ul.plain > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.32em;
+    height: 0.32em;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.term {
+    font-weight: 700;
+}
+
+.term + .def {
+    color: var(--ink-soft);
+    display: block;
+}
+
+ol.steps {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 0.5);
+}
+
+ol.steps::marker,
+ol.steps > li::marker {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* --- tables ------------------------------------------------------------ */
+
+.scroller {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: clamp(0.7rem, 1.3vw, 0.92rem);
+    font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.4em 0.55em;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+}
+
+th {
+    font-size: clamp(0.6rem, 1.05vw, 0.76rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    border-bottom: 1.5px solid var(--ink);
+}
+
+td.num,
+th.num {
+    text-align: right;
+}
+
+/* Headers that are symbols, not words. Uppercasing would turn the statistics
+   alpha and omega into the Greek capitals, which mean something else. */
+th.sym {
+    text-transform: none;
+    font-size: clamp(0.68rem, 1.2vw, 0.86rem);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tr.highlight td {
+    background: var(--accent-soft);
+    font-weight: 700;
+}
+
+/* --- inline effect bars ------------------------------------------------ */
+
+.bars {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 0.55);
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 38%) 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+}
+
+.bar-row .name {
+    color: var(--ink-soft);
+}
+
+.bar-track {
+    position: relative;
+    height: 0.5rem;
+    background: #eef3f1;
+    border-radius: 999px;
+}
+
+.bar-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+.bar-fill.warn {
+    background: var(--amber);
+}
+.bar-fill.bad {
+    background: var(--red);
+}
+
+.bar-row .val {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- figures ----------------------------------------------------------- */
+
+figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 0.4rem;
+    background: #fff;
+}
+
+figcaption {
+    font-size: clamp(0.62rem, 1.15vw, 0.8rem);
+    color: var(--ink-faint);
+    line-height: 1.35;
+}
+
+/* --- citations --------------------------------------------------------- */
+
+.cites {
+    font-size: clamp(0.66rem, 1.2vw, 0.84rem);
+    color: var(--ink-soft);
+}
+
+.cites .cite {
+    display: block;
+    padding: 0.18em 0;
+    border-bottom: 1px dotted var(--line);
+}
+
+.cites .cite:last-child {
+    border-bottom: none;
+}
+
+.cites .who {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* --- hypotheses -------------------------------------------------------- */
+
+.hyp {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 0.4rem 0.4rem 0;
+    padding: calc(var(--pad) * 0.45) calc(var(--pad) * 0.6);
+}
+
+.hyp .tag {
+    font-size: clamp(0.6rem, 1.05vw, 0.74rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+}
+
+.hyp p {
+    margin: 0.15em 0 0;
+}
+
+/* --- misc -------------------------------------------------------------- */
+
+.foot {
+    margin-top: auto;
+    padding-top: calc(var(--gap) * 0.8);
+    border-top: 1px solid var(--line);
+    font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+    color: var(--ink-faint);
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.cols-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: var(--gap);
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Results — expanded</title>
+<link rel="stylesheet" href="css/poster.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Results · expanded</p>
+  <h1>The unconditional effect is positive and stable across covariate sets (0.22–0.28 SD).</h1>
+  <p class="lede">Policy demand η, standardized. Every specification excludes zero; adjustment moves the point estimate by less than 0.07.</p>
+
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Controls</th><th class="num">Estimate</th><th class="num">SE</th><th class="num">95% CI</th></tr></thead>
+      <tbody>
+        <tr><td>No controls</td><td class="num">0.284</td><td class="num">0.067</td><td class="num">[0.153, 0.414]</td></tr>
+        <tr><td>+ Ideology</td><td class="num">0.233</td><td class="num">0.060</td><td class="num">[0.117, 0.350]</td></tr>
+        <tr><td>+ Trait anxiety</td><td class="num">0.258</td><td class="num">0.065</td><td class="num">[0.130, 0.387]</td></tr>
+        <tr><td>+ Anxiety + Ideology</td><td class="num">0.223</td><td class="num">0.059</td><td class="num">[0.107, 0.339]</td></tr>
+        <tr><td>+ Anxiety + Ideology + Age</td><td class="num">0.230</td><td class="num">0.059</td><td class="num">[0.114, 0.346]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede">OLS with HC1 standard errors, N = 901.</p>
+
+  <h2>Gate 1 — Hájek principal-score CATEs</h2>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Estimand</th><th class="num">Estimate</th><th class="num">SE</th><th class="num">95% CI</th><th class="num">P(&gt;0)</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td>Truster CATE</td><td class="num">0.402</td><td class="num">0.099</td><td class="num">[0.221, 0.608]</td><td class="num">1.000</td></tr>
+        <tr><td>Mid/low CATE</td><td class="num">0.137</td><td class="num">0.073</td><td class="num">[−0.016, 0.269]</td><td class="num">0.960</td></tr>
+        <tr><td>Stratum contrast</td><td class="num">0.265</td><td class="num">0.117</td><td class="num">[0.052, 0.506]</td><td class="num">0.993</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Covariate-adjusted variant</h2>
+  <p>Weighting by p<sub>i</sub> re-tilts the arms along covariates, which can leave chance imbalance within the weighted sample even under randomization. Ideology, trait anxiety and age are partialled out of both η and treatment by weighted least squares, and the CATE is re-estimated from the residuals.</p>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Estimand</th><th class="num">Hájek</th><th class="num">Adjusted</th><th class="num">Shift</th><th class="num">95% CI</th><th class="num">P(&gt;0)</th></tr></thead>
+      <tbody>
+        <tr><td>Truster CATE</td><td class="num">0.402</td><td class="num">0.329</td><td class="num">−0.072</td><td class="num">[0.186, 0.543]</td><td class="num">1.000</td></tr>
+        <tr><td>Mid/low CATE</td><td class="num">0.137</td><td class="num">0.110</td><td class="num">−0.027</td><td class="num">[−0.030, 0.226]</td><td class="num">0.936</td></tr>
+        <tr><td>Stratum contrast</td><td class="num">0.265</td><td class="num">0.219</td><td class="num">−0.046</td><td class="num">[0.057, 0.466]</td><td class="num">0.995</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede">Same ordering, modestly attenuated.</p>
+
+  <h2>Gate 2 — the fixed conjunctive corner</h2>
+  <p>A respondent is in the corner if trait anxiety and automation risk are each in the pooled sample's top tercile, both measured pre-treatment: trait anxiety z ≥ 0.53 and automation risk ≥ 54.5th percentile. Membership is a deterministic function of the data; the only thing estimated is the treatment effect itself, inside and outside the corner, by weighted least squares.</p>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Stratum</th><th class="num">τ<sub>base</sub></th><th class="num">δ</th><th class="num">Corner (τ<sub>base</sub>+δ)</th><th class="num">Share</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td>Truster</td><td class="num">0.288<br>[0.128, 0.442]</td><td class="num">0.397<br>[0.083, 0.690]</td><td class="num">0.685<br>[0.364, 0.980]</td><td class="num">12.0%</td></tr>
+        <tr><td>Mid/low</td><td class="num">0.092<br>[−0.033, 0.217]</td><td class="num">0.194<br>[−0.056, 0.466]</td><td class="num">0.285<br>[0.041, 0.552]</td><td class="num">11.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede">105 of 901 respondents (11.7%) qualify. The two moderators are near-independent, corr(A, R) = 0.014, and the corner share matches the ≈ 11.1% implied by independent terciles.</p>
+
+  <h2>Cutoff-choice sensitivity</h2>
+  <p>The identical model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). For Trusters, δ's 95% CI excludes zero at every cutoff tested, shrinking toward the stratum-average effect as the corner widens but never crossing zero. Mid/low δ remains null throughout.</p>
+
+  <div class="callout">
+    <span class="label">How badly would principal ignorability have to fail?</span>
+    <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the stratum contrast: large, and opposite in sign to the mechanism under study.</p>
+  </div>
+
+  <p class="foot">All intervals are bootstrap percentile intervals, B = 2000, with every estimation step refit inside each replicate.</p>
+</div>
+</body>
+</html>

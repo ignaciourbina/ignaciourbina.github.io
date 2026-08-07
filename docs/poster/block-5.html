@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power, robustness and sensitivity</title>
+<link rel="stylesheet" href="css/poster.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Power, robustness &amp; sensitivity</p>
+  <h1>Two of the four headline quantities are well powered; the other two are not.</h1>
+  <p class="lede">Minimum detectable effect at 80% power, computed from the same bootstrap standard errors the estimates use.</p>
+
+  <div class="stats">
+    <div class="stat good"><div class="label">Truster CATE</div><div class="value">98%</div><div class="note">power at the observed effect; MDE 0.28</div></div>
+    <div class="stat good"><div class="label">Truster corner effect</div><div class="value">98%</div><div class="note">clears its own MDE of 0.44</div></div>
+    <div class="stat warn"><div class="label">Stratum contrast</div><div class="value">62%</div><div class="note">observed effect sits below its MDE of 0.33</div></div>
+    <div class="stat bad"><div class="label">Mid/low corner increment</div><div class="value">32%</div><div class="note">far below its MDE of 0.36</div></div>
+  </div>
+
+  <div class="callout warn">
+    <span class="label">What this licenses</span>
+    <p>The Truster results are the ones this design can carry. A null on the mid/low corner increment cannot distinguish a genuinely absent effect from a real one the study lacks the power to see.</p>
+  </div>
+
+  <h2>Robustness</h2>
+  <ul class="plain">
+    <li><span class="term">Covariate adjustment (FWL).</span><span class="def">Truster 0.329, mid/low 0.110, contrast 0.219: the same ordering, modestly attenuated.</span></li>
+    <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile.</span></li>
+    <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
+  </ul>
+
+  <h2>Sensitivity to the identifying assumption</h2>
+  <div class="callout">
+    <span class="label">How badly would principal ignorability have to fail?</span>
+    <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the contrast: large, and opposite in sign to the mechanism under study.</p>
+  </div>
+
+  <p class="foot">Ignacio Urbina · Stony Brook University</p>
+</div>
+</body>
+</html>

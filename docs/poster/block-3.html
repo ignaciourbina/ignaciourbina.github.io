@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research design</title>
+<link rel="stylesheet" href="css/poster.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Research design</p>
+  <h1>Pre-registered between-subjects experiment, N = 901 U.S. workers.</h1>
+  <p class="lede">Three-step belief correction protocol with individualized treatment intensity. 475 treated, 426 control.</p>
+
+  <h2>The treatment</h2>
+  <ol class="steps">
+    <li>Explain expert methodology (factual manipulation check: 93.5%).</li>
+    <li>Elicit subjective risk belief (0–100 percentile).</li>
+    <li>Reveal expert estimate; display belief gap.</li>
+  </ol>
+
+  <h2>Measures</h2>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Construct</th><th>Operationalization</th><th>Gate / Role</th></tr></thead>
+      <tbody>
+        <tr><td>Policy demand (η)</td><td>5 items, 7-pt scale (ω = 0.83), scored by a graded response model (EAP)</td><td>Outcome</td></tr>
+        <tr><td>Expert trust (S)</td><td>Single 5-pt item, post-treatment, treated arm only</td><td>Gate 1: absorption</td></tr>
+        <tr><td>Trait anxiety (A)</td><td>4-item scale, pre-treatment (ω = 0.92)</td><td>Gate 2: dispositional vigilance</td></tr>
+        <tr><td>Automation risk (R)</td><td>Own-occupation expert percentile, pre-treatment</td><td>Gate 2: personal exposure</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="img/design-corner.png" alt="Trait anxiety against automation risk for all 901 respondents, with the tercile cutoff drawn on both axes and the corner highlighted.">
+    <figcaption>Trait anxiety against automation risk for all 901 respondents. The solid lines mark the top-tercile cutoff on each axis; the two dashed pairs are coarser cutoffs used as a sensitivity check. Respondents clearing both cutoffs form the activation corner: 105 of 901 (11.7%).</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="label">Design property</span>
+    <p>Both moderators are measured before treatment, so the activation corner is a fixed partition of pre-treatment characteristics rather than an outcome of the manipulation.</p>
+  </div>
+
+  <h2>The identification problem</h2>
+  <p>Expert trust is observed only in the treated arm; trait anxiety and automation risk are observed in both. Carrying trust into the control arm is what the estimator has to solve.</p>
+  <ol class="steps">
+    <li><span class="term">Proxy.</span><span class="def">A random forest on 15 pre-treatment terms predicts the 5-pt trust rating.</span></li>
+    <li><span class="term">Principal score.</span><span class="def">A logit of Truster (trust ≥ 4) on the proxy gives p<sub>i</sub> for every respondent.</span></li>
+    <li><span class="term">Contrast.</span><span class="def">Hájek-weighted arm means: p<sub>i</sub> for Trusters, 1 − p<sub>i</sub> for mid/low.</span></li>
+  </ol>
+
+  <div class="callout">
+    <span class="label">Identifying assumption</span>
+    <p>Identified under randomization plus principal ignorability: p<sub>i</sub> is a function of pre-treatment covariates only, so the same weights apply in both arms.</p>
+  </div>
+
+  <p class="foot">Uncertainty from a bootstrap with B = 2000, resampling within arm, with the proxy, the logit and the weights refit in every replicate.</p>
+</div>
+</body>
+</html>
