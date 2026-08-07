@@ -1,0 +1,10 @@
+# The repository root ignores *.png. That is wrong for this directory: the
+# figures in img/ are the poster's own content, embedded in pages served to a
+# conference audience, not incidental output. Re-include them here.
+!img/*.png
+
+# A browser "save page as" dump of the iPoster editor, kept locally as a
+# reference for the template's block geometry. Third-party assets, not ours to
+# republish, and this whole directory is mirrored to the public site by the sync
+# workflow, so it must never be tracked.
+iPoster/
