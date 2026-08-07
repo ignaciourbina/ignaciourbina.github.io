@@ -8,40 +8,78 @@
 </head>
 <body>
 <div class="wrap">
-  <p class="kicker">Theory &amp; hypotheses</p>
-  <h1>Three traditions converge: personal risk information should increase policy demand.</h1>
-  <p class="lede">Self-interest theory, threat-motivated cognition, and egotropic economic voting each predict that learning one's occupation faces automation risk should increase support for protective policies.</p>
 
-  <div class="cites">
-    <span class="cite"><span class="who">Self-interest.</span> Workers facing losses seek compensatory policy (Meltzer &amp; Richard 1981).</span>
-    <span class="cite"><span class="who">Threat-motivated cognition.</span> Threat perception focuses attention on protection (Albertson &amp; Gadarian 2015).</span>
-    <span class="cite"><span class="who">Egotropic voting.</span> Individual economic exposure drives policy demand (Kinder &amp; Kiewiet 1981).</span>
-  </div>
+  <section class="view" data-view="summary" tabindex="-1">
+    <p class="kicker">Theory &amp; hypotheses</p>
+    <h1>Two sequential gates: expert trust, then joint activation (anxiety × automation risk).</h1>
 
-  <h2>The Conditional Activation Model</h2>
-  <p>Two sequential gates: expert trust, then joint activation (anxiety × automation risk). Trust governs whether the expert signal is absorbed at all. Activation requires dispositional vigilance and personal exposure together, not either alone.</p>
+    <ul class="plain">
+      <li><span class="term">H1 · Trust gate.</span><span class="def">The effect is larger among respondents who trust the expert source.</span></li>
+      <li><span class="term">H2 · Conjunctive activation.</span><span class="def">Among those who absorb the signal, the effect concentrates where high anxiety meets high risk.</span></li>
+      <li><span class="term">H3 · Composition.</span><span class="def">The unconditional ATE understates the responsive subgroup.</span></li>
+    </ul>
 
-  <ul class="plain">
-    <li><span class="term">Gate 1: expert trust.</span><span class="def">Whether the signal is absorbed at all.</span></li>
-    <li><span class="term">Gate 2: joint requirement.</span><span class="def">Neither trait anxiety nor own-occupation automation risk alone should be sufficient to move policy demand.</span></li>
-    <li><span class="term">Below-threshold pathway.</span><span class="def">Beliefs update without policy preference change (cool cognition).</span></li>
-  </ul>
+    <div class="viewnav">
+      <button class="swap" data-target="detail">Literature and pathways →</button>
+    </div>
+  </section>
 
-  <h2>Predictions</h2>
-  <div class="hyp">
-    <span class="tag">H1 · Trust gate</span>
-    <p>The treatment effect on policy demand is larger among respondents who trust the expert source than among those who do not.</p>
-  </div>
-  <div class="hyp">
-    <span class="tag">H2 · Conjunctive activation</span>
-    <p>Among those who absorb the signal, the effect concentrates where high trait anxiety meets high own-occupation automation risk, rather than where either is high alone.</p>
-  </div>
-  <div class="hyp">
-    <span class="tag">H3 · Composition</span>
-    <p>If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup, producing the weak or null aggregate effects observed in prior work.</p>
-  </div>
+  <section class="view" data-view="detail" tabindex="-1" hidden>
+    <div class="viewnav" style="margin-top:0">
+      <button class="swap back" data-target="summary">← Back</button>
+    </div>
 
-  <p class="foot">Ignacio Urbina · Stony Brook University</p>
+    <p class="kicker">Theory &amp; hypotheses</p>
+    <h1>Three traditions converge: personal risk information should increase policy demand.</h1>
+    <p class="lede">Self-interest theory, threat-motivated cognition, and egotropic economic voting each predict that learning one's occupation faces automation risk should increase support for protective policies.</p>
+
+    <div class="cites">
+      <span class="cite"><span class="who">Self-interest.</span> Workers facing losses seek compensatory policy (Meltzer &amp; Richard 1981).</span>
+      <span class="cite"><span class="who">Threat-motivated cognition.</span> Threat perception focuses attention on protection (Albertson &amp; Gadarian 2015).</span>
+      <span class="cite"><span class="who">Egotropic voting.</span> Individual economic exposure drives policy demand (Kinder &amp; Kiewiet 1981).</span>
+    </div>
+
+    <h2>The two-gate structure predicts three distinct pathways</h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Pathway</th><th>Who</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>1. Signal discounted</td><td>Mid/low trust</td><td>The expert estimate is not absorbed; no downstream processing regardless of anxiety or personal exposure</td></tr>
+          <tr><td>2. Cool cognition</td><td>Trusters outside the corner</td><td>The signal is absorbed and beliefs update, but exposure is insufficient to initiate policy search</td></tr>
+          <tr class="highlight"><td>3. Activated persuasion</td><td>Trusters inside the corner</td><td>Both gates cleared; sustained elaboration of threat translates into demand for protective policy</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Why trust comes first</h2>
+    <p>Gate 1 is about absorption, not agreement: a respondent who discounts the source has nothing to update on. Trust is therefore recovered as a principal stratum from pre-treatment covariates, not as a raw post-treatment split.</p>
+
+    <h2>Why the second gate is conjunctive</h2>
+    <p>Gate 2 is conjunctive by construction: the prediction is a corner, not two main effects. Neither trait anxiety nor own-occupation automation risk alone should be sufficient to move policy demand. Below the threshold, beliefs update without policy preference change.</p>
+
+    <div class="callout warn">
+      <span class="label">Prediction</span>
+      <p>If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup, producing the weak or null aggregate effects observed in prior work.</p>
+    </div>
+
+    <h2>Hypotheses</h2>
+    <div class="hyp">
+      <span class="tag">H1 · Trust gate</span>
+      <p>The treatment effect on policy demand is larger among respondents who trust the expert source than among those who do not.</p>
+    </div>
+    <div class="hyp">
+      <span class="tag">H2 · Conjunctive activation</span>
+      <p>Among those who absorb the signal, the effect concentrates where high trait anxiety meets high own-occupation automation risk, rather than where either is high alone.</p>
+    </div>
+    <div class="hyp">
+      <span class="tag">H3 · Composition</span>
+      <p>The unconditional ATE understates the responsive subgroup, so aggregate estimates are a fact about composition as well as about persuasion.</p>
+    </div>
+
+    <p class="foot">The pathways are derived from the gate structure rather than from the data.</p>
+  </section>
+
 </div>
+<script src="js/views.js"></script>
 </body>
 </html>

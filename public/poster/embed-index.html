@@ -28,7 +28,7 @@
 <div class="wrap">
   <p class="kicker">Working index</p>
   <h1>Poster embed index</h1>
-  <p class="lede">Twelve standalone pages. Paste the block snippet into the iPoster content area, and the matching detail snippet into that block's expanded-content panel. iPoster handles moving between them; these pages carry no navigation of their own. The whole poster on one screen is at <a href="index.html">index.html</a>.</p>
+  <p class="lede">Six pages, one per block. Each holds both a summary view sized for the block and a detail view for when the block is enlarged; a button inside the page swaps between them. Paste one snippet per block and nothing else. The whole poster on one screen is at <a href="index.html">index.html</a>.</p>
 
   <div class="callout">
     <span class="label">Base URL</span>
@@ -37,7 +37,7 @@
 
   <div class="callout warn">
     <span class="label">Sizing</span>
-    <p>Every page is responsive and scrolls internally, so <span class="mono">width:100%; height:100%</span> is right in a block and in an expanded panel alike. Never give the iframe a fixed pixel height.</p>
+    <p>Content areas in this template are 388&nbsp;px wide and 251, 311 or 659&nbsp;px tall. Every page is responsive and scrolls internally, so <span class="mono">width:100%; height:100%</span> is right both in the block and once enlarged. Never give the iframe a fixed pixel height.</p>
   </div>
 
   <div id="cards"></div>
@@ -46,12 +46,12 @@
 <script>
 const BASE = "https://ignaciourbina.github.io/poster/";
 const BLOCKS = [
-  { n: 1, title: "The puzzle",                        slot: "Column 1, top" },
-  { n: 2, title: "Theory and hypotheses",             slot: "Column 1, bottom" },
-  { n: 3, title: "Research design",                   slot: "Column 2, full height" },
-  { n: 4, title: "Results",                           slot: "Column 3, full height" },
-  { n: 5, title: "Power, robustness and sensitivity", slot: "Column 4, top" },
-  { n: 6, title: "Takeaways and implications",        slot: "Column 4, bottom" },
+  { n: 1, title: "The puzzle",                        slot: "Column 1, top",         h: 251 },
+  { n: 2, title: "Theory and hypotheses",             slot: "Column 1, bottom",      h: 311 },
+  { n: 3, title: "Research design",                   slot: "Column 2, full height", h: 659 },
+  { n: 4, title: "Results",                           slot: "Column 3, full height", h: 659 },
+  { n: 5, title: "Power, robustness and sensitivity", slot: "Column 4, top",         h: 311 },
+  { n: 6, title: "Takeaways and implications",        slot: "Column 4, bottom",      h: 251 },
 ];
 
 const snippet = file =>
@@ -63,19 +63,11 @@ document.getElementById("cards").innerHTML = BLOCKS.map(b => `
   <section class="card">
     <h2>${b.n}. ${b.title}</h2>
     <p class="lede">${b.slot}</p>
+    <p class="term">Paste this into block ${b.n} · <a href="block-${b.n}.html">block-${b.n}.html</a></p>
+    <div class="snippet">${esc(snippet(`block-${b.n}.html`))}</div>
     <div class="pair">
-      <div>
-        <p class="term">Block · <a href="block-${b.n}.html">block-${b.n}.html</a></p>
-        <div class="snippet">${esc(snippet(`block-${b.n}.html`))}</div>
-      </div>
-      <div>
-        <p class="term">Expanded · <a href="detail-${b.n}.html">detail-${b.n}.html</a></p>
-        <div class="snippet">${esc(snippet(`detail-${b.n}.html`))}</div>
-      </div>
-    </div>
-    <div class="pair">
-      <div class="frame"><div>Block preview</div><iframe src="block-${b.n}.html" title="block ${b.n}"></iframe></div>
-      <div class="frame"><div>Expanded preview</div><iframe src="detail-${b.n}.html" title="detail ${b.n}"></iframe></div>
+      <div class="frame"><div>At block size, 388 × ${b.h}</div><iframe style="width:388px;height:${b.h}px" src="block-${b.n}.html" title="block ${b.n}"></iframe></div>
+      <div class="frame"><div>Enlarged, detail view</div><iframe src="block-${b.n}.html#detail" title="block ${b.n} detail"></iframe></div>
     </div>
   </section>
 `).join("");

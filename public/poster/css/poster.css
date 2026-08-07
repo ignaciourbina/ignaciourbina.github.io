@@ -411,6 +411,68 @@ figcaption {
     margin: 0.15em 0 0;
 }
 
+/* --- the two views ----------------------------------------------------- */
+/* iPoster's OPEN control does not navigate anywhere: it enlarges the same
+   iframe. So both views live in one document and a button swaps them. The
+   summary is written for the small block; the detail is written for the
+   enlarged one. */
+
+.view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    flex: 1;
+    min-width: 0;
+    outline: none;
+}
+
+.view > * {
+    min-width: 0;
+}
+
+.view[hidden] {
+    display: none;
+}
+
+.viewnav {
+    margin-top: auto;
+    padding-top: calc(var(--gap) * 0.7);
+    display: flex;
+    justify-content: flex-start;
+}
+
+button.swap {
+    font: inherit;
+    font-weight: 700;
+    font-size: clamp(0.72rem, 1.3vw, 0.92rem);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid #bcdccd;
+    border-radius: 999px;
+    padding: 0.4em 1em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    transition: background 0.12s ease;
+}
+
+button.swap:hover,
+button.swap:focus-visible {
+    background: #d3e8dd;
+}
+
+button.swap.back {
+    color: var(--ink-soft);
+    background: #f1f4f3;
+    border-color: var(--line);
+}
+
+button.swap.back:hover,
+button.swap.back:focus-visible {
+    background: #e6ebe9;
+}
+
 /* --- misc -------------------------------------------------------------- */
 
 .foot {

@@ -8,36 +8,87 @@
 </head>
 <body>
 <div class="wrap">
-  <p class="kicker">Power, robustness &amp; sensitivity</p>
-  <h1>Two of the four headline quantities are well powered; the other two are not.</h1>
-  <p class="lede">Minimum detectable effect at 80% power, computed from the same bootstrap standard errors the estimates use.</p>
 
-  <div class="stats">
-    <div class="stat good"><div class="label">Truster CATE</div><div class="value">98%</div><div class="note">power at the observed effect; MDE 0.28</div></div>
-    <div class="stat good"><div class="label">Truster corner effect</div><div class="value">98%</div><div class="note">clears its own MDE of 0.44</div></div>
-    <div class="stat warn"><div class="label">Stratum contrast</div><div class="value">62%</div><div class="note">observed effect sits below its MDE of 0.33</div></div>
-    <div class="stat bad"><div class="label">Mid/low corner increment</div><div class="value">32%</div><div class="note">far below its MDE of 0.36</div></div>
-  </div>
+  <section class="view" data-view="summary" tabindex="-1">
+    <p class="kicker">Power, robustness &amp; sensitivity</p>
+    <h1>Two of the four headline quantities are well powered; the other two are not.</h1>
 
-  <div class="callout warn">
-    <span class="label">What this licenses</span>
-    <p>The Truster results are the ones this design can carry. A null on the mid/low corner increment cannot distinguish a genuinely absent effect from a real one the study lacks the power to see.</p>
-  </div>
+    <div class="stats">
+      <div class="stat good"><div class="label">Truster CATE</div><div class="value">98%</div><div class="note">MDE 0.28</div></div>
+      <div class="stat good"><div class="label">Truster corner</div><div class="value">98%</div><div class="note">MDE 0.44</div></div>
+      <div class="stat warn"><div class="label">Stratum contrast</div><div class="value">62%</div><div class="note">below its MDE of 0.33</div></div>
+      <div class="stat bad"><div class="label">Mid/low corner δ</div><div class="value">32%</div><div class="note">below its MDE of 0.36</div></div>
+    </div>
 
-  <h2>Robustness</h2>
-  <ul class="plain">
-    <li><span class="term">Covariate adjustment (FWL).</span><span class="def">Truster 0.329, mid/low 0.110, contrast 0.219: the same ordering, modestly attenuated.</span></li>
-    <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile.</span></li>
-    <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
-  </ul>
+    <p>The Truster results are the ones this design can carry.</p>
 
-  <h2>Sensitivity to the identifying assumption</h2>
-  <div class="callout">
-    <span class="label">How badly would principal ignorability have to fail?</span>
-    <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the contrast: large, and opposite in sign to the mechanism under study.</p>
-  </div>
+    <div class="viewnav">
+      <button class="swap" data-target="detail">MDE tables, robustness, sensitivity →</button>
+    </div>
+  </section>
 
-  <p class="foot">Ignacio Urbina · Stony Brook University</p>
+  <section class="view" data-view="detail" tabindex="-1" hidden>
+    <div class="viewnav" style="margin-top:0">
+      <button class="swap back" data-target="summary">← Back</button>
+    </div>
+
+    <p class="kicker">Power, robustness &amp; sensitivity</p>
+    <h1>Minimum detectable effect at 80% power, from the same bootstrap standard errors the estimates use.</h1>
+
+    <h2>Trust-stratum estimates</h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">SE</th><th class="num">MDE</th><th class="num">Power</th><th>Clears</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>Truster CATE, unadjusted</td><td class="num">0.402</td><td class="num">0.099</td><td class="num">0.277</td><td class="num">98%</td><td>yes</td></tr>
+          <tr><td>Truster CATE, adjusted</td><td class="num">0.329</td><td class="num">0.089</td><td class="num">0.249</td><td class="num">96%</td><td>yes</td></tr>
+          <tr><td>Stratum contrast, unadjusted</td><td class="num">0.265</td><td class="num">0.117</td><td class="num">0.328</td><td class="num">62%</td><td>no</td></tr>
+          <tr><td>Stratum contrast, adjusted</td><td class="num">0.219</td><td class="num">0.106</td><td class="num">0.297</td><td class="num">54%</td><td>no</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure>
+      <img src="img/power-hajek.png" alt="Power curves for the Truster CATE and the stratum contrast under both specifications.">
+      <figcaption>Power curves for the Truster CATE and the stratum contrast, both specifications. The Truster CATE additionally shows a simulated cross-check with the principal score held fixed; that simulation understates the committed bootstrap's SE by 12–14%, so its curve is, if anything, optimistic.</figcaption>
+    </figure>
+
+    <h2>The conjunctive corner</h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">MDE (analytic)</th><th class="num">MDE (bootstrap)</th><th class="num">Power</th><th>Clears</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>Corner effect: Truster</td><td class="num">0.685</td><td class="num">0.440</td><td class="num">0.461</td><td class="num">98%</td><td>yes</td></tr>
+          <tr><td>Corner effect: Mid/low</td><td class="num">0.285</td><td class="num">0.368</td><td class="num">0.360</td><td class="num">59%</td><td>no</td></tr>
+          <tr><td>Increment δ: Truster</td><td class="num">0.397</td><td class="num">0.426</td><td class="num">0.445</td><td class="num">72%</td><td>no</td></tr>
+          <tr><td>Increment δ: Mid/low</td><td class="num">0.194</td><td class="num">0.364</td><td class="num">0.360</td><td class="num">32%</td><td>no</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The MDE is computed two ways and they agree closely: a normal-approximation formula, and a simulated power curve that resamples the real data and injects a candidate true effect on top of the actual covariate distribution and residual structure. The corner effects are the better-powered quantities, since they are larger than the increments δ against essentially the same noise.</p>
+
+    <figure>
+      <img src="img/power-corner.png" alt="Bootstrapped power curves for the corner increment and the corner effect in both trust strata.">
+      <figcaption>Bootstrapped power curves for δ (solid) and the corner effect (dashed), both strata. Diamonds mark each target's own observed effect size and its estimated power there; the dotted line is the 80% power target.</figcaption>
+    </figure>
+
+    <h2>Robustness</h2>
+    <ul class="plain">
+      <li><span class="term">Covariate adjustment.</span><span class="def">Truster 0.329, mid/low 0.110, contrast 0.219: the same ordering, modestly attenuated.</span></li>
+      <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile.</span></li>
+      <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
+    </ul>
+
+    <h2>Sensitivity to the identifying assumption</h2>
+    <p>The trust-stratum estimates are identified under principal ignorability, which cannot be tested here because expert trust was never measured in the control arm. Driving the estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the stratum contrast: large in magnitude, and opposite in sign to the mechanism under study.</p>
+
+    <div class="callout">
+      <span class="label">The design that would resolve it</span>
+      <p>Measuring expert trust before treatment estimates the missing control-arm quantity directly.</p>
+    </div>
+  </section>
+
 </div>
+<script src="js/views.js"></script>
 </body>
 </html>

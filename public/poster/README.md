@@ -1,8 +1,8 @@
 # CAM poster (iPoster iframe payload)
 
-Twelve standalone HTML pages that carry the entire poster, plus a wide-screen
-canvas that shows all six panels at once. iPoster holds nothing but `<iframe>`
-tags, so no content is authored in its editor.
+Six HTML pages that carry the entire poster, plus a wide-screen canvas that
+shows all six panels at once. iPoster holds nothing but six `<iframe>` tags, so
+no content is authored in its editor.
 
 Live at <https://ignaciourbina.github.io/poster/>.
 
@@ -10,8 +10,7 @@ Live at <https://ignaciourbina.github.io/poster/>.
 |---|---|
 | `index.html` | The whole poster on one wide screen, six iframes in the iPoster arrangement. Audience-facing. |
 | `embed-index.html` | Working index: every URL, a live preview, and the snippet to paste. Not part of the poster. |
-| `block-N.html` | The panel content for block N. Goes in the iPoster block. |
-| `detail-N.html` | The expanded content for block N. Goes in that block's expanded panel. |
+| `block-N.html` | Block N: both the summary view and the detail view, with a button that swaps them. This is the only URL block N needs. |
 
 ## Layout
 
@@ -24,10 +23,16 @@ Live at <https://ignaciourbina.github.io/poster/>.
 | 5 | Power, robustness, sensitivity | Column 4, top | MDE, robustness, breakdown frontier |
 | 6 | Takeaways and implications | Column 4, bottom | Contributions, implication, scope |
 
-**iPoster owns the navigation** between a block and its expanded view. The pages
-carry no back links, no toggles and no cross-references to one another: each is
-self-contained audience material, and adding navigation would fight whatever
-iPoster's expand control does.
+## Why one page per block
+
+iPoster's OPEN control does not navigate anywhere: it enlarges the same iframe
+that is already in the block. So a second URL has nowhere to go, and both views
+live in one document instead. `js/views.js` swaps them, `#detail` deep-links the
+detail view, and everything runs from this site, since nothing inside iPoster can
+be styled or scripted.
+
+The pages carry no cross-references to one another: each is self-contained
+audience material.
 
 ## Embedding
 
@@ -40,8 +45,25 @@ iPoster's expand control does.
 
 Never give the iframe a fixed pixel height. Each page sizes its own type from
 `vw` units, which inside an iframe are a percentage of the *iframe's* width, so
-the same page reads correctly in a small tile and in a large expanded panel.
-Content longer than the frame scrolls inside it.
+the same page reads correctly in the block and once enlarged. Content longer
+than the frame scrolls inside it.
+
+## Template geometry
+
+Measured from the 6-block template. Each block loses about 66 px to iPoster's
+own title bar, so the usable content area is:
+
+| Slot | Block box | Content area |
+|---|---|---|
+| Column 1 top (block 1) | 387×317 | **388×251** |
+| Column 1 bottom (block 2) | 387×377 | **388×311** |
+| Column 2 (block 3) | 387×725 | **388×659** |
+| Column 3 (block 4) | 387×725 | **388×659** |
+| Column 4 top (block 5) | 387×377 | **388×311** |
+| Column 4 bottom (block 6) | 387×317 | **388×251** |
+
+Column 4 mirrors column 1, so blocks 1 and 6 sit in the two smallest slots. Each
+summary view is written to fit its slot with its button visible.
 
 ## Figures
 

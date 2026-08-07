@@ -8,43 +8,71 @@
 </head>
 <body>
 <div class="wrap">
-  <p class="kicker">The puzzle</p>
-  <h1>Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive.</h1>
-  <p class="lede">Frey &amp; Osborne (2017) estimate 47% of U.S. occupations face high automation risk. Public awareness is high (Pew 2023), but experiments linking risk information to policy preferences yield mixed results.</p>
 
-  <div class="stats">
-    <div class="stat bad">
-      <div class="label">High-risk occupations</div>
-      <div class="value">47%</div>
-      <div class="note">of U.S. employment (Frey &amp; Osborne 2017)</div>
+  <section class="view" data-view="summary" tabindex="-1">
+    <p class="kicker">The puzzle</p>
+    <h1>Automation exposure is widespread, yet experimental evidence on policy demand remains inconclusive.</h1>
+
+    <div class="stats">
+      <div class="stat bad">
+        <div class="label">High-risk occupations</div>
+        <div class="value">47%</div>
+        <div class="note">of U.S. employment (Frey &amp; Osborne 2017)</div>
+      </div>
+      <div class="stat warn">
+        <div class="label">Public concern</div>
+        <div class="value">62%</div>
+        <div class="note">major concern about AI at work (Pew 2023)</div>
+      </div>
     </div>
-    <div class="stat warn">
-      <div class="label">Public concern</div>
-      <div class="value">62%</div>
-      <div class="note">major concern about AI workforce impact (Pew 2023)</div>
+
+    <div class="viewnav">
+      <button class="swap" data-target="detail">Prior evidence and the estimand →</button>
     </div>
-  </div>
+  </section>
 
-  <ul class="plain">
-    <li><span class="term">Structural labor market shift.</span><span class="def">Routine cognitive and manual tasks face increasing automation pressure.</span></li>
-    <li><span class="term">Policy demand channel.</span><span class="def">Standard models predict risk exposure → demand for retraining, regulation, redistribution.</span></li>
-    <li><span class="term">Empirical gap.</span><span class="def">Experimental tests of this channel produce inconsistent or null aggregate effects.</span></li>
-  </ul>
+  <section class="view" data-view="detail" tabindex="-1" hidden>
+    <div class="viewnav" style="margin-top:0">
+      <button class="swap back" data-target="summary">← Back</button>
+    </div>
 
-  <h2>Where the evidence stands</h2>
-  <div class="cites">
-    <span class="cite"><span class="who">Zhang &amp; Hou (2022); Magistro et al. (2024).</span> Personalized risk information → null ATE on policy preferences.</span>
-    <span class="cite"><span class="who">Gallego et al. (2022).</span> Distinct treatment and sample yield positive effects.</span>
-    <span class="cite"><span class="who">Arntz et al. (2024).</span> Opposing subgroup effects cancel in the aggregate.</span>
-    <span class="cite"><span class="who">Wu (2022); Im (2023).</span> Effects moderated by ideology, education, prior beliefs.</span>
-  </div>
+    <p class="kicker">The puzzle</p>
+    <h1>Experimental results are inconsistent: null, positive, and opposing effects coexist.</h1>
+    <p class="lede">Frey &amp; Osborne (2017) estimate 47% of U.S. occupations face high automation risk. Public awareness is high (Pew 2023), but experiments linking risk information to policy preferences yield mixed results.</p>
 
-  <div class="callout">
-    <span class="label">Reframing the estimand</span>
-    <p>The unconditional ATE averages over heterogeneous subgroups. Weak aggregate effects may reflect composition rather than preference stability.</p>
-  </div>
+    <ul class="plain">
+      <li><span class="term">Structural labor market shift.</span><span class="def">Routine cognitive and manual tasks face increasing automation pressure.</span></li>
+      <li><span class="term">Policy demand channel.</span><span class="def">Standard models predict risk exposure → demand for retraining, regulation, redistribution.</span></li>
+      <li><span class="term">Empirical gap.</span><span class="def">Experimental tests of this channel produce inconsistent or null aggregate effects.</span></li>
+    </ul>
 
-  <p class="foot">Ignacio Urbina · Stony Brook University</p>
+    <h2>Prior evidence</h2>
+    <div class="cites">
+      <span class="cite"><span class="who">Zhang &amp; Hou (2022); Magistro et al. (2024).</span> Personalized risk information → null ATE on policy preferences.</span>
+      <span class="cite"><span class="who">Gallego et al. (2022).</span> Distinct treatment and sample yield positive effects.</span>
+      <span class="cite"><span class="who">Arntz et al. (2024).</span> Opposing subgroup effects cancel in the aggregate.</span>
+      <span class="cite"><span class="who">Wu (2022); Im (2023).</span> Effects moderated by ideology, education, prior beliefs.</span>
+    </div>
+    <p class="lede">Studies examining conditional effects find heterogeneity that washes out in the aggregate.</p>
+
+    <h2>Reframing the estimand</h2>
+    <p>The unconditional ATE averages over heterogeneous subgroups, so the estimand is misspecified for the question at hand. Weak aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on who absorbs the signal and on who is personally exposed.</p>
+
+    <div class="cols-2">
+      <div class="callout" style="border-left-color:var(--red);background:var(--red-soft)">
+        <span class="label">Standard estimand</span>
+        <p>E[Y(1) − Y(0)]: unconditional ATE across the full sample</p>
+      </div>
+      <div class="callout">
+        <span class="label">Proposed estimand</span>
+        <p>E[Y(1) − Y(0) | trust stratum, anxiety × automation risk]: CATE by expert-trust stratum and by joint exposure</p>
+      </div>
+    </div>
+
+    <p>A weak population-level ATE is the expected signature when qualitatively distinct pathways are mixed. In this study the aggregate effect is not itself null: it is positive but modest, and it understates the group that moves.</p>
+  </section>
+
 </div>
+<script src="js/views.js"></script>
 </body>
 </html>

@@ -86,13 +86,14 @@
       border: 0;
   }
 
-  /* Panel heights follow the canvas: column 1 splits shorter-over-taller,
-     column 4 the reverse. Columns 2 and 3 are single full-height panels. */
-  .col-1 .panel:nth-child(1) { flex: 345; }
-  .col-1 .panel:nth-child(2) { flex: 410; }
-  .col-4 .panel:nth-child(1) { flex: 407; }
-  .col-4 .panel:nth-child(2) { flex: 350; }
-  .col-2 .panel, .col-3 .panel { flex: 1; }
+  /* Panel heights follow the iPoster template exactly: column 1 is short over
+     tall (317 / 377), column 4 mirrors it, and columns 2 and 3 are single
+     full-height panels (725). Ratios, not pixels, so the canvas scales. */
+  .col-1 .panel:nth-child(1) { flex: 317; }
+  .col-1 .panel:nth-child(2) { flex: 377; }
+  .col-4 .panel:nth-child(1) { flex: 377; }
+  .col-4 .panel:nth-child(2) { flex: 317; }
+  .col-2 .panel, .col-3 .panel { flex: 725; }
 
   /* Below poster width the grid stops being meaningful; stack and let the page
      scroll instead of squeezing six panels into a phone. */

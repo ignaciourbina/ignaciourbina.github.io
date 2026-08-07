@@ -7,4 +7,4 @@
 # reference for the template's block geometry. Third-party assets, not ours to
 # republish, and this whole directory is mirrored to the public site by the sync
 # workflow, so it must never be tracked.
-iPoster/
+iPoster*/
