@@ -18,7 +18,7 @@
       "kicker": "MPSA 2026 · Job Market Paper",
       "headline": "The Conditional Activation Model",
       "subhead": "Uncovering Policy Demand Responses to AI-Driven Automation",
-      "notes": "Open with the aggregate null puzzle: why do information experiments on automation risk so often produce null or conflicting effects? The CAM framework resolves this as a composition effect.",
+      "notes": "Open with the aggregate puzzle: why do information experiments on automation risk so often produce null or conflicting effects? The CAM framework treats this as a composition effect across two gates.",
       "blocks": [
         {
           "type": "callout",
@@ -106,28 +106,18 @@
       "section": "Theory",
       "kicker": "Reframing the estimand",
       "headline": "The unconditional ATE averages over heterogeneous subgroups — the estimand is misspecified.",
-      "subhead": "Null aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on trust type and activation state.",
-      "notes": "Pivotal slide. Reframe from ATE to CATE.",
+      "subhead": "Weak aggregate effects may reflect composition rather than preference stability. The relevant estimand conditions on who absorbs the signal and on who is personally exposed.",
+      "notes": "Pivotal slide. Reframe from ATE to CATE. Note that in this study the aggregate effect is not itself null — it is positive but modest, and it understates the group that actually moves.",
       "blocks": [
         {
           "type": "split",
           "ratio": "1fr 1fr",
           "reveal": "panes",
           "left": [
-            {
-              "type": "callout",
-              "label": "Standard estimand",
-              "text": "E[Y(1) − Y(0)]: unconditional ATE across full sample",
-              "tone": "red"
-            }
+            { "type": "callout", "label": "Standard estimand", "text": "E[Y(1) − Y(0)]: unconditional ATE across the full sample", "tone": "red" }
           ],
           "right": [
-            {
-              "type": "callout",
-              "label": "Proposed estimand",
-              "text": "E[Y(1) − Y(0) | S, Gap, Anxiety]: CATE stratified by trust type and activation state",
-              "tone": "green"
-            }
+            { "type": "callout", "label": "Proposed estimand", "text": "E[Y(1) − Y(0) | trust stratum, anxiety × automation risk]: CATE by expert-trust stratum and by joint exposure", "tone": "green" }
           ]
         }
       ]
@@ -136,9 +126,9 @@
       "id": "theory",
       "section": "Theory",
       "kicker": "CAM framework",
-      "headline": "Two sequential gates: source trust (discrete) and joint activation (Gap × Anxiety).",
-      "subhead": "Source trust operates as a binary filter, not a continuous moderator. Activation requires the joint presence of informational shock and dispositional vigilance.",
-      "notes": "Source trust: discrete accept/reject. Activation: neither gap alone nor anxiety alone sufficient. Below threshold: cool cognition.",
+      "headline": "Two sequential gates: expert trust, then joint activation (anxiety × automation risk).",
+      "subhead": "Trust governs whether the expert signal is absorbed at all. Activation requires dispositional vigilance and personal exposure together, not either alone.",
+      "notes": "Gate 1 is about absorption, not agreement: a respondent who discounts the source has nothing to update on. Gate 2 is conjunctive by construction — the prediction is a corner, not two main effects.",
       "blocks": [
         {
           "type": "split",
@@ -149,8 +139,8 @@
               "reveal": "items",
               "steps": [
                 { "title": "Information", "detail": "Expert risk estimate" },
-                { "title": "Source trust", "detail": "Accept or reject" },
-                { "title": "Activation", "detail": "Gap × Anxiety" },
+                { "title": "Expert trust", "detail": "Absorb or discount" },
+                { "title": "Activation", "detail": "Anxiety × automation risk" },
                 { "title": "Policy demand", "detail": "Protection preferences" }
               ]
             }
@@ -159,8 +149,8 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Source trust: discrete classification", "detail": "Latent mixture separates Trusters from Skeptics — not a continuous moderator" },
-                { "title": "Activation: joint requirement", "detail": "Neither belief gap nor trait anxiety alone is sufficient to trigger policy search" },
+                { "title": "Gate 1: expert trust", "detail": "Whether the signal is absorbed at all. Recovered as a principal stratum from pre-treatment covariates, not a raw post-treatment split" },
+                { "title": "Gate 2: joint requirement", "detail": "Neither trait anxiety nor own-occupation automation risk alone should be sufficient to move policy demand" },
                 { "title": "Below-threshold pathway", "detail": "Beliefs update without policy preference change (cool cognition)" }
               ]
             }
@@ -173,24 +163,24 @@
       "section": "Theory",
       "kicker": "Predicted pathways",
       "headline": "The two-gate structure predicts three qualitatively distinct cognitive pathways.",
-      "subhead": "Each pathway corresponds to a different exit point in the information-processing sequence. A population-level null ATE is the expected signature when the three pathways are mixed.",
-      "notes": "This is a theoretical slide — no empirical numbers yet. The three pathways are derived from the gate structure, not from data. The key theoretical claim is that aggregate nulls are predicted by the model under heterogeneous mixing, not anomalous.",
+      "subhead": "Each pathway corresponds to a different exit point in the information-processing sequence. A weak population-level ATE is the expected signature when the three pathways are mixed.",
+      "notes": "This is a theoretical slide — no empirical numbers yet. The three pathways are derived from the gate structure, not from data. The key theoretical claim is that weak aggregates are predicted by the model under heterogeneous mixing, not anomalous.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "reveal": "items",
           "items": [
-            { "type": "metric", "label": "1. Source rejection", "value": "Skeptics", "detail": "Information fails the trust gate; no downstream processing regardless of gap magnitude or anxiety level", "tone": "red" },
-            { "type": "metric", "label": "2. Cool cognition", "value": "Below-threshold trusters", "detail": "Information is accepted and beliefs update, but insufficient vigilance to initiate policy search", "tone": "amber" },
-            { "type": "metric", "label": "3. Activated persuasion", "value": "Above-threshold trusters", "detail": "Both gates cleared; sustained elaboration of threat translates into demand for protective policy", "tone": "green" }
+            { "type": "metric", "label": "1. Signal discounted", "value": "Mid/low trust", "detail": "The expert estimate is not absorbed; no downstream processing regardless of anxiety or personal exposure", "tone": "red" },
+            { "type": "metric", "label": "2. Cool cognition", "value": "Trusters outside the corner", "detail": "The signal is absorbed and beliefs update, but exposure is insufficient to initiate policy search", "tone": "amber" },
+            { "type": "metric", "label": "3. Activated persuasion", "value": "Trusters inside the corner", "detail": "Both gates cleared; sustained elaboration of threat translates into demand for protective policy", "tone": "green" }
           ]
         },
         {
           "type": "callout",
           "label": "Prediction",
           "reveal": true,
-          "text": "If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup — producing the null or weak aggregate effects observed in prior work.",
+          "text": "If the three pathways are mixed in the population, the unconditional ATE will understate the responsive subgroup — producing the weak or null aggregate effects observed in prior work.",
           "tone": "amber"
         }
       ]
@@ -200,8 +190,8 @@
       "section": "Design",
       "kicker": "Experimental design",
       "headline": "Pre-registered between-subjects experiment, N = 901 U.S. workers.",
-      "subhead": "Three-step belief correction protocol with individualized treatment intensity. 475 treatment, 426 control; block randomized by occupation.",
-      "notes": "Workers compress beliefs toward 30-40 regardless of actual risk. Metacognitive failure: r = -0.004 between certainty and accuracy.",
+      "subhead": "Three-step belief correction protocol with individualized treatment intensity. 475 treated, 426 control.",
+      "notes": "Workers compress beliefs toward the middle of the scale regardless of actual risk, so the expert estimate lands as a genuine informational shock for most respondents.",
       "blocks": [
         {
           "type": "split",
@@ -211,7 +201,7 @@
               "type": "numbers",
               "reveal": "items",
               "items": [
-                "Explain expert methodology (factual manipulation check: 93.4%)",
+                "Explain expert methodology (factual manipulation check: 93.5%)",
                 "Elicit subjective risk belief (0–100 percentile)",
                 "Reveal expert estimate; display belief gap"
               ]
@@ -219,7 +209,7 @@
             {
               "type": "callout",
               "label": "Design property",
-              "text": "Treatment intensity varies naturally via belief gap, creating continuous within-treatment variation.",
+              "text": "Both moderators are measured before treatment, so the activation corner is a fixed partition of pre-treatment characteristics rather than an outcome of the manipulation.",
               "tone": "green"
             }
           ],
@@ -227,10 +217,10 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Outcome", "detail": "Policy demand index: 5 items, 7-pt scale (ω = 0.85)" },
-                { "title": "Source trust", "detail": "5-point item, post-treatment only" },
-                { "title": "Belief gap", "detail": "Expert percentile − subjective prior" },
-                { "title": "Trait anxiety", "detail": "4-item scale, pre-treatment (ω = 0.90)" }
+                { "title": "Outcome", "detail": "Policy demand index: 5 items, 7-pt scale (ω = 0.83)" },
+                { "title": "Expert trust", "detail": "5-point item, post-treatment only" },
+                { "title": "Automation risk", "detail": "Own-occupation percentile, pre-treatment" },
+                { "title": "Trait anxiety", "detail": "4-item scale, pre-treatment (ω = 0.92)" }
               ]
             }
           ]
@@ -241,25 +231,25 @@
       "id": "operationalization",
       "section": "Design",
       "kicker": "Measures",
-      "headline": "Five-item policy demand index and three moderators operationalize the two-gate structure.",
-      "subhead": "Policy demand: 5 items, 7-pt scale (ω = 0.85). Trust and gap are post-treatment; anxiety is pre-treatment.",
-      "notes": "The battery deliberately spans redistribution, regulation, retraining, labor protections, and employment limits to avoid anchoring to a single ideological frame. Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Gap is computed (expert minus subjective), not self-reported. Anxiety uses a validated Big Five facet scale.",
+      "headline": "A five-item policy demand index and three moderators operationalize the two-gate structure.",
+      "subhead": "Policy demand is scored by a graded response model. Trust is post-treatment; anxiety and automation risk are pre-treatment.",
+      "notes": "The battery deliberately spans redistribution, regulation, retraining, labor protections, and employment limits to avoid anchoring to a single ideological frame. Trust is a single post-treatment item — a limitation, but necessary to avoid contaminating control. Automation risk is the expert percentile for the respondent's own occupation, so it is fixed before the experiment.",
       "blocks": [
         {
           "type": "design-matrix",
-          "rows": ["Policy demand (Y)", "Source trust (S)", "Belief gap (Gap)", "Trait anxiety (η)"],
+          "rows": ["Policy demand (η)", "Expert trust (S)", "Trait anxiety (A)", "Automation risk (R)"],
           "columns": ["Operationalization", "Gate / Role"],
           "cells": [
-            ["5 items, 7-pt scale (ω = 0.85): redistribution, regulation, retraining, labor protections, employment limits", "Outcome"],
-            ["Single 5-pt item, post-treatment only", "Gate 1: binary filter"],
-            ["Expert percentile − subjective prior (computed)", "Gate 2: informational shock"],
-            ["4-item Big Five facet scale, pre-treatment (ω = 0.90)", "Gate 2: dispositional vigilance"]
+            ["5 items, 7-pt scale (ω = 0.83), scored by a graded response model (EAP)", "Outcome"],
+            ["Single 5-pt item, post-treatment, treated arm only", "Gate 1: absorption"],
+            ["4-item scale, pre-treatment (ω = 0.92)", "Gate 2: dispositional vigilance"],
+            ["Own-occupation expert percentile, pre-treatment", "Gate 2: personal exposure"]
           ]
         },
         {
           "type": "callout",
           "label": "Asymmetry",
-          "text": "Trust and gap are post-treatment (treated only); anxiety is pre-treatment (all respondents). The BFMM handles the resulting collider structure.",
+          "text": "Trust is observed only in the treated arm; anxiety and automation risk are observed in both. Carrying trust into the control arm is the identification problem the next slide solves.",
           "tone": "amber"
         }
       ]
@@ -268,17 +258,17 @@
       "id": "manipulation-check",
       "section": "Design",
       "kicker": "Manipulation check",
-      "headline": "The treatment successfully shifted beliefs; belief gap provides continuous within-treatment variation.",
-      "subhead": "93.4% comprehension pass rate. Mean gap = 2.44 (SD = 36), range [−89, +85].",
-      "notes": "Workers compress beliefs toward 30–40 regardless of actual risk. The metacognitive failure (r = −0.004 between certainty and accuracy) means subjective confidence does not track objective accuracy. This is what makes the gap a genuine informational shock rather than a confirmation exercise.",
+      "headline": "The treatment landed: respondents understood it, were surprised by it, and updated on it.",
+      "subhead": "93.5% pass the factual check. Mean belief gap = 2.44 (SD = 36.1), range [−83, +94].",
+      "notes": "The gap is wide in both directions, so the treatment is not a one-sided alarm: roughly as many respondents learn their risk is lower than they thought as higher. Self-reported belief updating tracks the size of the gap (Spearman ρ = 0.66), which is what makes it a genuine informational shock rather than a confirmation exercise.",
       "blocks": [
         {
           "type": "grid",
           "columns": 3,
           "items": [
-            { "type": "metric", "label": "Comprehension", "value": "93.4%", "detail": "passed methodology check", "tone": "green" },
-            { "type": "metric", "label": "Mean belief gap", "value": "2.44", "detail": "SD = 36, range [−89, +85]", "tone": "amber" },
-            { "type": "metric", "label": "Certainty × accuracy", "value": "r = −0.004", "detail": "Metacognitive failure: confidence does not track accuracy", "tone": "red" }
+            { "type": "metric", "label": "Factual check", "value": "93.5%", "detail": "passed the expert-methodology check", "tone": "green" },
+            { "type": "metric", "label": "Mean belief gap", "value": "2.44", "detail": "SD = 36.1, range [−83, +94]", "tone": "amber" },
+            { "type": "metric", "label": "Updating × gap", "value": "ρ = 0.66", "detail": "larger gaps produce larger self-reported belief updating", "tone": "green" }
           ]
         }
       ]
@@ -287,9 +277,9 @@
       "id": "identification",
       "section": "Results",
       "kicker": "Identification",
-      "headline": "Observed trust is a post-treatment collider; naive conditioning introduces bias.",
-      "subhead": "The BFMM uses principal stratification: Gap and Gap² block the collider path and isolate dispositional trust.",
-      "notes": "Trust measured only for treated AND caused by both disposition and treatment. The CATE function is type-specific: Skeptics are constrained to have coefficients no larger than Trusters (non-negativity).",
+      "headline": "Trust is measured only in the treated arm; a pre-treatment proxy carries it into both.",
+      "subhead": "Random forest proxy → principal score → Hájek weighting of both arms. Identified by randomization plus principal ignorability.",
+      "notes": "Emphasize that nothing post-treatment enters the weights. The proxy is built only from covariates fixed before randomization, which is exactly why the same weights can be applied in the control arm. The assumption is principal ignorability, and it is untestable in this design — the next slide reports how badly it would have to fail.",
       "blocks": [
         {
           "type": "split",
@@ -297,16 +287,17 @@
           "left": [
             {
               "type": "flow",
+              "reveal": "items",
               "steps": [
-                { "title": "Problem", "detail": "Gap → Q_obs ← S creates collider bias" },
-                { "title": "Block", "detail": "Gap, Gap² block the collider path" },
-                { "title": "Classify", "detail": "Ordinal mixture → Trusters vs. Skeptics" }
+                { "title": "Proxy", "detail": "Random forest on 15 pre-treatment terms predicts the 5-pt trust rating" },
+                { "title": "Principal score", "detail": "Logit of Truster (trust ≥ 4) on the proxy gives pᵢ for every respondent" },
+                { "title": "Contrast", "detail": "Hájek-weighted arm means: pᵢ for Trusters, 1 − pᵢ for mid/low" }
               ]
             },
             {
               "type": "callout",
-              "label": "Type-specific CATE",
-              "text": "\\[ \\tau_T(\\text{Gap}, \\eta_{\\text{anx}}) = \\beta_0^T + \\beta_1^T \\cdot \\text{Gap} + \\beta_2^T \\cdot \\eta_{\\text{anx}} + \\beta_3^T \\cdot \\text{Gap} \\times \\eta_{\\text{anx}} \\]",
+              "label": "Identifying assumption",
+              "text": "\\[ \\tau_{\\text{Truster}} = E[\\eta(1) - \\eta(0) \\mid \\text{Truster}] \\] Identified under randomization plus principal ignorability: pᵢ is a function of pre-treatment covariates only, so the same weights apply in both arms.",
               "tone": "green"
             }
           ],
@@ -314,9 +305,9 @@
             {
               "type": "architecture",
               "layers": [
-                { "label": "Trust", "items": ["ordinal logistic mixture", "Trusters vs. Skeptics", "δ = 2.09"] },
-                { "label": "Measurement", "items": ["anxiety CFA (ω = .90)", "policy CFA (ω = .85)"] },
-                { "label": "Activation", "items": ["type-specific CATEs", "Gap × η_anx interaction", "non-negativity"] }
+                { "label": "Trust proxy", "items": ["random forest, 500 trees", "15 pre-treatment terms", "defined in both arms"] },
+                { "label": "Principal score", "items": ["logit on the proxy", "pᵢ = Pr(Truster | Q̂ᵢ)", "Hájek self-normalized"] },
+                { "label": "Uncertainty", "items": ["bootstrap, B = 2000", "proxy, logit and weights refit", "resampling within arm"] }
               ]
             }
           ]
@@ -327,22 +318,23 @@
       "id": "results-ate",
       "section": "Results",
       "kicker": "Results: unconditional",
-      "headline": "Unconditional ATE is positive and robust across estimators (d ≈ 0.24–0.27).",
-      "subhead": "All specifications converge. The BFMM reproduces the ATE while decomposing it into type-specific components.",
-      "notes": "Starting point — aggregate effect exists but understates responsive subgroup by factor 2.5.",
+      "headline": "The unconditional effect is positive and stable across covariate sets (0.22–0.28 SD).",
+      "subhead": "Policy demand η, standardized. Every specification excludes zero; adjustment moves the point estimate by less than 0.07.",
+      "notes": "This is the starting point, and it is deliberately unremarkable: a real but modest aggregate effect. The rest of the talk asks who it belongs to. Estimates are OLS with HC1 standard errors.",
       "blocks": [
         {
           "type": "dot-plot",
-          "xLabel": "Standardized effect (d)",
+          "xLabel": "Effect on policy demand (SD)",
           "referenceLine": 0,
-          "labelWidth": "10rem",
+          "labelWidth": "12rem",
           "ticks": 6,
           "reveal": "items",
           "points": [
-            { "label": "OLS (unadjusted)", "estimate": 0.27, "ci": [0.14, 0.40], "tone": "green" },
-            { "label": "OLS (adjusted)", "estimate": 0.24, "ci": [0.13, 0.36], "tone": "green" },
-            { "label": "SEM", "estimate": 0.24, "ci": [0.13, 0.36], "tone": "green" },
-            { "label": "BFMM (π-weighted)", "estimate": 0.27, "ci": [0.14, 0.39], "tone": "green" }
+            { "label": "No controls", "estimate": 0.284, "ci": [0.153, 0.414], "tone": "green" },
+            { "label": "+ Ideology", "estimate": 0.233, "ci": [0.117, 0.35], "tone": "green" },
+            { "label": "+ Trait anxiety", "estimate": 0.258, "ci": [0.13, 0.387], "tone": "green" },
+            { "label": "+ Anxiety + Ideology", "estimate": 0.223, "ci": [0.107, 0.339], "tone": "green" },
+            { "label": "+ Anxiety + Ideology + Age", "estimate": 0.23, "ci": [0.114, 0.346], "tone": "green" }
           ]
         }
       ]
@@ -350,37 +342,10 @@
     {
       "id": "results-trust",
       "section": "Results",
-      "kicker": "Results: source trust",
-      "headline": "Source trust operates as a discrete gate: Skeptic effects are null across all moderator values.",
-      "notes": "Even Skeptics with large gaps AND high anxiety show null effects (all P(β > 0) < 0.30). Trusters show positive effects across all moderation coefficients (all P(β > 0) > 0.92). Inconsistent with continuous moderator models. Estimates from 24,000 posterior draws (6 chains × 4,000 post-warmup). All R-hat < 1.001.",
-      "blocks": [
-        {
-          "type": "design-matrix",
-          "rows": ["β₀: Intercept", "β₁: Gap", "β₂: Anxiety", "β₃: Gap × Anx"],
-          "columns": ["Skeptics (π ≈ 62%)", "P(β > 0)", "Trusters (π ≈ 38%)", "P(β > 0)"],
-          "cells": [
-            ["+0.23", "0.98", "+0.44", "1.00"],
-            ["−0.06", "0.26", "+0.14", "0.92"],
-            ["−0.06", "0.23", "+0.14", "0.93"],
-            ["−0.07", "0.18", "+0.13", "0.92"]
-          ]
-        },
-        {
-          "type": "callout",
-          "label": "Finding",
-          "reveal": true,
-          "text": "Source rejection functions as a strict binary filter: all Skeptic moderation coefficients have P(β > 0) < 0.30; all Truster coefficients have P(β > 0) > 0.92.",
-          "tone": "amber"
-        }
-      ]
-    },
-    {
-      "id": "results-activation",
-      "section": "Results",
-      "kicker": "Results: activation",
-      "headline": "Among Trusters, effects are jointly activated by belief gap and trait anxiety (β₃ = 0.13, P > 0: 0.92).",
-      "subhead": "Activation threshold at ≈ 20th percentile of trait anxiety. Below threshold, large gaps produce null CATEs.",
-      "notes": "Neither gap nor anxiety alone sufficient — both single-gate CATEs have CIs crossing zero. The joint CATE at +1 SD on both is d = 0.61, 2.5× the ATE. All pairwise contrasts of high×high vs. other cells have P(Δ > 0) > 0.97. Full 3×3 CATE grid in appendix table.",
+      "kicker": "Results: Gate 1",
+      "headline": "Trust gates absorption: the Truster effect is roughly three times the mid/low one.",
+      "subhead": "Hájek principal-score weighting of both arms. Bootstrap B = 2000, with the proxy, the logit and the weights refit in every replicate.",
+      "notes": "The contrast is the quantity the theory predicts, and it is positive with P(>0) = 0.99 — but it is also the underpowered one, which the power slide addresses directly. Covariate-adjusted estimates attenuate slightly and preserve the ordering.",
       "blocks": [
         {
           "type": "split",
@@ -388,19 +353,17 @@
           "left": [
             {
               "type": "dot-plot",
-              "title": "Conditional Average Treatment Effects",
-              "xLabel": "Standardized effect (d)",
+              "title": "Hájek principal-score CATEs",
+              "xLabel": "Effect on policy demand (SD)",
               "referenceLine": 0,
-              "labelWidth": "10rem",
+              "labelWidth": "9rem",
               "ticks": 5,
               "showLegend": false,
               "reveal": "items",
               "points": [
-                { "label": "Unconditional ATE", "estimate": 0.27, "ci": [0.14, 0.39], "tone": "blue", "valueLabel": "d = 0.27" },
-                { "label": "High Gap × Low Anx", "estimate": 0.17, "ci": [-0.13, 0.46], "tone": "red", "valueLabel": "d = 0.17" },
-                { "label": "Low Gap × High Anx", "estimate": 0.21, "ci": [-0.07, 0.49], "tone": "red", "valueLabel": "d = 0.21" },
-                { "label": "CATE (mean × mean)", "estimate": 0.29, "ci": [0.18, 0.41], "tone": "amber", "valueLabel": "d = 0.29" },
-                { "label": "CATE (high × high)", "estimate": 0.61, "ci": [0.40, 0.86], "tone": "green", "valueLabel": "d = 0.61" }
+                { "label": "Truster", "estimate": 0.402, "ci": [0.221, 0.608], "tone": "green", "valueLabel": "0.40" },
+                { "label": "Mid/low trust", "estimate": 0.137, "ci": [-0.016, 0.269], "tone": "amber", "valueLabel": "0.14" },
+                { "label": "Contrast", "estimate": 0.265, "ci": [0.052, 0.506], "tone": "blue", "valueLabel": "0.27" }
               ]
             }
           ],
@@ -408,20 +371,99 @@
             {
               "type": "bullets",
               "items": [
-                { "title": "Gap alone insufficient", "detail": "High Gap × Low Anxiety: CI crosses zero (d = 0.17)" },
-                { "title": "Anxiety alone insufficient", "detail": "Low Gap × High Anxiety: CI crosses zero (d = 0.21)" },
-                { "title": "Joint activation required", "detail": "High × High: d = 0.61 — 2.5× the unconditional ATE" },
-                { "title": "Activation threshold", "detail": "≈ 20th percentile of trait anxiety (z ≈ −0.84)" }
+                { "title": "Truster CATE", "detail": "0.402 [0.221, 0.608], P(>0) = 1.00" },
+                { "title": "Mid/low CATE", "detail": "0.137 [−0.016, 0.269], P(>0) = 0.96" },
+                { "title": "Stratum contrast", "detail": "0.265 [0.052, 0.506], P(>0) = 0.99" },
+                { "title": "Covariate-adjusted (FWL)", "detail": "0.329 / 0.110 / 0.219 — same ordering, modestly attenuated" }
               ]
             }
           ]
         },
         {
           "type": "callout",
-          "label": "Pairwise contrasts: High × High vs.",
+          "label": "How badly would principal ignorability have to fail?",
           "reveal": true,
-          "text": "vs. High Gap × Low Anx: P(Δ > 0) = 0.98 · vs. Low Gap × High Anx: P(Δ > 0) = 0.98 · vs. Mean × Mean: P(Δ > 0) = 0.99",
+          "text": "Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the Truster CATE and −0.52 SD for the contrast: large, and opposite in sign to the mechanism under study.",
           "tone": "green"
+        }
+      ]
+    },
+    {
+      "id": "results-activation",
+      "section": "Results",
+      "kicker": "Results: Gate 2",
+      "headline": "Among Trusters, the effect concentrates in the high-anxiety × high-risk corner.",
+      "subhead": "A fixed top-tercile rule on both pre-treatment moderators, with no cutoff or sharpness parameter estimated. 105 of 901 respondents (11.7%) qualify.",
+      "notes": "Stress that nothing here is fitted except the treatment effect itself: corner membership is a deterministic function of two pre-treatment variables. The two moderators are near-independent (corr = 0.014), so the corner is not just a restatement of one of them. Mid/low trust shows no corner, which is the pattern the two-gate structure predicts.",
+      "blocks": [
+        {
+          "type": "split",
+          "ratio": "1fr 1fr",
+          "left": [
+            {
+              "type": "dot-plot",
+              "title": "Fixed-corner effects by trust stratum",
+              "xLabel": "Effect on policy demand (SD)",
+              "referenceLine": 0,
+              "labelWidth": "11rem",
+              "ticks": 5,
+              "showLegend": false,
+              "reveal": "items",
+              "points": [
+                { "label": "Truster: outside corner", "estimate": 0.288, "ci": [0.128, 0.442], "tone": "amber", "valueLabel": "0.29" },
+                { "label": "Truster: in corner", "estimate": 0.685, "ci": [0.364, 0.98], "tone": "green", "valueLabel": "0.69" },
+                { "label": "Truster: increment δ", "estimate": 0.397, "ci": [0.083, 0.69], "tone": "blue", "valueLabel": "0.40" },
+                { "label": "Mid/low: in corner", "estimate": 0.285, "ci": [0.041, 0.552], "tone": "red", "valueLabel": "0.29" },
+                { "label": "Mid/low: increment δ", "estimate": 0.194, "ci": [-0.056, 0.466], "tone": "red", "valueLabel": "0.19" }
+              ]
+            }
+          ],
+          "right": [
+            {
+              "type": "bullets",
+              "items": [
+                { "title": "A fixed rule, nothing fitted", "detail": "Top tercile of trait anxiety (z ≥ 0.53) AND of own automation risk (≥ 54.5th percentile), both pre-treatment" },
+                { "title": "The moderators are near-independent", "detail": "corr(A, R) = 0.014; the 11.7% corner share matches the ≈ 11.1% implied by independent terciles" },
+                { "title": "Corner effect is 2.4× the outside effect", "detail": "0.685 in the corner vs 0.288 outside it, among Trusters" },
+                { "title": "The cutoff choice does not drive it", "detail": "δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "No corner without the first gate",
+          "reveal": true,
+          "text": "For mid/low trust the corner increment is null: δ = 0.194 [−0.056, 0.466]. The conjunction only pays off for respondents who absorbed the signal.",
+          "tone": "amber"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "section": "Results",
+      "kicker": "Power",
+      "headline": "Two of the four headline quantities are well powered; the other two are not.",
+      "subhead": "Minimum detectable effect at 80% power, computed from the same bootstrap standard errors the estimates use.",
+      "notes": "The point of putting this in the main talk rather than an appendix: a null or marginal estimate is ambiguous between 'no effect' and 'too small for this design to see' unless power is addressed directly. The stratum contrast and the corner increments fall below their own MDEs, so their significance should not be read as evidence the design was well powered to detect them.",
+      "blocks": [
+        {
+          "type": "grid",
+          "columns": 4,
+          "reveal": "items",
+          "items": [
+            { "type": "metric", "label": "Truster CATE", "value": "98%", "detail": "power at the observed effect; MDE 0.28", "tone": "green" },
+            { "type": "metric", "label": "Truster corner effect", "value": "98%", "detail": "clears its own MDE of 0.44", "tone": "green" },
+            { "type": "metric", "label": "Stratum contrast", "value": "62%", "detail": "observed effect sits below its MDE of 0.33", "tone": "amber" },
+            { "type": "metric", "label": "Mid/low corner increment", "value": "32%", "detail": "far below its MDE of 0.36", "tone": "red" }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "What this licenses",
+          "reveal": true,
+          "text": "The Truster results are the ones this design can carry. A null on the mid/low corner increment cannot distinguish a genuinely absent effect from a real one the study lacks the power to see.",
+          "tone": "amber"
         }
       ]
     },
@@ -430,9 +472,9 @@
       "section": "Discussion",
       "format": "closing",
       "kicker": "Contributions",
-      "headline": "Null aggregate effects reflect composition across heterogeneous pathways, not preference stability.",
+      "headline": "Aggregate effects understate the subgroup that responds.",
       "subhead": "The two-gate architecture generalizes to any persuasion domain with expert sources and dispositional moderators.",
-      "notes": "Scope: U.S. workers, liberal skew, single trust item, immediate measurement, F&O 2017 estimates. Generalization domains: climate, vaccines, trade.",
+      "notes": "Scope: U.S. online workers, liberal skew, single post-treatment trust item, immediate measurement, Frey & Osborne 2017 risk estimates. The trust result is identified under principal ignorability, which is untestable here; a design measuring trust before treatment would resolve it directly. Generalization domains: climate, vaccines, trade.",
       "blocks": [
         {
           "type": "split",
@@ -442,28 +484,28 @@
               "type": "numbers",
               "reveal": "items",
               "items": [
-                "Theoretical: two-gate model resolves conflicting results as composition effects across three pathways.",
-                "Methodological: BFMM addresses latent classification with collider-biased post-treatment moderators.",
-                "Empirical: maximum CATE (d = 0.61) exceeds ATE by factor 2.5; robust across specifications.",
-                "Implication: most workers dismiss expert warnings outright; among those who listen, policy demand activates only when the information surprises them and they are dispositionally vigilant — risk communication that ignores these gates will underestimate public responsiveness."
+                "Theoretical: a two-gate model accounts for conflicting prior results as composition across pathways rather than as preference stability.",
+                "Methodological: trust is post-treatment and observed in the treated arm only; a pre-treatment proxy plus principal-score weighting recovers stratum effects from both arms under an explicit, sensitivity-tested assumption.",
+                "Empirical: the Truster effect (0.40 SD) is about three times the mid/low one, and among Trusters the high-anxiety × high-risk corner reaches 0.69 SD, roughly 2.4× the effect outside it.",
+                "Implication: risk communication that ignores who trusts the source, and who is personally exposed, will understate responsiveness in exactly the group that responds."
               ]
             }
           ],
           "right": [
             {
               "type": "plot",
-              "xLabel": "Source trust →",
-              "yLabel": "Gap × Anxiety →",
+              "xLabel": "Expert trust →",
+              "yLabel": "Anxiety × automation risk →",
               "points": [
-                { "label": "Skeptics", "x": 15, "y": 50, "tone": "red" },
+                { "label": "Mid/low trust", "x": 15, "y": 50, "tone": "red" },
                 { "label": "Cool cognition", "x": 75, "y": 20, "tone": "amber" },
-                { "label": "Activated", "x": 75, "y": 80, "tone": "green" }
+                { "label": "Activated corner", "x": 75, "y": 80, "tone": "green" }
               ]
             },
             {
               "type": "callout",
               "label": "Scope",
-              "text": "N = 901 U.S. workers · 62% Democrat · immediate measurement · F&O 2017 estimates. Generalizes to climate, vaccines, trade.",
+              "text": "N = 901 U.S. workers · 62% Democratic including leaners · immediate measurement · trust identified under principal ignorability. Generalizes to climate, vaccines, trade.",
               "tone": "amber"
             }
           ]
