@@ -1,6 +1,6 @@
 {
   "unitId": "1-1-logic-and-sets",
-  "version": "cd1fde7f",
+  "version": "807ad237",
   "title": "Unit 1.1 Self-Assessment",
   "subtitle": "Formal logic and set theory",
   "intro": "Every question below is drawn from a slide in the unit 1.1 deck, either stated there directly or a short step of reasoning away. Work through all of them, then submit to see your score alongside the justification for each answer.",
@@ -1794,7 +1794,7 @@
       "section": "Applications",
       "slide": "Union and Intersection of Events",
       "type": "multi",
-      "prompt": "For a die roll with A = {1, 2, 3} and B = {2, 4, 6}, select every correct result.",
+      "prompt": "A die is rolled, so the sample space is S = {1, 2, 3, 4, 5, 6}. Let A be the event 'the roll is less than 4', A = {1, 2, 3}, and B the event 'the roll is even', B = {2, 4, 6}. Select every correct result.",
       "options": [
         {
           "id": "a",
@@ -1814,7 +1814,7 @@
         }
       ],
       "answer": ["a", "b"],
-      "explanation": "The union collects everything in either event, and 5 belongs to neither, so it is absent. The intersection keeps only 2, which is the sole outcome in both.",
+      "explanation": "A ∪ B is every outcome that is under 4 or even. Only 5 is neither, so it is the single face left out. A ∩ B is the outcomes that are both, and 2 is the one roll under 4 that is also even.",
       "core": false
     },
     {
