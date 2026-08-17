@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Function composition</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'f(x)=2 x',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'g(x)=x^{3}',
+		color: '#388c46',
+		lineWidth: 3,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'h(x)=g\\left(f\\left(x\\right)\\right)',
+		color: '#c74440',
+		lineWidth: 4,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: 'y=h\\left(x\\right)',
+		color: '#c74440',
+		lineWidth: 4,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: 't=1',
+		sliderBounds: {
+			min: '-2',
+			max: '2',
+			step: '0.05',
+		},
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '\\left(t,f\\left(t\\right)\\right)',
+		color: '#2d70b3',
+		pointSize: 12,
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: '\\left(f\\left(t\\right),g\\left(f\\left(t\\right)\\right)\\right)',
+		color: '#c74440',
+		pointSize: 12,
+		id: '6',
+	});
+	calculator.setMathBounds({ left: -3, right: 3, bottom: -12, top: 12 });
+</script>
+</body>
+</html>

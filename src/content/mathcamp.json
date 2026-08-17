@@ -1,0 +1,81 @@
+{
+  "page": {
+    "title": "PhD Math Camp",
+    "subtitle": "Interactive companions to the math camp lectures",
+    "description": "A short, intensive review of the mathematics used in graduate political science methods. Each lecture below links to live Desmos graphs that reproduce the figures from the slides, with the parameters left free so they can be moved during class."
+  },
+  "note": {
+    "title": "How these are built",
+    "body": "The graphs are generated from a single Python script using SymPy for the algebra, SciPy and NumPy to check the numerical results, and PyDesmos to emit the Desmos expressions. Nothing is drawn by hand, so the curves and the labelled roots are exactly what the symbolic solver returns."
+  },
+  "lectures": [
+    {
+      "id": "1-2-functions",
+      "number": "1.2",
+      "title": "Relations and Functions",
+      "description": "Relations, the vertical-line test, composition and inverses, polynomial roots, logarithms and exponentials, and monotonicity.",
+      "graphs": [
+        {
+          "slug": "relation-not-a-function",
+          "title": "A relation that is not a function",
+          "expression": "y² = 5x",
+          "description": "Drag the slider to sweep a vertical line across the sideways parabola. It meets the curve twice for every x > 0, which is exactly what disqualifies the relation from being a function."
+        },
+        {
+          "slug": "one-to-one",
+          "title": "Many-to-one vs one-to-one",
+          "expression": "f(x) = x², g(x) = 2x + 4",
+          "description": "The horizontal-line test. Sweeping y = c meets the parabola twice but the line once, separating the many-to-one map from the one-to-one map."
+        },
+        {
+          "slug": "r1-to-r1-examples",
+          "title": "Functions from ℝ to ℝ",
+          "expression": "x + 1, 2x + 3, x² − 4x + 4, sin x, eˣ",
+          "description": "The five examples from the Dimensions slide on one set of axes, for comparing growth and shape."
+        },
+        {
+          "slug": "composition",
+          "title": "Function composition",
+          "expression": "f(x) = 2x, g(x) = x³, (g ∘ f)(x) = 8x³",
+          "description": "Desmos composes the two functions live. The slider traces a single input through both stages, t → f(t) → g(f(t)), so the nesting is visible as two hops rather than one formula."
+        },
+        {
+          "slug": "inverse",
+          "title": "Inverse functions",
+          "expression": "3x + 2 and x³ + 2, with their inverses",
+          "description": "Each function is plotted with its inverse and the line y = x. The inverses are obtained symbolically rather than typed in, and the reflection across the diagonal is the point of the picture."
+        },
+        {
+          "slug": "polynomial-roots",
+          "title": "Roots of a polynomial",
+          "expression": "x³ − 5x² + 2x + 8 = (x + 1)(x − 2)(x − 4)",
+          "description": "Expanded and factored forms drawn on top of each other, with the three roots marked. The roots are found symbolically and re-checked numerically with a bracketing solver."
+        },
+        {
+          "slug": "quadratic-formula",
+          "title": "The quadratic formula",
+          "expression": "ax² + bx + c = 0",
+          "description": "Sliders for a, b and c, with the discriminant and both roots entered as expressions. Moving c until the discriminant goes negative makes the root markers disappear, which is the useful thing to show."
+        },
+        {
+          "slug": "log-and-exp",
+          "title": "Exponential and logarithmic functions",
+          "expression": "eˣ, x, ln x",
+          "description": "The reflection pair. The slider carries a point on the exponential to its mirror image on the logarithm, across y = x."
+        },
+        {
+          "slug": "monotonic",
+          "title": "Monotonic functions",
+          "expression": "f(x) = 2x + 3 vs g(x) = x²",
+          "description": "Both functions with their derivatives dotted underneath. The constant derivative and the sign change at the origin are what distinguish the monotonic case from the non-monotonic one."
+        },
+        {
+          "slug": "level-curves",
+          "title": "Functions from ℝ² to ℝ",
+          "expression": "x² + y² = k, 2x + y = k, x³ + 2y² = k",
+          "description": "The surfaces from the slides seen from above. Desmos graphs in two dimensions, so each surface appears as its level sets, and the slider on k moves the cutting plane up and down."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roots of a polynomial</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'y=x^{3} - 5 x^{2} + 2 x + 8',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'y=\\left(x - 4\\right) \\left(x - 2\\right) \\left(x + 1\\right)',
+		color: '#388c46',
+		lineStyle: 'DASHED',
+		lineWidth: 3,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: '\\left(-1,0\\right)',
+		color: '#c74440',
+		pointSize: 14,
+		label: 'x=-1',
+		showLabel: true,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '\\left(2,0\\right)',
+		color: '#c74440',
+		pointSize: 14,
+		label: 'x=2',
+		showLabel: true,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\left(4,0\\right)',
+		color: '#c74440',
+		pointSize: 14,
+		label: 'x=4',
+		showLabel: true,
+		id: '4',
+	});
+	calculator.setMathBounds({ left: -3, right: 6, bottom: -20, top: 30 });
+</script>
+</body>
+</html>
