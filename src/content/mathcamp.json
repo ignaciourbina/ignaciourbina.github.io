@@ -27,7 +27,7 @@
       "description": "Relations, the vertical-line test, composition and inverses, polynomial roots, logarithms and exponentials, and monotonicity.",
       "slides": {
         "url": "/files/math-camp/1-2-functions.pdf",
-        "pages": 28
+        "pages": 36
       },
       "graphs": [
         {
@@ -99,7 +99,7 @@
       "description": "Sequences and series, convergence and divergence, the epsilon-N and epsilon-delta definitions of a limit, one-sided limits and asymptotes, continuity, and the intermediate and extreme value theorems.",
       "slides": {
         "url": "/files/math-camp/1-3-limits-and-continuity.pdf",
-        "pages": 30
+        "pages": 34
       },
       "graphs": [
         {
