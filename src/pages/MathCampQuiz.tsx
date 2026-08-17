@@ -1,10 +1,57 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Check, X, RotateCcw } from 'lucide-react'
 import { getMathCampQuiz, getMathCampUnit, type QuizOption, type QuizQuestion } from '../content'
 
 type Answers = Record<number, string[]>
 type Mode = 'core' | 'full'
+type OptionOrder = Record<number, string[]>
+
+// Bump when the shape below changes, so an old blob is ignored rather than
+// half-restored. Question ids are re-checked on load anyway, since the bank
+// can grow without the shape changing.
+const STORAGE_VERSION = 1
+const storageKey = (unitId: string) => `mathcamp-quiz:${unitId}:v${STORAGE_VERSION}`
+
+interface Saved {
+  mode: Mode
+  answers: Answers
+  index: number
+  submitted: boolean
+  order: OptionOrder
+}
+
+// localStorage throws in private mode and when storage is disabled, and any
+// stored blob may predate the current question bank, so every read is guarded
+// and every field is validated before it reaches state.
+function readSaved(unitId: string | undefined): Partial<Saved> {
+  if (!unitId || typeof window === 'undefined') return {}
+  try {
+    const raw = window.localStorage.getItem(storageKey(unitId))
+    if (!raw) return {}
+    const parsed = JSON.parse(raw) as Partial<Saved>
+    if (!parsed || typeof parsed !== 'object') return {}
+    return parsed
+  } catch {
+    return {}
+  }
+}
+
+function writeSaved(unitId: string, value: Saved) {
+  try {
+    window.localStorage.setItem(storageKey(unitId), JSON.stringify(value))
+  } catch {
+    // storage full or unavailable; progress simply is not kept
+  }
+}
+
+function clearSaved(unitId: string) {
+  try {
+    window.localStorage.removeItem(storageKey(unitId))
+  } catch {
+    // nothing to do
+  }
+}
 
 function shuffle<T>(items: T[]): T[] {
   const out = [...items]
@@ -31,28 +78,72 @@ export default function MathCampQuiz() {
   const unit = unitId ? getMathCampUnit(unitId) : undefined
   const quiz = unitId ? getMathCampQuiz(unitId) : undefined
 
-  const [answers, setAnswers] = useState<Answers>({})
-  const [index, setIndex] = useState(0)
-  const [submitted, setSubmitted] = useState(false)
-  const [attempt, setAttempt] = useState(0)
-  const [mode, setMode] = useState<Mode>('core')
+  const all = useMemo(() => quiz?.questions ?? [], [quiz])
 
-  const all = quiz?.questions
-  const questions = useMemo(
-    () => (mode === 'core' ? (all ?? []).filter((q) => q.core) : (all ?? [])),
-    [all, mode]
+  // Option order is fixed for the life of an attempt and reshuffled on reset,
+  // so it is stored alongside the answers: a reload that reordered the options
+  // under you would read as a glitch. True/false keeps its natural order.
+  const freshOrder = useCallback(
+    (): OptionOrder =>
+      Object.fromEntries(
+        all.map((q) => [
+          q.id,
+          (q.type === 'truefalse' ? q.options : shuffle(q.options)).map((o) => o.id),
+        ])
+      ),
+    [all]
   )
 
-  // Option order is fixed for the life of an attempt, and reshuffled on retake.
-  // True/false keeps its natural order; shuffling it just reads as a glitch.
+  const [saved] = useState(() => readSaved(unitId))
+  const [mode, setMode] = useState<Mode>(() =>
+    saved.mode === 'core' || saved.mode === 'full' ? saved.mode : 'core'
+  )
+  const [answers, setAnswers] = useState<Answers>(() => {
+    const known = new Set(all.map((q) => q.id))
+    const restored = saved.answers ?? {}
+    return Object.fromEntries(
+      Object.entries(restored).filter(
+        ([id, value]) => known.has(Number(id)) && Array.isArray(value)
+      )
+    )
+  })
+  const [submitted, setSubmitted] = useState(() => saved.submitted === true)
+  const [confirmingReset, setConfirmingReset] = useState(false)
+  const [orderIds, setOrderIds] = useState<OptionOrder>(() => {
+    const stored = saved.order ?? {}
+    const complete = all.every(
+      (q) => Array.isArray(stored[q.id]) && stored[q.id].length === q.options.length
+    )
+    return complete ? stored : freshOrder()
+  })
+
+  const questions = useMemo(() => (mode === 'core' ? all.filter((q) => q.core) : all), [all, mode])
+
+  const [index, setIndex] = useState(() => {
+    const n = typeof saved.index === 'number' ? saved.index : 0
+    return Number.isInteger(n) && n >= 0 ? n : 0
+  })
+
+  // Clamp rather than reset: switching sets or a shrinking bank can leave the
+  // cursor past the end, and dropping the user back to question 1 would lose
+  // their place for no reason.
+  const safeIndex = Math.min(index, Math.max(0, questions.length - 1))
+
   const order = useMemo(() => {
     const map: Record<number, QuizOption[]> = {}
-    quiz?.questions.forEach((q) => {
-      map[q.id] = q.type === 'truefalse' ? q.options : shuffle(q.options)
+    all.forEach((q) => {
+      const ids = orderIds[q.id]
+      const byId = new Map(q.options.map((o) => [o.id, o]))
+      const resolved = (ids ?? []).map((id) => byId.get(id)).filter((o): o is QuizOption => !!o)
+      map[q.id] = resolved.length === q.options.length ? resolved : q.options
     })
     return map
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quiz, attempt])
+  }, [all, orderIds])
+
+  useEffect(() => {
+    if (!unitId || !quiz) return
+    writeSaved(unitId, { mode, answers, index: safeIndex, submitted, order: orderIds })
+  }, [unitId, quiz, mode, answers, safeIndex, submitted, orderIds])
 
   if (!unit || !quiz) {
     return (
@@ -86,7 +177,13 @@ export default function MathCampQuiz() {
     setAnswers({})
     setIndex(0)
     setSubmitted(false)
-    setAttempt((a) => a + 1)
+    setOrderIds(freshOrder())
+    setConfirmingReset(false)
+  }
+
+  const reset = () => {
+    if (unitId) clearSaved(unitId)
+    restart()
   }
 
   const switchMode = (next: Mode) => {
@@ -146,7 +243,7 @@ export default function MathCampQuiz() {
             ))}
           </div>
           <button
-            onClick={restart}
+            onClick={reset}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-lg font-semibold text-sm hover:bg-green-hover transition-colors shadow-sm"
           >
             <RotateCcw size={16} />
@@ -219,9 +316,9 @@ export default function MathCampQuiz() {
   }
 
   // -------------------------------------------------------------- taking view
-  const q = questions[index]
+  const q = questions[safeIndex]
   const given = answers[q.id] ?? []
-  const isLast = index === total - 1
+  const isLast = safeIndex === total - 1
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
@@ -259,22 +356,51 @@ export default function MathCampQuiz() {
           </button>
         ))}
       </div>
-      <p className="text-muted-light text-sm mb-6 -mt-4">
-        {mode === 'core'
-          ? 'A short path through the unit: twenty questions, at least one from every section.'
-          : `Every question in the bank, covering the unit slide by slide.`}
-      </p>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 mb-6 -mt-4">
+        <p className="text-muted-light text-sm">
+          {mode === 'core'
+            ? 'A short path through the unit: twenty questions, at least one from every section.'
+            : 'Every question in the bank, covering the unit slide by slide.'}
+        </p>
+        <div className="flex items-center gap-3 shrink-0">
+          <span className="text-muted-light text-xs">Progress is saved in this browser</span>
+          {confirmingReset ? (
+            <span className="inline-flex items-center gap-2 text-xs">
+              <button
+                onClick={reset}
+                className="px-2.5 py-1 rounded bg-ink text-white font-medium hover:opacity-90 transition-opacity"
+              >
+                Erase answers
+              </button>
+              <button
+                onClick={() => setConfirmingReset(false)}
+                className="text-muted hover:text-ink transition-colors"
+              >
+                Cancel
+              </button>
+            </span>
+          ) : (
+            <button
+              onClick={() => setConfirmingReset(true)}
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-green transition-colors"
+            >
+              <RotateCcw size={12} />
+              Reset
+            </button>
+          )}
+        </div>
+      </div>
 
       <div className="flex items-center justify-between text-sm mb-2">
         <span className="text-muted">
-          Question {index + 1} of {total}
+          Question {safeIndex + 1} of {total}
         </span>
         <span className="text-muted-light">{answeredCount} answered</span>
       </div>
       <div className="h-1.5 w-full bg-line rounded-full overflow-hidden mb-8">
         <div
           className="h-full bg-green rounded-full transition-all duration-300"
-          style={{ width: `${((index + 1) / total) * 100}%` }}
+          style={{ width: `${((safeIndex + 1) / total) * 100}%` }}
         />
       </div>
 
@@ -314,8 +440,8 @@ export default function MathCampQuiz() {
 
       <div className="flex items-center justify-between mb-8">
         <button
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
+          onClick={() => setIndex(Math.max(0, safeIndex - 1))}
+          disabled={safeIndex === 0}
           className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-muted hover:text-green transition-colors disabled:opacity-30 disabled:hover:text-muted"
         >
           <ArrowLeft size={16} />
@@ -334,7 +460,7 @@ export default function MathCampQuiz() {
           </button>
         ) : (
           <button
-            onClick={() => setIndex((i) => Math.min(total - 1, i + 1))}
+            onClick={() => setIndex(Math.min(total - 1, safeIndex + 1))}
             className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-green hover:text-green-hover transition-colors"
           >
             Next
@@ -348,7 +474,7 @@ export default function MathCampQuiz() {
         <div className="flex flex-wrap gap-1.5">
           {questions.map((item, i) => {
             const done = (answers[item.id] ?? []).length > 0
-            const here = i === index
+            const here = i === safeIndex
             return (
               <button
                 key={item.id}
