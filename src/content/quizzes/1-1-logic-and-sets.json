@@ -1,6 +1,6 @@
 {
   "unitId": "1-1-logic-and-sets",
-  "version": "807ad237",
+  "version": "4d132f2c",
   "title": "Unit 1.1 Self-Assessment",
   "subtitle": "Formal logic and set theory",
   "intro": "Every question below is drawn from a slide in the unit 1.1 deck, either stated there directly or a short step of reasoning away. Work through all of them, then submit to see your score alongside the justification for each answer.",
@@ -1399,6 +1399,34 @@
     },
     {
       "id": 52,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Valid Inference Rules · Social Psychology Experiment",
+      "type": "single",
+      "prompt": "A researcher has established that priming with money produces individualistic behaviour (P → Q). To argue for why, they show the effect must run through either a self-sufficiency mindset (M₁) or a change in mood (M₂), then demonstrate that mood does not shift (¬M₂), and conclude M₁. Which rule is this, and what does it require?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disjunctive syllogism, which requires that M₁ and M₂ be the only candidate mechanisms"
+        },
+        {
+          "id": "b",
+          "text": "Modus tollens, which requires only that ¬M₂ be established"
+        },
+        {
+          "id": "c",
+          "text": "Modus ponens, which requires that M₂ → M₁"
+        },
+        {
+          "id": "d",
+          "text": "Hypothetical syllogism, which requires M₂ → M₁ and M₁ → Q"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slides gloss disjunctive syllogism as process of elimination: from X ∨ Y and ¬X, conclude Y. The elimination is only as good as the disjunction it starts from. If a third mechanism M₃ were live, ruling out M₂ would leave both M₁ and M₃ standing, which is why this design turns on the claim that the two candidates are exhaustive.",
+      "core": false
+    },
+    {
+      "id": 53,
       "section": "Sets",
       "slide": "Introduction to Sets",
       "type": "single",
@@ -1426,7 +1454,7 @@
       "core": false
     },
     {
-      "id": 53,
+      "id": 54,
       "section": "Sets",
       "slide": "Equality of Sets and Subset",
       "type": "single",
@@ -1454,7 +1482,7 @@
       "core": false
     },
     {
-      "id": 54,
+      "id": 55,
       "section": "Sets",
       "slide": "Equality of Sets and Subset",
       "type": "single",
@@ -1482,7 +1510,7 @@
       "core": true
     },
     {
-      "id": 55,
+      "id": 56,
       "section": "Sets",
       "slide": "Important Sets",
       "type": "multi",
@@ -1510,7 +1538,7 @@
       "core": false
     },
     {
-      "id": 56,
+      "id": 57,
       "section": "Sets",
       "slide": "Important Sets",
       "type": "single",
@@ -1538,7 +1566,7 @@
       "core": true
     },
     {
-      "id": 57,
+      "id": 58,
       "section": "Sets",
       "slide": "Operations on Sets",
       "type": "multi",
@@ -1566,7 +1594,7 @@
       "core": true
     },
     {
-      "id": 58,
+      "id": 59,
       "section": "Sets",
       "slide": "Properties of Sets",
       "type": "single",
@@ -1594,7 +1622,7 @@
       "core": false
     },
     {
-      "id": 59,
+      "id": 60,
       "section": "Sets",
       "slide": "Properties of Sets",
       "type": "single",
@@ -1622,7 +1650,7 @@
       "core": false
     },
     {
-      "id": 60,
+      "id": 61,
       "section": "Sets",
       "slide": "Proof of De Morgan's Law for Sets",
       "type": "single",
@@ -1650,7 +1678,7 @@
       "core": true
     },
     {
-      "id": 61,
+      "id": 62,
       "section": "Applications",
       "slide": "Number Sets",
       "type": "multi",
@@ -1678,7 +1706,7 @@
       "core": true
     },
     {
-      "id": 62,
+      "id": 63,
       "section": "Applications",
       "slide": "Number Sets",
       "type": "single",
@@ -1706,7 +1734,7 @@
       "core": false
     },
     {
-      "id": 63,
+      "id": 64,
       "section": "Applications",
       "slide": "Sets in Probability Theory",
       "type": "single",
@@ -1734,7 +1762,7 @@
       "core": false
     },
     {
-      "id": 64,
+      "id": 65,
       "section": "Applications",
       "slide": "Sample Space and Events",
       "type": "single",
@@ -1762,7 +1790,7 @@
       "core": false
     },
     {
-      "id": 65,
+      "id": 66,
       "section": "Applications",
       "slide": "Sample Space and Events",
       "type": "single",
@@ -1790,7 +1818,7 @@
       "core": true
     },
     {
-      "id": 66,
+      "id": 67,
       "section": "Applications",
       "slide": "Union and Intersection of Events",
       "type": "multi",
@@ -1818,7 +1846,7 @@
       "core": false
     },
     {
-      "id": 67,
+      "id": 68,
       "section": "Applications",
       "slide": "Mutually Exclusive Events in Probability",
       "type": "single",
@@ -1846,7 +1874,7 @@
       "core": true
     },
     {
-      "id": 68,
+      "id": 69,
       "section": "Applications",
       "slide": "Cartesian Product and Strategy Profiles",
       "type": "single",
@@ -1874,7 +1902,7 @@
       "core": false
     },
     {
-      "id": 69,
+      "id": 70,
       "section": "Applications",
       "slide": "Cartesian Product and Strategy Profiles",
       "type": "truefalse",
