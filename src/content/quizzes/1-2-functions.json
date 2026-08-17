@@ -1,0 +1,561 @@
+{
+  "unitId": "1-2-functions",
+  "version": "7bc4f460",
+  "title": "Unit 1.2 Self-Assessment",
+  "subtitle": "Relations and functions",
+  "intro": "Twenty questions drawn from the unit 1.2 slides, either stated there directly or a short step of reasoning away. Work through them, then submit to see your score alongside the justification for each answer.",
+  "questions": [
+    {
+      "id": 1,
+      "section": "Relations",
+      "slide": "Understanding Relations",
+      "type": "single",
+      "prompt": "How do the slides define a relation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A set of ordered pairs, that is, a subset of the Cartesian product of two sets"
+        },
+        {
+          "id": "b",
+          "text": "Any rule that assigns exactly one output to each input"
+        },
+        {
+          "id": "c",
+          "text": "A set of numbers listed in increasing order"
+        },
+        {
+          "id": "d",
+          "text": "The set of all values a formula can take"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A relation is just a set of ordered pairs carved out of A × B, with a domain and a range. Assigning exactly one output to each input is the extra condition that makes a relation a function, which the slides introduce separately.",
+      "core": true
+    },
+    {
+      "id": 2,
+      "section": "Relations",
+      "slide": "Basic Types of Relations",
+      "type": "multi",
+      "prompt": "Using the definitions of the basic types of relations, select every correct statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reflexive means every element is related to itself"
+        },
+        {
+          "id": "b",
+          "text": "Symmetric means that if x is related to y, then y is related to x"
+        },
+        {
+          "id": "c",
+          "text": "Transitive means that if x is related to y and y to z, then x is related to z"
+        },
+        {
+          "id": "d",
+          "text": "Reflexive means no element is related to itself"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The three properties are stated on the slide in exactly these terms. Together they are what an equivalence relation has to satisfy.",
+      "core": true
+    },
+    {
+      "id": 3,
+      "section": "Relations",
+      "slide": "Special Types of Relations",
+      "type": "single",
+      "prompt": "Which combination of properties defines an equivalence relation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reflexive, symmetric and transitive"
+        },
+        {
+          "id": "b",
+          "text": "Reflexive, antisymmetric and transitive"
+        },
+        {
+          "id": "c",
+          "text": "Symmetric and transitive only"
+        },
+        {
+          "id": "d",
+          "text": "Reflexive and symmetric only"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide defines an equivalence relation as reflexive, symmetric and transitive. Reflexive, antisymmetric and transitive is the order relation, listed beside it as the structure behind hierarchies.",
+      "core": true
+    },
+    {
+      "id": 4,
+      "section": "Relations",
+      "slide": "Toy Example: Which Properties Hold?",
+      "type": "multi",
+      "prompt": "In the toy example, S is 'has the same major as', A is 'is at least as advanced as', and F is 'is a friend of', with friendships Jordan–Bob and Bob–Carol. Select every correct statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "S is an equivalence relation, and it partitions the students into groups by major"
+        },
+        {
+          "id": "b",
+          "text": "A is an order relation, and it ranks the students"
+        },
+        {
+          "id": "c",
+          "text": "F fails transitivity, because Jordan is a friend of Bob and Bob of Carol while Jordan and Carol are not friends"
+        },
+        {
+          "id": "d",
+          "text": "F is an equivalence relation, because friendship is symmetric"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Symmetry alone is not enough. F is symmetric but fails both reflexivity, since nobody is listed as their own friend, and transitivity, so it is neither an equivalence nor an order relation.",
+      "core": true
+    },
+    {
+      "id": 5,
+      "section": "Relations",
+      "slide": "Special Types of Relations",
+      "type": "single",
+      "prompt": "What distinguishes a function from a relation in general?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Each element of the domain is associated with exactly one element of the range"
+        },
+        {
+          "id": "b",
+          "text": "Each element of the range comes from exactly one element of the domain"
+        },
+        {
+          "id": "c",
+          "text": "The domain and the range have the same number of elements"
+        },
+        {
+          "id": "d",
+          "text": "The relation can be written as a formula"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The condition is on the domain side: one output per input. The second option is the one-to-one condition, which runs the other way, on the range side. It is a separate property rather than a stronger version of this one: in y² = 5x every y comes from exactly one x, yet it is still not a function.",
+      "core": true
+    },
+    {
+      "id": 6,
+      "section": "Functions",
+      "slide": "Introduction of Functions (domain, codomain, range)",
+      "type": "single",
+      "prompt": "For f : A → B, what do the slides call the set of values actually reached by running every x in A through f?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The range, or image"
+        },
+        {
+          "id": "b",
+          "text": "The codomain"
+        },
+        {
+          "id": "c",
+          "text": "The domain"
+        },
+        {
+          "id": "d",
+          "text": "The Cartesian product A × B"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A is the domain and B the codomain, but B is only where the outputs are allowed to live. The range is the part of B that actually gets hit, and it can be smaller.",
+      "core": true
+    },
+    {
+      "id": 7,
+      "section": "Functions",
+      "slide": "Introduction of Functions (many-to-one vs one-to-many)",
+      "type": "truefalse",
+      "prompt": "A function may be many-to-one, but it may never be one-to-many.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "This is the rule the slides state directly. Several inputs sharing an output is fine: y = x² sends both 2 and −2 to 4. One input with several outputs is not, which is exactly why y² = 5x fails to be a function. One-to-many means one input paired with two different values in the same output set; a vector-valued function such as f : ℝ → ℝ² still returns a single element of ℝ², so it is not a counterexample.",
+      "core": true
+    },
+    {
+      "id": 8,
+      "section": "Functions",
+      "slide": "Introduction of Functions (many-to-one vs one-to-many) · Relation that is not a function",
+      "type": "single",
+      "prompt": "Why does y² = 5x fail to be a function of x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "For each x > 0 there are two values of y, namely +√(5x) and −√(5x)"
+        },
+        {
+          "id": "b",
+          "text": "Two different values of x can share the same y"
+        },
+        {
+          "id": "c",
+          "text": "Its graph is a parabola rather than a line"
+        },
+        {
+          "id": "d",
+          "text": "It cannot be written using elementary operations"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A function may not be one-to-many, and this relation assigns two y values to every positive x. Two inputs sharing an output is the many-to-one case, which is allowed, and plenty of parabolas, such as y = x², are perfectly good functions.",
+      "core": true
+    },
+    {
+      "id": 9,
+      "section": "Functions",
+      "slide": "Linear Functions and Slope",
+      "type": "single",
+      "prompt": "For a linear function f(x) = b₀ + b₁x, how do the slides say b₁ should be read?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A one-unit increase in x changes f(x) by b₁, no matter where you start"
+        },
+        {
+          "id": "b",
+          "text": "A one-unit increase in x multiplies f(x) by b₁"
+        },
+        {
+          "id": "c",
+          "text": "b₁ is the value of f when x = 0"
+        },
+        {
+          "id": "d",
+          "text": "b₁ is the average of f over its domain"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slope is the rate of change Δy/Δx, and for a linear function it is the same everywhere. That constancy is what makes the function linear. The value at x = 0 is the intercept b₀.",
+      "core": true
+    },
+    {
+      "id": 10,
+      "section": "Functions",
+      "slide": "Why Slope Is the Point: A Regression",
+      "type": "single",
+      "prompt": "In Y = β₀ + β₁X₁ + β₂X₂ + ε, with X₁ affective polarization and X₂ internal efficacy, what does β₁ represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The change in expected participation for a one-point widening of the thermometer gap, holding efficacy fixed"
+        },
+        {
+          "id": "b",
+          "text": "The expected participation of someone with no polarization and no efficacy"
+        },
+        {
+          "id": "c",
+          "text": "Everything the two predictors fail to account for"
+        },
+        {
+          "id": "d",
+          "text": "The share of participation explained by polarization"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "β₁ is a slope, so it is a rate of change in Y per unit of X₁, with the other predictor held fixed. The second option describes the intercept β₀ and the third describes the error term ε.",
+      "core": true
+    },
+    {
+      "id": 11,
+      "section": "Dimensions",
+      "slide": "Dimensions (f : ℝ² → ℝ¹, f(x, y) = 2x + y)",
+      "type": "single",
+      "prompt": "What does f : ℝ² → ℝ¹ describe?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A function taking two real inputs and returning a single real number"
+        },
+        {
+          "id": "b",
+          "text": "A function taking one real input and returning two real numbers"
+        },
+        {
+          "id": "c",
+          "text": "A relation between two sets of real numbers that need not be a function"
+        },
+        {
+          "id": "d",
+          "text": "A function whose graph is a curve in the plane"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slides' example is f(x, y) = 2x + y: each ordered pair (x, y) is assigned one number. The second option reverses the arrow, describing f : ℝ¹ → ℝ², which is a different and perfectly legitimate kind of function, just not the one written here.",
+      "core": true
+    },
+    {
+      "id": 12,
+      "section": "Composition and Inverses",
+      "slide": "Function Composition (Nested Function)",
+      "type": "single",
+      "prompt": "With f(x) = 2x and g(x) = x³, what is (g ∘ f)(x)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8x³"
+        },
+        {
+          "id": "b",
+          "text": "2x³"
+        },
+        {
+          "id": "c",
+          "text": "6x³"
+        },
+        {
+          "id": "d",
+          "text": "x³ + 2x"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "g ∘ f means apply f first, then g: g(f(x)) = (2x)³ = 8x³. Applying them the other way round would give f(g(x)) = 2x³, which is the second option and a different function.",
+      "core": true
+    },
+    {
+      "id": 13,
+      "section": "Composition and Inverses",
+      "slide": "Inverse Function",
+      "type": "single",
+      "prompt": "The slides give f(x) = 3x + 2. What is f⁻¹(x)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x − 2)/3"
+        },
+        {
+          "id": "b",
+          "text": "3x − 2"
+        },
+        {
+          "id": "c",
+          "text": "1/(3x + 2)"
+        },
+        {
+          "id": "d",
+          "text": "(x + 2)/3"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Solve y = 3x + 2 for x: x = (y − 2)/3. The defining property is f⁻¹(f(x)) = x, so the inverse undoes the function. It is not the reciprocal, which is what the third option gives.",
+      "core": true
+    },
+    {
+      "id": 14,
+      "section": "Polynomials and Equations",
+      "slide": "Solving Equations",
+      "type": "single",
+      "prompt": "The slides factor x³ − 5x² + 2x + 8 as (x + 1)(x − 2)(x − 4). What are the roots?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = −1, 2 and 4"
+        },
+        {
+          "id": "b",
+          "text": "x = 1, −2 and −4"
+        },
+        {
+          "id": "c",
+          "text": "x = −1, −2 and −4"
+        },
+        {
+          "id": "d",
+          "text": "x = 5, 2 and 8"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A root is where the curve crosses the x-axis, so f(x) = 0. A product is zero when one factor is, and x + 1 = 0 gives x = −1 while x − 2 = 0 gives x = +2: each root is the value that zeroes its factor, so the signs flip.",
+      "core": true
+    },
+    {
+      "id": 15,
+      "section": "Polynomials and Equations",
+      "slide": "Solving Quadratic Equations by Formula",
+      "type": "single",
+      "prompt": "Applying the quadratic formula to x² + 3x − 4 = 0 gives which roots?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = 1 and x = −4"
+        },
+        {
+          "id": "b",
+          "text": "x = −1 and x = 4"
+        },
+        {
+          "id": "c",
+          "text": "x = 2 and x = −2"
+        },
+        {
+          "id": "d",
+          "text": "There are no real roots"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "With a = 1, b = 3, c = −4 the discriminant is 9 + 16 = 25, so x = (−3 ± 5)/2, giving 1 and −4. As a check, the factorisation is (x − 1)(x + 4).",
+      "core": true
+    },
+    {
+      "id": 16,
+      "section": "Logarithms and Exponentials",
+      "slide": "Logarithmic and Exponential",
+      "type": "single",
+      "prompt": "The slides state y = logₐ(x) ⇔ aʸ = x. What does this say about the two functions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The logarithm is the inverse of the exponential with the same base"
+        },
+        {
+          "id": "b",
+          "text": "The logarithm is the reciprocal of the exponential"
+        },
+        {
+          "id": "c",
+          "text": "They are equal whenever a > 1"
+        },
+        {
+          "id": "d",
+          "text": "The logarithm is the exponential reflected across the x-axis"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Reading the equivalence in both directions is exactly the inverse relationship: the log undoes the exponential. Graphically this is a reflection across y = x, not the x-axis.",
+      "core": true
+    },
+    {
+      "id": 17,
+      "section": "Logarithms and Exponentials",
+      "slide": "Properties of Exponential Functions",
+      "type": "multi",
+      "prompt": "Using the properties of exponents on the slide, and taking the base a > 0, select every correct statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "aˣ · aʸ = aˣ⁺ʸ"
+        },
+        {
+          "id": "b",
+          "text": "(aˣ)ʸ = aˣʸ"
+        },
+        {
+          "id": "c",
+          "text": "a⁰ = 1"
+        },
+        {
+          "id": "d",
+          "text": "aˣ · aʸ = aˣʸ"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Multiplying powers adds the exponents; raising a power to a power multiplies them. The last option confuses the two rules. The slide states these without qualification, but they need a > 0 to hold for arbitrary real exponents: ((−1)²)^(1/2) is 1 while (−1)¹ is −1, and 0⁰ is undefined.",
+      "core": true
+    },
+    {
+      "id": 18,
+      "section": "Logarithms and Exponentials",
+      "slide": "Basic Properties of Logarithms",
+      "type": "single",
+      "prompt": "Using the logarithm rules, log(x⁹y⁵ / z³) expands to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "9 log(x) + 5 log(y) − 3 log(z)"
+        },
+        {
+          "id": "b",
+          "text": "9 log(x) · 5 log(y) / 3 log(z)"
+        },
+        {
+          "id": "c",
+          "text": "log(9x) + log(5y) − log(3z)"
+        },
+        {
+          "id": "d",
+          "text": "(9 log x + 5 log y) / 3 log z"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A product becomes a sum, a quotient becomes a difference, and an exponent comes down as a coefficient. The rules turn multiplication into addition, so the operations drop one level rather than being preserved.",
+      "core": true
+    },
+    {
+      "id": 19,
+      "section": "Monotonic Functions",
+      "slide": "Monotonic Functions",
+      "type": "single",
+      "prompt": "How do the slides define a monotonic function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "One that is either entirely non-increasing or entirely non-decreasing"
+        },
+        {
+          "id": "b",
+          "text": "One that is strictly increasing everywhere"
+        },
+        {
+          "id": "c",
+          "text": "One that has an inverse"
+        },
+        {
+          "id": "d",
+          "text": "One whose graph is a straight line"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Monotonic covers both directions and allows flat stretches, since non-decreasing rather than strictly increasing is enough. The slides note f(x) = 2x + 3, and log(x) on (0, ∞), as the strictly increasing cases.",
+      "core": true
+    },
+    {
+      "id": 20,
+      "section": "Monotonic Functions",
+      "slide": "Monotonic Functions · Monotonic Functions (cont'd): Why This Matters",
+      "type": "single",
+      "prompt": "The slides state that if g is strictly increasing then arg max f(x) = arg max g(f(x)), and that log is strictly increasing. What follows for maximising a positive function f?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The x that maximises f also maximises log f(x), so either can be optimised"
+        },
+        {
+          "id": "b",
+          "text": "log f(x) attains its maximum at a different x, so the two problems are unrelated"
+        },
+        {
+          "id": "c",
+          "text": "The maximum value of log f(x) equals the maximum value of f(x)"
+        },
+        {
+          "id": "d",
+          "text": "Taking logs turns the maximisation into a minimisation"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A strictly increasing transformation preserves order, so it moves the height of the maximum but not its location. That is why the log-likelihood is maximised instead of the likelihood: it turns a product into a sum without moving the argmax. The maximum value does change, since log f(x*) is not f(x*).",
+      "core": true
+    }
+  ]
+}

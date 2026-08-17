@@ -1,0 +1,553 @@
+{
+  "unitId": "1-3-limits-and-continuity",
+  "version": "42ce7548",
+  "title": "Unit 1.3 Self-Assessment",
+  "subtitle": "Limits and continuity",
+  "intro": "Twenty questions drawn from the unit 1.3 slides, either stated there directly or a short step of reasoning away. Work through them, then submit to see your score alongside the justification for each answer.",
+  "questions": [
+    {
+      "id": 1,
+      "section": "Sequences and Series",
+      "slide": "Series",
+      "type": "single",
+      "prompt": "A series is the sum of a sequence. Using the formula the slides give for the first N natural numbers, what is 1 + 2 + ⋯ + 10?",
+      "options": [
+        {
+          "id": "a",
+          "text": "55"
+        },
+        {
+          "id": "b",
+          "text": "100"
+        },
+        {
+          "id": "c",
+          "text": "45"
+        },
+        {
+          "id": "d",
+          "text": "110"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The formula is Σ k = N(N+1)/2, so 10 · 11 / 2 = 55. Note 110 is N(N+1) without the halving.",
+      "core": true
+    },
+    {
+      "id": 2,
+      "section": "Sequences and Series",
+      "slide": "Geometric Series",
+      "type": "single",
+      "prompt": "For an infinite geometric series a + ar + ar² + ⋯, when do the slides say it converges, and to what?",
+      "options": [
+        {
+          "id": "a",
+          "text": "When |r| < 1, converging to a/(1 − r)"
+        },
+        {
+          "id": "b",
+          "text": "For every r, converging to a/(1 − r)"
+        },
+        {
+          "id": "c",
+          "text": "When |r| > 1, converging to a/(1 + r)"
+        },
+        {
+          "id": "d",
+          "text": "When a < 1, converging to r/(1 − a)"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The ratio has to shrink the terms for an infinite sum to settle, which is the |r| < 1 condition. The slides' own example 1 + 2 + 4 + 8 + ⋯ has r = 2 and does not converge.",
+      "core": true
+    },
+    {
+      "id": 3,
+      "section": "Sequences and Series",
+      "slide": "Geometric Series",
+      "type": "truefalse",
+      "prompt": "The finite-sum formula Sₙ = a(1 − rⁿ)/(1 − r) requires |r| < 1.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "The slides state the finite sum holds for any r ≠ 1. The restriction |r| < 1 is what the infinite sum needs, since only then do the terms die away. A finite sum is a finite amount of arithmetic and always exists; r = 1 is excluded only because it would put a zero in the denominator.",
+      "core": true
+    },
+    {
+      "id": 4,
+      "section": "Limits of Sequences",
+      "slide": "Convergence and Divergence",
+      "type": "multi",
+      "prompt": "According to the slides, a sequence diverges in which circumstances? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It has no limit"
+        },
+        {
+          "id": "b",
+          "text": "It has a limit of +∞ or −∞"
+        },
+        {
+          "id": "c",
+          "text": "It has a finite limit"
+        },
+        {
+          "id": "d",
+          "text": "Its terms are not all distinct"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "Converging means having a finite limit, so both having no limit at all and running off to ±∞ count as divergence. Repeated values are irrelevant.",
+      "core": true
+    },
+    {
+      "id": 5,
+      "section": "Limits of Sequences",
+      "slide": "Limits of a Sequence: Formal Definition",
+      "type": "single",
+      "prompt": "Complete the formal definition: lim xₙ = L if for any ε > 0 there is an integer N such that …",
+      "options": [
+        {
+          "id": "a",
+          "text": "|xₙ − L| < ε for every n > N"
+        },
+        {
+          "id": "b",
+          "text": "|xₙ − L| < ε for some n > N"
+        },
+        {
+          "id": "c",
+          "text": "|xₙ − L| < ε for every n < N"
+        },
+        {
+          "id": "d",
+          "text": "|xₙ − L| = 0 for every n > N"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Past the threshold N every term has to stay inside the ε-band, not merely one of them, and the terms need only get arbitrarily close rather than exactly equal L.",
+      "core": true
+    },
+    {
+      "id": 6,
+      "section": "Limits of Sequences",
+      "slide": "Limits of a Sequence: A Worked Proof",
+      "type": "single",
+      "prompt": "For Aₙ = 2 − 1/n², the proof reduces |Aₙ − 2| < ε to a condition on n. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "text": "n > 1/√ε"
+        },
+        {
+          "id": "b",
+          "text": "n < 1/√ε"
+        },
+        {
+          "id": "c",
+          "text": "n > ε²"
+        },
+        {
+          "id": "d",
+          "text": "n > √ε"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "|Aₙ − 2| = 1/n², so the requirement 1/n² < ε rearranges to n² > 1/ε and hence n > 1/√ε. Any integer N above that threshold works; below it the bound fails.",
+      "core": true
+    },
+    {
+      "id": 7,
+      "section": "Limits of Sequences",
+      "slide": "Properties of Limits of Sequences",
+      "type": "single",
+      "prompt": "Using the properties of limits, what is lim (n + 3)/n as n → ∞?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "∞"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Write (n + 3)/n as 1 + 3/n. The second term vanishes, leaving 1. This uses property 1 on the slide, that the limit of a sum is the sum of the limits. The quotient rule cannot be applied to (n + 3)/n directly, because it assumes both limits exist finitely and here numerator and denominator each diverge.",
+      "core": true
+    },
+    {
+      "id": 8,
+      "section": "Limits of Functions",
+      "slide": "One-Sided Limits",
+      "type": "truefalse",
+      "prompt": "The limit of f at c is by definition the same thing as the value f(c).",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "The slides are explicit: a limit depends on the behaviour of the function near c, and this is not necessarily the same as its value at c. The deck's own example is g, which tends to 2 as x approaches 1 while g(1) is defined to be 0.",
+      "core": true
+    },
+    {
+      "id": 9,
+      "section": "Limits of Functions",
+      "slide": "One-Sided Limits",
+      "type": "single",
+      "prompt": "What do the slides say guarantees that f has a unique limit at c?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The limits from the left and from the right are equal"
+        },
+        {
+          "id": "b",
+          "text": "Only the limit from the right exists"
+        },
+        {
+          "id": "c",
+          "text": "f is bounded on an open interval around c"
+        },
+        {
+          "id": "d",
+          "text": "f is increasing on both sides of c"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Approaching from above and from below must agree. If they disagree, as at a jump, there is no single value for the limit to be. Boundedness is not enough on its own: the step function in this unit is bounded near 0 and still has no limit there.",
+      "core": true
+    },
+    {
+      "id": 10,
+      "section": "Limits of Functions",
+      "slide": "Limit of a Function: Formal Definition",
+      "type": "single",
+      "prompt": "In the delta-epsilon definition, what has to hold?",
+      "options": [
+        {
+          "id": "a",
+          "text": "For any ε > 0 there is a δ > 0 such that 0 < |x − c| < δ implies |f(x) − L| < ε"
+        },
+        {
+          "id": "b",
+          "text": "For any δ > 0 there is an ε > 0 such that |f(x) − L| < ε implies 0 < |x − c| < δ"
+        },
+        {
+          "id": "c",
+          "text": "There is an ε > 0 such that for every δ > 0, 0 < |x − c| < δ implies |f(x) − L| < ε"
+        },
+        {
+          "id": "d",
+          "text": "For any ε > 0 there is a δ > 0 such that |x − c| < δ implies f(x) = L"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The challenge comes first: you are handed an arbitrary tolerance ε on the output and must produce a δ on the input. Swapping the quantifiers, or fixing one ε, gives a much weaker claim. The strict inequality 0 < |x − c| is what excludes x = c itself.",
+      "core": true
+    },
+    {
+      "id": 11,
+      "section": "Limits of Functions",
+      "slide": "Delta-Epsilon: A Worked Proof",
+      "type": "single",
+      "prompt": "In the proof that lim (3x − 5) = 1 as x → 2, which δ does the argument choose?",
+      "options": [
+        {
+          "id": "a",
+          "text": "δ = ε/3"
+        },
+        {
+          "id": "b",
+          "text": "δ = 3ε"
+        },
+        {
+          "id": "c",
+          "text": "δ = ε"
+        },
+        {
+          "id": "d",
+          "text": "δ = ε²"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "|(3x − 5) − 1| = |3x − 6| = 3|x − 2|, so keeping that under ε means keeping |x − 2| under ε/3. The slope of 3 magnifies input error threefold, so the input window must be three times tighter, not looser.",
+      "core": true
+    },
+    {
+      "id": 12,
+      "section": "Limits of Functions",
+      "slide": "Properties of Limits",
+      "type": "multi",
+      "prompt": "The slides attach a condition to two of the limit properties. Select every correct statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The quotient rule requires that the denominator's limit M be non-zero"
+        },
+        {
+          "id": "b",
+          "text": "The composition rule requires that f be continuous at M"
+        },
+        {
+          "id": "c",
+          "text": "The sum rule requires that both limits be non-zero"
+        },
+        {
+          "id": "d",
+          "text": "The product rule requires that f and g be continuous"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "Sum, difference and product carry no side condition; only the quotient and the composition do.",
+      "core": true
+    },
+    {
+      "id": 13,
+      "section": "Limits of Functions",
+      "slide": "Squeeze Theorem",
+      "type": "single",
+      "prompt": "The squeeze theorem applies when f(x) ≤ g(x) ≤ h(x) near c. What else is required, and what follows?",
+      "options": [
+        {
+          "id": "a",
+          "text": "If f and h share the same limit L at c, then g also has limit L there"
+        },
+        {
+          "id": "b",
+          "text": "If f and h both have limits at c, then g has a limit equal to their average"
+        },
+        {
+          "id": "c",
+          "text": "If g has a limit at c, then f and h have the same limit"
+        },
+        {
+          "id": "d",
+          "text": "If f and h are continuous at c, then g is continuous at c"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The outer two functions must converge to the same value; being trapped between them leaves g nowhere else to go. If their limits differ, the theorem says nothing.",
+      "core": true
+    },
+    {
+      "id": 14,
+      "section": "Limits of Functions",
+      "slide": "Solutions to the Limit Examples",
+      "type": "single",
+      "prompt": "The slides evaluate lim (x² + 2x − 15)/(x − 3) as x → 3. How, and to what?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Factor to (x − 3)(x + 5), cancel the common factor, and evaluate x + 5 at 3, giving 8"
+        },
+        {
+          "id": "b",
+          "text": "Substitute x = 3 directly, giving 0/0 = 1"
+        },
+        {
+          "id": "c",
+          "text": "The limit does not exist, since the denominator is zero at x = 3"
+        },
+        {
+          "id": "d",
+          "text": "Factor and cancel, then evaluate, giving 3"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Direct substitution gives 0/0, which is undefined rather than 1. Cancelling is legitimate because the limit only concerns x near 3 and not x = 3 itself, where the original expression is still undefined.",
+      "core": true
+    },
+    {
+      "id": 15,
+      "section": "Limits of Functions",
+      "slide": "Solutions to the Limit Examples",
+      "type": "single",
+      "prompt": "For lim (5x³ − 2x² + x + 7)/(3x³ + x² − 4) as x → ∞, the slides divide through by x³. What is the limit?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/3"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "∞"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "After dividing, every term with a power of x in the denominator vanishes, leaving 5/3. With numerator and denominator of equal degree, the limit is the ratio of the leading coefficients.",
+      "core": true
+    },
+    {
+      "id": 16,
+      "section": "Limits of Functions",
+      "slide": "Examples · Plot of f(x) = 3/(x−1) with Vertical Asymptote at x = 1",
+      "type": "single",
+      "prompt": "What happens to f(x) = 3/(x − 1) as x approaches 1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It runs to −∞ from the left and +∞ from the right, so there is no limit at 1"
+        },
+        {
+          "id": "b",
+          "text": "It approaches 3 from both sides"
+        },
+        {
+          "id": "c",
+          "text": "It approaches 0 from both sides"
+        },
+        {
+          "id": "d",
+          "text": "It approaches +∞ from both sides, so the limit is +∞"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Just left of 1 the denominator is a small negative number and just right of it a small positive one, so the two sides run to opposite infinities. Since the one-sided limits disagree, no limit exists there, which is what the vertical asymptote marks.",
+      "core": true
+    },
+    {
+      "id": 17,
+      "section": "Continuity",
+      "slide": "Continuity",
+      "type": "single",
+      "prompt": "The slides give two conditions for f to be continuous at c. What are they?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The limit of f at c exists, and it equals f(c)"
+        },
+        {
+          "id": "b",
+          "text": "f is defined at c, and f is increasing near c"
+        },
+        {
+          "id": "c",
+          "text": "The limit of f at c exists, and f is defined on both sides of c"
+        },
+        {
+          "id": "d",
+          "text": "f(c) exists, and f has no vertical asymptote at c"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Both are needed. A function can have a perfectly good limit at c and still fail to be continuous there, if the value it takes at c is something else.",
+      "core": true
+    },
+    {
+      "id": 18,
+      "section": "Continuity",
+      "slide": "Examples of Continuous and Discontinuous Functions",
+      "type": "single",
+      "prompt": "For g(x) = x + 1 when x ≠ 1, and g(1) = 0, why is g discontinuous at x = 1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The limit is 2 but g(1) = 0, so the limit exists yet does not equal the value"
+        },
+        {
+          "id": "b",
+          "text": "The limit does not exist at x = 1"
+        },
+        {
+          "id": "c",
+          "text": "g is not defined at x = 1"
+        },
+        {
+          "id": "d",
+          "text": "g is not increasing at x = 1"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "This is the second condition failing on its own. Approaching 1 the outputs head to 2, but the function has been redefined at that single point, so limit and value disagree.",
+      "core": true
+    },
+    {
+      "id": 19,
+      "section": "Continuity",
+      "slide": "Intermediate Value Theorem · Extreme Value Theorem",
+      "type": "multi",
+      "prompt": "Both theorems assume f is continuous on a closed interval [a, b]. Select every correct statement about what each one then guarantees.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The IVT guarantees a root in (a, b) when f(a) and f(b) have opposite signs"
+        },
+        {
+          "id": "b",
+          "text": "The EVT guarantees that f attains both a maximum and a minimum on [a, b]"
+        },
+        {
+          "id": "c",
+          "text": "The IVT locates the root, giving its value"
+        },
+        {
+          "id": "d",
+          "text": "The EVT guarantees the maximum and the minimum both occur strictly inside (a, b)"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "Both are existence results: they say a point is there without saying where. The slides' own EVT example, f(x) = −x² + 4x + 1 on [0, 3], has its minimum at the endpoint x = 0, so extremes need not be interior.",
+      "core": true
+    },
+    {
+      "id": 20,
+      "section": "Applications",
+      "slide": "Condorcet Jury Theorem: An Application of Limits · Law of Large Numbers: An Application of Limits",
+      "type": "single",
+      "prompt": "The Condorcet jury theorem says P_N → 1 as N → ∞ when p > 0.5. Reading the same expression with a voter accuracy of p < 0.5, what should you expect of P_N?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It tends to 0, since the same logic runs in reverse when each voter is worse than a coin flip"
+        },
+        {
+          "id": "b",
+          "text": "It still tends to 1, only more slowly"
+        },
+        {
+          "id": "c",
+          "text": "It tends to 0.5, since the errors cancel out"
+        },
+        {
+          "id": "d",
+          "text": "It has no limit, because the majority alternates"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Apply the law of large numbers from the previous slide to the votes: the fraction voting correctly converges to p. If p < 0.5 that fraction settles below the majority threshold, so the probability that a majority is correct goes to 0. Independent voters worse than chance aggregate toward the wrong answer just as reliably as better-than-chance voters aggregate toward the right one.",
+      "core": true
+    }
+  ]
+}

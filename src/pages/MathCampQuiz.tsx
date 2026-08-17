@@ -219,6 +219,8 @@ export default function MathCampQuiz() {
 
   const coreCount = (all ?? []).filter((q) => q.core).length
   const fullCount = (all ?? []).length
+  // Units whose whole bank is the core have nothing to toggle between.
+  const hasSubset = coreCount > 0 && coreCount < fullCount
 
   // ------------------------------------------------------------- results view
   if (submitted) {
@@ -363,29 +365,33 @@ export default function MathCampQuiz() {
         <p className="text-muted leading-relaxed">{quiz.intro}</p>
       </header>
 
-      <div className="inline-flex p-1 bg-panel border border-line rounded-lg mb-6">
-        {(
-          [
-            ['core', `Core ${coreCount}`],
-            ['full', `Full ${fullCount}`],
-          ] as [Mode, string][]
-        ).map(([value, label]) => (
-          <button
-            key={value}
-            onClick={() => switchMode(value)}
-            className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${
-              mode === value ? 'bg-green text-white' : 'text-muted hover:text-ink'
-            }`}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      {hasSubset && (
+        <div className="inline-flex p-1 bg-panel border border-line rounded-lg mb-6">
+          {(
+            [
+              ['core', `Core ${coreCount}`],
+              ['full', `Full ${fullCount}`],
+            ] as [Mode, string][]
+          ).map(([value, label]) => (
+            <button
+              key={value}
+              onClick={() => switchMode(value)}
+              className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${
+                mode === value ? 'bg-green text-white' : 'text-muted hover:text-ink'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 mb-6 -mt-4">
         <p className="text-muted-light text-sm">
-          {mode === 'core'
-            ? 'A short path through the unit: twenty questions, at least one from every section.'
-            : 'Every question in the bank, covering the unit slide by slide.'}
+          {!hasSubset
+            ? `${fullCount} questions covering the unit, drawn from its slides.`
+            : mode === 'core'
+              ? 'A short path through the unit: twenty questions, at least one from every section.'
+              : 'Every question in the bank, covering the unit slide by slide.'}
         </p>
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-muted-light text-xs">Progress is saved in this browser</span>

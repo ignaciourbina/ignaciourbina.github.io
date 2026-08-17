@@ -63,10 +63,11 @@ export default function MathCampUnit() {
           <div className="min-w-0 flex-1">
             <h2 className="font-bold text-lg mb-1">Self-assessment</h2>
             <p className="text-white/70 text-sm leading-relaxed mb-3">
-              A core set of {quiz.questions.filter((q) => q.core).length} questions, or the full
-              bank of {quiz.questions.length} covering the unit slide by slide. Multiple choice,
-              true or false, and select all that apply, with answers and justifications after you
-              submit.
+              {quiz.questions.filter((q) => q.core).length < quiz.questions.length
+                ? `A core set of ${quiz.questions.filter((q) => q.core).length} questions, or the full bank of ${quiz.questions.length} covering the unit slide by slide.`
+                : `${quiz.questions.length} questions drawn from the slides of this unit.`}{' '}
+              Multiple choice, true or false, and select all that apply, with answers and
+              justifications after you submit.
             </p>
             <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green">
               Start

@@ -10,6 +10,8 @@ import teachingContent from './teaching.json'
 import conferencesContent from './conferences.json'
 import mathcampContent from './mathcamp.json'
 import quiz11 from './quizzes/1-1-logic-and-sets.json'
+import quiz12 from './quizzes/1-2-functions.json'
+import quiz13 from './quizzes/1-3-limits-and-continuity.json'
 
 export interface Presentation {
   slug: string
@@ -110,7 +112,7 @@ export type MathCampContent = typeof mathcampContent
 
 // Self-assessments, keyed by unit id. Sections are derived from the questions
 // so the order on the results page always matches the order they are asked in.
-const rawQuizzes = [quiz11]
+const rawQuizzes = [quiz11, quiz12, quiz13]
 export const mathcampQuizzes: Record<string, MathCampQuiz> = Object.fromEntries(
   rawQuizzes.map((quiz) => [
     quiz.unitId,
