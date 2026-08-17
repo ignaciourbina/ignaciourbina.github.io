@@ -30,7 +30,8 @@ dist-ssr
 *.snm
 *.toc
 
-# PDFs (except files served on the site)
+# PDFs (except files served on the site; ** so subfolders like
+# files/math-camp/ are covered too)
 *.pdf
-!public/files/*.pdf
-!docs/files/*.pdf
+!public/files/**/*.pdf
+!docs/files/**/*.pdf

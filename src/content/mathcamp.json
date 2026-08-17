@@ -2,7 +2,7 @@
   "page": {
     "title": "PhD Math Camp",
     "subtitle": "Interactive companions to the math camp lectures",
-    "description": "A short, intensive review of the mathematics used in graduate political science methods. The units below follow the lecture sequence. Where a unit has interactive material, its figures are reproduced as live Desmos graphs with the parameters left free, so they can be moved during class."
+    "description": "A short, intensive review of the mathematics used in graduate political science methods. The units below follow the lecture sequence, and each one links to its slides. Where a unit also has interactive material, its figures are reproduced as live Desmos graphs with the parameters left free, so they can be moved during class."
   },
   "note": {
     "title": "How these are built",
@@ -14,6 +14,10 @@
       "number": "1.1",
       "title": "Intro, Logic and Sets",
       "description": "Propositional and predicate logic, set operations, and applications to social science.",
+      "slides": {
+        "url": "/files/math-camp/1-1-logic-and-sets.pdf",
+        "pages": 47
+      },
       "graphs": []
     },
     {
@@ -21,6 +25,10 @@
       "number": "1.2",
       "title": "Relations and Functions",
       "description": "Relations, the vertical-line test, composition and inverses, polynomial roots, logarithms and exponentials, and monotonicity.",
+      "slides": {
+        "url": "/files/math-camp/1-2-functions.pdf",
+        "pages": 28
+      },
       "graphs": [
         {
           "slug": "relation-not-a-function",
@@ -89,6 +97,10 @@
       "number": "1.3",
       "title": "Limits and Continuity",
       "description": "Sequences and their limits, the limit of a function, and continuity.",
+      "slides": {
+        "url": "/files/math-camp/1-3-limits-and-continuity.pdf",
+        "pages": 30
+      },
       "graphs": []
     },
     {
@@ -96,6 +108,10 @@
       "number": "2",
       "title": "Calculus — Derivatives",
       "description": "The derivative, rules of differentiation, optimization, and finding extrema in one dimension.",
+      "slides": {
+        "url": "/files/math-camp/2-derivatives.pdf",
+        "pages": 54
+      },
       "graphs": []
     },
     {
@@ -103,6 +119,10 @@
       "number": "3",
       "title": "Calculus — Integrals",
       "description": "Integration motivated through probability: sample spaces and random variables, discrete versus continuous distributions, the relationship between the density and the CDF, and Riemann sums as approximations of area.",
+      "slides": {
+        "url": "/files/math-camp/3-integrals.pdf",
+        "pages": 36
+      },
       "graphs": []
     },
     {
@@ -110,6 +130,10 @@
       "number": "4",
       "title": "Linear Algebra",
       "description": "Vectors and vector operations, orthogonality, span, basis and linear independence, systems of equations, matrix operations, and an introduction to multivariate calculus.",
+      "slides": {
+        "url": "/files/math-camp/4-linear-algebra.pdf",
+        "pages": 101
+      },
       "graphs": []
     }
   ]

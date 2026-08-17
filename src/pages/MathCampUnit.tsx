@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Download } from 'lucide-react'
 import { getMathCampUnit } from '../content'
 
 export default function MathCampUnit() {
@@ -32,7 +32,16 @@ export default function MathCampUnit() {
           Unit {unit.number}
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-3">{unit.title}</h1>
-        <p className="text-lg text-muted max-w-2xl">{unit.description}</p>
+        <p className="text-lg text-muted max-w-2xl mb-6">{unit.description}</p>
+        <a
+          href={unit.slides.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-lg font-semibold text-sm hover:bg-green-hover transition-colors shadow-sm"
+        >
+          <Download size={16} />
+          Lecture slides (PDF, {unit.slides.pages} pp)
+        </a>
       </header>
 
       {unit.graphs.length === 0 ? (

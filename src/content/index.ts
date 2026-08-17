@@ -26,11 +26,17 @@ export interface MathCampGraph {
   description: string
 }
 
+export interface MathCampSlides {
+  url: string
+  pages: number
+}
+
 export interface MathCampUnit {
   id: string
   number: string
   title: string
   description: string
+  slides: MathCampSlides
   graphs: MathCampGraph[]
 }
 
