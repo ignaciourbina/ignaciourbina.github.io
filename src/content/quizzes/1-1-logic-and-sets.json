@@ -1086,7 +1086,7 @@
       ],
       "answer": ["a"],
       "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown.",
-      "core": false
+      "core": true
     },
     {
       "id": 41,
@@ -1910,7 +1910,7 @@
       ],
       "answer": ["b"],
       "explanation": "Ordered pairs carry the players' identities: (D, C) means prisoner 1 defects while prisoner 2 cooperates. Both defecting is (D, D).",
-      "core": true
+      "core": false
     }
   ]
 }
