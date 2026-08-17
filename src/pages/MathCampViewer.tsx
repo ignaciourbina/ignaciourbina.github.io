@@ -3,8 +3,8 @@ import { ArrowLeft, Maximize2 } from 'lucide-react'
 import { getMathCampGraph } from '../content'
 
 export default function MathCampViewer() {
-  const { slug } = useParams<{ slug: string }>()
-  const found = slug ? getMathCampGraph(slug) : undefined
+  const { unitId, slug } = useParams<{ unitId: string; slug: string }>()
+  const found = unitId && slug ? getMathCampGraph(unitId, slug) : undefined
 
   if (!found) {
     return (
@@ -17,24 +17,32 @@ export default function MathCampViewer() {
     )
   }
 
-  const { graph, lecture } = found
-  const graphUrl = `/graphs/math-camp/${graph.slug}.html`
+  const { unit, graph } = found
+  const graphUrl = `/graphs/math-camp/${unit.id}/${graph.slug}.html`
 
   return (
     <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)' }}>
       <div className="bg-panel border-b border-line px-6 py-3 flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 min-w-0">
           <Link
-            to="/math-camp"
-            className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
+            to={`/math-camp/${unit.id}`}
+            className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors shrink-0"
           >
             <ArrowLeft size={16} />
             <span>Back</span>
           </Link>
-          <div className="border-l border-line pl-4">
-            <h1 className="text-ink font-semibold text-sm leading-tight">{graph.title}</h1>
-            <p className="text-muted-light text-xs">
-              Lecture {lecture.number} &middot; {graph.expression}
+          <div className="border-l border-line pl-4 min-w-0">
+            <h1 className="text-ink font-semibold text-sm leading-tight truncate">{graph.title}</h1>
+            <p className="text-muted-light text-xs truncate">
+              <Link to="/math-camp" className="hover:text-green transition-colors">
+                Math Camp
+              </Link>
+              {' / '}
+              <Link to={`/math-camp/${unit.id}`} className="hover:text-green transition-colors">
+                Unit {unit.number}
+              </Link>
+              {' / '}
+              {graph.expression}
             </p>
           </div>
         </div>
@@ -42,7 +50,7 @@ export default function MathCampViewer() {
           href={graphUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
+          className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors shrink-0"
           title="Open in new tab"
         >
           <Maximize2 size={14} />

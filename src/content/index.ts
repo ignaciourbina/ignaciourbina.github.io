@@ -26,7 +26,7 @@ export interface MathCampGraph {
   description: string
 }
 
-export interface MathCampLecture {
+export interface MathCampUnit {
   id: string
   number: string
   title: string
@@ -47,7 +47,7 @@ export const conferences = conferencesContent as {
 export const mathcamp = mathcampContent as {
   page: typeof mathcampContent.page
   note: typeof mathcampContent.note
-  lectures: MathCampLecture[]
+  units: MathCampUnit[]
 }
 
 // Type exports for TypeScript support
@@ -60,13 +60,14 @@ export type TeachingContent = typeof teachingContent
 export type ConferencesContent = typeof conferencesContent
 export type MathCampContent = typeof mathcampContent
 
-// Helper to find a math camp graph (and the lecture it belongs to) by slug
-export const getMathCampGraph = (slug: string) => {
-  for (const lecture of mathcamp.lectures) {
-    const graph = lecture.graphs.find((g) => g.slug === slug)
-    if (graph) return { graph, lecture }
-  }
-  return undefined
+// Helper to find a math camp unit by its id
+export const getMathCampUnit = (unitId: string) => mathcamp.units.find((unit) => unit.id === unitId)
+
+// Helper to find a graph within a unit, returning the unit alongside it
+export const getMathCampGraph = (unitId: string, slug: string) => {
+  const unit = getMathCampUnit(unitId)
+  const graph = unit?.graphs.find((g) => g.slug === slug)
+  return unit && graph ? { unit, graph } : undefined
 }
 
 // Helper to get a tool by ID

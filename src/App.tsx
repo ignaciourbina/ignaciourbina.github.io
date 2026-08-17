@@ -9,6 +9,7 @@ import CV from './pages/CV'
 import Conferences from './pages/Conferences'
 import ConferenceViewer from './pages/ConferenceViewer'
 import MathCamp from './pages/MathCamp'
+import MathCampUnit from './pages/MathCampUnit'
 import MathCampViewer from './pages/MathCampViewer'
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
         <Route path="research" element={<Research />} />
         <Route path="teaching" element={<Teaching />} />
         <Route path="math-camp" element={<MathCamp />} />
-        <Route path="math-camp/:slug" element={<MathCampViewer />} />
+        <Route path="math-camp/:unitId" element={<MathCampUnit />} />
+        <Route path="math-camp/:unitId/:slug" element={<MathCampViewer />} />
         <Route path="conferences" element={<Conferences />} />
         <Route path="conferences/:slug" element={<ConferenceViewer />} />
         <Route path="about" element={<About />} />
