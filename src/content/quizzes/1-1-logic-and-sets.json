@@ -1,6 +1,6 @@
 {
   "unitId": "1-1-logic-and-sets",
-  "version": "4d132f2c",
+  "version": "a9a5bbf3",
   "title": "Unit 1.1 Self-Assessment",
   "subtitle": "Formal logic and set theory",
   "intro": "Every question below is drawn from a slide in the unit 1.1 deck, either stated there directly or a short step of reasoning away. Work through all of them, then submit to see your score alongside the justification for each answer.",
@@ -36,7 +36,7 @@
     {
       "id": 2,
       "section": "Introduction",
-      "slide": "Why we need math (models)",
+      "slide": "Why we need math",
       "type": "single",
       "prompt": "The slides offer the Prisoner's Dilemma as an example of which use of mathematics?",
       "options": [
@@ -64,7 +64,35 @@
     {
       "id": 3,
       "section": "Introduction",
-      "slide": "Why we need math (proofs)",
+      "slide": "What Is a Proof?",
+      "type": "single",
+      "prompt": "How do the slides define a proof?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A finite sequence of statements, each an assumption, an established result, or a consequence of earlier statements by a rule of inference, ending in the claim to be established"
+        },
+        {
+          "id": "b",
+          "text": "A sequence of calculations verifying a claim on enough examples to be convincing"
+        },
+        {
+          "id": "c",
+          "text": "A statement taken to be true without argument"
+        },
+        {
+          "id": "d",
+          "text": "An argument that a claim is more likely true than false"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slides contrast the two things mathematics gives us: arithmetic and algebra let us compute, while proof lets us generalize. Checking examples is computation, however many you check, and a statement taken on trust is an assumption. A proof settles a property once and in general, which is why results like the law of large numbers can be invoked later without being re-derived.",
+      "core": false
+    },
+    {
+      "id": 4,
+      "section": "Introduction",
+      "slide": "The Vocabulary of Proof",
       "type": "single",
       "prompt": "In the vocabulary given for proofs, which term names a result that is of little interest in itself and serves only as a stepping stone?",
       "options": [
@@ -90,9 +118,9 @@
       "core": false
     },
     {
-      "id": 4,
+      "id": 5,
       "section": "Introduction",
-      "slide": "Why we need math (proofs)",
+      "slide": "The Vocabulary of Proof",
       "type": "single",
       "prompt": "Which term is defined as a statement thought to be true given the assumptions made, but not yet proved?",
       "options": [
@@ -118,8 +146,8 @@
       "core": true
     },
     {
-      "id": 5,
-      "section": "Introduction",
+      "id": 6,
+      "section": "Propositional and Predicate Logic",
       "slide": "Necessary Conditions",
       "type": "single",
       "prompt": "'If a number is an integer, then it is a rational number.' On the slides' reading, being rational is what for being an integer?",
@@ -146,8 +174,8 @@
       "core": true
     },
     {
-      "id": 6,
-      "section": "Introduction",
+      "id": 7,
+      "section": "Propositional and Predicate Logic",
       "slide": "Necessary Conditions",
       "type": "multi",
       "prompt": "Given p ⇒ q, which of the following follow from the definition on the slides? Select all that apply.",
@@ -174,8 +202,8 @@
       "core": false
     },
     {
-      "id": 7,
-      "section": "Introduction",
+      "id": 8,
+      "section": "Propositional and Predicate Logic",
       "slide": "Necessary and Sufficient Conditions",
       "type": "single",
       "prompt": "'A number is prime if and only if it has exactly two distinct positive divisors, 1 and itself.' This states a condition that is:",
@@ -202,8 +230,8 @@
       "core": false
     },
     {
-      "id": 8,
-      "section": "Introduction",
+      "id": 9,
+      "section": "Propositional and Predicate Logic",
       "slide": "Necessary and Sufficient Conditions",
       "type": "truefalse",
       "prompt": "Every necessary condition is also a sufficient condition.",
@@ -222,9 +250,9 @@
       "core": true
     },
     {
-      "id": 9,
+      "id": 10,
       "section": "Introduction",
-      "slide": "Why we need math (approaches to proofs)",
+      "slide": "Approaches to Proofs",
       "type": "multi",
       "prompt": "Which approaches to proof are listed on the slides? Select all that apply.",
       "options": [
@@ -254,9 +282,9 @@
       "core": false
     },
     {
-      "id": 10,
+      "id": 11,
       "section": "Introduction",
-      "slide": "Why we need math (approaches to proofs)",
+      "slide": "Approaches to Proofs",
       "type": "single",
       "prompt": "To disprove a universal statement, which approach do the slides point to?",
       "options": [
@@ -282,9 +310,9 @@
       "core": false
     },
     {
-      "id": 11,
+      "id": 12,
       "section": "Introduction",
-      "slide": "Why we need math (approaches to proofs)",
+      "slide": "Approaches to Proofs",
       "type": "single",
       "prompt": "In proof by contradiction as the slides describe it, you assume ¬p and then show that ¬p implies:",
       "options": [
@@ -310,9 +338,9 @@
       "core": true
     },
     {
-      "id": 12,
+      "id": 13,
       "section": "Introduction",
-      "slide": "Why we need math (approaches to proofs)",
+      "slide": "Approaches to Proofs",
       "type": "truefalse",
       "prompt": "The slides classify proof by induction as a non-deductive method of proof.",
       "options": [
@@ -330,7 +358,7 @@
       "core": false
     },
     {
-      "id": 13,
+      "id": 14,
       "section": "Introduction",
       "slide": "Mathematical Symbols",
       "type": "single",
@@ -355,34 +383,6 @@
       ],
       "answer": ["a"],
       "explanation": "∑ is the sum and ∏ is the product. The table lists both side by side.",
-      "core": false
-    },
-    {
-      "id": 14,
-      "section": "Introduction",
-      "slide": "Mathematical Symbols",
-      "type": "single",
-      "prompt": "The table gives approximate values for two constants. Which pairing is right?",
-      "options": [
-        {
-          "id": "a",
-          "text": "π ≈ 3.14159 and e ≈ 2.71828"
-        },
-        {
-          "id": "b",
-          "text": "π ≈ 2.71828 and e ≈ 3.14159"
-        },
-        {
-          "id": "c",
-          "text": "π ≈ 3.14159 and e ≈ 1.61803"
-        },
-        {
-          "id": "d",
-          "text": "π ≈ 1.61803 and e ≈ 2.71828"
-        }
-      ],
-      "answer": ["a"],
-      "explanation": "The table lists π as approximately 3.14159 and Euler's number e as approximately 2.71828.",
       "core": false
     },
     {
@@ -446,7 +446,7 @@
       "section": "Introduction",
       "slide": "Logic and Set Notation Symbols",
       "type": "single",
-      "prompt": "According to the delimiters table, which brackets denote an open set?",
+      "prompt": "According to the delimiters table, which brackets are listed for an open set?",
       "options": [
         {
           "id": "a",
@@ -500,7 +500,7 @@
     {
       "id": 19,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? Two Pillars of Knowledge",
+      "slide": "Why Formal Logic? From Ideas to Scientific Claims (empiricism and rationalism)",
       "type": "single",
       "prompt": "The slides pair each mode of reasoning with a core question. Which question belongs to rationalism?",
       "options": [
@@ -528,7 +528,7 @@
     {
       "id": 20,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? Two Pillars of Knowledge",
+      "slide": "Why Formal Logic? From Ideas to Scientific Claims (empiricism and rationalism)",
       "type": "truefalse",
       "prompt": "The slides associate empiricism with the world of data, experiments and statistical evidence.",
       "options": [
@@ -548,7 +548,7 @@
     {
       "id": 21,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? The Bridge Between Theory and Data",
+      "slide": "Why Formal Logic? From Ideas to Scientific Claims (truth value and the role of logic)",
       "type": "multi",
       "prompt": "The slides say formal logic gives us the precise language needed to do which of the following? Select all that apply.",
       "options": [
@@ -576,7 +576,7 @@
     {
       "id": 22,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? The Bridge Between Theory and Data",
+      "slide": "Why Formal Logic? From Ideas to Scientific Claims (truth value and the role of logic)",
       "type": "single",
       "prompt": "What distinguishes a scientific claim from a bare observation, on the slides' account?",
       "options": [
@@ -792,7 +792,7 @@
     {
       "id": 30,
       "section": "Propositional and Predicate Logic",
-      "slide": "Truth Table: biconditional",
+      "slide": "Truth Table: p ↔ q is Equivalent to (p → q) ∧ (q → p)",
       "type": "single",
       "prompt": "Writing out the full truth table shows that p ↔ q is logically equivalent to:",
       "options": [
@@ -820,7 +820,7 @@
     {
       "id": 31,
       "section": "Propositional and Predicate Logic",
-      "slide": "Truth Table: biconditional",
+      "slide": "Truth Table: p ↔ q is Equivalent to (p → q) ∧ (q → p)",
       "type": "single",
       "prompt": "In the truth table for p ↔ q, which rows come out true?",
       "options": [
@@ -1054,7 +1054,7 @@
         },
         {
           "id": "b",
-          "text": "Because 4k² is even for every k"
+          "text": "Because the definition of even requires the form 4m, and n² has it"
         },
         {
           "id": "c",
@@ -1066,7 +1066,7 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown.",
+      "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown. Even means the form 2m, not 4m.",
       "core": true
     },
     {
@@ -1176,7 +1176,7 @@
     {
       "id": 44,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference: The Core Idea",
+      "slide": "Valid Inference: The Logic of Scientific Claims (the core idea)",
       "type": "single",
       "prompt": "Inference rules are described as patterns that guarantee:",
       "options": [
@@ -1288,7 +1288,7 @@
     {
       "id": 48,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference: The Logic of Scientific Claims",
+      "slide": "Valid Inference: The Logic of Scientific Claims (the rules applied)",
       "type": "single",
       "prompt": "Modus tollens is glossed as 'the way of denying'. With a theory P → Q, observing ¬Q licenses which conclusion?",
       "options": [
@@ -1316,7 +1316,7 @@
     {
       "id": 49,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment",
+      "slide": "Inference Rules in a Social Psychology Experiment (modus ponens, treatment group)",
       "type": "single",
       "prompt": "With hypothesis H₁: P → Q, assigning a subject to the treatment group establishes P. Predicting that they show Q uses which rule?",
       "options": [
@@ -1344,7 +1344,7 @@
     {
       "id": 50,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment",
+      "slide": "Inference Rules in a Social Psychology Experiment (modus tollens and chaining)",
       "type": "single",
       "prompt": "According to the slides, what does it mean if a subject in the treatment group does not show individualistic behaviour?",
       "options": [
@@ -1362,7 +1362,7 @@
         },
         {
           "id": "d",
-          "text": "It proves the manipulation failed"
+          "text": "It confirms the manipulation worked as intended"
         }
       ],
       "answer": ["a"],
@@ -1372,7 +1372,7 @@
     {
       "id": 51,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment",
+      "slide": "Inference Rules in a Social Psychology Experiment (modus tollens and chaining)",
       "type": "single",
       "prompt": "Given P → Q (money prime causes individualism) and Q → R (individualism reduces help-seeking), what new testable hypothesis do the slides derive?",
       "options": [
@@ -1400,7 +1400,7 @@
     {
       "id": 52,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference Rules · Social Psychology Experiment",
+      "slide": "Valid Inference: The Logic of Scientific Claims (the rules applied)",
       "type": "single",
       "prompt": "A researcher has established that priming with money produces individualistic behaviour (P → Q). To argue for why, they show the effect must run through either a self-sufficiency mindset (M₁) or a change in mood (M₂), then demonstrate that mood does not shift (¬M₂), and conclude M₁. Which rule is this, and what does it require?",
       "options": [
@@ -1866,7 +1866,7 @@
         },
         {
           "id": "d",
-          "text": "Aᶜ = B"
+          "text": "Every outcome in S lies in A or in B"
         }
       ],
       "answer": ["a"],
