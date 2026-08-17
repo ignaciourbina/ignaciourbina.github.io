@@ -20,6 +20,17 @@ export interface Presentation {
   pdfUrl?: string
 }
 
+// Posters live outside the React app, as standalone pages under public/, so a
+// poster carries the URL it opens rather than a viewer route.
+export interface Poster {
+  slug: string
+  title: string
+  event: string
+  date: string
+  description: string
+  url: string
+}
+
 export interface MathCampGraph {
   slug: string
   title: string
@@ -77,7 +88,9 @@ export const research = researchContent
 export const teaching = teachingContent
 export const conferences = conferencesContent as {
   page: typeof conferencesContent.page
+  sections: typeof conferencesContent.sections
   presentations: Presentation[]
+  posters: Poster[]
 }
 export const mathcamp = mathcampContent as {
   page: typeof mathcampContent.page

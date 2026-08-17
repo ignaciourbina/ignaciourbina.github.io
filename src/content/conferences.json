@@ -3,6 +3,16 @@
     "title": "Conferences",
     "subtitle": "Presentations and talks from academic conferences"
   },
+  "sections": {
+    "presentations": {
+      "kicker": "Slides",
+      "title": "Slide decks"
+    },
+    "posters": {
+      "kicker": "Posters",
+      "title": "Poster sessions"
+    }
+  },
   "presentations": [
     {
       "slug": "mpsa-2026",
@@ -19,6 +29,16 @@
       "date": "April 2026",
       "description": "A two-gate framework explaining when citizens translate automation risk information into policy demand. Pre-registered experiment (N = 901), with principal-score weighting to recover trust-stratum effects. The high-trust effect is 0.40 SD, roughly three times the mid/low one, and reaches 0.69 SD in the high-anxiety × high-risk corner.",
       "pdfUrl": "/files/cam-beamer.pdf"
+    }
+  ],
+  "posters": [
+    {
+      "slug": "cam-poster",
+      "title": "The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation",
+      "event": "APSA 2026",
+      "date": "September 2026",
+      "description": "Interactive poster in six panels: the puzzle, theory and hypotheses, research design, results, power and sensitivity, and takeaways. Each panel opens a detail view with the full tables and figures. Best viewed on a wide screen.",
+      "url": "/poster/index.html"
     }
   ]
 }
