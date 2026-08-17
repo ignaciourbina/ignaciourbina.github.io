@@ -46,7 +46,7 @@ function UnitCard({ unit }: { unit: MathCampUnit }) {
         <span className="text-xs text-muted-light shrink-0">
           Slides
           {count > 0 && ` \u00b7 ${count} ${count === 1 ? 'graph' : 'graphs'}`}
-          {quiz && ` \u00b7 ${quiz.questions.length} questions`}
+          {quiz && ` \u00b7 ${quiz.questions.filter((q) => q.core).length} questions`}
         </span>
       </div>
       <h2 className="text-ink font-bold text-lg mb-2 group-hover:text-green transition-colors">

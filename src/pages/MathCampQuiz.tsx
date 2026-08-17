@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Check, X, RotateCcw } from 'lucide-react'
 import { getMathCampQuiz, getMathCampUnit, type QuizOption, type QuizQuestion } from '../content'
 
 type Answers = Record<number, string[]>
+type Mode = 'core' | 'full'
 
 function shuffle<T>(items: T[]): T[] {
   const out = [...items]
@@ -34,6 +35,13 @@ export default function MathCampQuiz() {
   const [index, setIndex] = useState(0)
   const [submitted, setSubmitted] = useState(false)
   const [attempt, setAttempt] = useState(0)
+  const [mode, setMode] = useState<Mode>('core')
+
+  const all = quiz?.questions
+  const questions = useMemo(
+    () => (mode === 'core' ? (all ?? []).filter((q) => q.core) : (all ?? [])),
+    [all, mode]
+  )
 
   // Option order is fixed for the life of an attempt, and reshuffled on retake.
   // True/false keeps its natural order; shuffling it just reads as a glitch.
@@ -57,7 +65,6 @@ export default function MathCampQuiz() {
     )
   }
 
-  const questions = quiz.questions
   const total = questions.length
   const answeredCount = Object.values(answers).filter((a) => a.length > 0).length
   const score = questions.filter((q) => sameAnswer(answers[q.id], q.answer)).length
@@ -82,9 +89,18 @@ export default function MathCampQuiz() {
     setAttempt((a) => a + 1)
   }
 
+  const switchMode = (next: Mode) => {
+    if (next === mode) return
+    setMode(next)
+    restart()
+  }
+
+  const coreCount = (all ?? []).filter((q) => q.core).length
+  const fullCount = (all ?? []).length
+
   // ------------------------------------------------------------- results view
   if (submitted) {
-    const bySection = quiz.sections.map((section) => {
+    const bySection = [...new Set(questions.map((q) => q.section))].map((section) => {
       const inSection = questions.filter((q) => q.section === section)
       return {
         section,
@@ -107,9 +123,12 @@ export default function MathCampQuiz() {
           <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
             Results
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-4">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-2">
             {score} out of {total}
           </h1>
+          <p className="text-muted text-sm mb-4">
+            {mode === 'core' ? 'Core set' : 'Full set'} &middot; Unit {unit.number}
+          </p>
           <div className="h-2 w-full bg-line rounded-full overflow-hidden mb-6">
             <div
               className="h-full bg-green rounded-full transition-all duration-500"
@@ -221,6 +240,30 @@ export default function MathCampQuiz() {
         <h1 className="text-2xl md:text-3xl font-extrabold text-ink mb-2">{quiz.title}</h1>
         <p className="text-muted leading-relaxed">{quiz.intro}</p>
       </header>
+
+      <div className="inline-flex p-1 bg-panel border border-line rounded-lg mb-6">
+        {(
+          [
+            ['core', `Core ${coreCount}`],
+            ['full', `Full ${fullCount}`],
+          ] as [Mode, string][]
+        ).map(([value, label]) => (
+          <button
+            key={value}
+            onClick={() => switchMode(value)}
+            className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${
+              mode === value ? 'bg-green text-white' : 'text-muted hover:text-ink'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <p className="text-muted-light text-sm mb-6 -mt-4">
+        {mode === 'core'
+          ? 'A short path through the unit: twenty questions, at least one from every section.'
+          : `Every question in the bank, covering the unit slide by slide.`}
+      </p>
 
       <div className="flex items-center justify-between text-sm mb-2">
         <span className="text-muted">

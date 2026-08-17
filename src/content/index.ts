@@ -46,6 +46,7 @@ export interface QuizQuestion {
   options: QuizOption[]
   answer: string[]
   explanation: string
+  core: boolean
 }
 
 export interface MathCampQuiz {

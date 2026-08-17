@@ -29,7 +29,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The first bullet is headed 'Precision in Communication': mathematics gives a precise language to describe and analyse social phenomena, to quantify concepts like probability and preferences, and to be precise about what we mean when developing and testing theoretical claims."
+      "explanation": "The first bullet is headed 'Precision in Communication': mathematics gives a precise language to describe and analyse social phenomena, to quantify concepts like probability and preferences, and to be precise about what we mean when developing and testing theoretical claims.",
+      "core": false
     },
     {
       "id": 2,
@@ -56,7 +57,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "It appears under 'Decision Making and Strategic Interaction', where game theory is offered as a framework for analysing strategic interaction. Regression is the example given for the separate 'Statistical Models' bullet."
+      "explanation": "It appears under 'Decision Making and Strategic Interaction', where game theory is offered as a framework for analysing strategic interaction. Regression is the example given for the separate 'Statistical Models' bullet.",
+      "core": false
     },
     {
       "id": 3,
@@ -75,7 +77,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "The opposite: it models how individuals might not cooperate even when it is in their best interest, highlighting the tension between individual and collective rationality."
+      "explanation": "The opposite: it models how individuals might not cooperate even when it is in their best interest, highlighting the tension between individual and collective rationality.",
+      "core": false
     },
     {
       "id": 4,
@@ -102,7 +105,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slides define a lemma as similar to a theorem but of little interest in and of itself, intended to be used only as a stepping stone."
+      "explanation": "The slides define a lemma as similar to a theorem but of little interest in and of itself, intended to be used only as a stepping stone.",
+      "core": false
     },
     {
       "id": 5,
@@ -129,7 +133,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "A proposition is thought to be true given the assumptions; once proved it becomes a theorem. An assumption is stated up front and taken to be true."
+      "explanation": "A proposition is thought to be true given the assumptions; once proved it becomes a theorem. An assumption is stated up front and taken to be true.",
+      "core": true
     },
     {
       "id": 6,
@@ -156,7 +161,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "A condition q is necessary for p if p cannot be true unless q is also true, written p ⇒ q. Integer ⇒ rational, so rationality is necessary for integrality. It is not sufficient: 1/2 is rational but not an integer."
+      "explanation": "A condition q is necessary for p if p cannot be true unless q is also true, written p ⇒ q. Integer ⇒ rational, so rationality is necessary for integrality. It is not sufficient: 1/2 is rational but not an integer.",
+      "core": true
     },
     {
       "id": 7,
@@ -183,7 +189,8 @@
         }
       ],
       "answer": ["a", "b"],
-      "explanation": "Both correct options restate the definition. The other two describe the converse q ⇒ p and the biconditional p ⇔ q, neither of which follows from p ⇒ q alone."
+      "explanation": "Both correct options restate the definition. The other two describe the converse q ⇒ p and the biconditional p ⇔ q, neither of which follows from p ⇒ q alone.",
+      "core": false
     },
     {
       "id": 8,
@@ -210,7 +217,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "'If and only if' is the biconditional p ⇔ q, which the slides define as exactly the necessary-and-sufficient case. It gives a complete characterisation of primality."
+      "explanation": "'If and only if' is the biconditional p ⇔ q, which the slides define as exactly the necessary-and-sufficient case. It gives a complete characterisation of primality.",
+      "core": false
     },
     {
       "id": 9,
@@ -229,7 +237,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "Necessary is the single implication p ⇒ q. Sufficiency requires the other direction as well, and only together do they give p ⇔ q. Being rational is necessary for being an integer but not sufficient."
+      "explanation": "Necessary is the single implication p ⇒ q. Sufficiency requires the other direction as well, and only together do they give p ⇔ q. Being rational is necessary for being an integer but not sufficient.",
+      "core": true
     },
     {
       "id": 10,
@@ -260,7 +269,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The slide lists general deductive proof, proof by construction, proof by counterexample, proof by contradiction and proof by induction. Analogy and simulation are not among them."
+      "explanation": "The slide lists general deductive proof, proof by construction, proof by counterexample, proof by contradiction and proof by induction. Analogy and simulation are not among them.",
+      "core": false
     },
     {
       "id": 11,
@@ -287,7 +297,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Proof by counterexample is defined as giving a counterexample to disprove a universal statement. Proof by construction does the reverse: it gives an example to show something exists."
+      "explanation": "Proof by counterexample is defined as giving a counterexample to disprove a universal statement. Proof by construction does the reverse: it gives an example to show something exists.",
+      "core": false
     },
     {
       "id": 12,
@@ -314,7 +325,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide states: if we want to prove p, assume ¬p is true and then prove that ¬p implies both q and ¬q. Deriving a statement and its negation is the contradiction."
+      "explanation": "The slide states: if we want to prove p, assume ¬p is true and then prove that ¬p implies both q and ¬q. Deriving a statement and its negation is the contradiction.",
+      "core": true
     },
     {
       "id": 13,
@@ -333,7 +345,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "The slide lists proof by induction and adds the parenthetical 'it is still deductive, though'."
+      "explanation": "The slide lists proof by induction and adds the parenthetical 'it is still deductive, though'.",
+      "core": false
     },
     {
       "id": 14,
@@ -360,7 +373,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "∑ is the sum and ∏ is the product. The table lists both side by side."
+      "explanation": "∑ is the sum and ∏ is the product. The table lists both side by side.",
+      "core": false
     },
     {
       "id": 15,
@@ -387,7 +401,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The table lists π as approximately 3.14159 and Euler's number e as approximately 2.71828."
+      "explanation": "The table lists π as approximately 3.14159 and Euler's number e as approximately 2.71828.",
+      "core": false
     },
     {
       "id": 16,
@@ -414,7 +429,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "× is the Cartesian product. ∪ is union, ∩ is intersection and \\ is set difference."
+      "explanation": "× is the Cartesian product. ∪ is union, ∩ is intersection and \\ is set difference.",
+      "core": false
     },
     {
       "id": 17,
@@ -441,7 +457,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The table glosses | or : as 'such that', which is how it is used inside set-builder notation like {x ∈ ℕ | x is even}."
+      "explanation": "The table glosses | or : as 'such that', which is how it is used inside set-builder notation like {x ∈ ℕ | x is even}.",
+      "core": false
     },
     {
       "id": 18,
@@ -468,7 +485,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The table assigns { } to a discrete set, ( ) to an open set and [ ] to a closed set."
+      "explanation": "The table assigns { } to a discrete set, ( ) to an open set and [ ] to a closed set.",
+      "core": false
     },
     {
       "id": 19,
@@ -495,7 +513,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "⇒ means 'implies'; ⇔ means 'if and only if'. The other three readings are as listed."
+      "explanation": "⇒ means 'implies'; ⇔ means 'if and only if'. The other three readings are as listed.",
+      "core": false
     },
     {
       "id": 20,
@@ -522,7 +541,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Rationalism is knowledge from reason and logical inference, asking what follows from our assumptions. Empiricism asks what the world shows us."
+      "explanation": "Rationalism is knowledge from reason and logical inference, asking what follows from our assumptions. Empiricism asks what the world shows us.",
+      "core": false
     },
     {
       "id": 21,
@@ -541,7 +561,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "That is the slide's description of empiricism: knowledge derived from observation and experience."
+      "explanation": "That is the slide's description of empiricism: knowledge derived from observation and experience.",
+      "core": false
     },
     {
       "id": 22,
@@ -568,7 +589,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The three listed purposes are on the slide. Logic secures validity given the premises; whether the premises hold is an empirical question it cannot settle."
+      "explanation": "The three listed purposes are on the slide. Logic secures validity given the premises; whether the premises hold is an empirical question it cannot settle.",
+      "core": false
     },
     {
       "id": 23,
@@ -595,7 +617,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide says a scientific claim is more than an observation: it is a statement with a defined truth value, which is what makes it falsifiable."
+      "explanation": "The slide says a scientific claim is more than an observation: it is a statement with a defined truth value, which is what makes it falsifiable.",
+      "core": false
     },
     {
       "id": 24,
@@ -622,7 +645,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "That definition is what allows propositions to be combined with connectives and evaluated in truth tables."
+      "explanation": "That definition is what allows propositions to be combined with connectives and evaluated in truth tables.",
+      "core": true
     },
     {
       "id": 25,
@@ -649,7 +673,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide states implication is false only when p is true and q is false. In all three other rows it is true, including both rows where p is false."
+      "explanation": "The slide states implication is false only when p is true and q is false. In all three other rows it is true, including both rows where p is false.",
+      "core": true
     },
     {
       "id": 26,
@@ -676,7 +701,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The biconditional is true when p and q are either both true or both false, so the last option omits the false-false case."
+      "explanation": "The biconditional is true when p and q are either both true or both false, so the last option omits the false-false case.",
+      "core": false
     },
     {
       "id": 27,
@@ -703,7 +729,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Only the row where p and q are both true gives p ∧ q = T; the other three rows are false."
+      "explanation": "Only the row where p and q are both true gives p ∧ q = T; the other three rows are false.",
+      "core": false
     },
     {
       "id": 28,
@@ -730,7 +757,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Each proposition takes two values, so two propositions give 2² = 4 combinations, as in the conjunction table on the slide."
+      "explanation": "Each proposition takes two values, so two propositions give 2² = 4 combinations, as in the conjunction table on the slide.",
+      "core": false
     },
     {
       "id": 29,
@@ -757,7 +785,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "An implication fails only when p holds and q does not, which is exactly when ¬p ∨ q fails, so the two are equivalent."
+      "explanation": "An implication fails only when p holds and q does not, which is exactly when ¬p ∨ q fails, so the two are equivalent.",
+      "core": true
     },
     {
       "id": 30,
@@ -776,7 +805,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "The definition requires that they always have the same truth value, that is, in every row."
+      "explanation": "The definition requires that they always have the same truth value, that is, in every row.",
+      "core": false
     },
     {
       "id": 31,
@@ -803,7 +833,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The two columns match in all four rows. This is why proving a biconditional means proving both directions."
+      "explanation": "The two columns match in all four rows. This is why proving a biconditional means proving both directions.",
+      "core": true
     },
     {
       "id": 32,
@@ -830,7 +861,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The biconditional holds exactly when the two propositions share a truth value, which is the top and bottom rows."
+      "explanation": "The biconditional holds exactly when the two propositions share a truth value, which is the top and bottom rows.",
+      "core": false
     },
     {
       "id": 33,
@@ -857,7 +889,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Negating a conjunction flips it to a disjunction of the negations. The companion law is ¬(p ∨ q) ≡ ¬p ∧ ¬q."
+      "explanation": "Negating a conjunction flips it to a disjunction of the negations. The companion law is ¬(p ∨ q) ≡ ¬p ∧ ¬q.",
+      "core": false
     },
     {
       "id": 34,
@@ -884,7 +917,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Negating a disjunction flips it to a conjunction of the negations: neither p nor q holds."
+      "explanation": "Negating a disjunction flips it to a conjunction of the negations: neither p nor q holds.",
+      "core": false
     },
     {
       "id": 35,
@@ -911,7 +945,8 @@
         }
       ],
       "answer": ["a", "b"],
-      "explanation": "A contradiction is always false and a tautology always true; P ∧ ¬P and P ∨ ¬P are the slide's examples."
+      "explanation": "A contradiction is always false and a tautology always true; P ∧ ¬P and P ∨ ¬P are the slide's examples.",
+      "core": false
     },
     {
       "id": 36,
@@ -938,7 +973,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Propositional logic's basic unit is the whole proposition; predicate logic breaks it into objects and properties and adds quantifiers."
+      "explanation": "Propositional logic's basic unit is the whole proposition; predicate logic breaks it into objects and properties and adds quantifiers.",
+      "core": true
     },
     {
       "id": 37,
@@ -965,7 +1001,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "It quantifies over objects and applies predicates to them, which is exactly what propositional logic cannot do."
+      "explanation": "It quantifies over objects and applies predicates to them, which is exactly what propositional logic cannot do.",
+      "core": false
     },
     {
       "id": 38,
@@ -992,7 +1029,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "¬∀ is ∃¬ and ¬∃ is ∀¬. Saying 'not everything has the property' is saying 'something lacks it'."
+      "explanation": "¬∀ is ∃¬ and ¬∃ is ∀¬. Saying 'not everything has the property' is saying 'something lacks it'.",
+      "core": true
     },
     {
       "id": 39,
@@ -1019,7 +1057,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "∃ asserts existence of at least one element; ∃! is the unique existential quantifier, asserting exactly one."
+      "explanation": "∃ asserts existence of at least one element; ∃! is the unique existential quantifier, asserting exactly one.",
+      "core": false
     },
     {
       "id": 40,
@@ -1046,7 +1085,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown."
+      "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown.",
+      "core": false
     },
     {
       "id": 41,
@@ -1073,7 +1113,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "A predicate such as P(x): 'x is even' becomes a proposition only once x is specified, as in P(4), or once it is quantified."
+      "explanation": "A predicate such as P(x): 'x is even' becomes a proposition only once x is specified, as in P(4), or once it is quantified.",
+      "core": false
     },
     {
       "id": 42,
@@ -1100,7 +1141,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Quantifiers apply to predicates over this domain, which is what turns an open sentence into a proposition."
+      "explanation": "Quantifiers apply to predicates over this domain, which is what turns an open sentence into a proposition.",
+      "core": false
     },
     {
       "id": 43,
@@ -1119,7 +1161,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "It begins by assuming the negation of the conclusion, that √2 is rational and so equals a/b for coprime integers a and b. The contradiction that follows is what establishes irrationality."
+      "explanation": "It begins by assuming the negation of the conclusion, that √2 is rational and so equals a/b for coprime integers a and b. The contradiction that follows is what establishes irrationality.",
+      "core": false
     },
     {
       "id": 44,
@@ -1146,7 +1189,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "From a² = 2b² the proof gets a even, writes a = 2k, and derives b² = 2k², so b is even too. Two coprime integers cannot share the factor 2."
+      "explanation": "From a² = 2b² the proof gets a even, writes a = 2k, and derives b² = 2k², so b is even too. Two coprime integers cannot share the factor 2.",
+      "core": false
     },
     {
       "id": 45,
@@ -1173,7 +1217,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "They are the scaffolding of a valid argument. Validity transmits truth from premises to conclusion; it does not certify the premises."
+      "explanation": "They are the scaffolding of a valid argument. Validity transmits truth from premises to conclusion; it does not certify the premises.",
+      "core": false
     },
     {
       "id": 46,
@@ -1200,7 +1245,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The first three are modus ponens, modus tollens and disjunctive syllogism. The last affirms the consequent, which is not among the valid rules: Y may hold for reasons other than X."
+      "explanation": "The first three are modus ponens, modus tollens and disjunctive syllogism. The last affirms the consequent, which is not among the valid rules: Y may hold for reasons other than X.",
+      "core": true
     },
     {
       "id": 47,
@@ -1227,7 +1273,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slides name it hypothetical syllogism and gloss it as transitivity, chaining two implications into one."
+      "explanation": "The slides name it hypothetical syllogism and gloss it as transitivity, chaining two implications into one.",
+      "core": false
     },
     {
       "id": 48,
@@ -1254,7 +1301,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "A tautology is true under every assignment, so all four rows of the last column read T. That is what makes modus ponens a rule rather than a contingent claim."
+      "explanation": "A tautology is true under every assignment, so all four rows of the last column read T. That is what makes modus ponens a rule rather than a contingent claim.",
+      "core": false
     },
     {
       "id": 49,
@@ -1281,7 +1329,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "If the theory implies the effect and the effect is absent, the cause must have been absent too."
+      "explanation": "If the theory implies the effect and the effect is absent, the cause must have been absent too.",
+      "core": false
     },
     {
       "id": 50,
@@ -1308,7 +1357,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide calls this the logic of the treatment group and the core of experimental prediction: from P → Q and P, infer Q."
+      "explanation": "The slide calls this the logic of the treatment group and the core of experimental prediction: from P → Q and P, infer Q.",
+      "core": false
     },
     {
       "id": 51,
@@ -1335,7 +1385,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide notes that ¬Q in a control subject lets us infer ¬P, confirming the manipulation, but that ¬Q in a treated subject is, more powerfully, evidence against the hypothesis itself."
+      "explanation": "The slide notes that ¬Q in a control subject lets us infer ¬P, confirming the manipulation, but that ¬Q in a treated subject is, more powerfully, evidence against the hypothesis itself.",
+      "core": true
     },
     {
       "id": 52,
@@ -1362,7 +1413,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Chaining the two implications by hypothetical syllogism yields P → R: priming with money will cause subjects to seek less help."
+      "explanation": "Chaining the two implications by hypothetical syllogism yields P → R: priming with money will cause subjects to seek less help.",
+      "core": false
     },
     {
       "id": 53,
@@ -1389,7 +1441,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Set-builder notation specifies the properties elements must satisfy: take x from ℕ, keep those that are even."
+      "explanation": "Set-builder notation specifies the properties elements must satisfy: take x from ℕ, keep those that are even.",
+      "core": false
     },
     {
       "id": 54,
@@ -1416,7 +1469,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Equality is ∀x (x ∈ A ⇔ x ∈ B), and the slide notes that if A ⊆ B and B ⊆ A then A = B. This double-inclusion strategy is exactly what the De Morgan proof later uses."
+      "explanation": "Equality is ∀x (x ∈ A ⇔ x ∈ B), and the slide notes that if A ⊆ B and B ⊆ A then A = B. This double-inclusion strategy is exactly what the De Morgan proof later uses.",
+      "core": false
     },
     {
       "id": 55,
@@ -1443,7 +1497,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Subset is a one-directional implication. The biconditional version is set equality, and reversing the arrow gives B ⊆ A."
+      "explanation": "Subset is a one-directional implication. The biconditional version is set equality, and reversing the arrow gives B ⊆ A.",
+      "core": true
     },
     {
       "id": 56,
@@ -1470,7 +1525,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The relationship runs the other way for the universal set: all other sets are subsets of U, since it contains everything under consideration."
+      "explanation": "The relationship runs the other way for the universal set: all other sets are subsets of U, since it contains everything under consideration.",
+      "core": false
     },
     {
       "id": 57,
@@ -1497,7 +1553,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "℘(A) = {∅, {1}, {2}, {1,2}}, and in general |℘(A)| = 2^|A| = 2² = 4."
+      "explanation": "℘(A) = {∅, {1}, {2}, {1,2}}, and in general |℘(A)| = 2^|A| = 2² = 4.",
+      "core": true
     },
     {
       "id": 58,
@@ -1524,7 +1581,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "The difference requires x ∈ A and x ∉ B. As written, that option describes the intersection instead."
+      "explanation": "The difference requires x ∈ A and x ∉ B. As written, that option describes the intersection instead.",
+      "core": true
     },
     {
       "id": 59,
@@ -1551,7 +1609,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The other three are, in order, associativity, commutativity and De Morgan's law, each listed separately on the same slide."
+      "explanation": "The other three are, in order, associativity, commutativity and De Morgan's law, each listed separately on the same slide.",
+      "core": false
     },
     {
       "id": 60,
@@ -1578,7 +1637,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Complementing an intersection turns it into a union of complements, mirroring ¬(p ∧ q) ≡ ¬p ∨ ¬q in logic."
+      "explanation": "Complementing an intersection turns it into a union of complements, mirroring ¬(p ∧ q) ≡ ¬p ∨ ¬q in logic.",
+      "core": false
     },
     {
       "id": 61,
@@ -1605,7 +1665,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "It takes an arbitrary x in the left side and derives membership in the right, giving one inclusion, then runs the argument in reverse for the other. Two inclusions give equality."
+      "explanation": "It takes an arbitrary x in the left side and derives membership in the right, giving one inclusion, then runs the argument in reverse for the other. Two inclusions give equality.",
+      "core": true
     },
     {
       "id": 62,
@@ -1632,7 +1693,8 @@
         }
       ],
       "answer": ["a", "b", "c"],
-      "explanation": "Complex numbers are defined with i² = −1, not +1. The other three match the slide."
+      "explanation": "Complex numbers are defined with i² = −1, not +1. The other three match the slide.",
+      "core": true
     },
     {
       "id": 63,
@@ -1659,7 +1721,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "That definition is what makes 'being rational' a necessary condition for 'being an integer' in the earlier example: every integer n is n/1."
+      "explanation": "That definition is what makes 'being rational' a necessary condition for 'being an integer' in the earlier example: every integer n is n/1.",
+      "core": false
     },
     {
       "id": 64,
@@ -1686,7 +1749,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "For a coin toss S = {Heads, Tails}, and the event 'getting Heads' is the subset E = {Heads}."
+      "explanation": "For a coin toss S = {Heads, Tails}, and the event 'getting Heads' is the subset E = {Heads}.",
+      "core": false
     },
     {
       "id": 65,
@@ -1713,7 +1777,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The slide says S is a universal set in the context of a probabilistic experiment, which is why every event, as a subset of S, is well defined."
+      "explanation": "The slide says S is a universal set in the context of a probabilistic experiment, which is why every event, as a subset of S, is well defined.",
+      "core": false
     },
     {
       "id": 66,
@@ -1740,7 +1805,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "For a die roll, E₁ = {2, 4, 6} and E₂ = {1, 2, 3} are events precisely because they are subsets of S = {1,...,6}."
+      "explanation": "For a die roll, E₁ = {2, 4, 6} and E₂ = {1, 2, 3} are events precisely because they are subsets of S = {1,...,6}.",
+      "core": true
     },
     {
       "id": 67,
@@ -1767,7 +1833,8 @@
         }
       ],
       "answer": ["a", "b"],
-      "explanation": "The union collects everything in either event, and 5 belongs to neither, so it is absent. The intersection keeps only 2, which is the sole outcome in both."
+      "explanation": "The union collects everything in either event, and 5 belongs to neither, so it is absent. The intersection keeps only 2, which is the sole outcome in both.",
+      "core": false
     },
     {
       "id": 68,
@@ -1794,7 +1861,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "Mutual exclusivity is empty intersection: the events cannot occur together on a single roll. Here Aᶜ does happen to equal B, but that is exhaustiveness rather than the definition of exclusivity."
+      "explanation": "Mutual exclusivity is empty intersection: the events cannot occur together on a single roll. Here Aᶜ does happen to equal B, but that is exhaustiveness rather than the definition of exclusivity.",
+      "core": true
     },
     {
       "id": 69,
@@ -1821,7 +1889,8 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The Cartesian product pairs each of 2 strategies with each of 2 others: {(C,C), (C,D), (D,C), (D,D)}."
+      "explanation": "The Cartesian product pairs each of 2 strategies with each of 2 others: {(C,C), (C,D), (D,C), (D,D)}.",
+      "core": false
     },
     {
       "id": 70,
@@ -1840,7 +1909,8 @@
         }
       ],
       "answer": ["b"],
-      "explanation": "Ordered pairs carry the players' identities: (D, C) means prisoner 1 defects while prisoner 2 cooperates. Both defecting is (D, D)."
+      "explanation": "Ordered pairs carry the players' identities: (D, C) means prisoner 1 defects while prisoner 2 cooperates. Both defecting is (D, D).",
+      "core": true
     }
   ]
 }
