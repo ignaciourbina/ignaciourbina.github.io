@@ -1,5 +1,6 @@
 {
   "unitId": "1-1-logic-and-sets",
+  "version": "cd1fde7f",
   "title": "Unit 1.1 Self-Assessment",
   "subtitle": "Formal logic and set theory",
   "intro": "Every question below is drawn from a slide in the unit 1.1 deck, either stated there directly or a short step of reasoning away. Work through all of them, then submit to see your score alongside the justification for each answer.",
@@ -63,26 +64,6 @@
     {
       "id": 3,
       "section": "Introduction",
-      "slide": "Why we need math (models)",
-      "type": "truefalse",
-      "prompt": "The slides present the Prisoner's Dilemma as showing that individuals cooperate whenever cooperation serves their collective interest.",
-      "options": [
-        {
-          "id": "a",
-          "text": "True"
-        },
-        {
-          "id": "b",
-          "text": "False"
-        }
-      ],
-      "answer": ["b"],
-      "explanation": "The opposite: it models how individuals might not cooperate even when it is in their best interest, highlighting the tension between individual and collective rationality.",
-      "core": false
-    },
-    {
-      "id": 4,
-      "section": "Introduction",
       "slide": "Why we need math (proofs)",
       "type": "single",
       "prompt": "In the vocabulary given for proofs, which term names a result that is of little interest in itself and serves only as a stepping stone?",
@@ -109,7 +90,7 @@
       "core": false
     },
     {
-      "id": 5,
+      "id": 4,
       "section": "Introduction",
       "slide": "Why we need math (proofs)",
       "type": "single",
@@ -137,7 +118,7 @@
       "core": true
     },
     {
-      "id": 6,
+      "id": 5,
       "section": "Introduction",
       "slide": "Necessary Conditions",
       "type": "single",
@@ -165,7 +146,7 @@
       "core": true
     },
     {
-      "id": 7,
+      "id": 6,
       "section": "Introduction",
       "slide": "Necessary Conditions",
       "type": "multi",
@@ -193,7 +174,7 @@
       "core": false
     },
     {
-      "id": 8,
+      "id": 7,
       "section": "Introduction",
       "slide": "Necessary and Sufficient Conditions",
       "type": "single",
@@ -221,7 +202,7 @@
       "core": false
     },
     {
-      "id": 9,
+      "id": 8,
       "section": "Introduction",
       "slide": "Necessary and Sufficient Conditions",
       "type": "truefalse",
@@ -241,7 +222,7 @@
       "core": true
     },
     {
-      "id": 10,
+      "id": 9,
       "section": "Introduction",
       "slide": "Why we need math (approaches to proofs)",
       "type": "multi",
@@ -273,7 +254,7 @@
       "core": false
     },
     {
-      "id": 11,
+      "id": 10,
       "section": "Introduction",
       "slide": "Why we need math (approaches to proofs)",
       "type": "single",
@@ -301,7 +282,7 @@
       "core": false
     },
     {
-      "id": 12,
+      "id": 11,
       "section": "Introduction",
       "slide": "Why we need math (approaches to proofs)",
       "type": "single",
@@ -329,7 +310,7 @@
       "core": true
     },
     {
-      "id": 13,
+      "id": 12,
       "section": "Introduction",
       "slide": "Why we need math (approaches to proofs)",
       "type": "truefalse",
@@ -349,7 +330,7 @@
       "core": false
     },
     {
-      "id": 14,
+      "id": 13,
       "section": "Introduction",
       "slide": "Mathematical Symbols",
       "type": "single",
@@ -377,7 +358,7 @@
       "core": false
     },
     {
-      "id": 15,
+      "id": 14,
       "section": "Introduction",
       "slide": "Mathematical Symbols",
       "type": "single",
@@ -405,7 +386,7 @@
       "core": false
     },
     {
-      "id": 16,
+      "id": 15,
       "section": "Introduction",
       "slide": "Set Theory Symbols",
       "type": "single",
@@ -433,7 +414,7 @@
       "core": false
     },
     {
-      "id": 17,
+      "id": 16,
       "section": "Introduction",
       "slide": "Set Theory Symbols",
       "type": "single",
@@ -461,7 +442,7 @@
       "core": false
     },
     {
-      "id": 18,
+      "id": 17,
       "section": "Introduction",
       "slide": "Logic and Set Notation Symbols",
       "type": "single",
@@ -489,7 +470,7 @@
       "core": false
     },
     {
-      "id": 19,
+      "id": 18,
       "section": "Introduction",
       "slide": "Logic and Set Notation Symbols",
       "type": "multi",
@@ -517,7 +498,7 @@
       "core": false
     },
     {
-      "id": 20,
+      "id": 19,
       "section": "Propositional and Predicate Logic",
       "slide": "Why Formal Logic? Two Pillars of Knowledge",
       "type": "single",
@@ -545,7 +526,7 @@
       "core": false
     },
     {
-      "id": 21,
+      "id": 20,
       "section": "Propositional and Predicate Logic",
       "slide": "Why Formal Logic? Two Pillars of Knowledge",
       "type": "truefalse",
@@ -565,7 +546,7 @@
       "core": false
     },
     {
-      "id": 22,
+      "id": 21,
       "section": "Propositional and Predicate Logic",
       "slide": "Why Formal Logic? The Bridge Between Theory and Data",
       "type": "multi",
@@ -593,7 +574,7 @@
       "core": false
     },
     {
-      "id": 23,
+      "id": 22,
       "section": "Propositional and Predicate Logic",
       "slide": "Why Formal Logic? The Bridge Between Theory and Data",
       "type": "single",
@@ -621,7 +602,7 @@
       "core": false
     },
     {
-      "id": 24,
+      "id": 23,
       "section": "Propositional and Predicate Logic",
       "slide": "Propositional Logic",
       "type": "single",
@@ -649,7 +630,7 @@
       "core": true
     },
     {
-      "id": 25,
+      "id": 24,
       "section": "Propositional and Predicate Logic",
       "slide": "Basic Notation",
       "type": "single",
@@ -677,7 +658,7 @@
       "core": true
     },
     {
-      "id": 26,
+      "id": 25,
       "section": "Propositional and Predicate Logic",
       "slide": "Basic Notation",
       "type": "multi",
@@ -705,11 +686,11 @@
       "core": false
     },
     {
-      "id": 27,
+      "id": 26,
       "section": "Propositional and Predicate Logic",
       "slide": "Truth Tables",
       "type": "single",
-      "prompt": "In the conjunction truth table shown, how many of the four rows evaluate to true?",
+      "prompt": "For two propositions p and q, in how many of the four rows of the truth table is p ∧ q true?",
       "options": [
         {
           "id": "a",
@@ -733,7 +714,7 @@
       "core": false
     },
     {
-      "id": 28,
+      "id": 27,
       "section": "Propositional and Predicate Logic",
       "slide": "Truth Tables",
       "type": "single",
@@ -761,7 +742,7 @@
       "core": false
     },
     {
-      "id": 29,
+      "id": 28,
       "section": "Propositional and Predicate Logic",
       "slide": "Logical Equivalence",
       "type": "single",
@@ -789,7 +770,7 @@
       "core": true
     },
     {
-      "id": 30,
+      "id": 29,
       "section": "Propositional and Predicate Logic",
       "slide": "Logical Equivalence",
       "type": "truefalse",
@@ -809,11 +790,11 @@
       "core": false
     },
     {
-      "id": 31,
+      "id": 30,
       "section": "Propositional and Predicate Logic",
       "slide": "Truth Table: biconditional",
       "type": "single",
-      "prompt": "The truth table on this slide shows p ↔ q is logically equivalent to:",
+      "prompt": "Writing out the full truth table shows that p ↔ q is logically equivalent to:",
       "options": [
         {
           "id": "a",
@@ -837,11 +818,11 @@
       "core": true
     },
     {
-      "id": 32,
+      "id": 31,
       "section": "Propositional and Predicate Logic",
       "slide": "Truth Table: biconditional",
       "type": "single",
-      "prompt": "In that table, in which rows is p ↔ q true?",
+      "prompt": "In the truth table for p ↔ q, which rows come out true?",
       "options": [
         {
           "id": "a",
@@ -865,7 +846,7 @@
       "core": false
     },
     {
-      "id": 33,
+      "id": 32,
       "section": "Propositional and Predicate Logic",
       "slide": "De Morgan's Laws",
       "type": "single",
@@ -893,7 +874,7 @@
       "core": false
     },
     {
-      "id": 34,
+      "id": 33,
       "section": "Propositional and Predicate Logic",
       "slide": "De Morgan's Laws",
       "type": "single",
@@ -921,7 +902,7 @@
       "core": false
     },
     {
-      "id": 35,
+      "id": 34,
       "section": "Propositional and Predicate Logic",
       "slide": "Contradictions and Tautologies",
       "type": "multi",
@@ -949,7 +930,7 @@
       "core": false
     },
     {
-      "id": 36,
+      "id": 35,
       "section": "Propositional and Predicate Logic",
       "slide": "Propositional vs Predicate Logic",
       "type": "single",
@@ -977,7 +958,7 @@
       "core": true
     },
     {
-      "id": 37,
+      "id": 36,
       "section": "Propositional and Predicate Logic",
       "slide": "Propositional vs Predicate Logic",
       "type": "single",
@@ -1005,7 +986,7 @@
       "core": false
     },
     {
-      "id": 38,
+      "id": 37,
       "section": "Propositional and Predicate Logic",
       "slide": "Quantifiers in Logic",
       "type": "single",
@@ -1033,7 +1014,7 @@
       "core": true
     },
     {
-      "id": 39,
+      "id": 38,
       "section": "Propositional and Predicate Logic",
       "slide": "Quantifiers in Logic",
       "type": "single",
@@ -1061,7 +1042,7 @@
       "core": false
     },
     {
-      "id": 40,
+      "id": 39,
       "section": "Propositional and Predicate Logic",
       "slide": "Direct Proof Strategy Using Predicate Logic",
       "type": "single",
@@ -1089,7 +1070,7 @@
       "core": true
     },
     {
-      "id": 41,
+      "id": 40,
       "section": "Propositional and Predicate Logic",
       "slide": "Predicates and Open Sentences",
       "type": "single",
@@ -1117,7 +1098,7 @@
       "core": false
     },
     {
-      "id": 42,
+      "id": 41,
       "section": "Propositional and Predicate Logic",
       "slide": "Predicates and Open Sentences",
       "type": "single",
@@ -1145,7 +1126,7 @@
       "core": false
     },
     {
-      "id": 43,
+      "id": 42,
       "section": "Propositional and Predicate Logic",
       "slide": "Proof by Contradiction Using Predicate Logic",
       "type": "truefalse",
@@ -1165,7 +1146,7 @@
       "core": false
     },
     {
-      "id": 44,
+      "id": 43,
       "section": "Propositional and Predicate Logic",
       "slide": "Proof by Contradiction Using Predicate Logic",
       "type": "single",
@@ -1193,7 +1174,7 @@
       "core": false
     },
     {
-      "id": 45,
+      "id": 44,
       "section": "Propositional and Predicate Logic",
       "slide": "Valid Inference: The Core Idea",
       "type": "single",
@@ -1221,7 +1202,7 @@
       "core": false
     },
     {
-      "id": 46,
+      "id": 45,
       "section": "Propositional and Predicate Logic",
       "slide": "Valid Inference Rules in Propositional Logic",
       "type": "multi",
@@ -1249,7 +1230,7 @@
       "core": true
     },
     {
-      "id": 47,
+      "id": 46,
       "section": "Propositional and Predicate Logic",
       "slide": "Valid Inference Rules in Propositional Logic",
       "type": "single",
@@ -1277,11 +1258,11 @@
       "core": false
     },
     {
-      "id": 48,
+      "id": 47,
       "section": "Propositional and Predicate Logic",
       "slide": "Modus Ponens as a Logical Formula",
       "type": "single",
-      "prompt": "The slide presents (X ∧ (X → Y)) → Y as a tautology. What does its truth table show?",
+      "prompt": "Modus ponens can be written as the formula (X ∧ (X → Y)) → Y. What does its truth table show?",
       "options": [
         {
           "id": "a",
@@ -1305,7 +1286,7 @@
       "core": false
     },
     {
-      "id": 49,
+      "id": 48,
       "section": "Propositional and Predicate Logic",
       "slide": "Valid Inference: The Logic of Scientific Claims",
       "type": "single",
@@ -1333,7 +1314,7 @@
       "core": false
     },
     {
-      "id": 50,
+      "id": 49,
       "section": "Propositional and Predicate Logic",
       "slide": "Inference Rules in a Social Psychology Experiment",
       "type": "single",
@@ -1361,7 +1342,7 @@
       "core": false
     },
     {
-      "id": 51,
+      "id": 50,
       "section": "Propositional and Predicate Logic",
       "slide": "Inference Rules in a Social Psychology Experiment",
       "type": "single",
@@ -1389,7 +1370,7 @@
       "core": true
     },
     {
-      "id": 52,
+      "id": 51,
       "section": "Propositional and Predicate Logic",
       "slide": "Inference Rules in a Social Psychology Experiment",
       "type": "single",
@@ -1417,7 +1398,7 @@
       "core": false
     },
     {
-      "id": 53,
+      "id": 52,
       "section": "Sets",
       "slide": "Introduction to Sets",
       "type": "single",
@@ -1445,7 +1426,7 @@
       "core": false
     },
     {
-      "id": 54,
+      "id": 53,
       "section": "Sets",
       "slide": "Equality of Sets and Subset",
       "type": "single",
@@ -1473,7 +1454,7 @@
       "core": false
     },
     {
-      "id": 55,
+      "id": 54,
       "section": "Sets",
       "slide": "Equality of Sets and Subset",
       "type": "single",
@@ -1501,7 +1482,7 @@
       "core": true
     },
     {
-      "id": 56,
+      "id": 55,
       "section": "Sets",
       "slide": "Important Sets",
       "type": "multi",
@@ -1529,7 +1510,7 @@
       "core": false
     },
     {
-      "id": 57,
+      "id": 56,
       "section": "Sets",
       "slide": "Important Sets",
       "type": "single",
@@ -1557,7 +1538,7 @@
       "core": true
     },
     {
-      "id": 58,
+      "id": 57,
       "section": "Sets",
       "slide": "Operations on Sets",
       "type": "multi",
@@ -1585,7 +1566,7 @@
       "core": true
     },
     {
-      "id": 59,
+      "id": 58,
       "section": "Sets",
       "slide": "Properties of Sets",
       "type": "single",
@@ -1613,7 +1594,7 @@
       "core": false
     },
     {
-      "id": 60,
+      "id": 59,
       "section": "Sets",
       "slide": "Properties of Sets",
       "type": "single",
@@ -1641,7 +1622,7 @@
       "core": false
     },
     {
-      "id": 61,
+      "id": 60,
       "section": "Sets",
       "slide": "Proof of De Morgan's Law for Sets",
       "type": "single",
@@ -1669,7 +1650,7 @@
       "core": true
     },
     {
-      "id": 62,
+      "id": 61,
       "section": "Applications",
       "slide": "Number Sets",
       "type": "multi",
@@ -1697,7 +1678,7 @@
       "core": true
     },
     {
-      "id": 63,
+      "id": 62,
       "section": "Applications",
       "slide": "Number Sets",
       "type": "single",
@@ -1725,7 +1706,7 @@
       "core": false
     },
     {
-      "id": 64,
+      "id": 63,
       "section": "Applications",
       "slide": "Sets in Probability Theory",
       "type": "single",
@@ -1753,7 +1734,7 @@
       "core": false
     },
     {
-      "id": 65,
+      "id": 64,
       "section": "Applications",
       "slide": "Sample Space and Events",
       "type": "single",
@@ -1781,7 +1762,7 @@
       "core": false
     },
     {
-      "id": 66,
+      "id": 65,
       "section": "Applications",
       "slide": "Sample Space and Events",
       "type": "single",
@@ -1809,7 +1790,7 @@
       "core": true
     },
     {
-      "id": 67,
+      "id": 66,
       "section": "Applications",
       "slide": "Union and Intersection of Events",
       "type": "multi",
@@ -1837,7 +1818,7 @@
       "core": false
     },
     {
-      "id": 68,
+      "id": 67,
       "section": "Applications",
       "slide": "Mutually Exclusive Events in Probability",
       "type": "single",
@@ -1865,7 +1846,7 @@
       "core": true
     },
     {
-      "id": 69,
+      "id": 68,
       "section": "Applications",
       "slide": "Cartesian Product and Strategy Profiles",
       "type": "single",
@@ -1893,7 +1874,7 @@
       "core": false
     },
     {
-      "id": 70,
+      "id": 69,
       "section": "Applications",
       "slide": "Cartesian Product and Strategy Profiles",
       "type": "truefalse",

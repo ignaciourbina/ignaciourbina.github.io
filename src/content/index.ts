@@ -51,6 +51,7 @@ export interface QuizQuestion {
 
 export interface MathCampQuiz {
   unitId: string
+  version: string
   title: string
   subtitle: string
   intro: string

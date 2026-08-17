@@ -7,11 +7,29 @@ type Answers = Record<number, string[]>
 type Mode = 'core' | 'full'
 type OptionOrder = Record<number, string[]>
 
-// Bump when the shape below changes, so an old blob is ignored rather than
-// half-restored. Question ids are re-checked on load anyway, since the bank
-// can grow without the shape changing.
-const STORAGE_VERSION = 1
-const storageKey = (unitId: string) => `mathcamp-quiz:${unitId}:v${STORAGE_VERSION}`
+// The key carries both the shape version and a hash of the question bank.
+// Question ids are positional, so editing or removing a question shifts them:
+// without the hash a saved attempt would silently restore old answers against
+// different questions.
+const STORAGE_VERSION = 2
+const keyPrefix = (unitId: string) => `mathcamp-quiz:${unitId}:v${STORAGE_VERSION}:`
+const storageKey = (unitId: string, quizVersion: string) => keyPrefix(unitId) + quizVersion
+
+// Drop attempts saved against an earlier bank, plus anything left by v1.
+function pruneStale(unitId: string, quizVersion: string) {
+  try {
+    const keep = storageKey(unitId, quizVersion)
+    const doomed: string[] = []
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const k = window.localStorage.key(i)
+      if (!k || !k.startsWith(`mathcamp-quiz:${unitId}:`) || k === keep) continue
+      doomed.push(k)
+    }
+    doomed.forEach((k) => window.localStorage.removeItem(k))
+  } catch {
+    // storage unavailable; nothing to prune
+  }
+}
 
 interface Saved {
   mode: Mode
@@ -24,10 +42,11 @@ interface Saved {
 // localStorage throws in private mode and when storage is disabled, and any
 // stored blob may predate the current question bank, so every read is guarded
 // and every field is validated before it reaches state.
-function readSaved(unitId: string | undefined): Partial<Saved> {
-  if (!unitId || typeof window === 'undefined') return {}
+function readSaved(unitId: string | undefined, quizVersion: string | undefined): Partial<Saved> {
+  if (!unitId || !quizVersion || typeof window === 'undefined') return {}
   try {
-    const raw = window.localStorage.getItem(storageKey(unitId))
+    pruneStale(unitId, quizVersion)
+    const raw = window.localStorage.getItem(storageKey(unitId, quizVersion))
     if (!raw) return {}
     const parsed = JSON.parse(raw) as Partial<Saved>
     if (!parsed || typeof parsed !== 'object') return {}
@@ -37,17 +56,17 @@ function readSaved(unitId: string | undefined): Partial<Saved> {
   }
 }
 
-function writeSaved(unitId: string, value: Saved) {
+function writeSaved(unitId: string, quizVersion: string, value: Saved) {
   try {
-    window.localStorage.setItem(storageKey(unitId), JSON.stringify(value))
+    window.localStorage.setItem(storageKey(unitId, quizVersion), JSON.stringify(value))
   } catch {
     // storage full or unavailable; progress simply is not kept
   }
 }
 
-function clearSaved(unitId: string) {
+function clearSaved(unitId: string, quizVersion: string) {
   try {
-    window.localStorage.removeItem(storageKey(unitId))
+    window.localStorage.removeItem(storageKey(unitId, quizVersion))
   } catch {
     // nothing to do
   }
@@ -94,7 +113,7 @@ export default function MathCampQuiz() {
     [all]
   )
 
-  const [saved] = useState(() => readSaved(unitId))
+  const [saved] = useState(() => readSaved(unitId, quiz?.version))
   const [mode, setMode] = useState<Mode>(() =>
     saved.mode === 'core' || saved.mode === 'full' ? saved.mode : 'core'
   )
@@ -142,7 +161,13 @@ export default function MathCampQuiz() {
 
   useEffect(() => {
     if (!unitId || !quiz) return
-    writeSaved(unitId, { mode, answers, index: safeIndex, submitted, order: orderIds })
+    writeSaved(unitId, quiz.version, {
+      mode,
+      answers,
+      index: safeIndex,
+      submitted,
+      order: orderIds,
+    })
   }, [unitId, quiz, mode, answers, safeIndex, submitted, orderIds])
 
   if (!unit || !quiz) {
@@ -182,7 +207,7 @@ export default function MathCampQuiz() {
   }
 
   const reset = () => {
-    if (unitId) clearSaved(unitId)
+    if (unitId && quiz) clearSaved(unitId, quiz.version)
     restart()
   }
 
