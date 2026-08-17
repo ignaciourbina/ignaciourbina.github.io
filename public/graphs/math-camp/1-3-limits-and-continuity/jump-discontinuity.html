@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A jump discontinuity</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'y=\\left\\{x<0:1,x\\ge0:2\\right\\}',
+		color: '#2d70b3',
+		lineWidth: 4,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: '\\left(0,1\\right)',
+		color: '#000000',
+		pointSize: 12,
+		pointStyle: 'OPEN',
+		label: 'left limit 1',
+		showLabel: true,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: '\\left(0,2\\right)',
+		color: '#000000',
+		pointSize: 12,
+		label: 'f(0) = 2',
+		showLabel: true,
+		id: '2',
+	});
+	calculator.setMathBounds({ left: -3, right: 3, bottom: -0.5, top: 3.5 });
+</script>
+</body>
+</html>

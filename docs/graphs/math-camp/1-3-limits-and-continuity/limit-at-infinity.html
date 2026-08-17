@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A limit at infinity</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'y=\\frac{5x^{3}-2x^{2}+x+7}{3x^{3}+x^{2}-4}',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'y=\\frac{5}{3}',
+		color: '#c74440',
+		lineStyle: 'DASHED',
+		label: 'y = 5/3',
+		showLabel: true,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'x=1',
+		color: '#fa7e19',
+		lineStyle: 'DOTTED',
+		id: '2',
+	});
+	calculator.setMathBounds({ left: -10, right: 50, bottom: -2, top: 6 });
+</script>
+</body>
+</html>

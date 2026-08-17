@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A convergent sequence</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'n_{1}=\\left[1...30\\right]',
+		hidden: true,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: '\\left(n_{1},2-\\frac{1}{n_{1}^{2}}\\right)',
+		color: '#2d70b3',
+		pointSize: 9,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'y=2',
+		color: '#000000',
+		lineStyle: 'DASHED',
+		label: 'L = 2',
+		showLabel: true,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '\\epsilon=0.02',
+		sliderBounds: {
+			min: '0.002',
+			max: '0.1',
+			step: '0.002',
+		},
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: 'y=2-\\epsilon',
+		color: '#388c46',
+		lineStyle: 'DOTTED',
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: 'y=2+\\epsilon',
+		color: '#388c46',
+		lineStyle: 'DOTTED',
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: 'N=\\frac{1}{\\sqrt{\\epsilon}}',
+		id: '6',
+	});
+	calculator.setExpression({
+		latex: 'x=N',
+		color: '#c74440',
+		lineStyle: 'DASHED',
+		label: 'N',
+		showLabel: true,
+		id: '7',
+	});
+	calculator.setMathBounds({ left: 0, right: 30, bottom: 1.9, top: 2.06 });
+</script>
+</body>
+</html>

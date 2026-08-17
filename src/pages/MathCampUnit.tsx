@@ -44,6 +44,15 @@ export default function MathCampUnit() {
         </a>
       </header>
 
+      {unit.note && (
+        <div className="border-l-4 border-green/40 bg-green-soft/40 rounded-r-lg px-5 py-4 mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-green mb-1">
+            Note on the slides
+          </p>
+          <p className="text-muted text-sm leading-relaxed">{unit.note}</p>
+        </div>
+      )}
+
       {unit.graphs.length === 0 ? (
         <div className="border border-line rounded-lg p-12 text-center">
           <p className="text-muted">Interactive material for this unit has not been built yet.</p>

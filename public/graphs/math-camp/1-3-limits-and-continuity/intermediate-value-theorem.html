@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The intermediate value theorem</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'f\\left(x\\right)=x^{3} - 6 x + 2',
+		color: '#000000',
+		lineWidth: 2,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'y=f\\left(x\\right)\\left\\{0\\le x\\le1\\right\\}',
+		color: '#2d70b3',
+		lineWidth: 5,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: '\\left(0,2\\right)',
+		color: '#c74440',
+		pointSize: 12,
+		label: 'f(0) = 2',
+		showLabel: true,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '\\left(1,-3\\right)',
+		color: '#c74440',
+		pointSize: 12,
+		label: 'f(1) = -3',
+		showLabel: true,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\left(0.339877,0\\right)',
+		color: '#388c46',
+		pointSize: 14,
+		label: 'c = 0.3399',
+		showLabel: true,
+		id: '4',
+	});
+	calculator.setMathBounds({ left: -1, right: 3, bottom: -6, top: 6 });
+</script>
+</body>
+</html>

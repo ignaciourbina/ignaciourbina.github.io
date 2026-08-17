@@ -6,7 +6,7 @@
   },
   "note": {
     "title": "How these are built",
-    "body": "The graphs are generated from a single Python script using SymPy for the algebra, SciPy and NumPy to check the numerical results, and PyDesmos to emit the Desmos expressions. Nothing is drawn by hand, so the curves and the labelled roots are exactly what the symbolic solver returns."
+    "body": "The graphs are generated from Python, one script per unit, using SymPy for the algebra, SciPy and NumPy for the numerical work, and PyDesmos to emit the Desmos expressions. Every limit, root and extremum a page asserts is checked in the build, so nothing is drawn by hand and a wrong claim fails rather than shipping quietly."
   },
   "units": [
     {
@@ -96,12 +96,104 @@
       "id": "1-3-limits-and-continuity",
       "number": "1.3",
       "title": "Limits and Continuity",
-      "description": "Sequences and their limits, the limit of a function, and continuity.",
+      "description": "Sequences and series, convergence and divergence, the epsilon-N and epsilon-delta definitions of a limit, one-sided limits and asymptotes, continuity, and the intermediate and extreme value theorems.",
       "slides": {
         "url": "/files/math-camp/1-3-limits-and-continuity.pdf",
         "pages": 30
       },
-      "graphs": []
+      "note": "The slides give the intermediate value theorem example as f(x) = x³ − 6x + 2 on [1, 2], with f(1) = −3 and f(2) = 2. In fact f(2) = 8 − 12 + 2 = −2, so both endpoints are negative and that interval brackets no root. The graph here uses [0, 1], where f(0) = 2 and f(1) = −3 do change sign; the root is at x ≈ 0.3399.",
+      "graphs": [
+        {
+          "slug": "convergent-sequence",
+          "title": "A convergent sequence",
+          "expression": "Aₙ = 2 − 1/n²",
+          "description": "The terms crowd toward 2. The slider sets ε, and the red line marks N = 1/√ε, the threshold the proof on the slide derives: every term to the right of it lies inside the ε-band."
+        },
+        {
+          "slug": "divergent-sequence",
+          "title": "A divergent sequence",
+          "expression": "Bₙ = n + 1",
+          "description": "The same picture for a sequence with no finite limit. The terms climb without settling, so no horizontal band can eventually contain them."
+        },
+        {
+          "slug": "geometric-series",
+          "title": "Geometric series",
+          "expression": "Sₙ = a(1 − rⁿ)/(1 − r)",
+          "description": "Partial sums as points, with the infinite sum a/(1−r) as a dashed line. Push the ratio r past 1 in either direction and the partial sums stop converging on it, which is exactly the |r| < 1 condition."
+        },
+        {
+          "slug": "limit-of-a-function",
+          "title": "The limit of a function",
+          "expression": "f(x) = x³ − 3x² + 2x + 5",
+          "description": "The figure from the slide, with c on a slider. L is defined as f(c), so the dashed lines always meet on the curve as c moves."
+        },
+        {
+          "slug": "epsilon-delta",
+          "title": "The delta-epsilon definition",
+          "expression": "lim(x→2) (3x − 5) = 1",
+          "description": "The green band is the ε-tolerance on the output, the red band the δ-window on the input, and δ is tied to ε/3 as the proof requires. Shrink ε and the red band shrinks with it, with the curve still crossing only inside the overlap."
+        },
+        {
+          "slug": "removable-discontinuity",
+          "title": "A removable discontinuity",
+          "expression": "(x² + 2x − 15)/(x − 3)",
+          "description": "Factoring cancels the x − 3, leaving the line y = x + 5 everywhere except at x = 3. The open circle is the point the function never takes, though the limit there is 8."
+        },
+        {
+          "slug": "limit-at-infinity",
+          "title": "A limit at infinity",
+          "expression": "(5x³ − 2x² + x + 7)/(3x³ + x² − 4)",
+          "description": "The ratio of leading coefficients, 5/3, drawn as a horizontal asymptote. The dotted vertical line is the real root of the denominator, which SymPy locates at x = 1."
+        },
+        {
+          "slug": "vertical-asymptote",
+          "title": "A vertical asymptote",
+          "expression": "f(x) = 3/(x − 1)",
+          "description": "The two one-sided limits at x = 1 run to −∞ and +∞, so the limit does not exist there. This is the fourth example from the exercises slide."
+        },
+        {
+          "slug": "squeeze-theorem",
+          "title": "The squeeze theorem",
+          "expression": "−x² ≤ x² sin(1/x) ≤ x²",
+          "description": "The oscillating function is trapped between two parabolas that both tend to 0 at the origin, so it must go to 0 as well, however wildly it oscillates on the way."
+        },
+        {
+          "slug": "jump-discontinuity",
+          "title": "A jump discontinuity",
+          "expression": "f(x) = 1 for x < 0, 2 for x ≥ 0",
+          "description": "The step function from the slide. The one-sided limits are 1 and 2, so they disagree, and no value at 0 could make the function continuous."
+        },
+        {
+          "slug": "absolute-value",
+          "title": "Continuity of the absolute value",
+          "expression": "f(x) = |x|",
+          "description": "The two branches meet at the origin. Both one-sided limits equal f(0) = 0, which is the definition of continuity being satisfied at the one point where it could fail."
+        },
+        {
+          "slug": "intermediate-value-theorem",
+          "title": "The intermediate value theorem",
+          "expression": "f(x) = x³ − 6x + 2 on [0, 1]",
+          "description": "The endpoints have opposite signs, so the continuous curve has to cross zero somewhere between them. The crossing is located numerically with a bracketing solver. Note this uses [0, 1] rather than the slide's [1, 2] — see the note below."
+        },
+        {
+          "slug": "extreme-value-theorem",
+          "title": "The extreme value theorem",
+          "expression": "f(x) = −x² + 4x + 1 on [0, 3]",
+          "description": "A continuous function on a closed interval attains both bounds. The maximum is interior, at the vertex, while the minimum sits at the left endpoint."
+        },
+        {
+          "slug": "law-of-large-numbers",
+          "title": "The law of large numbers",
+          "expression": "running mean of 300 coin flips",
+          "description": "A simulated sample, drawn with a fixed seed so the picture is reproducible. The running mean wanders early and then settles toward 0.5; the slider sets the ε-band the theorem says it eventually stays inside."
+        },
+        {
+          "slug": "condorcet-jury-theorem",
+          "title": "The Condorcet jury theorem",
+          "expression": "Pₙ = P(majority correct)",
+          "description": "Majority-correctness probabilities computed exactly from the binomial distribution for juries of 1 to 99. Above p = 0.5 the curves climb toward certainty, quickly for p = 0.7 and slowly for p = 0.55; below it, at p = 0.45, the same logic runs the other way."
+        }
+      ]
     },
     {
       "id": "2-derivatives",

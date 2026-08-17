@@ -37,6 +37,7 @@ export interface MathCampUnit {
   title: string
   description: string
   slides: MathCampSlides
+  note?: string
   graphs: MathCampGraph[]
 }
 
