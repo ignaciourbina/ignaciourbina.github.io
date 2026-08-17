@@ -446,7 +446,7 @@
       "section": "Introduction",
       "slide": "Logic and Set Notation Symbols",
       "type": "single",
-      "prompt": "According to the delimiters table, which brackets are listed for an open set?",
+      "prompt": "According to the delimiters table, which brackets denote an open interval?",
       "options": [
         {
           "id": "a",
@@ -466,7 +466,7 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "The table assigns { } to a discrete set, ( ) to an open set and [ ] to a closed set.",
+      "explanation": "The table assigns { } to a discrete set, ( ) to an open interval and [ ] to a closed one.",
       "core": false
     },
     {
@@ -500,7 +500,7 @@
     {
       "id": 19,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? From Ideas to Scientific Claims (empiricism and rationalism)",
+      "slide": "Why Formal Logic? Empiricism and Rationalism",
       "type": "single",
       "prompt": "The slides pair each mode of reasoning with a core question. Which question belongs to rationalism?",
       "options": [
@@ -528,7 +528,7 @@
     {
       "id": 20,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? From Ideas to Scientific Claims (empiricism and rationalism)",
+      "slide": "Why Formal Logic? Empiricism and Rationalism",
       "type": "truefalse",
       "prompt": "The slides associate empiricism with the world of data, experiments and statistical evidence.",
       "options": [
@@ -548,7 +548,7 @@
     {
       "id": 21,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? From Ideas to Scientific Claims (truth value and the role of logic)",
+      "slide": "Why Formal Logic? From Ideas to Testable Claims",
       "type": "multi",
       "prompt": "The slides say formal logic gives us the precise language needed to do which of the following? Select all that apply.",
       "options": [
@@ -576,7 +576,7 @@
     {
       "id": 22,
       "section": "Propositional and Predicate Logic",
-      "slide": "Why Formal Logic? From Ideas to Scientific Claims (truth value and the role of logic)",
+      "slide": "Why Formal Logic? From Ideas to Testable Claims",
       "type": "single",
       "prompt": "What distinguishes a scientific claim from a bare observation, on the slides' account?",
       "options": [
@@ -1176,7 +1176,7 @@
     {
       "id": 44,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference: The Logic of Scientific Claims (the core idea)",
+      "slide": "Valid Inference: The Core Idea",
       "type": "single",
       "prompt": "Inference rules are described as patterns that guarantee:",
       "options": [
@@ -1288,7 +1288,7 @@
     {
       "id": 48,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference: The Logic of Scientific Claims (the rules applied)",
+      "slide": "Valid Inference: The Logic of Scientific Claims",
       "type": "single",
       "prompt": "Modus tollens is glossed as 'the way of denying'. With a theory P → Q, observing ¬Q licenses which conclusion?",
       "options": [
@@ -1316,7 +1316,7 @@
     {
       "id": 49,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment (modus ponens, treatment group)",
+      "slide": "Inference Rules in a Social Psychology Experiment",
       "type": "single",
       "prompt": "With hypothesis H₁: P → Q, assigning a subject to the treatment group establishes P. Predicting that they show Q uses which rule?",
       "options": [
@@ -1344,7 +1344,7 @@
     {
       "id": 50,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment (modus tollens and chaining)",
+      "slide": "Inference Rules in a Social Psychology Experiment (continued)",
       "type": "single",
       "prompt": "According to the slides, what does it mean if a subject in the treatment group does not show individualistic behaviour?",
       "options": [
@@ -1372,7 +1372,7 @@
     {
       "id": 51,
       "section": "Propositional and Predicate Logic",
-      "slide": "Inference Rules in a Social Psychology Experiment (modus tollens and chaining)",
+      "slide": "Inference Rules in a Social Psychology Experiment (continued)",
       "type": "single",
       "prompt": "Given P → Q (money prime causes individualism) and Q → R (individualism reduces help-seeking), what new testable hypothesis do the slides derive?",
       "options": [
@@ -1400,7 +1400,7 @@
     {
       "id": 52,
       "section": "Propositional and Predicate Logic",
-      "slide": "Valid Inference: The Logic of Scientific Claims (the rules applied)",
+      "slide": "Valid Inference: The Logic of Scientific Claims",
       "type": "single",
       "prompt": "A researcher has established that priming with money produces individualistic behaviour (P → Q). To argue for why, they show the effect must run through either a self-sufficiency mindset (M₁) or a change in mood (M₂), then demonstrate that mood does not shift (¬M₂), and conclude M₁. Which rule is this, and what does it require?",
       "options": [
