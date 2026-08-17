@@ -1710,7 +1710,7 @@
       "section": "Applications",
       "slide": "Number Sets",
       "type": "single",
-      "prompt": "Which set is defined as the numbers expressible as a fraction a/b?",
+      "prompt": "Which set is defined as the numbers expressible as a fraction a/b, with a and b integers and b non-zero?",
       "options": [
         {
           "id": "a",
@@ -1730,7 +1730,7 @@
         }
       ],
       "answer": ["a"],
-      "explanation": "That definition is what makes 'being rational' a necessary condition for 'being an integer' in the earlier example: every integer n is n/1.",
+      "explanation": "The slide requires a and b to be integers with b non-zero, which is what keeps the definition from covering every real number. It is also what makes 'being rational' a necessary condition for 'being an integer' in the earlier example: every integer n is n/1.",
       "core": false
     },
     {
