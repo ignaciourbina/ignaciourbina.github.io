@@ -1,0 +1,1846 @@
+{
+  "unitId": "1-1-logic-and-sets",
+  "title": "Unit 1.1 Self-Assessment",
+  "subtitle": "Formal logic and set theory",
+  "intro": "Every question below is drawn from a slide in the unit 1.1 deck, either stated there directly or a short step of reasoning away. Work through all of them, then submit to see your score alongside the justification for each answer.",
+  "questions": [
+    {
+      "id": 1,
+      "section": "Introduction",
+      "slide": "The Role of Mathematics in Social Science Research",
+      "type": "single",
+      "prompt": "The slides open by calling mathematics essential for social science. What reason do they give first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It provides a precise language for defining and quantifying concepts such as probability, uncertainty and preferences"
+        },
+        {
+          "id": "b",
+          "text": "It guarantees that a theory's assumptions are empirically true"
+        },
+        {
+          "id": "c",
+          "text": "It removes the need to collect data"
+        },
+        {
+          "id": "d",
+          "text": "It makes research easier to publish"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The first bullet is headed 'Precision in Communication': mathematics gives a precise language to describe and analyse social phenomena, to quantify concepts like probability and preferences, and to be precise about what we mean when developing and testing theoretical claims."
+    },
+    {
+      "id": 2,
+      "section": "Introduction",
+      "slide": "Why we need math (models)",
+      "type": "single",
+      "prompt": "The slides offer the Prisoner's Dilemma as an example of which use of mathematics?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Modelling decision-making and strategic interaction"
+        },
+        {
+          "id": "b",
+          "text": "Statistical models for testing hypotheses"
+        },
+        {
+          "id": "c",
+          "text": "Proof by induction"
+        },
+        {
+          "id": "d",
+          "text": "Set-builder notation"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "It appears under 'Decision Making and Strategic Interaction', where game theory is offered as a framework for analysing strategic interaction. Regression is the example given for the separate 'Statistical Models' bullet."
+    },
+    {
+      "id": 3,
+      "section": "Introduction",
+      "slide": "Why we need math (models)",
+      "type": "truefalse",
+      "prompt": "The slides present the Prisoner's Dilemma as showing that individuals cooperate whenever cooperation serves their collective interest.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "The opposite: it models how individuals might not cooperate even when it is in their best interest, highlighting the tension between individual and collective rationality."
+    },
+    {
+      "id": 4,
+      "section": "Introduction",
+      "slide": "Why we need math (proofs)",
+      "type": "single",
+      "prompt": "In the vocabulary given for proofs, which term names a result that is of little interest in itself and serves only as a stepping stone?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lemma"
+        },
+        {
+          "id": "b",
+          "text": "Assumption"
+        },
+        {
+          "id": "c",
+          "text": "Proposition"
+        },
+        {
+          "id": "d",
+          "text": "Theorem"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slides define a lemma as similar to a theorem but of little interest in and of itself, intended to be used only as a stepping stone."
+    },
+    {
+      "id": 5,
+      "section": "Introduction",
+      "slide": "Why we need math (proofs)",
+      "type": "single",
+      "prompt": "Which term is defined as a statement thought to be true given the assumptions made, but not yet proved?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Proposition"
+        },
+        {
+          "id": "b",
+          "text": "Theorem"
+        },
+        {
+          "id": "c",
+          "text": "Lemma"
+        },
+        {
+          "id": "d",
+          "text": "Assumption"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A proposition is thought to be true given the assumptions; once proved it becomes a theorem. An assumption is stated up front and taken to be true."
+    },
+    {
+      "id": 6,
+      "section": "Introduction",
+      "slide": "Necessary Conditions",
+      "type": "single",
+      "prompt": "'If a number is an integer, then it is a rational number.' On the slides' reading, being rational is what for being an integer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Necessary"
+        },
+        {
+          "id": "b",
+          "text": "Sufficient"
+        },
+        {
+          "id": "c",
+          "text": "Necessary and sufficient"
+        },
+        {
+          "id": "d",
+          "text": "Neither"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A condition q is necessary for p if p cannot be true unless q is also true, written p ⇒ q. Integer ⇒ rational, so rationality is necessary for integrality. It is not sufficient: 1/2 is rational but not an integer."
+    },
+    {
+      "id": 7,
+      "section": "Introduction",
+      "slide": "Necessary Conditions",
+      "type": "multi",
+      "prompt": "Given p ⇒ q, which of the following follow from the definition on the slides? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "q is necessary for p"
+        },
+        {
+          "id": "b",
+          "text": "p cannot be true unless q is also true"
+        },
+        {
+          "id": "c",
+          "text": "q cannot be true unless p is also true"
+        },
+        {
+          "id": "d",
+          "text": "p and q must always have the same truth value"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "Both correct options restate the definition. The other two describe the converse q ⇒ p and the biconditional p ⇔ q, neither of which follows from p ⇒ q alone."
+    },
+    {
+      "id": 8,
+      "section": "Introduction",
+      "slide": "Necessary and Sufficient Conditions",
+      "type": "single",
+      "prompt": "'A number is prime if and only if it has exactly two distinct positive divisors, 1 and itself.' This states a condition that is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both necessary and sufficient"
+        },
+        {
+          "id": "b",
+          "text": "Necessary only"
+        },
+        {
+          "id": "c",
+          "text": "Sufficient only"
+        },
+        {
+          "id": "d",
+          "text": "Neither necessary nor sufficient"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "'If and only if' is the biconditional p ⇔ q, which the slides define as exactly the necessary-and-sufficient case. It gives a complete characterisation of primality."
+    },
+    {
+      "id": 9,
+      "section": "Introduction",
+      "slide": "Necessary and Sufficient Conditions",
+      "type": "truefalse",
+      "prompt": "Every necessary condition is also a sufficient condition.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "Necessary is the single implication p ⇒ q. Sufficiency requires the other direction as well, and only together do they give p ⇔ q. Being rational is necessary for being an integer but not sufficient."
+    },
+    {
+      "id": 10,
+      "section": "Introduction",
+      "slide": "Why we need math (approaches to proofs)",
+      "type": "multi",
+      "prompt": "Which approaches to proof are listed on the slides? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "General deductive proof: assume p and show q"
+        },
+        {
+          "id": "b",
+          "text": "Proof by construction"
+        },
+        {
+          "id": "c",
+          "text": "Proof by contradiction"
+        },
+        {
+          "id": "d",
+          "text": "Proof by analogy"
+        },
+        {
+          "id": "e",
+          "text": "Proof by simulation"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The slide lists general deductive proof, proof by construction, proof by counterexample, proof by contradiction and proof by induction. Analogy and simulation are not among them."
+    },
+    {
+      "id": 11,
+      "section": "Introduction",
+      "slide": "Why we need math (approaches to proofs)",
+      "type": "single",
+      "prompt": "To disprove a universal statement, which approach do the slides point to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Proof by counterexample"
+        },
+        {
+          "id": "b",
+          "text": "Proof by construction"
+        },
+        {
+          "id": "c",
+          "text": "Proof by induction"
+        },
+        {
+          "id": "d",
+          "text": "Modus ponens"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Proof by counterexample is defined as giving a counterexample to disprove a universal statement. Proof by construction does the reverse: it gives an example to show something exists."
+    },
+    {
+      "id": 12,
+      "section": "Introduction",
+      "slide": "Why we need math (approaches to proofs)",
+      "type": "single",
+      "prompt": "In proof by contradiction as the slides describe it, you assume ¬p and then show that ¬p implies:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both q and ¬q"
+        },
+        {
+          "id": "b",
+          "text": "p itself"
+        },
+        {
+          "id": "c",
+          "text": "A tautology"
+        },
+        {
+          "id": "d",
+          "text": "Nothing at all"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide states: if we want to prove p, assume ¬p is true and then prove that ¬p implies both q and ¬q. Deriving a statement and its negation is the contradiction."
+    },
+    {
+      "id": 13,
+      "section": "Introduction",
+      "slide": "Why we need math (approaches to proofs)",
+      "type": "truefalse",
+      "prompt": "The slides classify proof by induction as a non-deductive method of proof.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "The slide lists proof by induction and adds the parenthetical 'it is still deductive, though'."
+    },
+    {
+      "id": 14,
+      "section": "Introduction",
+      "slide": "Mathematical Symbols",
+      "type": "single",
+      "prompt": "In the table of mathematical symbols, ∏ from i = k to l denotes:",
+      "options": [
+        {
+          "id": "a",
+          "text": "The product of the terms"
+        },
+        {
+          "id": "b",
+          "text": "The sum of the terms"
+        },
+        {
+          "id": "c",
+          "text": "The integral over the terms"
+        },
+        {
+          "id": "d",
+          "text": "The factorial of the terms"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "∑ is the sum and ∏ is the product. The table lists both side by side."
+    },
+    {
+      "id": 15,
+      "section": "Introduction",
+      "slide": "Mathematical Symbols",
+      "type": "single",
+      "prompt": "The table gives approximate values for two constants. Which pairing is right?",
+      "options": [
+        {
+          "id": "a",
+          "text": "π ≈ 3.14159 and e ≈ 2.71828"
+        },
+        {
+          "id": "b",
+          "text": "π ≈ 2.71828 and e ≈ 3.14159"
+        },
+        {
+          "id": "c",
+          "text": "π ≈ 3.14159 and e ≈ 1.61803"
+        },
+        {
+          "id": "d",
+          "text": "π ≈ 1.61803 and e ≈ 2.71828"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The table lists π as approximately 3.14159 and Euler's number e as approximately 2.71828."
+    },
+    {
+      "id": 16,
+      "section": "Introduction",
+      "slide": "Set Theory Symbols",
+      "type": "single",
+      "prompt": "Which symbol does the set theory table give for the Cartesian product of sets?",
+      "options": [
+        {
+          "id": "a",
+          "text": "×"
+        },
+        {
+          "id": "b",
+          "text": "∪"
+        },
+        {
+          "id": "c",
+          "text": "∩"
+        },
+        {
+          "id": "d",
+          "text": "\\"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "× is the Cartesian product. ∪ is union, ∩ is intersection and \\ is set difference."
+    },
+    {
+      "id": 17,
+      "section": "Introduction",
+      "slide": "Set Theory Symbols",
+      "type": "single",
+      "prompt": "In set notation, the slides read the symbol | (or :) as:",
+      "options": [
+        {
+          "id": "a",
+          "text": "'such that'"
+        },
+        {
+          "id": "b",
+          "text": "'is an element of'"
+        },
+        {
+          "id": "c",
+          "text": "'is a subset of'"
+        },
+        {
+          "id": "d",
+          "text": "'for all'"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The table glosses | or : as 'such that', which is how it is used inside set-builder notation like {x ∈ ℕ | x is even}."
+    },
+    {
+      "id": 18,
+      "section": "Introduction",
+      "slide": "Logic and Set Notation Symbols",
+      "type": "single",
+      "prompt": "According to the delimiters table, which brackets denote an open set?",
+      "options": [
+        {
+          "id": "a",
+          "text": "( )"
+        },
+        {
+          "id": "b",
+          "text": "{ }"
+        },
+        {
+          "id": "c",
+          "text": "[ ]"
+        },
+        {
+          "id": "d",
+          "text": "⟨ ⟩"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The table assigns { } to a discrete set, ( ) to an open set and [ ] to a closed set."
+    },
+    {
+      "id": 19,
+      "section": "Introduction",
+      "slide": "Logic and Set Notation Symbols",
+      "type": "multi",
+      "prompt": "Based on the logic notation table, select every correct reading.",
+      "options": [
+        {
+          "id": "a",
+          "text": "∀ reads 'for all'"
+        },
+        {
+          "id": "b",
+          "text": "∃ reads 'there exists'"
+        },
+        {
+          "id": "c",
+          "text": "¬C reads 'not C'"
+        },
+        {
+          "id": "d",
+          "text": "⇔ means 'implies'"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "⇒ means 'implies'; ⇔ means 'if and only if'. The other three readings are as listed."
+    },
+    {
+      "id": 20,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Why Formal Logic? Two Pillars of Knowledge",
+      "type": "single",
+      "prompt": "The slides pair each mode of reasoning with a core question. Which question belongs to rationalism?",
+      "options": [
+        {
+          "id": "a",
+          "text": "What follows from our assumptions?"
+        },
+        {
+          "id": "b",
+          "text": "What does the world show us?"
+        },
+        {
+          "id": "c",
+          "text": "How large is the effect?"
+        },
+        {
+          "id": "d",
+          "text": "Is the sample representative?"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Rationalism is knowledge from reason and logical inference, asking what follows from our assumptions. Empiricism asks what the world shows us."
+    },
+    {
+      "id": 21,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Why Formal Logic? Two Pillars of Knowledge",
+      "type": "truefalse",
+      "prompt": "The slides associate empiricism with the world of data, experiments and statistical evidence.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "That is the slide's description of empiricism: knowledge derived from observation and experience."
+    },
+    {
+      "id": 22,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Why Formal Logic? The Bridge Between Theory and Data",
+      "type": "multi",
+      "prompt": "The slides say formal logic gives us the precise language needed to do which of the following? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Construct valid theories"
+        },
+        {
+          "id": "b",
+          "text": "Formulate testable hypotheses that can be falsified"
+        },
+        {
+          "id": "c",
+          "text": "Interpret evidence correctly"
+        },
+        {
+          "id": "d",
+          "text": "Guarantee that our premises are empirically true"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The three listed purposes are on the slide. Logic secures validity given the premises; whether the premises hold is an empirical question it cannot settle."
+    },
+    {
+      "id": 23,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Why Formal Logic? The Bridge Between Theory and Data",
+      "type": "single",
+      "prompt": "What distinguishes a scientific claim from a bare observation, on the slides' account?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It has a defined truth value, so it can be true or false"
+        },
+        {
+          "id": "b",
+          "text": "It has a large sample size"
+        },
+        {
+          "id": "c",
+          "text": "It reports an effect size"
+        },
+        {
+          "id": "d",
+          "text": "It specifies a domain of discourse"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide says a scientific claim is more than an observation: it is a statement with a defined truth value, which is what makes it falsifiable."
+    },
+    {
+      "id": 24,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Propositional Logic",
+      "type": "single",
+      "prompt": "How do the slides define a mathematical statement, or proposition?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A declarative sentence that is either true or false, but not both"
+        },
+        {
+          "id": "b",
+          "text": "Any sentence containing variables"
+        },
+        {
+          "id": "c",
+          "text": "A sentence that is true, false, or undetermined"
+        },
+        {
+          "id": "d",
+          "text": "A sentence that is assumed true without proof"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "That definition is what allows propositions to be combined with connectives and evaluated in truth tables."
+    },
+    {
+      "id": 25,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Basic Notation",
+      "type": "single",
+      "prompt": "Under the definitions given, the implication p → q is false:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only when p is true and q is false"
+        },
+        {
+          "id": "b",
+          "text": "Whenever p is false"
+        },
+        {
+          "id": "c",
+          "text": "Only when both p and q are false"
+        },
+        {
+          "id": "d",
+          "text": "Never"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide states implication is false only when p is true and q is false. In all three other rows it is true, including both rows where p is false."
+    },
+    {
+      "id": 26,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Basic Notation",
+      "type": "multi",
+      "prompt": "Using the connective definitions on the slide, select every true statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "¬p is true when p is false"
+        },
+        {
+          "id": "b",
+          "text": "p ∧ q is true only when both are true"
+        },
+        {
+          "id": "c",
+          "text": "p ∨ q is true when at least one is true"
+        },
+        {
+          "id": "d",
+          "text": "p ↔ q is true only when both are true"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The biconditional is true when p and q are either both true or both false, so the last option omits the false-false case."
+    },
+    {
+      "id": 27,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Truth Tables",
+      "type": "single",
+      "prompt": "In the conjunction truth table shown, how many of the four rows evaluate to true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "One"
+        },
+        {
+          "id": "b",
+          "text": "Two"
+        },
+        {
+          "id": "c",
+          "text": "Three"
+        },
+        {
+          "id": "d",
+          "text": "Four"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Only the row where p and q are both true gives p ∧ q = T; the other three rows are false."
+    },
+    {
+      "id": 28,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Truth Tables",
+      "type": "single",
+      "prompt": "A truth table lists all possible truth values. For two propositions, how many rows does it need?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Each proposition takes two values, so two propositions give 2² = 4 combinations, as in the conjunction table on the slide."
+    },
+    {
+      "id": 29,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Logical Equivalence",
+      "type": "single",
+      "prompt": "The slides give which equivalence as their example?",
+      "options": [
+        {
+          "id": "a",
+          "text": "p → q ≡ ¬p ∨ q"
+        },
+        {
+          "id": "b",
+          "text": "p → q ≡ p ∧ ¬q"
+        },
+        {
+          "id": "c",
+          "text": "p → q ≡ ¬p ∧ q"
+        },
+        {
+          "id": "d",
+          "text": "p → q ≡ q → p"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "An implication fails only when p holds and q does not, which is exactly when ¬p ∨ q fails, so the two are equivalent."
+    },
+    {
+      "id": 30,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Logical Equivalence",
+      "type": "truefalse",
+      "prompt": "Two statements count as logically equivalent if they agree in at least one row of the truth table.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "The definition requires that they always have the same truth value, that is, in every row."
+    },
+    {
+      "id": 31,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Truth Table: biconditional",
+      "type": "single",
+      "prompt": "The truth table on this slide shows p ↔ q is logically equivalent to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "(p → q) ∧ (q → p)"
+        },
+        {
+          "id": "b",
+          "text": "(p → q) ∨ (q → p)"
+        },
+        {
+          "id": "c",
+          "text": "¬p ∨ q"
+        },
+        {
+          "id": "d",
+          "text": "p ∧ q"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The two columns match in all four rows. This is why proving a biconditional means proving both directions."
+    },
+    {
+      "id": 32,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Truth Table: biconditional",
+      "type": "single",
+      "prompt": "In that table, in which rows is p ↔ q true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The row where both are true and the row where both are false"
+        },
+        {
+          "id": "b",
+          "text": "Only the row where both are true"
+        },
+        {
+          "id": "c",
+          "text": "Only the rows where the two differ"
+        },
+        {
+          "id": "d",
+          "text": "All four rows"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The biconditional holds exactly when the two propositions share a truth value, which is the top and bottom rows."
+    },
+    {
+      "id": 33,
+      "section": "Propositional and Predicate Logic",
+      "slide": "De Morgan's Laws",
+      "type": "single",
+      "prompt": "By De Morgan's laws as stated for logic, ¬(p ∧ q) is equivalent to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "¬p ∨ ¬q"
+        },
+        {
+          "id": "b",
+          "text": "¬p ∧ ¬q"
+        },
+        {
+          "id": "c",
+          "text": "p ∨ q"
+        },
+        {
+          "id": "d",
+          "text": "¬(p ∨ q)"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Negating a conjunction flips it to a disjunction of the negations. The companion law is ¬(p ∨ q) ≡ ¬p ∧ ¬q."
+    },
+    {
+      "id": 34,
+      "section": "Propositional and Predicate Logic",
+      "slide": "De Morgan's Laws",
+      "type": "single",
+      "prompt": "And ¬(p ∨ q) is equivalent to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "¬p ∧ ¬q"
+        },
+        {
+          "id": "b",
+          "text": "¬p ∨ ¬q"
+        },
+        {
+          "id": "c",
+          "text": "p ∧ q"
+        },
+        {
+          "id": "d",
+          "text": "¬(p ∧ q)"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Negating a disjunction flips it to a conjunction of the negations: neither p nor q holds."
+    },
+    {
+      "id": 35,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Contradictions and Tautologies",
+      "type": "multi",
+      "prompt": "Using the slide's definitions and examples, select every true statement.",
+      "options": [
+        {
+          "id": "a",
+          "text": "P ∧ ¬P is always false"
+        },
+        {
+          "id": "b",
+          "text": "P ∨ ¬P is always true"
+        },
+        {
+          "id": "c",
+          "text": "A tautology is a statement that is always false"
+        },
+        {
+          "id": "d",
+          "text": "A contradiction is true in at least one row of its truth table"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "A contradiction is always false and a tautology always true; P ∧ ¬P and P ∨ ¬P are the slide's examples."
+    },
+    {
+      "id": 36,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Propositional vs Predicate Logic",
+      "type": "single",
+      "prompt": "How do the slides state the key difference between the two logics?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Propositional logic treats statements as indivisible, while predicate logic looks inside them and expresses structure with quantifiers"
+        },
+        {
+          "id": "b",
+          "text": "Predicate logic treats statements as indivisible, while propositional logic breaks them apart"
+        },
+        {
+          "id": "c",
+          "text": "Predicate logic has no logical connectives"
+        },
+        {
+          "id": "d",
+          "text": "Propositional logic is the one that uses ∀ and ∃"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Propositional logic's basic unit is the whole proposition; predicate logic breaks it into objects and properties and adds quantifiers."
+    },
+    {
+      "id": 37,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Propositional vs Predicate Logic",
+      "type": "single",
+      "prompt": "∀x (Cat(x) → Mammal(x)) is offered as an example of:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Predicate logic"
+        },
+        {
+          "id": "b",
+          "text": "Propositional logic"
+        },
+        {
+          "id": "c",
+          "text": "A contradiction"
+        },
+        {
+          "id": "d",
+          "text": "Set-builder notation"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "It quantifies over objects and applies predicates to them, which is exactly what propositional logic cannot do."
+    },
+    {
+      "id": 38,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Quantifiers in Logic",
+      "type": "single",
+      "prompt": "The slides state that a negated universal, ¬∀, is equivalent to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "∃¬, 'there exists not'"
+        },
+        {
+          "id": "b",
+          "text": "∀¬, 'for all not'"
+        },
+        {
+          "id": "c",
+          "text": "∃, 'there exists'"
+        },
+        {
+          "id": "d",
+          "text": "∀, 'for all'"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "¬∀ is ∃¬ and ¬∃ is ∀¬. Saying 'not everything has the property' is saying 'something lacks it'."
+    },
+    {
+      "id": 39,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Quantifiers in Logic",
+      "type": "single",
+      "prompt": "What does the quantifier ∃! mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "There exists exactly one"
+        },
+        {
+          "id": "b",
+          "text": "There exists at least one"
+        },
+        {
+          "id": "c",
+          "text": "There does not exist"
+        },
+        {
+          "id": "d",
+          "text": "For all"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "∃ asserts existence of at least one element; ∃! is the unique existential quantifier, asserting exactly one."
+    },
+    {
+      "id": 40,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Direct Proof Strategy Using Predicate Logic",
+      "type": "single",
+      "prompt": "In the direct proof that n even implies n² even, the argument reaches n² = 2(2k²). Why does that finish the proof?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because 2k² is an integer, n² has the form 2m required by the definition of even"
+        },
+        {
+          "id": "b",
+          "text": "Because 4k² is even for every k"
+        },
+        {
+          "id": "c",
+          "text": "Because k was assumed to be even"
+        },
+        {
+          "id": "d",
+          "text": "Because squaring always preserves parity by assumption"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The goal q was stated as '∃m ∈ ℤ : n² = 2m'. Writing n² as 2 times the integer 2k² exhibits that m, which is what had to be shown."
+    },
+    {
+      "id": 41,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Predicates and Open Sentences",
+      "type": "single",
+      "prompt": "How do the slides define an open sentence?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A predicate with free variables, not true or false until the variables are assigned or quantified"
+        },
+        {
+          "id": "b",
+          "text": "A proposition that is always true"
+        },
+        {
+          "id": "c",
+          "text": "A set written in set-builder notation"
+        },
+        {
+          "id": "d",
+          "text": "A declarative sentence containing no variables"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A predicate such as P(x): 'x is even' becomes a proposition only once x is specified, as in P(4), or once it is quantified."
+    },
+    {
+      "id": 42,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Predicates and Open Sentences",
+      "type": "single",
+      "prompt": "The 'domain of discourse' is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "The set of values over which a variable ranges"
+        },
+        {
+          "id": "b",
+          "text": "The set of true propositions in an argument"
+        },
+        {
+          "id": "c",
+          "text": "The conclusion of a proof"
+        },
+        {
+          "id": "d",
+          "text": "The set of quantifiers in use"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Quantifiers apply to predicates over this domain, which is what turns an open sentence into a proposition."
+    },
+    {
+      "id": 43,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Proof by Contradiction Using Predicate Logic",
+      "type": "truefalse",
+      "prompt": "The proof that √2 is irrational begins by assuming that √2 is irrational.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "It begins by assuming the negation of the conclusion, that √2 is rational and so equals a/b for coprime integers a and b. The contradiction that follows is what establishes irrationality."
+    },
+    {
+      "id": 44,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Proof by Contradiction Using Predicate Logic",
+      "type": "single",
+      "prompt": "What is the contradiction that ends the √2 proof?",
+      "options": [
+        {
+          "id": "a",
+          "text": "a and b both turn out to be even, contradicting that they were chosen coprime"
+        },
+        {
+          "id": "b",
+          "text": "a² turns out to be odd"
+        },
+        {
+          "id": "c",
+          "text": "b² turns out to be odd"
+        },
+        {
+          "id": "d",
+          "text": "The equation √2 = a/b has no solution in the integers"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "From a² = 2b² the proof gets a even, writes a = 2k, and derives b² = 2k², so b is even too. Two coprime integers cannot share the factor 2."
+    },
+    {
+      "id": 45,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Valid Inference: The Core Idea",
+      "type": "single",
+      "prompt": "Inference rules are described as patterns that guarantee:",
+      "options": [
+        {
+          "id": "a",
+          "text": "A true conclusion if the premises are true"
+        },
+        {
+          "id": "b",
+          "text": "That the premises are true"
+        },
+        {
+          "id": "c",
+          "text": "Empirical confirmation of a hypothesis"
+        },
+        {
+          "id": "d",
+          "text": "Statistical significance"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "They are the scaffolding of a valid argument. Validity transmits truth from premises to conclusion; it does not certify the premises."
+    },
+    {
+      "id": 46,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Valid Inference Rules in Propositional Logic",
+      "type": "multi",
+      "prompt": "Select every inference that is valid according to the rules on the slides.",
+      "options": [
+        {
+          "id": "a",
+          "text": "From X and X → Y, conclude Y"
+        },
+        {
+          "id": "b",
+          "text": "From X → Y and ¬Y, conclude ¬X"
+        },
+        {
+          "id": "c",
+          "text": "From X ∨ Y and ¬X, conclude Y"
+        },
+        {
+          "id": "d",
+          "text": "From X → Y and Y, conclude X"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The first three are modus ponens, modus tollens and disjunctive syllogism. The last affirms the consequent, which is not among the valid rules: Y may hold for reasons other than X."
+    },
+    {
+      "id": 47,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Valid Inference Rules in Propositional Logic",
+      "type": "single",
+      "prompt": "From X → Y and Y → Z we may conclude X → Z. Which rule is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hypothetical syllogism, or transitivity"
+        },
+        {
+          "id": "b",
+          "text": "Modus ponens"
+        },
+        {
+          "id": "c",
+          "text": "Modus tollens"
+        },
+        {
+          "id": "d",
+          "text": "Disjunctive syllogism"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slides name it hypothetical syllogism and gloss it as transitivity, chaining two implications into one."
+    },
+    {
+      "id": 48,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Modus Ponens as a Logical Formula",
+      "type": "single",
+      "prompt": "The slide presents (X ∧ (X → Y)) → Y as a tautology. What does its truth table show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The final column is true in all four rows"
+        },
+        {
+          "id": "b",
+          "text": "The final column is true only when X is true"
+        },
+        {
+          "id": "c",
+          "text": "The final column is false in exactly one row"
+        },
+        {
+          "id": "d",
+          "text": "The final column matches the column for X → Y"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "A tautology is true under every assignment, so all four rows of the last column read T. That is what makes modus ponens a rule rather than a contingent claim."
+    },
+    {
+      "id": 49,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Valid Inference: The Logic of Scientific Claims",
+      "type": "single",
+      "prompt": "Modus tollens is glossed as 'the way of denying'. With a theory P → Q, observing ¬Q licenses which conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "¬P"
+        },
+        {
+          "id": "b",
+          "text": "P"
+        },
+        {
+          "id": "c",
+          "text": "Q"
+        },
+        {
+          "id": "d",
+          "text": "Nothing at all"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "If the theory implies the effect and the effect is absent, the cause must have been absent too."
+    },
+    {
+      "id": 50,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Inference Rules in a Social Psychology Experiment",
+      "type": "single",
+      "prompt": "With hypothesis H₁: P → Q, assigning a subject to the treatment group establishes P. Predicting that they show Q uses which rule?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Modus ponens"
+        },
+        {
+          "id": "b",
+          "text": "Modus tollens"
+        },
+        {
+          "id": "c",
+          "text": "Disjunctive syllogism"
+        },
+        {
+          "id": "d",
+          "text": "Proof by counterexample"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide calls this the logic of the treatment group and the core of experimental prediction: from P → Q and P, infer Q."
+    },
+    {
+      "id": 51,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Inference Rules in a Social Psychology Experiment",
+      "type": "single",
+      "prompt": "According to the slides, what does it mean if a subject in the treatment group does not show individualistic behaviour?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is evidence against the hypothesis"
+        },
+        {
+          "id": "b",
+          "text": "It confirms the hypothesis"
+        },
+        {
+          "id": "c",
+          "text": "It tells us nothing either way"
+        },
+        {
+          "id": "d",
+          "text": "It proves the manipulation failed"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide notes that ¬Q in a control subject lets us infer ¬P, confirming the manipulation, but that ¬Q in a treated subject is, more powerfully, evidence against the hypothesis itself."
+    },
+    {
+      "id": 52,
+      "section": "Propositional and Predicate Logic",
+      "slide": "Inference Rules in a Social Psychology Experiment",
+      "type": "single",
+      "prompt": "Given P → Q (money prime causes individualism) and Q → R (individualism reduces help-seeking), what new testable hypothesis do the slides derive?",
+      "options": [
+        {
+          "id": "a",
+          "text": "P → R"
+        },
+        {
+          "id": "b",
+          "text": "R → P"
+        },
+        {
+          "id": "c",
+          "text": "Q → P"
+        },
+        {
+          "id": "d",
+          "text": "¬P → ¬R"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Chaining the two implications by hypothetical syllogism yields P → R: priming with money will cause subjects to seek less help."
+    },
+    {
+      "id": 53,
+      "section": "Sets",
+      "slide": "Introduction to Sets",
+      "type": "single",
+      "prompt": "What does the set-builder expression A = {x ∈ ℕ | x is even} denote?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The set of all even natural numbers"
+        },
+        {
+          "id": "b",
+          "text": "The set containing the single element 'x is even'"
+        },
+        {
+          "id": "c",
+          "text": "The natural numbers together with the even numbers"
+        },
+        {
+          "id": "d",
+          "text": "The set of all natural numbers"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Set-builder notation specifies the properties elements must satisfy: take x from ℕ, keep those that are even."
+    },
+    {
+      "id": 54,
+      "section": "Sets",
+      "slide": "Equality of Sets and Subset",
+      "type": "single",
+      "prompt": "The slides give a route to proving A = B. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Show A ⊆ B and B ⊆ A"
+        },
+        {
+          "id": "b",
+          "text": "Show A ⊆ B"
+        },
+        {
+          "id": "c",
+          "text": "Show A ∩ B ≠ ∅"
+        },
+        {
+          "id": "d",
+          "text": "Show A and B have the same number of elements"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Equality is ∀x (x ∈ A ⇔ x ∈ B), and the slide notes that if A ⊆ B and B ⊆ A then A = B. This double-inclusion strategy is exactly what the De Morgan proof later uses."
+    },
+    {
+      "id": 55,
+      "section": "Sets",
+      "slide": "Equality of Sets and Subset",
+      "type": "single",
+      "prompt": "Which formalisation of 'A is a subset of B' do the slides give?",
+      "options": [
+        {
+          "id": "a",
+          "text": "∀x (x ∈ A → x ∈ B)"
+        },
+        {
+          "id": "b",
+          "text": "∀x (x ∈ A ⇔ x ∈ B)"
+        },
+        {
+          "id": "c",
+          "text": "∃x (x ∈ A ∧ x ∈ B)"
+        },
+        {
+          "id": "d",
+          "text": "∀x (x ∈ B → x ∈ A)"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Subset is a one-directional implication. The biconditional version is set equality, and reversing the arrow gives B ⊆ A."
+    },
+    {
+      "id": 56,
+      "section": "Sets",
+      "slide": "Important Sets",
+      "type": "multi",
+      "prompt": "Select every true statement about the special sets introduced.",
+      "options": [
+        {
+          "id": "a",
+          "text": "∅ is a subset of every set"
+        },
+        {
+          "id": "b",
+          "text": "℘(A) has 2^|A| elements"
+        },
+        {
+          "id": "c",
+          "text": "A singleton set contains exactly one element"
+        },
+        {
+          "id": "d",
+          "text": "The universal set is a subset of every other set"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The relationship runs the other way for the universal set: all other sets are subsets of U, since it contains everything under consideration."
+    },
+    {
+      "id": 57,
+      "section": "Sets",
+      "slide": "Important Sets",
+      "type": "single",
+      "prompt": "If A = {1, 2}, how many elements does the power set ℘(A) have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "℘(A) = {∅, {1}, {2}, {1,2}}, and in general |℘(A)| = 2^|A| = 2² = 4."
+    },
+    {
+      "id": 58,
+      "section": "Sets",
+      "slide": "Operations on Sets",
+      "type": "multi",
+      "prompt": "Using the definitions on the operations slide, select every correct one.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A ∪ B = {x : x ∈ A or x ∈ B}"
+        },
+        {
+          "id": "b",
+          "text": "A ∩ B = {x : x ∈ A and x ∈ B}"
+        },
+        {
+          "id": "c",
+          "text": "Aᶜ = {x : x ∉ A}"
+        },
+        {
+          "id": "d",
+          "text": "A \\ B = {x : x ∈ A and x ∈ B}"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The difference requires x ∈ A and x ∉ B. As written, that option describes the intersection instead."
+    },
+    {
+      "id": 59,
+      "section": "Sets",
+      "slide": "Properties of Sets",
+      "type": "single",
+      "prompt": "Which identity do the slides list under distributivity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)"
+        },
+        {
+          "id": "b",
+          "text": "(A ∪ B) ∪ C = A ∪ (B ∪ C)"
+        },
+        {
+          "id": "c",
+          "text": "A ∪ B = B ∪ A"
+        },
+        {
+          "id": "d",
+          "text": "(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The other three are, in order, associativity, commutativity and De Morgan's law, each listed separately on the same slide."
+    },
+    {
+      "id": 60,
+      "section": "Sets",
+      "slide": "Properties of Sets",
+      "type": "single",
+      "prompt": "De Morgan's laws for sets state that (A ∩ B)ᶜ equals:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aᶜ ∪ Bᶜ"
+        },
+        {
+          "id": "b",
+          "text": "Aᶜ ∩ Bᶜ"
+        },
+        {
+          "id": "c",
+          "text": "A ∪ B"
+        },
+        {
+          "id": "d",
+          "text": "(A ∪ B)ᶜ"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Complementing an intersection turns it into a union of complements, mirroring ¬(p ∧ q) ≡ ¬p ∨ ¬q in logic."
+    },
+    {
+      "id": 61,
+      "section": "Sets",
+      "slide": "Proof of De Morgan's Law for Sets",
+      "type": "single",
+      "prompt": "How does the proof of (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ establish the equality?",
+      "options": [
+        {
+          "id": "a",
+          "text": "By showing each side is a subset of the other"
+        },
+        {
+          "id": "b",
+          "text": "By constructing a truth table"
+        },
+        {
+          "id": "c",
+          "text": "By exhibiting a counterexample"
+        },
+        {
+          "id": "d",
+          "text": "By induction on the size of A"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "It takes an arbitrary x in the left side and derives membership in the right, giving one inclusion, then runs the argument in reverse for the other. Two inclusions give equality."
+    },
+    {
+      "id": 62,
+      "section": "Applications",
+      "slide": "Number Sets",
+      "type": "multi",
+      "prompt": "Select every accurate description from the number sets slide.",
+      "options": [
+        {
+          "id": "a",
+          "text": "ℕ is the positive integers from 1 upwards, sometimes including 0"
+        },
+        {
+          "id": "b",
+          "text": "ℤ is all positive and negative whole numbers, including zero"
+        },
+        {
+          "id": "c",
+          "text": "ℝ covers all decimal values, rational and irrational alike"
+        },
+        {
+          "id": "d",
+          "text": "ℂ consists of numbers a + bi where i² = 1"
+        }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Complex numbers are defined with i² = −1, not +1. The other three match the slide."
+    },
+    {
+      "id": 63,
+      "section": "Applications",
+      "slide": "Number Sets",
+      "type": "single",
+      "prompt": "Which set is defined as the numbers expressible as a fraction a/b?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ℚ, the rationals"
+        },
+        {
+          "id": "b",
+          "text": "ℤ, the integers"
+        },
+        {
+          "id": "c",
+          "text": "ℝ, the reals"
+        },
+        {
+          "id": "d",
+          "text": "ℂ, the complex numbers"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "That definition is what makes 'being rational' a necessary condition for 'being an integer' in the earlier example: every integer n is n/1."
+    },
+    {
+      "id": 64,
+      "section": "Applications",
+      "slide": "Sets in Probability Theory",
+      "type": "single",
+      "prompt": "In the set-theoretic treatment of probability, the sample space S is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "The set of all possible outcomes of the experiment"
+        },
+        {
+          "id": "b",
+          "text": "A single outcome of the experiment"
+        },
+        {
+          "id": "c",
+          "text": "The set of outcomes we happen to observe"
+        },
+        {
+          "id": "d",
+          "text": "The probability assigned to an outcome"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "For a coin toss S = {Heads, Tails}, and the event 'getting Heads' is the subset E = {Heads}."
+    },
+    {
+      "id": 65,
+      "section": "Applications",
+      "slide": "Sample Space and Events",
+      "type": "single",
+      "prompt": "Which set-theoretic object does the sample space play the role of?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The universal set"
+        },
+        {
+          "id": "b",
+          "text": "The empty set"
+        },
+        {
+          "id": "c",
+          "text": "A power set"
+        },
+        {
+          "id": "d",
+          "text": "A singleton set"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The slide says S is a universal set in the context of a probabilistic experiment, which is why every event, as a subset of S, is well defined."
+    },
+    {
+      "id": 66,
+      "section": "Applications",
+      "slide": "Sample Space and Events",
+      "type": "single",
+      "prompt": "An event is defined as:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Any subset of the sample space"
+        },
+        {
+          "id": "b",
+          "text": "Any element of the sample space"
+        },
+        {
+          "id": "c",
+          "text": "Any set containing the sample space"
+        },
+        {
+          "id": "d",
+          "text": "Any set disjoint from the sample space"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "For a die roll, E₁ = {2, 4, 6} and E₂ = {1, 2, 3} are events precisely because they are subsets of S = {1,...,6}."
+    },
+    {
+      "id": 67,
+      "section": "Applications",
+      "slide": "Union and Intersection of Events",
+      "type": "multi",
+      "prompt": "For a die roll with A = {1, 2, 3} and B = {2, 4, 6}, select every correct result.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A ∪ B = {1, 2, 3, 4, 6}"
+        },
+        {
+          "id": "b",
+          "text": "A ∩ B = {2}"
+        },
+        {
+          "id": "c",
+          "text": "A ∪ B = {1, 2, 3, 4, 5, 6}"
+        },
+        {
+          "id": "d",
+          "text": "A ∩ B = ∅"
+        }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "The union collects everything in either event, and 5 belongs to neither, so it is absent. The intersection keeps only 2, which is the sole outcome in both."
+    },
+    {
+      "id": 68,
+      "section": "Applications",
+      "slide": "Mutually Exclusive Events in Probability",
+      "type": "single",
+      "prompt": "Rolling an even number, A = {2,4,6}, and rolling an odd number, B = {1,3,5}, are mutually exclusive. What makes them so?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A ∩ B = ∅"
+        },
+        {
+          "id": "b",
+          "text": "A ∪ B = S"
+        },
+        {
+          "id": "c",
+          "text": "A and B have the same number of elements"
+        },
+        {
+          "id": "d",
+          "text": "Aᶜ = B"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "Mutual exclusivity is empty intersection: the events cannot occur together on a single roll. Here Aᶜ does happen to equal B, but that is exhaustiveness rather than the definition of exclusivity."
+    },
+    {
+      "id": 69,
+      "section": "Applications",
+      "slide": "Cartesian Product and Strategy Profiles",
+      "type": "single",
+      "prompt": "With strategy set S = {C, D} for each of two prisoners, how many strategy profiles does S₁ × S₂ contain?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "answer": ["a"],
+      "explanation": "The Cartesian product pairs each of 2 strategies with each of 2 others: {(C,C), (C,D), (D,C), (D,D)}."
+    },
+    {
+      "id": 70,
+      "section": "Applications",
+      "slide": "Cartesian Product and Strategy Profiles",
+      "type": "truefalse",
+      "prompt": "In the strategy profile (D, C), both prisoners defect.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "answer": ["b"],
+      "explanation": "Ordered pairs carry the players' identities: (D, C) means prisoner 1 defects while prisoner 2 cooperates. Both defecting is (D, D)."
+    }
+  ]
+}

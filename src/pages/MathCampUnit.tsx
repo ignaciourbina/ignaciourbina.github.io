@@ -1,10 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Download } from 'lucide-react'
-import { getMathCampUnit } from '../content'
+import { ArrowLeft, ArrowRight, Download, ClipboardCheck } from 'lucide-react'
+import { getMathCampQuiz, getMathCampUnit } from '../content'
 
 export default function MathCampUnit() {
   const { unitId } = useParams<{ unitId: string }>()
   const unit = unitId ? getMathCampUnit(unitId) : undefined
+  const quiz = unitId ? getMathCampQuiz(unitId) : undefined
 
   if (!unit) {
     return (
@@ -53,10 +54,33 @@ export default function MathCampUnit() {
         </div>
       )}
 
+      {quiz && (
+        <Link
+          to={`/math-camp/${unit.id}/self-assessment`}
+          className="group bg-ink text-white rounded-lg p-6 mb-10 flex items-start gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card-hover"
+        >
+          <ClipboardCheck size={22} className="shrink-0 mt-0.5 text-green" />
+          <div className="min-w-0 flex-1">
+            <h2 className="font-bold text-lg mb-1">Self-assessment</h2>
+            <p className="text-white/70 text-sm leading-relaxed mb-3">
+              {quiz.questions.length} questions drawn from the slides of this unit — multiple
+              choice, true or false, and select all that apply. Answers and justifications come
+              after you submit.
+            </p>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green">
+              Start
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </Link>
+      )}
+
       {unit.graphs.length === 0 ? (
-        <div className="border border-line rounded-lg p-12 text-center">
-          <p className="text-muted">Interactive material for this unit has not been built yet.</p>
-        </div>
+        quiz ? null : (
+          <div className="border border-line rounded-lg p-12 text-center">
+            <p className="text-muted">Interactive material for this unit has not been built yet.</p>
+          </div>
+        )
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {unit.graphs.map((graph) => (

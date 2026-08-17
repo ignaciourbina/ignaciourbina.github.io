@@ -9,6 +9,7 @@ import researchContent from './research.json'
 import teachingContent from './teaching.json'
 import conferencesContent from './conferences.json'
 import mathcampContent from './mathcamp.json'
+import quiz11 from './quizzes/1-1-logic-and-sets.json'
 
 export interface Presentation {
   slug: string
@@ -29,6 +30,31 @@ export interface MathCampGraph {
 export interface MathCampSlides {
   url: string
   pages: number
+}
+
+export interface QuizOption {
+  id: string
+  text: string
+}
+
+export interface QuizQuestion {
+  id: number
+  section: string
+  slide: string
+  type: 'single' | 'truefalse' | 'multi'
+  prompt: string
+  options: QuizOption[]
+  answer: string[]
+  explanation: string
+}
+
+export interface MathCampQuiz {
+  unitId: string
+  title: string
+  subtitle: string
+  intro: string
+  questions: QuizQuestion[]
+  sections: string[]
 }
 
 export interface MathCampUnit {
@@ -66,6 +92,22 @@ export type ResearchContent = typeof researchContent
 export type TeachingContent = typeof teachingContent
 export type ConferencesContent = typeof conferencesContent
 export type MathCampContent = typeof mathcampContent
+
+// Self-assessments, keyed by unit id. Sections are derived from the questions
+// so the order on the results page always matches the order they are asked in.
+const rawQuizzes = [quiz11]
+export const mathcampQuizzes: Record<string, MathCampQuiz> = Object.fromEntries(
+  rawQuizzes.map((quiz) => [
+    quiz.unitId,
+    {
+      ...quiz,
+      questions: quiz.questions as QuizQuestion[],
+      sections: [...new Set(quiz.questions.map((q) => q.section))],
+    },
+  ])
+)
+
+export const getMathCampQuiz = (unitId: string): MathCampQuiz | undefined => mathcampQuizzes[unitId]
 
 // Helper to find a math camp unit by its id
 export const getMathCampUnit = (unitId: string) => mathcamp.units.find((unit) => unit.id === unitId)

@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download } from 'lucide-react'
-import { mathcamp, type MathCampUnit } from '../content'
+import { getMathCampQuiz, mathcamp, type MathCampUnit } from '../content'
 
 function UnitCard({ unit }: { unit: MathCampUnit }) {
   const count = unit.graphs.length
+  const quiz = getMathCampQuiz(unit.id)
 
   // Units without interactive material get no page of their own; the slides
   // are offered straight from the card instead.
-  if (count === 0) {
+  if (count === 0 && !quiz) {
     return (
       <div className="bg-panel border border-line rounded-lg p-6 flex flex-col">
         <div className="opacity-60">
@@ -43,7 +44,9 @@ function UnitCard({ unit }: { unit: MathCampUnit }) {
           Unit {unit.number}
         </span>
         <span className="text-xs text-muted-light shrink-0">
-          Slides &middot; {count} {count === 1 ? 'graph' : 'graphs'}
+          Slides
+          {count > 0 && ` \u00b7 ${count} ${count === 1 ? 'graph' : 'graphs'}`}
+          {quiz && ` \u00b7 ${quiz.questions.length} questions`}
         </span>
       </div>
       <h2 className="text-ink font-bold text-lg mb-2 group-hover:text-green transition-colors">
