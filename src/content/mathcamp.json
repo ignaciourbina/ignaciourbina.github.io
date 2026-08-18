@@ -201,9 +201,22 @@
       "description": "The derivative, rules of differentiation, optimization, and finding extrema in one dimension.",
       "slides": {
         "url": "/files/math-camp/2-derivatives.pdf",
-        "pages": 54
+        "pages": 58
       },
-      "graphs": []
+      "graphs": [
+        {
+          "slug": "closed-form-minimization",
+          "title": "Closed-form minimization of (3x − 2)²",
+          "expression": "f(x) = (3x − 2)²",
+          "description": "Drag the slider to move the tangent point along the parabola: the tangent visibly flattens exactly at the vertex, where f′(x) = 18x − 12 crosses zero. The minimizer x* = 2/3 is solved symbolically in the build, never typed in."
+        },
+        {
+          "slug": "newton-raphson",
+          "title": "Newton–Raphson root finding",
+          "expression": "xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ)",
+          "description": "Step the slider to walk Newton's method down its tangent staircase toward the root of f′(x) = x·eˣ − 16, the first-order condition from the lecture's extremum problem. Every iterate and the limit W(16) are computed and checked in the build."
+        }
+      ]
     },
     {
       "id": "3-integrals",
@@ -212,7 +225,7 @@
       "description": "Integration motivated through probability: sample spaces and random variables, discrete versus continuous distributions, the relationship between the density and the CDF, and Riemann sums as approximations of area.",
       "slides": {
         "url": "/files/math-camp/3-integrals.pdf",
-        "pages": 36
+        "pages": 42
       },
       "graphs": []
     },
