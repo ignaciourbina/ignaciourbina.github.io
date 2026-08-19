@@ -1,8 +1,15 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ChevronDown, Eye, RotateCcw } from 'lucide-react'
+import katex from 'katex'
+import 'katex/dist/katex.min.css'
 import { getMathCampPractice, getMathCampUnit } from '../content'
 import type { PracticeExercise } from '../content'
+
+function Math({ tex, className }: { tex: string; className?: string }) {
+  const html = katex.renderToString(tex, { throwOnError: false, output: 'html' })
+  return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />
+}
 
 function ExerciseCard({ exercise, index }: { exercise: PracticeExercise; index: number }) {
   const [open, setOpen] = useState(false)
@@ -17,7 +24,9 @@ function ExerciseCard({ exercise, index }: { exercise: PracticeExercise; index: 
         className="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-green-soft/30 transition-colors"
       >
         <span className="text-xs font-bold text-muted-light w-5 shrink-0">{index + 1}</span>
-        <span className="font-mono text-ink font-medium flex-1">{exercise.prompt}</span>
+        <span className="text-ink font-medium flex-1">
+          <Math tex={exercise.prompt} />
+        </span>
         <span className="text-xs text-muted hidden sm:block">{exercise.rule}</span>
         <ChevronDown
           size={16}
@@ -32,7 +41,9 @@ function ExerciseCard({ exercise, index }: { exercise: PracticeExercise; index: 
               <li key={i} className="flex gap-4">
                 <span className="text-xs font-bold text-green w-4 shrink-0 mt-1">{i + 1}</span>
                 <div className="min-w-0">
-                  <p className="font-mono text-sm text-ink">{step.math}</p>
+                  <p className="text-sm text-ink">
+                    <Math tex={step.math} />
+                  </p>
                   {step.note && <p className="text-muted text-xs mt-0.5">{step.note}</p>}
                 </div>
               </li>

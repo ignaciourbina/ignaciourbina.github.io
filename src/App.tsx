@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -12,7 +13,7 @@ import MathCamp from './pages/MathCamp'
 import MathCampUnit from './pages/MathCampUnit'
 import MathCampViewer from './pages/MathCampViewer'
 import MathCampQuiz from './pages/MathCampQuiz'
-import MathCampPractice from './pages/MathCampPractice'
+const MathCampPractice = lazy(() => import('./pages/MathCampPractice'))
 
 function App() {
   return (
@@ -25,7 +26,14 @@ function App() {
         <Route path="math-camp" element={<MathCamp />} />
         <Route path="math-camp/:unitId" element={<MathCampUnit />} />
         <Route path="math-camp/:unitId/self-assessment" element={<MathCampQuiz />} />
-        <Route path="math-camp/:unitId/practice" element={<MathCampPractice />} />
+        <Route
+          path="math-camp/:unitId/practice"
+          element={
+            <Suspense fallback={null}>
+              <MathCampPractice />
+            </Suspense>
+          }
+        />
         <Route path="math-camp/:unitId/:slug" element={<MathCampViewer />} />
         <Route path="conferences" element={<Conferences />} />
         <Route path="conferences/:slug" element={<ConferenceViewer />} />
