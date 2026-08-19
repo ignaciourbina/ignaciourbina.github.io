@@ -16,7 +16,7 @@
       "description": "Propositional and predicate logic, set operations, and applications to social science.",
       "slides": {
         "url": "/files/math-camp/1-1-logic-and-sets.pdf",
-        "pages": 49
+        "pages": 51
       },
       "graphs": []
     },
@@ -27,7 +27,7 @@
       "description": "Relations, the vertical-line test, composition and inverses, polynomial roots, logarithms and exponentials, and monotonicity.",
       "slides": {
         "url": "/files/math-camp/1-2-functions.pdf",
-        "pages": 36
+        "pages": 40
       },
       "graphs": [
         {
