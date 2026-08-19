@@ -118,6 +118,27 @@ export default function About() {
         ))}
       </div>
 
+      {/* Useful Links */}
+      <SectionHeader kicker="Links">{about.usefulLinks.title}</SectionHeader>
+      <ul className="space-y-0 mb-10">
+        {about.usefulLinks.items.map((link, index) => (
+          <li
+            key={index}
+            className={`py-3 ${index < about.usefulLinks.items.length - 1 ? 'border-b border-line' : ''}`}
+          >
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green font-medium hover:text-green-hover transition-colors"
+            >
+              {link.title}
+            </a>
+            <span className="text-muted"> — {link.description}</span>
+          </li>
+        ))}
+      </ul>
+
       {/* CV */}
       <SectionHeader kicker="Download">CV</SectionHeader>
       <p className="text-muted mb-6">Download my full curriculum vitae:</p>

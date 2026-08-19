@@ -104,6 +104,16 @@
       }
     ]
   },
+  "usefulLinks": {
+    "title": "Useful Links",
+    "items": [
+      {
+        "title": "Stony Brook Dissertations & Theses (ProQuest)",
+        "url": "https://www.proquest.com/pqdtlocal1007355/index?accountid=14172",
+        "description": "Full-text repository of Stony Brook University dissertations. Inside, filter to \"Doctoral dissertations\" and the Political Science department."
+      }
+    ]
+  },
   "contact": {
     "title": "Contact",
     "intro": "Email is the best way to reach me. I'm open to collaboration on research tools.",
