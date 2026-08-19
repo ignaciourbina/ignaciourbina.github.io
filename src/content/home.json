@@ -1,7 +1,7 @@
 {
   "hero": {
-    "greeting": "Welcome — I'm Ignacio Urbina",
-    "introduction": "I'm a Ph.D. candidate in political science studying how **citizens form beliefs and attitudes about AI**, and how this impacts their **political behavior and preferences for government policies**. I'm passionate about building tools for research and teaching. In my work, I combine statistical modeling, causal inference, experimental methods, and computational simulations.",
+    "greeting": "Ignacio Urbina",
+    "introduction": "Welcome! I'm a Ph.D. candidate in political science studying how **citizens form beliefs and attitudes about AI**, and how this impacts their **political behavior and preferences for government policies**. I'm passionate about building tools for research and teaching. In my work, I combine statistical modeling, causal inference, experimental methods, and computational simulations.",
     "buttons": {
       "primary": {
         "label": "View Tools",
