@@ -35,6 +35,22 @@
           "Automatic lavaan syntax generation",
           "Export to R script"
         ]
+      },
+      {
+        "id": "markdown-diff",
+        "title": "Markdown Diff",
+        "description": "Compare two Markdown documents in the browser. Both are normalized first — line endings, whitespace, heading and list formatting — so formatting noise does not read as change.",
+        "tags": ["Writing", "Diff", "Markdown", "TypeScript", "Client-side"],
+        "status": "live",
+        "featured": false,
+        "launchUrl": "https://ignaciourbina.github.io/markdown-diff/",
+        "githubUrl": "https://github.com/ignaciourbina/markdown-diff",
+        "features": [
+          "Normalization pipeline with per-step toggles",
+          "Line diffs with token-level highlights",
+          "Unified diff and downloadable report",
+          "Runs entirely client-side"
+        ]
       }
     ],
     "teaching": [
