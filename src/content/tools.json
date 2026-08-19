@@ -2,7 +2,7 @@
   "page": {
     "title": "Tools",
     "subtitle": "Interactive applications for research and teaching",
-    "description": "A collection of open-source tools I've built to support research methodology and teaching. All tools are free to use and hosted on GitHub."
+    "description": "Open-source tools for research methodology and teaching. Code on GitHub."
   },
   "sections": {
     "research": {
@@ -13,7 +13,7 @@
     },
     "suggest": {
       "title": "Suggest a Tool",
-      "description": "Have an idea for a research or teaching tool? I'm always looking for new projects that can help researchers and students.",
+      "description": "Have an idea for a research or teaching tool?",
       "buttonLabel": "Open an Issue on GitHub",
       "buttonUrl": "https://github.com/ignaciourbina/ignaciourbina.github.io/issues"
     }

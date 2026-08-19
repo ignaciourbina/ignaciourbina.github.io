@@ -1,7 +1,6 @@
 {
   "page": {
-    "title": "About",
-    "subtitle": "Researcher · Tool Builder · Educator"
+    "title": "About"
   },
   "profile": {
     "initials": "IU",
@@ -9,7 +8,7 @@
     "cvUrl": "/files/cv-2026.pdf"
   },
   "bio": {
-    "intro": "I am a political scientist studying how citizens form beliefs and attitudes about AI, and how this impacts their political behavior and preferences for government policies. My research sits at the intersection of political behavior, public opinion, political economy, and computational social science, combining experimental methods with computational modeling.",
+    "intro": "I am a Ph.D. candidate in political science studying how citizens form beliefs and attitudes about AI, and how this impacts their political behavior and preferences for government policies. My research sits at the intersection of political behavior, public opinion, political economy, and computational social science, combining experimental methods with computational modeling.",
     "researchInterests": {
       "title": "My research interests include:",
       "items": [
@@ -34,10 +33,9 @@
   },
   "whatIBuild": {
     "title": "What I Build",
-    "intro": "I create interactive tools that help researchers and students build intuition for quantitative methods. My teaching philosophy centers on helping students who did not expect to succeed at quantitative methods discover that they can.",
     "items": [
-      "**20+ interactive learning tools** built with JavaScript to help students visualize statistical concepts",
-      "**Behavioral experiment platforms** using oTree for research",
+      "**Interactive learning tools** built with JavaScript",
+      "**oTree experiment software** — including the lab session tools (bpel-station-reset-tool, bpel-participant-portal) and otree-aicoop",
       "**Causal modeling tools** for specifying and exporting SEM models",
       "**Teaching resources** for quantitative methods courses"
     ],
@@ -108,7 +106,7 @@
   },
   "contact": {
     "title": "Contact",
-    "intro": "The best way to reach me is by email. I'm also active on GitHub and open to collaboration on research tools.",
+    "intro": "Email is the best way to reach me. I'm open to collaboration on research tools.",
     "email": "ignacio.urbina@stonybrook.edu",
     "github": {
       "username": "ignaciourbina",

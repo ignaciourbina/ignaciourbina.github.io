@@ -19,9 +19,6 @@ export default function About() {
           {about.profile.initials}
         </div>
         <div className="text-center md:text-left">
-          <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
-            {about.page.subtitle}
-          </span>
           <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-4">{about.page.title}</h1>
           <div className="flex flex-wrap gap-2 justify-center md:justify-start">
             {socialLinks.map((link) => (
@@ -57,7 +54,6 @@ export default function About() {
 
       {/* What I Build */}
       <SectionHeader kicker="Work">{about.whatIBuild.title}</SectionHeader>
-      <p className="text-muted mb-4 leading-relaxed">{about.whatIBuild.intro}</p>
       <ul className="space-y-2 mb-4">
         {about.whatIBuild.items.map((item, index) => (
           <li key={index} className="flex items-start gap-3 text-muted">

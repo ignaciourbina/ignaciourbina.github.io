@@ -22,10 +22,7 @@ export default function Teaching() {
 
       <div className="bg-green-soft/50 border border-green/15 rounded-lg p-6 mb-8">
         <h4 className="text-lg font-bold text-ink mb-2">Interactive Visualizations</h4>
-        <p className="text-muted mb-4">
-          A suite of interactive tools and visualizations is available online to bring statistical
-          concepts to life.
-        </p>
+        <p className="text-muted mb-4">{teaching.sections.curatedMaterials.demoNote}</p>
         <a
           href={teaching.sections.curatedMaterials.liveDemoUrl}
           target="_blank"
@@ -41,7 +38,6 @@ export default function Teaching() {
         {teaching.sections.curatedMaterials.contents.map((item) => (
           <div key={item.label} className="group relative">
             <div className="flex items-center gap-2 px-3 py-2.5 bg-panel border border-line rounded-lg cursor-help hover:border-green/30 transition-colors">
-              <span>{item.icon}</span>
               <span className="text-sm text-ink font-medium">{item.label}</span>
             </div>
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-ink text-white text-xs rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-10">
