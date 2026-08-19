@@ -1,11 +1,12 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Download, ClipboardCheck } from 'lucide-react'
-import { getMathCampQuiz, getMathCampUnit } from '../content'
+import { ArrowLeft, ArrowRight, Download, ClipboardCheck, PenLine } from 'lucide-react'
+import { getMathCampPractice, getMathCampQuiz, getMathCampUnit } from '../content'
 
 export default function MathCampUnit() {
   const { unitId } = useParams<{ unitId: string }>()
   const unit = unitId ? getMathCampUnit(unitId) : undefined
   const quiz = unitId ? getMathCampQuiz(unitId) : undefined
+  const practice = unitId ? getMathCampPractice(unitId) : undefined
 
   if (!unit) {
     return (
@@ -71,6 +72,27 @@ export default function MathCampUnit() {
             </p>
             <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green">
               Start
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </Link>
+      )}
+
+      {practice && (
+        <Link
+          to={`/math-camp/${unit.id}/practice`}
+          className="group bg-panel border border-line rounded-lg p-6 mb-10 flex items-start gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card-hover hover:border-green/30"
+        >
+          <PenLine size={22} className="shrink-0 mt-0.5 text-green" />
+          <div className="min-w-0 flex-1">
+            <h2 className="font-bold text-lg mb-1 text-ink group-hover:text-green transition-colors">
+              {practice.title}
+            </h2>
+            <p className="text-muted text-sm leading-relaxed mb-3">
+              {practice.description} {practice.source}
+            </p>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green">
+              Open the {practice.exercises.length} problems
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
             </span>
           </div>

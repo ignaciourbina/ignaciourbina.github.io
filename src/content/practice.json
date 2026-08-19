@@ -1,0 +1,117 @@
+{
+  "2-derivatives": {
+    "title": "Worked exercises: rules of differentiation",
+    "source": "From the Exercise slide (p. 20), applying the rules on p. 19.",
+    "description": "The seven problems from the lecture, each solved one step at a time. Try the problem on paper first, then reveal the steps.",
+    "exercises": [
+      {
+        "id": "x-squared",
+        "prompt": "d/dx x²",
+        "rule": "Power rule",
+        "steps": [
+          { "math": "d/dx xⁿ = n·xⁿ⁻¹", "note": "The power rule, with n = 2." },
+          {
+            "math": "d/dx x² = 2·x²⁻¹",
+            "note": "Bring the exponent down as a factor, then subtract one from it."
+          },
+          { "math": "= 2x", "note": "The slope of the parabola at any point x." }
+        ]
+      },
+      {
+        "id": "three-x-cubed",
+        "prompt": "d/dx 3x³",
+        "rule": "Constant multiple + power rule",
+        "steps": [
+          { "math": "[k·f(x)]′ = k·f′(x)", "note": "Constants ride along untouched." },
+          {
+            "math": "d/dx 3x³ = 3 · d/dx x³ = 3 · 3x²",
+            "note": "Apply the power rule inside, with n = 3."
+          },
+          { "math": "= 9x²", "note": null }
+        ]
+      },
+      {
+        "id": "x",
+        "prompt": "d/dx x",
+        "rule": "Power rule",
+        "steps": [
+          { "math": "x = x¹", "note": "Rewrite so the power rule applies." },
+          { "math": "d/dx x¹ = 1·x⁰ = 1·1", "note": "Any nonzero number to the power 0 is 1." },
+          { "math": "= 1", "note": "A line with slope 1 everywhere — which is what y = x is." }
+        ]
+      },
+      {
+        "id": "constant",
+        "prompt": "d/dx 5",
+        "rule": "Constant",
+        "steps": [
+          {
+            "math": "y = 5 is a horizontal line",
+            "note": "A constant does not change as x changes."
+          },
+          {
+            "math": "= 0",
+            "note": "No change means zero rate of change. The derivative of any constant is 0."
+          }
+        ]
+      },
+      {
+        "id": "sqrt-x",
+        "prompt": "d/dx √x",
+        "rule": "Power rule, fractional exponent",
+        "steps": [
+          {
+            "math": "√x = x^(1/2)",
+            "note": "Rewrite the root as a power so the power rule applies."
+          },
+          {
+            "math": "d/dx x^(1/2) = (1/2)·x^(1/2 − 1) = (1/2)·x^(−1/2)",
+            "note": "Same rule as before — n need not be a whole number."
+          },
+          { "math": "= 1 / (2√x)", "note": "A negative exponent is a reciprocal: x^(−1/2) = 1/√x." }
+        ]
+      },
+      {
+        "id": "sum",
+        "prompt": "d/dx (3x⁴ + 3x)",
+        "rule": "Sum rule",
+        "steps": [
+          {
+            "math": "[f(x) + g(x)]′ = f′(x) + g′(x)",
+            "note": "The derivative is a linear operator: differentiate term by term."
+          },
+          {
+            "math": "d/dx 3x⁴ + d/dx 3x = 12x³ + 3",
+            "note": "Power rule on each term, constants riding along."
+          },
+          { "math": "= 12x³ + 3", "note": null }
+        ]
+      },
+      {
+        "id": "product",
+        "prompt": "d/dx (3x² − 3)(4x³ − 2x)",
+        "rule": "Product rule",
+        "steps": [
+          {
+            "math": "[f(x)·g(x)]′ = f′(x)g(x) + f(x)g′(x)",
+            "note": "Not the product of the derivatives — each factor takes its turn being differentiated."
+          },
+          { "math": "f(x) = 3x² − 3  →  f′(x) = 6x", "note": "Differentiate the first factor." },
+          {
+            "math": "g(x) = 4x³ − 2x  →  g′(x) = 12x² − 2",
+            "note": "Differentiate the second factor."
+          },
+          {
+            "math": "= 6x·(4x³ − 2x) + (3x² − 3)·(12x² − 2)",
+            "note": "Substitute all four pieces into the rule."
+          },
+          { "math": "= 24x⁴ − 12x² + 36x⁴ − 42x² + 6", "note": "Expand both products." },
+          {
+            "math": "= 60x⁴ − 54x² + 6",
+            "note": "Check: expanding first gives 12x⁵ − 18x³ + 6x, whose derivative is the same."
+          }
+        ]
+      }
+    ]
+  }
+}

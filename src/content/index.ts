@@ -12,6 +12,7 @@ import mathcampContent from './mathcamp.json'
 import quiz11 from './quizzes/1-1-logic-and-sets.json'
 import quiz12 from './quizzes/1-2-functions.json'
 import quiz13 from './quizzes/1-3-limits-and-continuity.json'
+import practiceContent from './practice.json'
 
 export interface Presentation {
   slug: string
@@ -125,6 +126,33 @@ export const mathcampQuizzes: Record<string, MathCampQuiz> = Object.fromEntries(
 )
 
 export const getMathCampQuiz = (unitId: string): MathCampQuiz | undefined => mathcampQuizzes[unitId]
+
+export interface PracticeStep {
+  math: string
+  note: string | null
+}
+
+export interface PracticeExercise {
+  id: string
+  prompt: string
+  rule: string
+  steps: PracticeStep[]
+}
+
+export interface MathCampPracticeSet {
+  title: string
+  source: string
+  description: string
+  exercises: PracticeExercise[]
+}
+
+export const mathcampPractice: Record<string, MathCampPracticeSet> = practiceContent as Record<
+  string,
+  MathCampPracticeSet
+>
+
+export const getMathCampPractice = (unitId: string): MathCampPracticeSet | undefined =>
+  mathcampPractice[unitId]
 
 // Helper to find a math camp unit by its id
 export const getMathCampUnit = (unitId: string) => mathcamp.units.find((unit) => unit.id === unitId)
