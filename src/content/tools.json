@@ -51,6 +51,22 @@
           "Unified diff and downloadable report",
           "Runs entirely client-side"
         ]
+      },
+      {
+        "id": "flow-editor",
+        "title": "Flow Editor",
+        "description": "Browser-based diagram editor for process flows, research pipelines, and data models. Drag typed nodes onto a canvas, connect them, and export the result as an image.",
+        "tags": ["Diagrams", "Research Design", "React", "Client-side"],
+        "status": "live",
+        "featured": false,
+        "launchUrl": "https://ignaciourbina.github.io/flow-editor/",
+        "githubUrl": "https://github.com/ignaciourbina/flow-editor",
+        "features": [
+          "Typed node palette, including research nodes (experiment, hypothesis, analysis)",
+          "Autosaves to browser storage",
+          "Image export",
+          "Runs entirely client-side"
+        ]
       }
     ],
     "teaching": [
