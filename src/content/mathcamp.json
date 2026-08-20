@@ -2,7 +2,11 @@
   "page": {
     "title": "PhD Math Camp",
     "subtitle": "Interactive companions to the math camp lectures",
-    "description": "A short, intensive review of the mathematics used in graduate political science methods. The units below follow the lecture sequence, and each one links to its slides. Where a unit also has interactive material, its figures are reproduced as live Desmos graphs with the parameters left free, so they can be moved during class."
+    "description": "A short, intensive review of the mathematics used in graduate political science methods. The units below follow the lecture sequence, and each one links to its slides. Where a unit also has interactive material, its figures are reproduced as live Desmos graphs with the parameters left free, so they can be moved during class.",
+    "syllabus": {
+      "url": "/files/math-camp/2026-math-camp-syllabus.pdf",
+      "pages": 4
+    }
   },
   "note": {
     "title": "How these are built",

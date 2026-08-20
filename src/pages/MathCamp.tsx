@@ -71,6 +71,15 @@ export default function MathCamp() {
         <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-3">{mathcamp.page.title}</h1>
         <p className="text-lg text-muted max-w-2xl mb-4">{mathcamp.page.subtitle}</p>
         <p className="text-muted max-w-2xl leading-relaxed">{mathcamp.page.description}</p>
+        <a
+          href={mathcamp.page.syllabus.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-lg font-semibold text-sm hover:bg-green-hover transition-colors shadow-sm mt-6"
+        >
+          <Download size={16} />
+          2026 syllabus (PDF, {mathcamp.page.syllabus.pages} pp)
+        </a>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
