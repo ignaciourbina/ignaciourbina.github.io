@@ -215,6 +215,42 @@
           "title": "Newton–Raphson root finding",
           "expression": "xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ)",
           "description": "Step the slider to walk Newton's method down its tangent staircase toward the root of f′(x) = x·eˣ − 16, the first-order condition from the lecture's extremum problem. Every iterate and the limit W(16) are computed and checked in the build."
+        },
+        {
+          "slug": "secant-to-tangent",
+          "title": "From secant to tangent",
+          "expression": "f(x) = x², slope = (f(b) − f(a))/(b − a)",
+          "description": "Drag b toward a and watch the secant slope walk to the tangent's. The label reports the secant slope live; at b = a it would be f′(a) = 2a, the dashed line already drawn."
+        },
+        {
+          "slug": "foc-critical-points",
+          "title": "The first-order condition",
+          "expression": "f(x) = x³ − 3x² + 7",
+          "description": "The function from the FOC slide with its two critical points marked. Slide the tangent point along the curve: the tangent flattens exactly at the maximum (0, 7) and the minimum (2, 3), and nowhere else."
+        },
+        {
+          "slug": "concavity-risk-aversion",
+          "title": "Concavity and risk aversion",
+          "expression": "u(x) = x^0.4",
+          "description": "The utility function from the risk-aversion slide. Move the two endpoints anywhere: the chord between them stays below the curve, which is the definition of strict concavity drawn rather than stated. The dashed curve is u′ — positive but falling."
+        },
+        {
+          "slug": "inflection-point",
+          "title": "An inflection point",
+          "expression": "f(x) = x³ + 1",
+          "description": "The second derivative changes sign at x = 0, and the picture shows what that means: slide the tangent point through the origin and the curve crosses from one side of its tangent to the other."
+        },
+        {
+          "slug": "mean-value-theorem",
+          "title": "The mean value theorem",
+          "expression": "f(x) = x³ − 3x² + 7 on [0, 4]",
+          "description": "The secant over [0, 4] has slope 4. Slide the tangent point until the dashed tangent runs parallel to it — that happens at c = (3 + √21)/3 ≈ 2.53, the point the theorem promises exists."
+        },
+        {
+          "slug": "taylor-sqrt",
+          "title": "Taylor approximation of √x",
+          "expression": "T₃(x) around a = 1",
+          "description": "The order slider adds one Taylor term at a time. At n = 3 the polynomial's value at x = 2 is 23/16 = 1.4375, the number computed on the slide, against √2 ≈ 1.4142 marked in red."
         }
       ]
     },
@@ -227,7 +263,56 @@
         "url": "/files/math-camp/3-integrals.pdf",
         "pages": 42
       },
-      "graphs": []
+      "graphs": [
+        {
+          "slug": "uniform-probability",
+          "title": "Probability as area: the uniform distribution",
+          "expression": "f(x) = 1 on [0, 1]",
+          "description": "The slide's calculation, live: P(X > a) is the shaded rectangle, and its area is 1 − a. At the slide's a = 0.75 the label reads 0.25."
+        },
+        {
+          "slug": "triangular-pdf",
+          "title": "Probability as area: a triangular PDF",
+          "expression": "f(x) = x/2 on [0, 2]",
+          "description": "The triangular density from the slides. Move both endpoints: the shaded area is the probability, computed by Desmos as an integral. The slide's case [0.5, 1.5] gives exactly 0.5."
+        },
+        {
+          "slug": "riemann-rectangles",
+          "title": "Riemann rectangles",
+          "expression": "left sum on [0.5, 1.5], n = 1…100",
+          "description": "The approximation from the slides, with n on a slider. At n = 10 the left sum is 0.475 — the slide's own number — and pushing n toward 100 closes the gap to the exact 0.5."
+        },
+        {
+          "slug": "ftc-accumulation",
+          "title": "Accumulation is the antiderivative",
+          "expression": "F(x) = ∫₀ˣ f(t) dt = x²/4",
+          "description": "Drag the upper limit: the shaded area grows, and the green point traces F. Where f is tall the area accumulates fast, so F is steep — the slope of F is the height of f, which is the Fundamental Theorem seen rather than proved."
+        },
+        {
+          "slug": "exponential-distribution",
+          "title": "The exponential distribution",
+          "expression": "f(x) = λe^(−λx), P(X ≤ a) = 1 − e^(−λa)",
+          "description": "Both parameters on sliders. The shaded area is the CDF at a, and the label evaluates the slide's closed form 1 − e^(−λa) — raise λ and the same probability piles up sooner."
+        },
+        {
+          "slug": "standard-normal",
+          "title": "Areas under the standard normal",
+          "expression": "φ(x) = e^(−x²/2)/√(2π)",
+          "description": "P(a ≤ Z ≤ b) as shaded area, computed numerically by Desmos. The default window [−1, 1] holds 0.6827 of the mass — the first entry of the empirical rule."
+        },
+        {
+          "slug": "expectation-center-of-mass",
+          "title": "Expectation as the center of mass",
+          "expression": "E[X] = ∫ x f(x) dx = 4/3",
+          "description": "Slide the candidate balance point m along the axis: the label reports the torque ∫(x − m)f(x)dx, which is zero exactly at E[X] = 4/3. The mean is where the density balances."
+        },
+        {
+          "slug": "trapezoidal-rule",
+          "title": "The trapezoidal rule",
+          "expression": "∫₀¹ e^(−x²) dx",
+          "description": "The worked example from the numerical section. At n = 4 the trapezoid sum is 0.742984, the slide's value, against the exact 0.746824 — and the slider shows how fast the gap closes as n grows."
+        }
+      ]
     },
     {
       "id": "4-linear-algebra",

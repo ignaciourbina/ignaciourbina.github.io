@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concavity and risk aversion: u(x) = x^0.4</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'u\\left(x\\right)=x^{0.4}\\left\\{x\\ge0\\right\\}',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'x_{1}=0.5',
+		sliderBounds: {
+			min: '0',
+			max: '4',
+			step: '0.05',
+		},
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'x_{2}=4',
+		sliderBounds: {
+			min: '0',
+			max: '5',
+			step: '0.05',
+		},
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '\\left(\\left(1-t\\right)x_{1}+tx_{2},\\left(1-t\\right)u\\left(x_{1}\\right)+tu\\left(x_{2}\\right)\\right)',
+		color: '#fa7e19',
+		parametricDomain: {
+			min: '0',
+			max: '1',
+		},
+		lineWidth: 2,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\left(x_{1},u\\left(x_{1}\\right)\\right)',
+		color: '#fa7e19',
+		pointSize: 8,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '\\left(x_{2},u\\left(x_{2}\\right)\\right)',
+		color: '#fa7e19',
+		pointSize: 8,
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: "u'\\left(x\\right)",
+		color: '#388c46',
+		lineStyle: 'DASHED',
+		id: '6',
+	});
+	calculator.setMathBounds({ left: -0.4, right: 5, bottom: -0.6, top: 2.2 });
+</script>
+</body>
+</html>

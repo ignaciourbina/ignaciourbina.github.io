@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probability as area: a triangular PDF</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'f\\left(x\\right)=\\left\\{0\\le x\\le2:\\frac{x}{2},0\\right\\}',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'a=0.5',
+		sliderBounds: {
+			min: '0',
+			max: '2',
+			step: '0.01',
+		},
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'b=1.5',
+		sliderBounds: {
+			min: '0',
+			max: '2',
+			step: '0.01',
+		},
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '0\\le y\\le f\\left(x\\right)\\left\\{a\\le x\\le b\\right\\}',
+		color: '#fa7e19',
+		fillOpacity: 0.4,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: 'P=\\int_{a}^{b}f\\left(t\\right)dt',
+		hidden: true,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '\\left(0.55,1.05\\right)',
+		color: '#000000',
+		pointSize: 0,
+		label: 'P(a ≤ X ≤ b) = ${P}',
+		showLabel: true,
+		id: '5',
+	});
+	calculator.setMathBounds({ left: -0.3, right: 2.3, bottom: -0.2, top: 1.25 });
+</script>
+</body>
+</html>

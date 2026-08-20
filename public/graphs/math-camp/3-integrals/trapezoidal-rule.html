@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trapezoidal rule for ∫₀¹ e^(−x²) dx</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'f\\left(x\\right)=e^{-x^{2}}',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'n=4',
+		sliderBounds: {
+			min: '1',
+			max: '50',
+			step: '1',
+		},
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'd=\\frac{1}{n}',
+		hidden: true,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: 'X_{k}=d\\cdot\\left[0...n-1\\right]',
+		hidden: true,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\left[\\operatorname{polygon}\\left(\\left(a,0\\right),\\left(a+d,0\\right),\\left(a+d,f\\left(a+d\\right)\\right),\\left(a,f\\left(a\\right)\\right)\\right)\\operatorname{for}a=X_{k}\\right]',
+		color: '#fa7e19',
+		fillOpacity: 0.3,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: 'S=\\operatorname{total}\\left(\\frac{d}{2}\\left(f\\left(X_{k}\\right)+f\\left(X_{k}+d\\right)\\right)\\right)',
+		hidden: true,
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: 'E=\\int_{0}^{1}f\\left(t\\right)dt',
+		hidden: true,
+		id: '6',
+	});
+	calculator.setExpression({
+		latex: '\\left(0.62,1.08\\right)',
+		color: '#000000',
+		pointSize: 0,
+		label: 'trapezoid sum = ${S}   exact = ${E}',
+		showLabel: true,
+		id: '7',
+	});
+	calculator.setMathBounds({ left: -0.2, right: 1.4, bottom: -0.15, top: 1.25 });
+</script>
+</body>
+</html>

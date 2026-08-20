@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expectation as the center of mass</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'f\\left(x\\right)=\\left\\{0\\le x\\le2:\\frac{x}{2},0\\right\\}',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: '0\\le y\\le f\\left(x\\right)\\left\\{0\\le x\\le2\\right\\}',
+		color: '#2d70b3',
+		fillOpacity: 0.15,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'm=0.8',
+		sliderBounds: {
+			min: '0',
+			max: '2',
+			step: '0.01',
+		},
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: 'T=\\int_{0}^{2}\\left(t-m\\right)f\\left(t\\right)dt',
+		hidden: true,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\left(m,0\\right)',
+		color: '#fa7e19',
+		pointSize: 10,
+		label: 'torque about m: ${T}',
+		showLabel: true,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '\\left(\\frac{4}{3},0\\right)',
+		color: '#c74440',
+		pointSize: 9,
+		label: 'E[X] = 4/3',
+		showLabel: true,
+		id: '5',
+	});
+	calculator.setMathBounds({ left: -0.3, right: 2.3, bottom: -0.35, top: 1.25 });
+</script>
+</body>
+</html>
