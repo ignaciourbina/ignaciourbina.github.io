@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import { usePageTracking } from './lib/analytics'
 import Home from './pages/Home'
 import Tools from './pages/Tools'
 import Research from './pages/Research'
@@ -16,6 +17,8 @@ import MathCampQuiz from './pages/MathCampQuiz'
 const MathCampPractice = lazy(() => import('./pages/MathCampPractice'))
 
 function App() {
+  usePageTracking()
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
