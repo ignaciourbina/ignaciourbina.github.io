@@ -1,0 +1,59 @@
+% !TeX program = lualatex
+%
+% The Conditional Activation Model -- printed poster.
+%
+% A print translation of the live HTML poster in ../ : the same six blocks in
+% the same four-column arrangement, the same palette, the same typeface, and
+% the same type scale, on one 48 x 27 in canvas. Two things the web version
+% does are dropped, because print cannot do them: the "Details" view behind
+% each block, and internal scrolling. Every block therefore shows its whole
+% summary at once.
+%
+% Build:  latexmk -lualatex cam-poster.tex
+
+\documentclass[final]{beamer}
+\usepackage[orientation=landscape, size=custom,
+            width=121.92, height=68.58,   % 48 x 27 in, in cm
+            scale=1.0]{beamerposter}
+
+\input{preamble}
+\input{layout}
+\input{blocks}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=navy}
+
+\begin{document}
+\begin{frame}[t,plain]
+\begin{tikzpicture}[remember picture, overlay,
+                    shift={(current page.north west)}]
+
+    \posterheader
+        {The Conditional Activation Model: Uncovering Policy Demand Responses
+         to AI-Driven Automation}
+        {Ignacio Urbina}
+        {Stony Brook University · Department of Political Science}
+        {https://www.ignacio-urbina.com}
+        {More on this project at ignacio-urbina.com}
+
+    % Column 1 -- the puzzle over theory and hypotheses (317 / 377).
+    \panel{\ColOneX}{\CanvasY} {\ColW}{\ShortH}{\blockOne}
+    \panel{\ColOneX}{\SplitYb} {\ColW}{\TallH} {\blockTwo}
+
+    % Columns 2 and 3 -- single full-height panels.
+    \panel{\ColTwoX}{\CanvasY} {\ColW}{\CanvasH}{\blockThree}
+    \panel{\ColThreeX}{\CanvasY}{\ColW}{\CanvasH}{\blockFour}
+
+    % Column 4 -- weighted the other way: a compact block 5 over a full block 6.
+    \panel{\ColFourX}{\CanvasY}{\ColW}{\ColFourTopH}{\blockFive}
+    \panel{\ColFourX}{\SplitYc}{\ColW}{\ColFourBotH}{\blockSix}
+
+    \posterfooter{This material is based upon work supported by the National
+        Science Foundation under Grant No.~NRT-HDR 2125295. Any opinions,
+        findings, and conclusions or recommendations expressed in this material
+        are those of the author(s) and do not necessarily reflect the views of
+        the National Science Foundation.}
+
+\end{tikzpicture}
+\end{frame}
+\end{document}

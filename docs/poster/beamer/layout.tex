@@ -1,0 +1,102 @@
+% Poster canvas and panel placement.
+%
+% The arrangement is index.html's grid, in inches instead of CSS pixels at the
+% same 1px = 0.025in conversion. Four columns, 24px side margins and a 14px
+% gutter; columns 1 and 4 split into two panels in the 317/377 ratio the
+% iPoster template uses, mirrored between them; columns 2 and 3 are single
+% full-height panels.
+
+\newcommand{\PosterW}{48}      % in
+\newcommand{\PosterH}{27}      % in, 16:9
+\newcommand{\SideMargin}{0.6}  % 24px
+\newcommand{\Gutter}{0.35}     % 14px
+\newcommand{\PadIn}{0.34}      % --pad, 13.6px
+\newcommand{\HeaderH}{2.45}
+
+% (48 - 2*0.6 - 3*0.35) / 4
+\newcommand{\ColW}{11.4375}
+\newcommand{\ColOneX}{0.6}
+\newcommand{\ColTwoX}{12.3875}
+\newcommand{\ColThreeX}{24.175}
+\newcommand{\ColFourX}{35.9625}
+
+% 27 - 2.45 header - 0.30 top gap - 1.00 bottom band. The band holds the funding
+% line and leaves 0.6in of navy beneath it, matching the 0.6in side margins.
+\newcommand{\CanvasY}{2.75}
+\newcommand{\CanvasH}{23.25}
+
+% The split columns lose one gutter, then divide 317:377.
+\newcommand{\ShortH}{10.46}
+\newcommand{\TallH}{12.44}
+\newcommand{\SplitY}{15.54}   % 2.75 + 12.44 + 0.35
+\newcommand{\SplitYb}{13.56}  % 2.75 + 10.46 + 0.35
+
+% Column 4 does NOT mirror column 1. Block 5 is a compact stat summary and
+% block 6 carries the takeaways, so the split is weighted the other way:
+% 8.00 + 0.35 gutter + 14.90 = 23.25 = \CanvasH.
+\newcommand{\ColFourTopH}{8.00}
+\newcommand{\ColFourBotH}{14.90}
+\newcommand{\SplitYc}{11.10}  % 2.75 + 8.00 + 0.35
+
+% .panel -- white, 6px radius, the CSS box-shadow rendered as a blurred drop
+% shadow. The content sits inside at --pad on every side, in a fixed-height
+% top-aligned box so nothing can spill past the panel edge unnoticed.
+\newcommand{\panel}[5]{% x, y from page top, width, height (in), content
+    \node[anchor=north west, inner sep=0pt, fill=paper,
+          rounded corners=10.8pt,
+          minimum width=#3in, minimum height=#4in,
+          blur shadow={shadow blur steps=10, shadow xshift=0pt,
+                       shadow yshift=-3.6pt, shadow opacity=30,
+                       shadow blur radius=18pt}]
+        at (#1in, -#2in) {};
+    \node[anchor=north west, inner sep=0pt]
+        at (\fpeval{#1+\PadIn}in, -\fpeval{#2+\PadIn}in) {%
+        \begin{minipage}[t][\fpeval{#4-2*\PadIn}in][t]{\fpeval{#3-2*\PadIn}in}%
+            \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}%
+            % Browsers do not hyphenate body prose, so neither does this.
+            \raggedright\frenchspacing
+            \hyphenpenalty=10000 \exhyphenpenalty=10000
+            \color{ink}#5%
+        \end{minipage}};%
+}
+
+% The header band: navy-deep, full bleed, centred title over byline over a
+% letter-spaced uppercase affiliation.
+\newcommand{\posterheader}[5]{%
+    \fill[navydeep] (0,0) rectangle (\PosterW in, -\HeaderH in);
+    % #4 -- QR to the author's site, left of the title, on a white tile so it
+    % scans against the navy band. Vertically centred in the header.
+    \node[anchor=west, inner sep=7pt, fill=white, rounded corners=5pt]
+        at (\SideMargin in, -\fpeval{\HeaderH/2}in)
+        {\qrcode[height=1.25in, level=M, tight]{#4}};
+    % #5 -- what the QR is for, to its right. The minipage is deliberately
+    % narrow (2.2in) so the line wraps and stops well short of the title,
+    % which begins around 8in.
+    \node[anchor=west, inner sep=0pt] at (2.20in, -\fpeval{\HeaderH/2}in) {%
+        \begin{minipage}{2.2in}
+            \raggedright\SZ{11}{14.5}\color{byline}#5\par
+        \end{minipage}};
+    \node[anchor=north, inner sep=0pt] at (\fpeval{\PosterW/2}in, -0.45in) {%
+        \begin{minipage}{44in}\centering
+            {\fTitle\SZ{27}{31}\color{white}#1\par}
+            \vspace{\PX{4}}
+            {\SZ{18.5}{22}\color{byline}#2\par}
+            \vspace{\PX{2}}
+            {\fAffil\SZ{13.6}{16.3}\color{affil}\MakeUppercase{#3}\par}
+        \end{minipage}};%
+}
+
+% The funding line, centred in the bottom margin under the canvas. The canvas
+% ends at \CanvasY + \CanvasH = 26.4in, leaving 0.6in of navy before the page
+% edge; the line sits in that band, in the same faint blue as the affiliation.
+\newcommand{\posterfooter}[1]{%
+    \node[anchor=north, inner sep=0pt]
+        at (\fpeval{\PosterW/2}in, -\fpeval{\CanvasY+\CanvasH+0.16}in) {%
+        \begin{minipage}{44in}\centering
+            {\SZ{10.5}{14}\color{white}\raggedright\centering#1\par}
+        \end{minipage}};%
+}
+
+% Weighted tabularx columns: prose left, numbers right and never wrapped.
+\newcolumntype{Y}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize}X}
+\newcolumntype{Z}[1]{>{\raggedleft\arraybackslash\hsize=#1\hsize}X}

@@ -1,0 +1,242 @@
+% Shared preamble for the printed CAM poster.
+%
+% The poster is a print translation of the live HTML poster in ../. Every
+% number here is derived from that site rather than invented: the palette is
+% css/poster.css verbatim, the slot geometry is index.html's grid, and the type
+% scale is the CSS clamp() minima measured at the width the live poster renders
+% at (a 1920px canvas, so a 446px block). One conversion carries all of it:
+%
+%     1 CSS pixel  =  0.025 in  =  1.8 pt
+%
+% which is 48 in of poster over 1920 px of screen. Sizes below are therefore
+% written as "css px * 1.8" so a reader can check any one of them against the
+% stylesheet without trusting the arithmetic.
+
+% --- fonts ---------------------------------------------------------------
+% Inter, the same family the CSS asks for, at the same weights: 400 body,
+% 600 callout text, 700 labels and headings, 800 h1 and stat values.
+\usepackage{fontspec}
+\defaultfontfeatures{Path=/usr/share/fonts/opentype/inter/, Extension=.otf}
+
+\setsansfont{Inter}[
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold,
+    ItalicFont      = *-Italic,
+    BoldItalicFont  = *-BoldItalic,
+]
+\renewcommand{\familydefault}{\sfdefault}
+
+\newfontfamily\fSemi{Inter}[UprightFont=*-SemiBold, ItalicFont=*-SemiBoldItalic]
+\newfontfamily\fBold{Inter}[UprightFont=*-Bold,     ItalicFont=*-BoldItalic]
+
+% Letter-spaced cuts. CSS letter-spacing is in em; fontspec LetterSpace is in
+% hundredths of an em, so 0.09em becomes 9.
+\newfontfamily\fKicker{Inter}[UprightFont=*-Bold,      LetterSpace= 9  ]  % .kicker
+\newfontfamily\fHone    {Inter}[UprightFont=*-ExtraBold, LetterSpace=-1.5]  % h1
+\newfontfamily\fLabel {Inter}[UprightFont=*-Bold,      LetterSpace= 7  ]  % .label
+\newfontfamily\fValue {Inter}[UprightFont=*-ExtraBold, LetterSpace=-2  ]  % .value
+\newfontfamily\fTh    {Inter}[UprightFont=*-Bold,      LetterSpace= 5  ]  % th
+\newfontfamily\fTitle {Inter}[UprightFont=*-Bold,      LetterSpace=-1.5]  % header h1
+\newfontfamily\fAffil {Inter}[UprightFont=*-Regular,   LetterSpace= 6  ]  % header .affil
+
+% --- palette -------------------------------------------------------------
+% css/poster.css :root, plus the three stat-tile border tints and the two
+% navies from index.html.
+\usepackage{xcolor}
+% Vector QR for the header. Native LaTeX, so it stays sharp at 48in.
+\usepackage{qrcode}
+
+\definecolor{ink}       {HTML}{12211C}
+\definecolor{inksoft}   {HTML}{45564F}
+\definecolor{inkfaint}  {HTML}{6F817A}
+\definecolor{accent}    {HTML}{1A7A54}
+\definecolor{accentsoft}{HTML}{E4F1EB}
+\definecolor{amber}     {HTML}{B06D10}
+\definecolor{ambersoft} {HTML}{FBF0DC}
+\definecolor{red}       {HTML}{A33A32}
+\definecolor{redsoft}   {HTML}{FBE6E3}
+\definecolor{line}      {HTML}{DDE5E1}
+\definecolor{paper}     {HTML}{FFFFFF}
+\definecolor{goodedge}  {HTML}{BCDCCD}
+\definecolor{warnedge}  {HTML}{EDD6AB}
+\definecolor{bededge}   {HTML}{EEC4BF}
+\definecolor{navy}      {HTML}{2A4257}
+\definecolor{navydeep}  {HTML}{1E3242}
+\definecolor{byline}    {HTML}{A9C6DC}
+\definecolor{affil}     {HTML}{7FA0BA}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, shadows.blur}
+\usepackage[most]{tcolorbox}
+\usepackage{tabularx, colortbl, booktabs, makecell, graphicx}
+
+% --- the per-block fit scale --------------------------------------------
+% Columns 2 and 3 carry more summary text than the others, so their type is
+% set a notch smaller to bring the whole block inside its slot without
+% scrolling. \bscale multiplies every size and every gap in the block, so the
+% proportions inside a block never change; only the block's overall size does.
+\def\bscale{1}
+\newcommand{\setfit}[1]{\def\bscale{#1}}
+
+% Every dimension in the poster passes through these two. \SZ takes a CSS
+% pixel size and its CSS line-height in pixels; \PX turns CSS pixels into a
+% length. Both apply \bscale.
+\newcommand{\SZ}[2]{\fontsize{\fpeval{(#1)*1.8*\bscale}pt}{\fpeval{(#2)*1.8*\bscale}pt}\selectfont}
+\newcommand{\PX}[1]{\fpeval{(#1)*1.8*\bscale}pt}
+
+% .wrap is a flex column with gap 8px; this is that gap.
+\newcommand{\vgap}{\par\vspace{\PX{8}}}
+
+% --- text-level components ----------------------------------------------
+% One macro per CSS rule, named after the rule. Each emits its own trailing
+% gap, so a block body reads as a list of components in document order.
+
+% .kicker -- 0.6rem, 700, .09em, uppercase, accent
+\newcommand{\kicker}[1]{%
+    {\fKicker\SZ{9.6}{13}\color{accent}\MakeUppercase{#1}}\vgap}
+
+% h1 -- 1.05rem, 800, line-height 1.18, -.015em
+\newcommand{\htitle}[1]{%
+    {\fHone\SZ{16.8}{19.8}\color{ink}#1\par}\vgap}
+
+% h2 -- 0.92rem, 700, line-height 1.25, margin .6em top / .2em bottom
+\newcommand{\hsub}[1]{%
+    \vspace{\PX{8.8}}{\fBold\SZ{14.72}{18.4}\color{ink}#1\par}\vspace{\PX{2.9}}\vgap}
+
+% .lede -- 0.8rem, ink-soft
+\newcommand{\lede}[1]{{\SZ{12.8}{19.2}\color{inksoft}#1\par}\vgap}
+
+% p -- body size, ink
+\newcommand{\para}[1]{{\SZ{13.12}{19.7}\color{ink}#1\par}\vgap}
+
+% --- .stat tiles ---------------------------------------------------------
+% Border 1px, radius .5rem, padding calc(--pad * .55). The three modifier
+% classes differ only in fill, border tint and value colour.
+\newtcolorbox{stattilebox}[3]{% #1 width  #2 fill  #3 border
+    enhanced, nobeforeafter, box align=top,
+    before upper={\raggedright\setlength{\parskip}{0pt}},
+    width=#1, colback=#2, colframe=#3,
+    boxrule=\PX{1}, arc=\PX{8}, outer arc=\PX{8},
+    left=\PX{7.5}, right=\PX{7.5}, top=\PX{7.5}, bottom=\PX{7.5},
+    valign=top,
+}
+
+% .label / .value / .note inside a tile
+\newcommand{\stattext}[3]{% #1 label  #2 value  #3 note (may be empty)
+    {\fLabel\SZ{9.28}{12.5}\color{inkfaint}\MakeUppercase{#1}\par}%
+    \vspace{\PX{1.1}}%
+    {\fValue\SZ{18.4}{20.2}\color{tilevalue}#2\par}%
+    \vspace{\PX{3.7}}%
+    {\SZ{10.88}{14.1}\color{inkfaint}#3\par}}
+
+% \stat{class}{width}{label}{value}{note} -- class in {plain, good, warn, bad}
+\newcommand{\stat}[5]{%
+    \csname statfill#1\endcsname
+    \begin{stattilebox}{#2}{tilefill}{tileedge}\stattext{#3}{#4}{#5}\end{stattilebox}}
+
+\newcommand{\statfillplain}{\colorlet{tilefill}{paper}\colorlet{tileedge}{line}\colorlet{tilevalue}{ink}}
+\newcommand{\statfillgood} {\colorlet{tilefill}{accentsoft}\colorlet{tileedge}{goodedge}\colorlet{tilevalue}{accent}}
+\newcommand{\statfillwarn} {\colorlet{tilefill}{ambersoft}\colorlet{tileedge}{warnedge}\colorlet{tilevalue}{amber}}
+\newcommand{\statfillbad}  {\colorlet{tilefill}{redsoft}\colorlet{tileedge}{bededge}\colorlet{tilevalue}{red}}
+
+% .stats -- a grid whose tiles share one row, separated by --gap.
+\newcommand{\statgap}{\hspace{\PX{8}}}
+\newcommand{\statrow}[1]{\par\noindent\hbox{#1}\par}
+% Width of one tile in a row of n, matching grid-template-columns: repeat(n, 1fr).
+\newcommand{\statw}[1]{\dimexpr(\linewidth-\fpeval{(#1)-1}\dimexpr\PX{8}\relax)/#1-0.5pt\relax}
+
+% --- .callout ------------------------------------------------------------
+% 3px accent rule on the left, tinted fill, square on the left and rounded on
+% the right, padding calc(--pad*.5) by calc(--pad*.65).
+\newtcolorbox{calloutbox}[2]{% #1 rule colour  #2 fill
+    enhanced, nobeforeafter, before skip=0pt, after skip=0pt,
+    colback=#2, frame hidden, boxrule=0pt,
+    before upper={\raggedright\setlength{\parskip}{0pt}},
+    sharp corners=west, arc=\PX{6.4},
+    borderline west={\PX{3}}{0pt}{#1},
+    left=\PX{8.8}, right=\PX{8.8}, top=\PX{6.8}, bottom=\PX{6.8},
+}
+
+% \callout{class}{label}{text} -- class in {accent, warn, red}
+\newcommand{\callout}[3]{%
+    \csname calloutcol#1\endcsname
+    \begin{calloutbox}{coRule}{coFill}%
+        {\fLabel\SZ{9.28}{12.5}\color{inkfaint}\MakeUppercase{#2}\par}%
+        \vspace{\PX{1.4}}%
+        {\fSemi\SZ{13.12}{19.7}\color{ink}#3\par}%
+    \end{calloutbox}\vgap}
+
+\newcommand{\calloutcolaccent}{\colorlet{coRule}{accent}\colorlet{coFill}{accentsoft}}
+\newcommand{\calloutcolwarn}  {\colorlet{coRule}{amber}\colorlet{coFill}{ambersoft}}
+\newcommand{\calloutcolred}   {\colorlet{coRule}{red}\colorlet{coFill}{redsoft}}
+
+% --- ul.plain ------------------------------------------------------------
+% A round accent bullet, the term in bold, the definition on its own line in
+% ink-soft. Rows are separated by calc(--gap * .6).
+% Two side-by-side minipages gave the bullet its own first baseline, which
+% LaTeX places from that line's height rather than the text's. One paragraph
+% with a hanging indent has a single baseline, so the CSS offsets transfer
+% directly: the li indents 0.9em, and the 0.32em dot's centre sits 0.22em
+% above the first line's baseline.
+\newcommand{\plainitem}[2]{%
+    \par
+    {\SZ{13.12}{19.7}%
+     \raggedright\setlength{\parindent}{0pt}%
+     \leftskip=\PX{11.8}\relax
+     \noindent
+     \llap{\raisebox{\PX{2.9}}{\tikz[baseline]\fill[accent] (0,0) circle (\PX{2.1});}%
+           \hspace{\dimexpr\PX{11.8}-\PX{4.2}\relax}}%
+     {\color{ink}\fBold #1}\par
+     {\color{inksoft}#2}\par}%
+}
+
+\newenvironment{plainlist}{\par\setlength{\parskip}{\PX{4.8}}}{\par\vgap}
+
+% --- ol.steps ------------------------------------------------------------
+% Numbers in accent bold; the term leads the paragraph and the definition
+% follows on the next line, as the .term/.def pair does in the markup.
+\newcommand{\stepitem}[3]{% #1 number  #2 term  #3 definition
+    \par\noindent
+    \begin{minipage}[t]{\PX{20}}%
+        {\SZ{13.12}{19.7}\color{accent}\fBold #1.}%
+    \end{minipage}%
+    \begin{minipage}[t]{\dimexpr\linewidth-\PX{20}\relax}%
+        \raggedright\setlength{\parskip}{0pt}%
+        {\SZ{13.12}{19.7}\color{ink}\fBold #2\par}%
+        {\SZ{13.12}{19.7}\color{inksoft}#3\par}%
+    \end{minipage}\par}
+
+\newenvironment{stepslist}{\par\setlength{\parskip}{\PX{4}}}{\par\vgap}
+
+% --- tables --------------------------------------------------------------
+% th: 0.6rem, 700, uppercase, ink-faint, over a 1.5px ink rule.
+% td: 0.7rem, 1px --line rule beneath, none on the last row.
+% Numeric columns are right-aligned and never wrap.
+\newcommand{\tablesetup}{%
+    \SZ{11.2}{16.8}%
+    \setlength{\tabcolsep}{\PX{6.2}}%
+    \renewcommand{\arraystretch}{1.53}%
+    \arrayrulecolor{line}%
+    \setlength{\arrayrulewidth}{\PX{1}}}
+
+\newcommand{\thcell}[1]{{\fTh\SZ{9.6}{13}\color{inkfaint}\MakeUppercase{#1}}}
+% colortbl's \arrayrulecolor is itself \noalign-safe, so it must not be
+% wrapped in another \noalign.
+\newcommand{\headrule}{%
+    \arrayrulecolor{ink}\specialrule{\PX{1.5}}{0pt}{0pt}\arrayrulecolor{line}}
+
+% tr.highlight -- accent-soft fill, bold text
+\newcommand{\hlrow}{\rowcolor{accentsoft}}
+
+% --- figures -------------------------------------------------------------
+% figure img: full width, 1px --line border, radius .4rem.
+% figcaption: 0.62rem, ink-faint, line-height 1.35.
+\newcommand{\posterfig}[2]{%
+    \begin{tcolorbox}[enhanced, nobeforeafter, before skip=0pt, after skip=0pt,
+        width=\linewidth, colback=paper, colframe=line,
+        boxrule=\PX{1}, arc=\PX{6.4}, outer arc=\PX{6.4},
+        left=0pt, right=0pt, top=0pt, bottom=0pt]%
+        \includegraphics[width=\linewidth]{#1}%
+    \end{tcolorbox}%
+    \par\vspace{\PX{4.8}}%
+    {\SZ{9.92}{13.4}\color{inkfaint}#2\par}\vgap}

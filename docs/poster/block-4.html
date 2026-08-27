@@ -14,7 +14,7 @@
       <p class="kicker">Results</p>
       <button class="swap" data-target="detail">Details &rarr;</button>
     </div>
-    <h1>Trust gates absorption: the effect among people who trust the source is roughly three times the effect among those who trust it less.</h1>
+    <h1>Trust gates absorption. The effect among people who trust the source runs about three times the effect among those who trust it less.</h1>
 
     <figure>
       <img src="img/ate-items.png" alt="Average treatment effect on the composite policy demand index and on each of the five policy items, covariate-adjusted, with 95% confidence intervals.">
@@ -26,7 +26,7 @@
       <figcaption>By trust in the expert source. Thick and thin bars are the 84% and 95% bootstrap intervals; the dotted line is the effect for everyone, unweighted.</figcaption>
     </figure>
 
-    <h2>Among people who trust the source, the effect concentrates in the high-anxiety × high-risk corner</h2>
+    <h2>The effect concentrates in the high-anxiety × high-risk corner, but only among people who trust the source</h2>
     <div class="scroller">
       <table>
         <thead><tr><th>Trust in source</th><th class="num">Outside</th><th class="num">Extra in corner</th><th class="num">In corner</th></tr></thead>
@@ -39,7 +39,7 @@
 
     <div class="callout">
       <span class="label">No corner without the first gate</span>
-      <p>Among those who trust the source, the corner effect is 2.4× the effect outside it. Among those who trust it less, the corner adds nothing detectable. The conjunction only pays off for people who took the signal on board.</p>
+      <p>The corner effect runs 2.4× the effect outside it among people who trust the source. Among those who trust it less, the corner adds nothing detectable. The conjunction pays off only for people who took the signal on board.</p>
     </div>
 
     </section>
@@ -67,7 +67,7 @@
     <p class="lede">OLS with HC1 standard errors, N = 901.</p>
 
     <h2>Gate 1 — covariate-adjusted variant</h2>
-    <p>Weighting by p<sub>i</sub> re-tilts the arms along covariates, which can leave chance imbalance within the weighted sample even under randomization. Ideology, trait anxiety and age are partialled out of both η and treatment by weighted least squares, and the CATE is re-estimated from the residuals.</p>
+    <p>Weighting by p<sub>i</sub> re-tilts the arms along covariates. Chance imbalance can therefore survive inside the weighted sample even under randomization. Weighted least squares partials ideology, trait anxiety and age out of both η and treatment, and the CATE is re-estimated from the residuals.</p>
     <div class="scroller">
       <table>
         <thead><tr><th>Estimand</th><th class="num">Hájek</th><th class="num">Adjusted</th><th class="num">Shift</th><th class="num">95% CI</th><th class="num">P(&gt;0)</th></tr></thead>
@@ -81,7 +81,7 @@
     <p class="lede">Same ordering, modestly attenuated.</p>
 
     <h2>Gate 2 — the fixed conjunctive corner</h2>
-    <p>A respondent is in the corner if trait anxiety and automation risk are each in the pooled sample's top tercile, both measured pre-treatment: trait anxiety z ≥ 0.53 and automation risk ≥ 54.5th percentile. Membership is a deterministic function of the data; the only thing estimated is the treatment effect itself, inside and outside the corner, by weighted least squares.</p>
+    <p>A respondent sits in the corner if trait anxiety and automation risk each fall in the pooled sample's top tercile, both measured pre-treatment: trait anxiety z ≥ 0.53 and automation risk ≥ 54.5th percentile. Membership follows deterministically from the data. Only the treatment effect is estimated, inside and outside the corner, by weighted least squares.</p>
     <div class="scroller">
       <table>
         <thead><tr><th>Stratum</th><th class="num">τ<sub>base</sub></th><th class="num">δ</th><th class="num">Corner (τ<sub>base</sub>+δ)</th><th class="num">Share</th></tr></thead>
@@ -94,11 +94,11 @@
     <p class="lede">105 of 901 respondents (11.7%) qualify. The two moderators are near-independent, corr(A, R) = 0.014, and the corner share matches the ≈ 11.1% implied by independent terciles.</p>
 
     <h2>Cutoff-choice sensitivity</h2>
-    <p>The identical model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). Where trust is higher, δ's 95% CI excludes zero at every cutoff tested, shrinking toward the stratum-average effect as the corner widens but never crossing zero. Lower trust δ remains null throughout.</p>
+    <p>The same model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). Where trust is higher, δ's 95% CI excludes zero at every cutoff. It shrinks toward the stratum-average effect as the corner widens, but never crosses zero. Lower-trust δ stays null throughout.</p>
 
     <div class="callout">
       <span class="label">How badly would principal ignorability have to fail?</span>
-      <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the higher-trust effect and −0.52 SD for the difference between the two: large, and opposite in sign to the mechanism under study.</p>
+      <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the higher-trust effect and −0.52 SD for the difference between the two. Both are large, and both run opposite in sign to the mechanism under study.</p>
     </div>
 
     <p class="foot">All intervals are bootstrap percentile intervals, B = 2000, with every estimation step refit inside each replicate.</p>

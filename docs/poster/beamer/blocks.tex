@@ -1,0 +1,199 @@
+% The six blocks, in the order index.html places them.
+%
+% Each macro carries the SUMMARY view of its page verbatim: the detail views
+% are the "Details" pages the print poster does without, so nothing from them
+% appears here. Columns 2 and 3 hold more text than their slots would take at
+% full size, so those two blocks set a fit scale; the rest run at 1.
+
+% =========================================================== 1. The puzzle ==
+\newcommand{\blockOne}{%
+    \setfit{0.95}%
+    \kicker{The puzzle}
+    \htitle{Automation exposure is widespread, yet experimental evidence on
+        policy demand remains inconclusive.}
+
+    \statrow{%
+        \stat{bad}{\statw{2}}
+            {High-risk occupations}{47\%}{of U.S. employment (Frey \& Osborne 2017)}%
+        \statgap
+        \stat{warn}{\statw{2}}
+            {Public concern}{62\%}{major concern about AI at work (Pew 2023)}}
+    \vgap
+
+    \hsub{Prior evidence}
+    \begin{plainlist}
+        \plainitem{Zhang \& Hou (2022); Magistro et al. (2024).}{Personalized
+            risk information produced a null average effect.}
+        \plainitem{Gallego et al. (2022).}{A different treatment and sample
+            produced positive effects.}
+        \plainitem{Arntz et al. (2024).}{Opposing subgroup effects cancelled in
+            the aggregate.}
+    \end{plainlist}
+
+    \callout{accent}{The diagnosis}{Heterogeneity washes out in the aggregate.
+        Weak average effects may reflect composition rather than stable
+        preferences.}%
+}
+
+% ================================================ 2. Theory and hypotheses ==
+\newcommand{\blockTwo}{%
+    \setfit{1.2}%
+    \kicker{Theory \& hypotheses}
+    \htitle{When do citizens demand state protection in response to expert
+        warnings about automation risk?}
+    \lede{The Conditional Activation Model answers with two sequential gates.}
+
+    \begin{plainlist}
+        \plainitem{H1 · Trust gate.}{Expert warnings raise policy demand only
+            among respondents who credit the source. Among respondents who do
+            not, the effect is zero.}
+        \plainitem{H2 · Joint activation.}{Among respondents who credit the
+            source, the effect is largest where trait anxiety and
+            own-occupation risk are both high. Neither anxiety nor risk alone
+            produces it.}
+        \plainitem{H3 · Composition.}{The average effect understates the
+            effect in the responding subgroup, because it averages over
+            respondents for whom the gates did not clear.}
+    \end{plainlist}%
+}
+
+% ======================================================= 3. Research design ==
+\newcommand{\blockThree}{%
+    \setfit{0.865}%
+    \kicker{Research design}
+    \htitle{Pre-registered between-subjects experiment, N = 901 U.S. workers.}
+    \lede{A three-step belief-correction protocol whose intensity is
+        individualized: every respondent is shown the expert estimate for their
+        \emph{own} occupation. 475 treated, 426 control.}
+
+    \begin{stepslist}
+        \stepitem{1}{Explain how experts judge automation risk.}%
+            {A neutral briefing: tasks that are routine, clearly defined and
+             repeated, with plenty of recorded examples, are easier to
+             automate. Illustrated with two contrasting jobs, and with what
+             raises risk (fully online work, abundant training data) against
+             what lowers it (in-person dexterity, reliance on trust or
+             empathy). Comprehension is then tested: 93.5\% pass.}
+        \stepitem{2}{Elicit the respondent's own belief.}%
+            {Every U.S. worker is described as standing in one line ordered by
+             automation risk, from position 0 (safest) to position 100
+             (riskiest), with 50 as the midpoint. Respondents place their own
+             job on that line with a slider, then report how far off they think
+             they might be.}
+        \stepitem{3}{Reveal the expert estimate and display the gap.}%
+            {The source is named: Frey and Osborne at the University of Oxford,
+             with their method described. The respondent's own placement and
+             the expert position for their occupation are then shown side by
+             side, with the difference stated in plain terms.}
+    \end{stepslist}
+
+    \callout{accent}{Why the intensity varies}{The treatment is the same
+        procedure for everyone, but its content is personalized: the size and
+        direction of the gap between belief and expert estimate is whatever
+        that respondent's own occupation and prior produce.}
+
+    \hsub{Measures}
+    {\tablesetup
+    \begin{tabularx}{\linewidth}{@{}Y{0.80}Y{1.62}Y{0.58}@{}}
+        \thcell{Construct} & \thcell{Operationalization} & \thcell{Role} \\
+        \headrule
+        Policy demand (η)    & 5 items, 7-pt (ω = 0.83), graded response model     & Outcome \\ \hline
+        Expert trust (S)     & Single 5-pt item, post-treatment, treated arm only  & Gate 1  \\ \hline
+        Trait anxiety (A)    & 4-item scale, pre-treatment (ω = 0.92)              & Gate 2  \\ \hline
+        Automation risk (R)  & Own-occupation expert percentile, pre-treatment     & Gate 2  \\
+    \end{tabularx}\par}
+    \vgap
+
+    \callout{accent}{Design property}{Both moderators are measured before
+        treatment, so the activation corner is a fixed partition of
+        pre-treatment characteristics rather than an outcome of the
+        manipulation.}
+
+    \hsub{Identification}
+    \para{Expert trust is observed only in the treated arm. A pre-treatment
+        proxy carries it into both: a random forest on 15 pre-treatment terms
+        predicts the trust rating, a logit on that proxy gives the principal
+        score p\textsubscript{i}, and arm means are Hájek-weighted by
+        p\textsubscript{i} for the higher-trust stratum and by
+        1 − p\textsubscript{i} for the lower-trust one. Identified under
+        randomization plus principal ignorability.}%
+}
+
+% ============================================================== 4. Results ==
+\newcommand{\blockFour}{%
+    \setfit{1}%
+    \kicker{Results}
+    \htitle{Trust gates absorption: the effect among people who trust the
+        source is roughly three times the effect among those who trust it
+        less.}
+
+    \posterfig{../img/ate-items.png}{The average effect and its per-item
+        marginal effects. No single policy drives the composite; support rises
+        across the battery, most for income support and labor protections.}
+
+    \posterfig{../img/results-cate.png}{By trust in the expert source. Thick
+        and thin bars are the 84\% and 95\% bootstrap intervals; the dotted
+        line is the effect for everyone, unweighted.}
+
+    \hsub{Among people who trust the source, the effect concentrates in the
+        high-anxiety × high-risk corner}
+    {\tablesetup
+    \begin{tabularx}{\linewidth}{@{}Y{1.02}Z{0.66}Z{1.20}Z{1.12}@{}}
+        \thcell{Trust in source} & \thcell{Outside} & \thcell{Extra in corner}
+            & \thcell{In corner} \\
+        \headrule
+        \hlrow \fBold Higher & \fBold 0.288
+            & \fBold 0.397\newline{}[0.083, 0.690]
+            & \fBold 0.685\newline{}[0.364, 0.980] \\ \hline
+        Lower & 0.092
+            & 0.194\newline{}[−0.056, 0.466]
+            & 0.285\newline{}[0.041, 0.552] \\
+    \end{tabularx}\par}
+    \vgap
+
+    \callout{accent}{No corner without the first gate}{Among those who trust
+        the source, the corner effect is 2.4× the effect outside it. Among
+        those who trust it less, the corner adds nothing detectable. The
+        conjunction only pays off for people who took the signal on board.}%
+}
+
+% ========================================= 5. Power, robustness, sensitivity ==
+\newcommand{\blockFive}{%
+    \setfit{1}%
+    \kicker{Power, robustness \& sensitivity}
+    \htitle{Two of the three headline quantities are well powered; the third
+        is not.}
+
+    \statrow{%
+        \stat{good}{\statw{3}}{Effect, higher trust}{98\%}{MDE 0.28}%
+        \statgap
+        \stat{good}{\statw{3}}{Corner, higher trust}{98\%}{MDE 0.44}%
+        \statgap
+        \stat{warn}{\statw{3}}{Difference between them}{62\%}{below its MDE of 0.33}}
+    \vgap
+
+    \para{The higher-trust results are the ones this design can carry.}%
+}
+
+% ============================================ 6. Takeaways and implications ==
+\newcommand{\blockSix}{%
+    \setfit{1.2}%
+    \kicker{Takeaways \& implications}
+    \htitle{Aggregate effects understate the subgroup that responds.}
+
+    \callout{accent}{Why prior results conflict}{Earlier experiments averaged
+        over people who never absorbed the signal. Averaging that way produces a
+        weak effect even when part of the sample moves a lot. The nulls in this
+        literature fit that pattern.}
+
+    \callout{accent}{Trust decides who responds}{Respondents who trust the
+        expert source move about three times as much as those who do not.
+        Personal exposure matters only for them. Among trusters the anxiety ×
+        risk corner runs 2.4× the effect outside it. Among everyone else it does
+        nothing measurable.}
+
+    \callout{warn}{What the next study needs}{This design measured trust after
+        treatment, in the treated arm only, so the estimates rest on principal
+        ignorability. Measuring trust first removes that assumption. The design
+        also fits climate, vaccines and trade.}%
+}

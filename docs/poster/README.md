@@ -83,6 +83,33 @@ Pages serves `docs/`) and pushes. The iPoster embed URLs never change, so the
 poster updates without re-entering the editor. The workflow syncs with
 `rsync --delete`, so a file deleted here is deleted from the site.
 
+## Printed version
+
+`beamer/cam-poster.tex` is the same poster on one 48 x 27 in (16:9) canvas,
+built with LuaLaTeX. `cd beamer && make`.
+
+Print cannot do the two things the web version relies on, so both are dropped:
+the Details view behind each block, and scrolling inside a block. Every panel
+therefore carries its whole summary view at once, and the "Details" buttons are
+gone, since they would point nowhere.
+
+Everything else is derived from this site rather than restated. The palette is
+`css/poster.css` verbatim, the arrangement is `index.html`'s grid, the typeface
+is Inter at the same four weights, and the type scale is the CSS clamp() minima
+converted at one rate, 1 CSS pixel = 0.025 in, which is 48 in of poster over
+the 1920 px canvas the live poster renders at. Sizes in `beamer/preamble.tex`
+are written as their CSS pixel values so each can be checked against the
+stylesheet directly.
+
+Columns 2 and 3 hold more summary text than a slot of that width takes at full
+size, so those two blocks set a fit scale (`\setfit`) that shrinks the whole
+block uniformly. Columns 1 and 4 run at full size, and their blocks end well
+short of the panel foot: the 16:9 canvas is taller than the web canvas, and the
+short slots gain the difference.
+
+Prose and estimates are copied from the block pages, so a change there has to
+be made here by hand as well.
+
 ## Claims and numbers
 
 Prose follows the slide deck's claims and hedging; estimates come from

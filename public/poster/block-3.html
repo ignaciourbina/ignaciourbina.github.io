@@ -15,18 +15,17 @@
       <button class="swap" data-target="detail">Details &rarr;</button>
     </div>
     <h1>Pre-registered between-subjects experiment, N = 901 U.S. workers.</h1>
-    <p class="lede compact-hide">A three-step belief-correction protocol whose intensity is individualized: every respondent is shown the expert estimate for their <em>own</em> occupation. 475 treated, 426 control.</p>
+    <p class="lede compact-hide">A three-step belief-correction protocol. Every respondent sees the expert estimate for their <em>own</em> occupation. 475 treated, 426 control.</p>
 
-    <h2>The manipulation, step by step</h2>
     <ol class="steps">
-      <li><span class="term">Explain how experts judge automation risk.</span><span class="def">A neutral briefing: tasks that are routine, clearly defined and repeated, with plenty of recorded examples, are easier to automate. Illustrated with two contrasting jobs, and with what raises risk (fully online work, abundant training data) against what lowers it (in-person dexterity, reliance on trust or empathy). Comprehension is then tested: 93.5% pass.</span></li>
-      <li><span class="term">Elicit the respondent's own belief.</span><span class="def">Every U.S. worker is described as standing in one line ordered by automation risk, from position 0 (safest) to position 100 (riskiest), with 50 as the midpoint. Respondents place their own job on that line with a slider, then report how far off they think they might be.</span></li>
-      <li><span class="term">Reveal the expert estimate and display the gap.</span><span class="def">The source is named: Frey and Osborne at the University of Oxford, with their method described. The respondent's own placement and the expert position for their occupation are then shown side by side, with the difference stated in plain terms.</span></li>
+      <li><span class="term">Explain how experts judge automation risk.</span><span class="def">Respondents read a neutral briefing. Tasks that are routine, clearly defined and repeated, with many recorded examples, are easier to automate. Two contrasting jobs illustrate the point. Fully online work and abundant training data raise risk; in-person dexterity and reliance on trust or empathy lower it. A comprehension check follows: 93.5% pass.</span></li>
+      <li><span class="term">Elicit the respondent's own belief.</span><span class="def">The instrument describes every U.S. worker as standing in one line ordered by automation risk, from position 0 (safest) to position 100 (riskiest), with 50 as the midpoint. Respondents place their own job on that line with a slider, then report how far off they think they might be.</span></li>
+      <li><span class="term">Reveal the expert estimate and display the gap.</span><span class="def">The screen names the source, Frey and Osborne at the University of Oxford, and describes their method. It then shows the respondent's own placement beside the expert position for their occupation and states the difference in plain terms.</span></li>
     </ol>
 
     <div class="callout">
       <span class="label">Why the intensity varies</span>
-      <p>The treatment is the same procedure for everyone, but its content is personalized: the size and direction of the gap between belief and expert estimate is whatever that respondent's own occupation and prior produce.</p>
+      <p>Everyone gets the same procedure. The content differs. The size and direction of the gap between belief and expert estimate follow from that respondent's own occupation and prior.</p>
     </div>
 
     <h2>Measures</h2>
@@ -44,11 +43,11 @@
 
     <div class="callout">
       <span class="label">Design property</span>
-      <p>Both moderators are measured before treatment, so the activation corner is a fixed partition of pre-treatment characteristics rather than an outcome of the manipulation.</p>
+      <p>Both moderators are measured before treatment. The activation corner is therefore a fixed partition of pre-treatment characteristics, not an outcome of the manipulation.</p>
     </div>
 
     <h2>Identification</h2>
-    <p>Expert trust is observed only in the treated arm. A pre-treatment proxy carries it into both: a random forest on 15 pre-treatment terms predicts the trust rating, a logit on that proxy gives the principal score p<sub>i</sub>, and arm means are Hájek-weighted by p<sub>i</sub> for the higher-trust stratum and by 1 − p<sub>i</sub> for the lower-trust one. Identified under randomization plus principal ignorability.</p>
+    <p>Expert trust is observed only in the treated arm. A pre-treatment proxy carries it into both. A random forest on 15 pre-treatment terms predicts the trust rating. A logit on that proxy gives the principal score p<sub>i</sub>. Arm means are then Hájek-weighted by p<sub>i</sub> for the higher-trust stratum and by 1 − p<sub>i</sub> for the lower-trust one. The estimand is identified under randomization plus principal ignorability.</p>
 
     </section>
 
@@ -60,7 +59,7 @@
     <h1>What treated respondents actually saw.</h1>
 
     <h2>Step 1 · The neutral briefing</h2>
-    <p>Respondents first read a short explanation of how experts assess automation risk, framed around tasks rather than occupations: when tasks are routine, clearly defined and follow repeated patterns, and there are many recorded examples for a computer to learn from, AI systems can pick them up more easily. The shorter and more repetitive the task, the easier it is to automate.</p>
+    <p>Respondents first read a short explanation of how experts assess automation risk. The briefing frames risk around tasks, not occupations. AI systems pick up tasks that are routine, clearly defined and repeated, and that leave many recorded examples to learn from. The shorter and more repetitive the task, the easier it is to automate.</p>
     <p>Two jobs from the same field make the contrast concrete: an IT help desk technician handling ten-minute scripted tickets is at higher risk, since chatbots can take most of those tickets; an IT systems designer planning a year of infrastructure is at lower risk, because the work needs long-term planning and team buy-in.</p>
     <div class="cols-2">
       <div class="callout" style="border-left-color:var(--red);background:var(--red-soft)">
@@ -75,17 +74,17 @@
     <p>A factual check follows, asking which kind of task is easiest for AI to automate. 93.5% of treated respondents answer correctly, so the briefing is doing its job before any personalized information arrives.</p>
 
     <h2>Step 2 · Belief elicitation on a common scale</h2>
-    <p>Rather than asking for a probability, the instrument uses a ranking metaphor: imagine every worker in the country standing in one long line, sorted by how likely their job is to be automated. Position 0 is for jobs safer than almost everyone else's; position 100 for those at risk sooner than almost everyone else's; position 50 has half the workforce ahead and half behind.</p>
-    <p>Respondents place their own job on that line with a slider from 0 to 100. They are then asked how many positions above or below their placement might be off from where experts would put their job, which records prior uncertainty alongside the point belief.</p>
+    <p>The instrument asks for a rank, not a probability. Imagine every worker in the country standing in one long line, sorted by how likely their job is to be automated. Position 0 holds the safest jobs. Position 100 holds the jobs at risk soonest. Position 50 has half the workforce ahead and half behind.</p>
+    <p>Respondents place their own job on that line with a slider from 0 to 100. They then report how many positions their placement might sit above or below the expert's. That records prior uncertainty alongside the point belief.</p>
 
     <h2>Step 3 · The named source, its method, and the personalized reveal</h2>
-    <p>The expert source is not anonymous. Respondents are told the estimates come from Dr. Carl Benedikt Frey and Dr. Michael A. Osborne, researchers at the University of Oxford who study the labor-market impact of AI and automation.</p>
-    <p>The method is disclosed in the same screen: the researchers began with the U.S. government's O*NET database of skills and daily tasks for every job; a panel of AI researchers first tagged 70 sample jobs as automatable or not yet automatable; a model then learned the pattern, scoring jobs heavy on routine, rule-based tasks, fine hand-eye work or data processing higher, and jobs relying on creative thinking, social insight or physical dexterity lower. The result is a 0-to-100 risk score per occupation.</p>
-    <p>The reveal is then personal and explicit: the respondent's own placement and the expert position for their occupation are shown together, followed by a plain-language reading of the expert score as a rank among 100 workers.</p>
+    <p>The screen names the expert source. The estimates come from Dr. Carl Benedikt Frey and Dr. Michael A. Osborne, researchers at the University of Oxford who study the labor-market impact of AI and automation.</p>
+    <p>The same screen discloses the method. The researchers began with the U.S. government's O*NET database of skills and daily tasks for every job. A panel of AI researchers tagged 70 sample jobs as automatable or not yet automatable. A model then learned the pattern. It scores jobs heavy on routine, rule-based tasks, fine hand-eye work or data processing higher, and jobs relying on creative thinking, social insight or physical dexterity lower. The result is a 0-to-100 risk score per occupation.</p>
+    <p>The reveal is personal and explicit. The screen shows the respondent's own placement beside the expert position for their occupation, then reads that score in plain language as a rank among 100 workers.</p>
 
     <div class="callout">
       <span class="label">Why this design creates a genuine shock</span>
-      <p>Because the source is named and its method explained, a respondent can accept or discount it on its merits, which is what makes expert trust a meaningful gate. Because the reveal is occupation-specific, the size and direction of the surprise vary across respondents without varying the procedure.</p>
+      <p>Naming the source and explaining its method lets a respondent accept or discount it on the merits. That is what makes expert trust a meaningful gate. Tying the reveal to the respondent's occupation varies the size and direction of the surprise without varying the procedure.</p>
     </div>
 
     <h2>Did it land?</h2>
@@ -94,15 +93,15 @@
       <div class="stat"><div class="label">Mean belief gap</div><div class="value">2.44</div><div class="note">SD = 36.1, range [−83, +94]</div></div>
       <div class="stat good"><div class="label">Updating × gap</div><div class="value">ρ = 0.66</div><div class="note">larger gaps produce larger self-reported updating</div></div>
     </div>
-    <p>The gap is wide in both directions, so the treatment is not a one-sided alarm: roughly as many respondents learn their risk is lower than they thought as higher. Self-reported belief updating tracks the size of the gap, which is what makes it a genuine informational shock rather than a confirmation exercise.</p>
+    <p>The gap runs wide in both directions, so the treatment is not a one-sided alarm. Roughly as many respondents learn their risk is lower than they thought as higher. Self-reported belief updating tracks the size of the gap. The treatment therefore delivers information, not confirmation.</p>
 
     <h2>Outcome and moderators</h2>
-    <p>Policy demand is five 7-point items on responses to AI-driven automation's workforce impact: expanding unemployment benefits and income subsidies; stricter federal regulation of AI deployment; funding retraining programs; strengthening labor protections; and limiting how many jobs AI may automate within companies. The battery deliberately spans redistribution, regulation, retraining, labor protections and employment limits, to avoid anchoring to a single ideological frame (ω = 0.83, scored by a graded response model).</p>
-    <p>Expert trust asks, after treatment, to what extent the respondent thinks the Oxford researchers are a trustworthy source of information about job automation risk. Trait anxiety is a four-item pre-treatment scale (ω = 0.92). Automation risk is the expert percentile for the respondent's own occupation, fixed before the experiment.</p>
+    <p>Policy demand combines five 7-point items on how to respond to AI-driven automation: expanding unemployment benefits and income subsidies; stricter federal regulation of AI deployment; funding retraining programs; strengthening labor protections; and limiting how many jobs AI may automate within companies. The battery spans redistribution, regulation, retraining, labor protections and employment limits, so it does not anchor to a single ideological frame (ω = 0.83, scored by a graded response model).</p>
+    <p>Expert trust asks after treatment how far the respondent considers the Oxford researchers a trustworthy source on job automation risk. Trait anxiety is a four-item pre-treatment scale (ω = 0.92). Automation risk is the expert percentile for the respondent's own occupation, fixed before the experiment.</p>
 
     <h2>The trust proxy</h2>
     <p>A random forest (500 trees, depth ≤ 10, minimum leaf size 5) is trained on the treated arm to predict the five-point trust rating from 15 pre-treatment terms: education, numeracy, age, race, gender, Democrat and liberal indicators, and the automation-risk percentile, each as a level; the squares of education, numeracy and age; and the interactions age × race, age × education, race × education and numeracy × education.</p>
-    <p>Its prediction, standardized over the full sample, is the proxy Q̂, defined in both arms because every input is pre-treatment. A binary logit of high-trust status (trust ≥ 4) on Q̂ yields p<sub>i</sub> = Pr(high trust | Q̂<sub>i</sub>). The higher-trust effect is the difference in self-normalized weighted arm means of η with weights p<sub>i</sub>; the lower-trust effect uses 1 − p<sub>i</sub>. Nothing post-treatment enters the weights, which is why the same weights can be applied in the control arm.</p>
+    <p>The prediction, standardized over the full sample, is the proxy Q̂. It is defined in both arms because every input is pre-treatment. A binary logit of high-trust status (trust ≥ 4) on Q̂ yields p<sub>i</sub> = Pr(high trust | Q̂<sub>i</sub>). The higher-trust effect is the difference in self-normalized weighted arm means of η with weights p<sub>i</sub>. The lower-trust effect uses 1 − p<sub>i</sub>. No post-treatment variable enters the weights, so the same weights apply in the control arm.</p>
 
     <h2>Balance</h2>
     <p>No covariate difference survives Holm correction. Trait anxiety is the largest standardized mean difference at 0.144 (p = 0.031, Holm p = 0.400), followed by age at 0.120 and ideology at −0.110. Those three are the adjustment set for the covariate-adjusted variant of the trust-stratum estimates.</p>
