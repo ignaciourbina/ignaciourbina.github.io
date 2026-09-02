@@ -22,9 +22,10 @@
       },
       {
         "authors": "**Ignacio Urbina** & Oleg Smirnov",
-        "title": "The Nature of Attitudes Toward Artificial Intelligence in Mass Publics",
+        "title": "One Dimension or Many? The Structure of Artificial Intelligence Attitudes in Mass Publics",
         "note": null,
-        "description": "Examines the structure of public AI attitudes using exploratory factor analysis on nationally representative U.S. sample (N > 5,000); reveals multidimensional structure across domains and contexts."
+        "description": "Maps the structure of U.S. public attitudes toward AI with exploratory factor analysis on a nationally representative sample (N = 5,153): fifty-two items resolve into ten factors organized by the social context of deployment, a belief-system network with no general-attitude hub, and demographic cleavages that reverse direction across dimensions.",
+        "pdfUrl": "/files/ai-attitudes-working-paper.pdf"
       }
     ]
   },

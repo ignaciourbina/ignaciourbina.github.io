@@ -30,8 +30,8 @@ export default function Home() {
             <Button to={home.hero.buttons.primary.to} variant="primary" size="lg">
               {home.hero.buttons.primary.label}
             </Button>
-            <Button to={home.hero.buttons.research.to} variant="outline" size="lg">
-              {home.hero.buttons.research.label}
+            <Button to={home.hero.buttons.tools.to} variant="outline" size="lg">
+              {home.hero.buttons.tools.label}
             </Button>
             <Button to={home.hero.buttons.secondary.to} variant="outline" size="lg">
               About Me
