@@ -21,6 +21,22 @@
   "tools": {
     "research": [
       {
+        "id": "gpu-gateway",
+        "title": "GPU Gateway",
+        "description": "Password-protected chat playground for the Simulating Open Democracy inference backend. Talks to a reverse proxy on the lab workstation over an encrypted tunnel; the password is checked server-side and never ships with the site.",
+        "tags": ["LLM Inference", "llama.cpp", "Reverse Proxy", "Streaming", "Interactive"],
+        "status": "live",
+        "featured": false,
+        "launchUrl": "/tools/gpu-gateway",
+        "githubUrl": "https://github.com/ignaciourbina/arm-b-inference-bundle",
+        "features": [
+          "Streaming chat against the local RTX GPU (OpenAI-compatible API)",
+          "Bearer-password auth verified by the proxy, not the browser",
+          "Endpoint and session-only password fields (nothing persisted server-side)",
+          "Works with any ngrok tunnel URL"
+        ]
+      },
+      {
         "id": "causalflow",
         "title": "CausalFlow",
         "description": "An interactive visual tool for specifying longitudinal causal models and exporting them to lavaan syntax for Structural Equation Modeling (SEM) analysis in R.",

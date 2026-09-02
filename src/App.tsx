@@ -15,6 +15,7 @@ import MathCampUnit from './pages/MathCampUnit'
 import MathCampViewer from './pages/MathCampViewer'
 import MathCampQuiz from './pages/MathCampQuiz'
 const MathCampPractice = lazy(() => import('./pages/MathCampPractice'))
+const GpuGateway = lazy(() => import('./pages/GpuGateway'))
 
 function App() {
   usePageTracking()
@@ -24,6 +25,14 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="tools" element={<Tools />} />
+        <Route
+          path="tools/gpu-gateway"
+          element={
+            <Suspense fallback={null}>
+              <GpuGateway />
+            </Suspense>
+          }
+        />
         <Route path="research" element={<Research />} />
         <Route path="teaching" element={<Teaching />} />
         <Route path="math-camp" element={<MathCamp />} />
