@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useRef, useState } from 'react'
+import ChatMarkdown from '../components/ChatMarkdown'
 
 // Chat playground for the password-protected reverse proxy that fronts the
 // local GPU inference backend (Simulating Open Democracy infra). The password
@@ -191,9 +192,13 @@ export default function GpuGateway() {
               <p className="text-xs font-bold uppercase tracking-wide text-green mb-1">
                 {msg.role === 'user' ? 'You' : 'Model'}
               </p>
-              <p className="text-sm text-ink whitespace-pre-wrap leading-relaxed">
-                {msg.content || (busy && i === messages.length - 1 ? '…' : '')}
-              </p>
+              {msg.role === 'assistant' && msg.content ? (
+                <ChatMarkdown text={msg.content} />
+              ) : (
+                <p className="text-sm text-ink whitespace-pre-wrap leading-relaxed">
+                  {msg.content || (busy && i === messages.length - 1 ? '…' : '')}
+                </p>
+              )}
             </div>
           ))}
           <div ref={chatEndRef} />
