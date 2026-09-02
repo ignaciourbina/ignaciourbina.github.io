@@ -3,6 +3,10 @@ import { research } from '../content'
 
 function renderMarkdown(text: string) {
   return text
+    .replace(
+      /\[(.*?)\]\((.*?)\)/g,
+      '<a href="$2" class="text-green hover:underline" target="_blank" rel="noreferrer">$1</a>'
+    )
     .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink">$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
 }
