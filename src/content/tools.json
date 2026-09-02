@@ -111,7 +111,8 @@
         "tags": ["Causal Inference", "SEM", "R/lavaan", "Interactive"],
         "status": "live",
         "featured": true,
-        "launchUrl": "https://ignaciourbina.github.io/causal-flow/"
+        "launchUrl": "https://ignaciourbina.github.io/causal-flow/",
+        "githubUrl": "https://github.com/ignaciourbina/causal-flow"
       },
       {
         "id": "quizview",
@@ -120,7 +121,8 @@
         "tags": ["Teaching", "LMS", "Next.js", "Data Preview"],
         "status": "live",
         "featured": true,
-        "launchUrl": "https://ignaciourbina.github.io/quizview/"
+        "launchUrl": "https://ignaciourbina.github.io/quizview/",
+        "githubUrl": "https://github.com/ignaciourbina/quizview"
       }
     ]
   }

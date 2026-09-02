@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Github } from 'lucide-react'
 
 interface ToolCardProps {
   title: string
@@ -58,8 +59,11 @@ export default function ToolCard({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-line text-muted rounded-lg font-medium text-sm hover:border-green hover:text-green transition-colors"
+            aria-label={`${title} source code on GitHub`}
+            title="View source on GitHub"
+            className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted rounded-lg font-medium text-sm hover:border-green hover:text-green transition-colors"
           >
+            <Github size={16} aria-hidden="true" />
             GitHub
           </a>
         )}

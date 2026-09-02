@@ -56,6 +56,7 @@ export default function Home() {
               tags={tool.tags}
               featured={tool.featured}
               launchUrl={tool.launchUrl}
+              githubUrl={tool.githubUrl}
             />
           ))}
         </div>
