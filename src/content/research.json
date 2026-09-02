@@ -59,7 +59,8 @@
         "title": "Communication and Cooperation with Human and Artificial Agents",
         "description": "2x2 factorial behavioral experiment (oTree): human vs. AI partner, with vs. without communication, in one shot Prisoner's Dilemma and Stag Hunt games.",
         "presentations": "Presented at 2023 APSA Meeting, Oxford's Talking to Machines Workshop (2024), and 2024 IMEBESS Conference.",
-        "pdfUrl": "/files/aicoop-working-paper.pdf"
+        "pdfUrl": "/files/aicoop-working-paper.pdf",
+        "note": "Under review"
       }
     ]
   },

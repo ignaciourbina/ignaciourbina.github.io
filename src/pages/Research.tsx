@@ -76,7 +76,7 @@ export default function Research() {
       </ul>
 
       {/* Working Papers */}
-      <SectionHeader kicker="Under review">{research.working.title}</SectionHeader>
+      <SectionHeader kicker="In preparation">{research.working.title}</SectionHeader>
       <p className="text-muted-light text-sm mb-8 italic">{research.working.note}</p>
 
       <div className="space-y-6 mb-16">
@@ -85,13 +85,20 @@ export default function Research() {
             key={index}
             className="border-l-[3px] border-line pl-5 hover:border-green transition-colors"
           >
-            <h3 className="text-ink font-semibold leading-snug mb-1">
-              <span
-                className="text-muted font-normal"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(paper.authors) + '. ' }}
-              />
-              <em>{paper.title}</em>
-            </h3>
+            <div className="flex items-start justify-between gap-4 mb-1">
+              <h3 className="text-ink font-semibold leading-snug">
+                <span
+                  className="text-muted font-normal"
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(paper.authors) + '. ' }}
+                />
+                <em>{paper.title}</em>
+              </h3>
+              {'note' in paper && paper.note && (
+                <span className="text-xs font-bold text-green bg-green-soft px-2.5 py-1 rounded-full shrink-0">
+                  {paper.note}
+                </span>
+              )}
+            </div>
             <p className="text-muted text-sm leading-relaxed mb-1">{paper.description}</p>
             {paper.presentations && (
               <p className="text-muted-light text-xs">{paper.presentations}</p>
