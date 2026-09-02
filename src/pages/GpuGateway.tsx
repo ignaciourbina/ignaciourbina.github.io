@@ -26,6 +26,44 @@ interface ChatMessage {
 type Status = 'idle' | 'checking' | 'connected' | 'error'
 type Mode = 'chat' | 'papers'
 
+// <img> can't send the ngrok-skip-browser-warning header, so the free-tier
+// tunnel would serve its interstitial instead of the image. Fetch with the
+// header and render a blob URL instead.
+function FigureImage({ fig }: { fig: PaperFigure }) {
+  const [src, setSrc] = useState<string | null>(null)
+  useEffect(() => {
+    let objectUrl: string | null = null
+    let cancelled = false
+    fetch(fig.url, { headers: { 'ngrok-skip-browser-warning': '1' } })
+      .then((res) => (res.ok ? res.blob() : Promise.reject(new Error(`${res.status}`))))
+      .then((blob) => {
+        objectUrl = URL.createObjectURL(blob)
+        if (!cancelled) setSrc(objectUrl)
+      })
+      .catch(() => setSrc(null))
+    return () => {
+      cancelled = true
+      if (objectUrl) URL.revokeObjectURL(objectUrl)
+    }
+  }, [fig.url])
+  return (
+    <span className="block mt-3">
+      {src ? (
+        <img
+          src={src}
+          alt={fig.description ?? fig.name}
+          className="max-w-full border border-line rounded-md"
+        />
+      ) : (
+        <span className="block text-xs text-muted border border-line rounded-md p-3">
+          Loading figure {fig.name}…
+        </span>
+      )}
+      {fig.description && <span className="block text-xs text-muted mt-1">{fig.description}</span>}
+    </span>
+  )
+}
+
 function authHeaders(password: string): Record<string, string> {
   return {
     Authorization: `Bearer ${password}`,
@@ -284,22 +322,7 @@ export default function GpuGateway() {
                 </p>
               )}
               {msg.figures?.map((fig) => (
-                <a
-                  key={fig.name}
-                  href={fig.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mt-3"
-                >
-                  <img
-                    src={fig.url}
-                    alt={fig.description ?? fig.name}
-                    className="max-w-full border border-line rounded-md"
-                  />
-                  {fig.description && (
-                    <span className="block text-xs text-muted mt-1">{fig.description}</span>
-                  )}
-                </a>
+                <FigureImage key={fig.name} fig={fig} />
               ))}
             </div>
           ))}
