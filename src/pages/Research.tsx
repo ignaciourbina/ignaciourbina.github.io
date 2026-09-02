@@ -92,6 +92,16 @@ export default function Research() {
             {paper.presentations && (
               <p className="text-muted-light text-xs">{paper.presentations}</p>
             )}
+            {'pdfUrl' in paper && paper.pdfUrl && (
+              <a
+                href={paper.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-green hover:text-green-hover transition-colors"
+              >
+                Download Paper (PDF)
+              </a>
+            )}
           </div>
         ))}
       </div>

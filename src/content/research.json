@@ -48,15 +48,17 @@
       },
       {
         "authors": "**Ignacio Urbina**",
-        "title": "Will a Robot Take My Job? The Moderating Role of Automation Risks on Ideology's Effect on Welfare and Redistribution Attitudes",
-        "description": "Observational analysis using 2016 European Social Survey with occupation-level automation risk estimates. Multilevel decomposition: individual, industry, country.",
-        "presentations": "Presented at the 2024 MPSA Meeting and the 2024 ISPP Meeting."
+        "title": "Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social Survey, 2002–2022",
+        "description": "Rebuilds and extends the Thewissen and Rueda (2019) design across all eleven European Social Survey waves (N > 275,000 in 39 countries). The automation risk association with redistribution preferences reappears in 2002–2012 but is smaller in the following decade, with wide country-year variation. Welfare and labor-market institutions condition the exposure–insecurity link: union density weakens it, while net income inequality and strict employment protection strengthen it.",
+        "presentations": "Earlier version presented at the 2024 MPSA Meeting and the 2024 ISPP Meeting.",
+        "pdfUrl": "/files/automation-redistribution-working-paper.pdf"
       },
       {
         "authors": "**Ignacio Urbina**, Reuben Kline, & Akhil Ponda",
         "title": "Communication and Cooperation with Human and Artificial Agents",
         "description": "2x2 factorial behavioral experiment (oTree): human vs. AI partner, with vs. without communication, in one shot Prisoner's Dilemma and Stag Hunt games.",
-        "presentations": "Presented at 2023 APSA Meeting, Oxford's Talking to Machines Workshop (2024), and 2024 IMEBESS Conference."
+        "presentations": "Presented at 2023 APSA Meeting, Oxford's Talking to Machines Workshop (2024), and 2024 IMEBESS Conference.",
+        "pdfUrl": "/files/aicoop-working-paper.pdf"
       }
     ]
   },
