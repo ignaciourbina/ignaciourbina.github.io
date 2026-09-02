@@ -77,7 +77,6 @@ export default function Research() {
 
       {/* Working Papers */}
       <SectionHeader kicker="In preparation">{research.working.title}</SectionHeader>
-      <p className="text-muted-light text-sm mb-8 italic">{research.working.note}</p>
 
       <div className="space-y-6 mb-16">
         {research.working.papers.map((paper, index) => (
