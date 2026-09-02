@@ -42,15 +42,15 @@
     "papers": [
       {
         "authors": "**Ignacio Urbina** & Vitória Sgorlon",
-        "title": "Fractured Trust: The Spillover Effects of Police Violence on Political Trust and Satisfaction with Democracy",
-        "description": "Three studies: vignette experiment in Brazil (N = 624), observational analysis of 2019 Chilean protests, and cross-national analysis of 24 Latin American countries (LAPOP).",
-        "presentations": "Presented at POLMETH (2024), APSA (2024), MPSA (2024), Human Rights Workshop at URI (2024), and others. Winner of Best Poster Award at 2023 Latin American Political Methodology Meeting."
+        "title": "Fractured Trust: The Spillover Effects of Police Violence on Satisfaction with Democracy and Political Trust",
+        "description": "Three studies on how exposure to police violence erodes political trust and satisfaction with democracy: a two-wave survey experiment in Brazil (N = 1,004), an observational analysis of Chile's 2019 protest repression, and cross-national LAPOP evidence from sixteen Latin American countries. The damage reaches courts, legislature, and executive rather than stopping at trust in the police.",
+        "presentations": "Presented at POLMETH (2024), APSA (2024), MPSA (2024), Human Rights Workshop at URI (2024), and others. Winner of Best Poster Award at 2023 Latin American Political Methodology Meeting.",
+        "pdfUrl": "/files/fractured-trust-working-paper.pdf"
       },
       {
         "authors": "**Ignacio Urbina**",
         "title": "Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social Survey, 2002–2022",
         "description": "Rebuilds and extends the Thewissen and Rueda (2019) design across all eleven European Social Survey waves (N > 275,000 in 39 countries). The automation risk association with redistribution preferences reappears in 2002–2012 but is smaller in the following decade, with wide country-year variation. Welfare and labor-market institutions condition the exposure–insecurity link: union density weakens it, while net income inequality and strict employment protection strengthen it.",
-        "presentations": "Earlier version presented at the 2024 MPSA Meeting and the 2024 ISPP Meeting.",
         "pdfUrl": "/files/automation-redistribution-working-paper.pdf"
       },
       {
@@ -77,7 +77,7 @@
       },
       {
         "authors": "Vitória Sgorlon & **Ignacio Urbina**",
-        "title": "Trait Aggression Predicts Vote Choice for Far-Right Candidates: Evidence from the United States and Brazil",
+        "title": "Does Trait Aggression Predict Vote Choice for Far-Right Candidates? Evidence from the United States and Brazil",
         "description": "Pre-registered cross-national study (US N = 933, Brazil N = 1,004). CFA, logistic regression, mediation analysis. Data collection completed."
       },
       {
@@ -86,9 +86,9 @@
         "description": "Behavioral experiment comparing prosociality with real vs. hypothetical stakes across lab and online settings."
       },
       {
-        "authors": "Vitória Sgorlon & **Ignacio Urbina**",
+        "authors": "Vitória Sgorlon, **Ignacio Urbina**, Anakiz Elif Senturk, & Santiago Echeverri",
         "title": "Misperceptions of Immigrants on the Workforce: Unpacking Labor Market Concerns",
-        "description": "Pre-registered belief correction survey experiment with four conditions (control, egotropic, sociotropic, combined). N = 1,950 U.S. workers. Data collection completed."
+        "description": "Four-arm pre-registered experiment (N = 1,810 U.S. workers) testing whether occupation-specific or national facts about immigrants in the workforce reduce perceived economic threat and shift immigration attitudes. Pooled effects are null because over- and under-estimators respond in opposite directions."
       },
       {
         "authors": "**Ignacio Urbina**",
