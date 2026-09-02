@@ -11,12 +11,20 @@ const PASSWORD_KEY = 'gpuGateway.password'
 // Reserved ngrok static domain for the lab workstation's gateway tunnel.
 const DEFAULT_ENDPOINT = 'https://leaflike-unexistent-retha.ngrok-free.dev'
 
+interface PaperFigure {
+  name: string
+  url: string
+  description?: string
+}
+
 interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
+  figures?: PaperFigure[]
 }
 
 type Status = 'idle' | 'checking' | 'connected' | 'error'
+type Mode = 'chat' | 'papers'
 
 function authHeaders(password: string): Record<string, string> {
   return {
@@ -38,6 +46,7 @@ export default function GpuGateway() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
+  const [mode, setMode] = useState<Mode>('chat')
   const abortRef = useRef<AbortController | null>(null)
   const chatEndRef = useRef<HTMLDivElement | null>(null)
 
@@ -67,6 +76,34 @@ export default function GpuGateway() {
     }
   }
 
+  const sendPapers = async (prompt: string, history: ChatMessage[]) => {
+    try {
+      const res = await fetch(`${baseUrl}/papers/chat`, {
+        method: 'POST',
+        headers: authHeaders(password),
+        body: JSON.stringify({
+          question: prompt,
+          history: history.slice(0, -1).map(({ role, content }) => ({ role, content })),
+        }),
+      })
+      if (!res.ok) throw new Error(`Gateway returned ${res.status}.`)
+      const data = (await res.json()) as { answer: string; figures?: PaperFigure[] }
+      setMessages([
+        ...history,
+        {
+          role: 'assistant',
+          content: data.answer,
+          figures: (data.figures ?? []).map((f) => ({ ...f, url: `${baseUrl}${f.url}` })),
+        },
+      ])
+    } catch (err) {
+      const detail = err instanceof Error ? err.message : 'request failed'
+      setMessages([...history, { role: 'assistant', content: `[error: ${detail}]` }])
+    } finally {
+      setBusy(false)
+    }
+  }
+
   const send = async (event: FormEvent) => {
     event.preventDefault()
     const prompt = input.trim()
@@ -75,6 +112,10 @@ export default function GpuGateway() {
     setMessages([...history, { role: 'assistant', content: '' }])
     setInput('')
     setBusy(true)
+    if (mode === 'papers') {
+      await sendPapers(prompt, history)
+      return
+    }
     const controller = new AbortController()
     abortRef.current = controller
     try {
@@ -183,6 +224,44 @@ export default function GpuGateway() {
       </div>
 
       <div className="bg-panel border border-line rounded-lg p-5">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          {(['chat', 'papers'] as const).map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMode(m)}
+              className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${
+                mode === m
+                  ? 'bg-green text-white border-green'
+                  : 'border-line text-muted hover:text-ink'
+              }`}
+            >
+              {m === 'chat' ? 'Free chat' : 'Chat with my papers'}
+            </button>
+          ))}
+          {mode === 'papers' && (
+            <span className="text-xs text-muted">
+              Grounded answers with page citations —{' '}
+              <a
+                href={`${baseUrl}/papers/assets/sod/final-manuscript.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green underline"
+              >
+                SOD paper
+              </a>{' '}
+              ·{' '}
+              <a
+                href={`${baseUrl}/papers/assets/jmp/cam-working-paper.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green underline"
+              >
+                job market paper
+              </a>
+            </span>
+          )}
+        </div>
         <div className="space-y-4 mb-4 max-h-[24rem] overflow-y-auto">
           {messages.length === 0 && (
             <p className="text-sm text-muted">Connect, then ask the model something.</p>
@@ -196,9 +275,32 @@ export default function GpuGateway() {
                 <ChatMarkdown text={msg.content} />
               ) : (
                 <p className="text-sm text-ink whitespace-pre-wrap leading-relaxed">
-                  {msg.content || (busy && i === messages.length - 1 ? '…' : '')}
+                  {msg.content ||
+                    (busy && i === messages.length - 1
+                      ? mode === 'papers'
+                        ? 'Searching the papers…'
+                        : '…'
+                      : '')}
                 </p>
               )}
+              {msg.figures?.map((fig) => (
+                <a
+                  key={fig.name}
+                  href={fig.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mt-3"
+                >
+                  <img
+                    src={fig.url}
+                    alt={fig.description ?? fig.name}
+                    className="max-w-full border border-line rounded-md"
+                  />
+                  {fig.description && (
+                    <span className="block text-xs text-muted mt-1">{fig.description}</span>
+                  )}
+                </a>
+              ))}
             </div>
           ))}
           <div ref={chatEndRef} />
@@ -208,7 +310,13 @@ export default function GpuGateway() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={status === 'connected' ? 'Ask something…' : 'Connect first'}
+            placeholder={
+              status !== 'connected'
+                ? 'Connect first'
+                : mode === 'papers'
+                  ? 'Ask about the papers…'
+                  : 'Ask something…'
+            }
             disabled={status !== 'connected' || busy}
             className="flex-1 bg-paper border border-line rounded-md px-3 py-2 text-sm text-ink"
           />
