@@ -96,5 +96,15 @@
         "description": "Simulates how adversarial bots exploit network topology to suppress political coordination. Bayesian calibration against empirical protest and social media studies."
       }
     ]
+  },
+  "usefulLinks": {
+    "title": "Useful Links",
+    "items": [
+      {
+        "title": "Stony Brook Dissertations & Theses (ProQuest)",
+        "url": "https://www.proquest.com/pqdtlocal1007355/index?accountid=14172",
+        "description": "Full-text repository of Stony Brook University dissertations. Inside, filter to \"Doctoral dissertations\" and the Political Science department."
+      }
+    ]
   }
 }

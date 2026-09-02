@@ -126,6 +126,27 @@ export default function Research() {
           </div>
         ))}
       </div>
+
+      {/* Useful Links */}
+      <SectionHeader kicker="Links">{research.usefulLinks.title}</SectionHeader>
+      <ul className="space-y-0 mb-10">
+        {research.usefulLinks.items.map((link, index) => (
+          <li
+            key={index}
+            className={`py-3 ${index < research.usefulLinks.items.length - 1 ? 'border-b border-line' : ''}`}
+          >
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green font-medium hover:text-green-hover transition-colors"
+            >
+              {link.title}
+            </a>
+            <span className="text-muted"> — {link.description}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

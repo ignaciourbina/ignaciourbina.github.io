@@ -85,26 +85,6 @@ export default function About() {
         ))}
       </ul>
 
-      {/* Selected Publications */}
-      <SectionHeader kicker="Papers">{about.publications.title}</SectionHeader>
-      <ul className="space-y-0 mb-10">
-        {about.publications.items.map((pub, index) => (
-          <li
-            key={index}
-            className={`py-4 ${index < about.publications.items.length - 1 ? 'border-b border-line' : ''}`}
-          >
-            <p
-              className="text-muted leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html: pub.citation
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-ink">$1</strong>')
-                  .replace(/\*(.*?)\*/g, '<em>$1</em>'),
-              }}
-            />
-          </li>
-        ))}
-      </ul>
-
       {/* Skills & Tools */}
       <SectionHeader kicker="Stack">{about.skills.title}</SectionHeader>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
@@ -117,27 +97,6 @@ export default function About() {
           </div>
         ))}
       </div>
-
-      {/* Useful Links */}
-      <SectionHeader kicker="Links">{about.usefulLinks.title}</SectionHeader>
-      <ul className="space-y-0 mb-10">
-        {about.usefulLinks.items.map((link, index) => (
-          <li
-            key={index}
-            className={`py-3 ${index < about.usefulLinks.items.length - 1 ? 'border-b border-line' : ''}`}
-          >
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green font-medium hover:text-green-hover transition-colors"
-            >
-              {link.title}
-            </a>
-            <span className="text-muted"> — {link.description}</span>
-          </li>
-        ))}
-      </ul>
 
       {/* CV */}
       <SectionHeader kicker="Download">CV</SectionHeader>

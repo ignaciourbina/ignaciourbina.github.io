@@ -7,6 +7,10 @@
         "label": "View Tools",
         "to": "/tools"
       },
+      "research": {
+        "label": "Research",
+        "to": "/research"
+      },
       "secondary": {
         "label": "About Me",
         "to": "/about"

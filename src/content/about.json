@@ -66,19 +66,6 @@
       }
     ]
   },
-  "publications": {
-    "title": "Selected Publications",
-    "items": [
-      {
-        "citation": "Smirnov, O., Hsieh, P-H., & **Urbina, I.** (2025). Finite pool of worry and emotions in climate change tweets during COVID-19. *Journal of Environmental Psychology*, 106, 102728.",
-        "url": null
-      },
-      {
-        "citation": "**Urbina, I.** The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation. *(Job Market Paper)*",
-        "url": null
-      }
-    ]
-  },
   "skills": {
     "title": "Skills & Tools",
     "categories": [
@@ -97,16 +84,6 @@
       {
         "name": "Tools",
         "items": ["Git", "Docker", "LaTeX", "Observable"]
-      }
-    ]
-  },
-  "usefulLinks": {
-    "title": "Useful Links",
-    "items": [
-      {
-        "title": "Stony Brook Dissertations & Theses (ProQuest)",
-        "url": "https://www.proquest.com/pqdtlocal1007355/index?accountid=14172",
-        "description": "Full-text repository of Stony Brook University dissertations. Inside, filter to \"Doctoral dissertations\" and the Political Science department."
       }
     ]
   },
