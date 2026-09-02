@@ -7,6 +7,8 @@ import { FormEvent, useEffect, useRef, useState } from 'react'
 
 const ENDPOINT_KEY = 'gpuGateway.endpoint'
 const PASSWORD_KEY = 'gpuGateway.password'
+// Reserved ngrok static domain for the lab workstation's gateway tunnel.
+const DEFAULT_ENDPOINT = 'https://leaflike-unexistent-retha.ngrok-free.dev'
 
 interface ChatMessage {
   role: 'user' | 'assistant'
@@ -25,7 +27,9 @@ function authHeaders(password: string): Record<string, string> {
 }
 
 export default function GpuGateway() {
-  const [endpoint, setEndpoint] = useState(() => localStorage.getItem(ENDPOINT_KEY) ?? '')
+  const [endpoint, setEndpoint] = useState(
+    () => localStorage.getItem(ENDPOINT_KEY) ?? DEFAULT_ENDPOINT
+  )
   const [password, setPassword] = useState(() => sessionStorage.getItem(PASSWORD_KEY) ?? '')
   const [status, setStatus] = useState<Status>('idle')
   const [statusDetail, setStatusDetail] = useState('')
