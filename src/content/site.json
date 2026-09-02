@@ -9,14 +9,38 @@
   "navigation": {
     "brand": "Ignacio Urbina",
     "links": [
-      { "to": "/", "label": "Home" },
-      { "to": "/tools", "label": "Tools" },
-      { "to": "/research", "label": "Research" },
-      { "to": "/teaching", "label": "Teaching" },
-      { "to": "/math-camp", "label": "Math Camp" },
-      { "to": "/conferences", "label": "Conferences" },
-      { "to": "/about", "label": "About" },
-      { "to": "/cv", "label": "CV" }
+      {
+        "to": "/",
+        "label": "Home"
+      },
+      {
+        "to": "/research",
+        "label": "Research"
+      },
+      {
+        "to": "/tools",
+        "label": "Tools"
+      },
+      {
+        "to": "/teaching",
+        "label": "Teaching"
+      },
+      {
+        "to": "/math-camp",
+        "label": "Math Camp"
+      },
+      {
+        "to": "/conferences",
+        "label": "Conferences"
+      },
+      {
+        "to": "/about",
+        "label": "About"
+      },
+      {
+        "to": "/cv",
+        "label": "CV"
+      }
     ]
   },
   "social": {
