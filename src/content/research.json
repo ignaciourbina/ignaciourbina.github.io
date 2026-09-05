@@ -60,6 +60,12 @@
         "presentations": "Presented at 2023 APSA Meeting, Oxford's Talking to Machines Workshop (2024), and 2024 IMEBESS Conference.",
         "pdfUrl": "/files/aicoop-working-paper.pdf",
         "note": "Under review"
+      },
+      {
+        "authors": "**Ignacio Urbina**",
+        "title": "Repressive Democracies: The Relationship Between State's Repression Severity, Protests, and Policy Change",
+        "description": "A global game of policy change: citizens decide whether to protest under uncertainty about the critical crowd required, and the state sets the severity of repression in advance. The unique threshold equilibrium delivers unconditional comparative statics, and an anger extension shows that backlash is an elasticity condition and that outrage caps the state's optimal severity.",
+        "pdfUrl": "/files/repressive-democracies-working-paper.pdf"
       }
     ]
   },

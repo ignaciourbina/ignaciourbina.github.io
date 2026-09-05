@@ -19,6 +19,7 @@ Stony Brook University, Department of Political Science
 2.4 Working Papers
 2.4.1 Fractured Trust (with Sgorlon)
 2.4.2 Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social Survey, 2002-2022
+2.4.3 Repressive Democracies: The Relationship Between State's Repression Severity, Protests, and Policy Change
 2.5 Work in Progress
 2.5.1 Public Attitudes Toward AGI and Superintelligent AI (with Smirnov)
 2.5.2 Mind Under Pressure (with Araya, Vidigal, & Sharygina)
