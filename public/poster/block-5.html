@@ -19,7 +19,7 @@
     <div class="stats">
       <div class="stat good"><div class="label">Effect, higher trust</div><div class="value">99.7%</div><div class="note">MDE 0.21</div></div>
       <div class="stat good"><div class="label">Difference between them</div><div class="value">93%</div><div class="note">MDE 0.22</div></div>
-      <div class="stat warn"><div class="label">Corner increment, higher trust</div><div class="value">37%</div><div class="note">below its MDE of 0.71</div></div>
+      <div class="stat warn"><div class="label">Corner increment, higher trust</div><div class="value">40%</div><div class="note">below its MDE of 0.57</div></div>
     </div>
 
     <p class="compact-hide">This design identifies the stratum effects and the corner total. It does not identify the corner increment.</p>
@@ -55,10 +55,10 @@
       <table>
         <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">MDE</th><th class="num">Power</th><th>Clears</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.721</td><td class="num">0.662</td><td class="num">86%</td><td>yes</td></tr>
-          <tr><td>Corner effect, lower trust</td><td class="num">0.193</td><td class="num">0.600</td><td class="num">14%</td><td>no</td></tr>
-          <tr><td>Corner increment, higher trust</td><td class="num">0.412</td><td class="num">0.712</td><td class="num">37%</td><td>no</td></tr>
-          <tr><td>Corner increment, lower trust</td><td class="num">0.109</td><td class="num">0.649</td><td class="num">7%</td><td>no</td></tr>
+          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.619</td><td class="num">0.485</td><td class="num">95%</td><td>yes</td></tr>
+          <tr><td>Corner effect, lower trust</td><td class="num">0.003</td><td class="num">0.383</td><td class="num">3%</td><td>no</td></tr>
+          <tr><td>Corner increment, higher trust</td><td class="num">0.347</td><td class="num">0.569</td><td class="num">40%</td><td>no</td></tr>
+          <tr><td>Corner increment, lower trust</td><td class="num">−0.125</td><td class="num">0.467</td><td class="num">11%</td><td>no</td></tr>
         </tbody>
       </table>
     </div>
@@ -72,7 +72,7 @@
     <h2>Robustness</h2>
     <ul class="plain">
       <li><span class="term">Covariate adjustment.</span><span class="def">Exact mean balance on 18 covariates makes residual adjustment identically zero; there is no adjusted variant to report.</span></li>
-      <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">The corner total's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile; δ keeps P(&gt;0) ≥ 0.95 at each.</span></li>
+      <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">The corner total's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile; δ keeps P(&gt;0) between 0.946 and 0.958 across the three.</span></li>
       <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
     </ul>
 

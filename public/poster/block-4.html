@@ -31,8 +31,8 @@
       <table>
         <thead><tr><th>Trust in source</th><th class="num">Outside</th><th class="num">Extra in corner</th><th class="num">In corner</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Higher</td><td class="num">0.309</td><td class="num">0.412<br>[−0.077, 0.915]</td><td class="num">0.721<br>[0.272, 1.187]</td></tr>
-          <tr><td>Lower</td><td class="num">0.084</td><td class="num">0.109<br>[−0.358, 0.541]</td><td class="num">0.193<br>[−0.223, 0.594]</td></tr>
+          <tr class="highlight"><td>Higher</td><td class="num">0.272</td><td class="num">0.347<br>[−0.049, 0.730]</td><td class="num">0.619<br>[0.286, 0.965]</td></tr>
+          <tr><td>Lower</td><td class="num">0.128</td><td class="num">−0.125<br>[−0.445, 0.203]</td><td class="num">0.003<br>[−0.262, 0.267]</td></tr>
         </tbody>
       </table>
     </div>
@@ -81,20 +81,20 @@
     <p class="lede">Bootstrap percentile intervals, B = 2000, weights refit inside each replicate.</p>
 
     <h2>Gate 2 — the fixed conjunctive corner</h2>
-    <p>A respondent sits in the corner if trait anxiety and automation risk each fall in the pooled sample's top tercile, both measured pre-treatment: trait anxiety z ≥ 0.53 and automation risk ≥ 54.5th percentile. Membership follows deterministically from the data. Only the treatment effect is estimated, inside and outside the corner, by weighted least squares.</p>
+    <p>A respondent sits in the corner if trait anxiety and automation risk each sit at or above the pooled sample's median, both measured pre-treatment: trait anxiety z ≥ 0.06 and automation risk ≥ 32.1st percentile. Membership follows deterministically from the data. Only the treatment effect is estimated, inside and outside the corner, by weighted least squares.</p>
     <div class="scroller">
       <table>
         <thead><tr><th>Stratum</th><th class="num">τ<sub>base</sub></th><th class="num">δ</th><th class="num">Corner (τ<sub>base</sub>+δ)</th><th class="num">Share</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Higher trust</td><td class="num">0.309<br>[0.147, 0.465]</td><td class="num">0.412<br>[−0.077, 0.915]</td><td class="num">0.721<br>[0.272, 1.187]</td><td class="num">11.7%</td></tr>
-          <tr><td>Lower trust</td><td class="num">0.084<br>[−0.046, 0.212]</td><td class="num">0.109<br>[−0.358, 0.541]</td><td class="num">0.193<br>[−0.223, 0.594]</td><td class="num">11.7%</td></tr>
+          <tr class="highlight"><td>Higher trust</td><td class="num">0.272<br>[0.087, 0.440]</td><td class="num">0.347<br>[−0.049, 0.730]</td><td class="num">0.619<br>[0.286, 0.965]</td><td class="num">25.1%</td></tr>
+          <tr><td>Lower trust</td><td class="num">0.128<br>[−0.022, 0.268]</td><td class="num">−0.125<br>[−0.445, 0.203]</td><td class="num">0.003<br>[−0.262, 0.267]</td><td class="num">25.1%</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lede">105 of 901 respondents (11.7%) qualify. The two moderators are near-independent, corr(A, R) = 0.014, and the corner share matches the ≈ 11.1% implied by independent terciles.</p>
+    <p class="lede">226 of 901 respondents (25.1%) qualify. The two moderators are near-independent, corr(A, R) = 0.014, and the corner share matches the 25% implied by independent medians.</p>
 
     <h2>Cutoff-choice sensitivity</h2>
-    <p>The same model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). The higher-trust corner total's 95% CI excludes zero at every cutoff. The increment δ is directionally stable, with P(&gt;0) at or above 0.95 at each cutoff. Its 95% CI includes zero at each cutoff, so the increment is the underpowered quantity. Lower-trust δ stays null throughout.</p>
+    <p>The same model was fit at three pre-specified cutoffs: the median (50th percentile, primary), the 58.3rd percentile, and the tercile (66.7th). The higher-trust corner total's 95% CI excludes zero at every cutoff. The increment δ is directionally stable, with P(&gt;0) between 0.946 and 0.958 across cutoffs. Its 95% CI includes zero at each cutoff, so the increment is the underpowered quantity. Lower-trust δ stays null throughout.</p>
 
     <div class="callout">
       <span class="label">How badly would mean ignorability have to fail?</span>
