@@ -14,15 +14,15 @@
       <p class="kicker">Power, robustness &amp; sensitivity</p>
       <button class="swap" data-target="detail">Details &rarr;</button>
     </div>
-    <h1>Two of the three headline quantities are well powered; the third is not.</h1>
+    <h1>All three headline quantities clear their minimum detectable effects; the corner increment does not.</h1>
 
     <div class="stats">
-      <div class="stat good"><div class="label">Effect, higher trust</div><div class="value">98%</div><div class="note">MDE 0.28</div></div>
-      <div class="stat good"><div class="label">Corner, higher trust</div><div class="value">98%</div><div class="note">MDE 0.44</div></div>
-      <div class="stat warn"><div class="label">Difference between them</div><div class="value">62%</div><div class="note">below its MDE of 0.33</div></div>
+      <div class="stat good"><div class="label">Effect, higher trust</div><div class="value">99.7%</div><div class="note">MDE 0.21</div></div>
+      <div class="stat good"><div class="label">Difference between them</div><div class="value">93%</div><div class="note">MDE 0.22</div></div>
+      <div class="stat warn"><div class="label">Corner increment, higher trust</div><div class="value">37%</div><div class="note">below its MDE of 0.71</div></div>
     </div>
 
-    <p class="compact-hide">The higher-trust results are the ones this design can carry.</p>
+    <p class="compact-hide">This design identifies the stratum effects and the corner total. It does not identify the corner increment.</p>
 
     </section>
 
@@ -38,47 +38,46 @@
       <table>
         <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">SE</th><th class="num">MDE</th><th class="num">Power</th><th>Clears</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Higher trust, unadjusted</td><td class="num">0.402</td><td class="num">0.099</td><td class="num">0.277</td><td class="num">98%</td><td>yes</td></tr>
-          <tr><td>Higher trust, adjusted</td><td class="num">0.329</td><td class="num">0.089</td><td class="num">0.249</td><td class="num">96%</td><td>yes</td></tr>
-          <tr><td>Difference between them, unadjusted</td><td class="num">0.265</td><td class="num">0.117</td><td class="num">0.328</td><td class="num">62%</td><td>no</td></tr>
-          <tr><td>Difference between them, adjusted</td><td class="num">0.219</td><td class="num">0.106</td><td class="num">0.297</td><td class="num">54%</td><td>no</td></tr>
+          <tr class="highlight"><td>Higher trust</td><td class="num">0.362</td><td class="num">0.076</td><td class="num">0.213</td><td class="num">99.7%</td><td>yes</td></tr>
+          <tr class="highlight"><td>Difference between them</td><td class="num">0.267</td><td class="num">0.078</td><td class="num">0.219</td><td class="num">93%</td><td>yes</td></tr>
+          <tr><td>Lower trust</td><td class="num">0.094</td><td class="num">0.061</td><td class="num">0.171</td><td class="num">34%</td><td>no</td></tr>
         </tbody>
       </table>
     </div>
 
     <figure>
-      <img src="img/power-hajek.png" alt="Power curves for the higher-trust effect and for the difference between the two trust groups, under both specifications.">
-      <figcaption>Power curves for the higher-trust effect and for the difference between the two trust groups, both specifications. The higher-trust effect also shows a simulated cross-check with the principal score held fixed. That simulation understates the committed bootstrap's SE by 12–14%, so its curve is optimistic.</figcaption>
+      <img src="img/power-strata.png" alt="Power curves for the higher-trust effect and for the difference between the two trust groups.">
+      <figcaption>Power curves for the higher-trust effect and for the difference between the two trust groups, from the committed bootstrap standard errors. Exact balance leaves no adjusted variant to plot.</figcaption>
     </figure>
 
     <h2>The conjunctive corner</h2>
     <div class="scroller">
       <table>
-        <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">MDE (analytic)</th><th class="num">MDE (bootstrap)</th><th class="num">Power</th><th>Clears</th></tr></thead>
+        <thead><tr><th>Target</th><th class="num">Observed</th><th class="num">MDE</th><th class="num">Power</th><th>Clears</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.685</td><td class="num">0.440</td><td class="num">0.461</td><td class="num">98%</td><td>yes</td></tr>
-          <tr><td>Corner effect, lower trust</td><td class="num">0.285</td><td class="num">0.368</td><td class="num">0.360</td><td class="num">59%</td><td>no</td></tr>
-          <tr><td>Corner increment, higher trust</td><td class="num">0.397</td><td class="num">0.426</td><td class="num">0.445</td><td class="num">72%</td><td>no</td></tr>
-          <tr><td>Corner increment, lower trust</td><td class="num">0.194</td><td class="num">0.364</td><td class="num">0.360</td><td class="num">32%</td><td>no</td></tr>
+          <tr class="highlight"><td>Corner effect, higher trust</td><td class="num">0.721</td><td class="num">0.662</td><td class="num">86%</td><td>yes</td></tr>
+          <tr><td>Corner effect, lower trust</td><td class="num">0.193</td><td class="num">0.600</td><td class="num">14%</td><td>no</td></tr>
+          <tr><td>Corner increment, higher trust</td><td class="num">0.412</td><td class="num">0.712</td><td class="num">37%</td><td>no</td></tr>
+          <tr><td>Corner increment, lower trust</td><td class="num">0.109</td><td class="num">0.649</td><td class="num">7%</td><td>no</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Two methods compute the MDE and they agree closely. One is a normal-approximation formula. The other simulates a power curve, resampling the real data and injecting a candidate true effect on top of the actual covariate distribution and residual structure. The corner effects are better powered than the increments δ, because they are larger against essentially the same noise.</p>
+    <p>The MDE is the normal-approximation formula applied to the committed bootstrap standard error of each quantity. The corner effects are better powered than the increments δ, because they are larger against essentially the same noise.</p>
 
     <figure>
-      <img src="img/power-corner.png" alt="Bootstrapped power curves for the corner increment and the corner effect in both trust strata.">
-      <figcaption>Bootstrapped power curves for δ (solid) and the corner effect (dashed), both strata. Diamonds mark each target's own observed effect size and its estimated power there; the dotted line is the 80% power target.</figcaption>
+      <img src="img/power-corner.png" alt="Power curves for the corner increment and the corner effect in both trust strata.">
+      <figcaption>Power curves for δ (solid) and the corner effect (dashed), both strata, from the committed bootstrap standard errors. Diamonds mark each target's own observed effect size and its estimated power there; the dotted line is the 80% power target.</figcaption>
     </figure>
 
     <h2>Robustness</h2>
     <ul class="plain">
-      <li><span class="term">Covariate adjustment.</span><span class="def">Higher trust 0.329, lower trust 0.110, difference 0.219. The ordering holds, modestly attenuated.</span></li>
-      <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">δ's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile.</span></li>
+      <li><span class="term">Covariate adjustment.</span><span class="def">Exact mean balance on 18 covariates makes residual adjustment identically zero; there is no adjusted variant to report.</span></li>
+      <li><span class="term">The cutoff choice does not drive the corner.</span><span class="def">The corner total's 95% CI excludes zero at the median, the 58.3rd percentile and the tercile; δ keeps P(&gt;0) ≥ 0.95 at each.</span></li>
       <li><span class="term">Nothing is fitted except the treatment effect.</span><span class="def">Corner membership is a deterministic function of two pre-treatment variables, so no cutoff or sharpness parameter is estimated.</span></li>
     </ul>
 
     <h2>Sensitivity to the identifying assumption</h2>
-    <p>Principal ignorability identifies the trust-stratum estimates. This design cannot test it, because expert trust was never measured in the control arm. The breakdown values are −1.17 SD for the higher-trust effect and −0.52 SD for the difference between the two. Only a hidden differential response that large, and pointing against the mechanism under study, would drive the estimates to zero.</p>
+    <p>Mean ignorability of the no-treatment outcome identifies the trust-stratum estimates, given the 18 balanced covariates. This design cannot test it, because expert trust was never measured in the control arm. The breakdown values are +0.58 SD for the higher-trust effect and +0.28 SD for the difference between the two. The estimates fall to zero only if a hidden baseline gap that large survives exact balance on 18 covariates.</p>
 
     <div class="callout">
       <span class="label">The design that would resolve it</span>

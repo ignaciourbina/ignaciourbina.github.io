@@ -14,7 +14,7 @@
       <p class="kicker">Results</p>
       <button class="swap" data-target="detail">Details &rarr;</button>
     </div>
-    <h1>Trust gates absorption. The effect among people who trust the source runs about three times the effect among those who trust it less.</h1>
+    <h1>Trust gates absorption. The effect among people who trust the source runs nearly four times the effect among those who trust it less.</h1>
 
     <figure>
       <img src="img/ate-items.png" alt="Average treatment effect on the composite policy demand index and on each of the five policy items, covariate-adjusted, with 95% confidence intervals.">
@@ -31,15 +31,15 @@
       <table>
         <thead><tr><th>Trust in source</th><th class="num">Outside</th><th class="num">Extra in corner</th><th class="num">In corner</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Higher</td><td class="num">0.288</td><td class="num">0.397<br>[0.083, 0.690]</td><td class="num">0.685<br>[0.364, 0.980]</td></tr>
-          <tr><td>Lower</td><td class="num">0.092</td><td class="num">0.194<br>[−0.056, 0.466]</td><td class="num">0.285<br>[0.041, 0.552]</td></tr>
+          <tr class="highlight"><td>Higher</td><td class="num">0.309</td><td class="num">0.412<br>[−0.077, 0.915]</td><td class="num">0.721<br>[0.272, 1.187]</td></tr>
+          <tr><td>Lower</td><td class="num">0.084</td><td class="num">0.109<br>[−0.358, 0.541]</td><td class="num">0.193<br>[−0.223, 0.594]</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout">
       <span class="label">No corner without the first gate</span>
-      <p>The corner effect runs 2.4× the effect outside it among people who trust the source. Among those who trust it less, the corner adds nothing detectable. The conjunction pays off only for people who took the signal on board.</p>
+      <p>The corner effect runs 2.3× the effect outside it among people who trust the source. Among those who trust it less, the corner adds nothing detectable. The conjunction pays off only for people who took the signal on board.</p>
     </div>
 
     </section>
@@ -66,19 +66,19 @@
     </div>
     <p class="lede">OLS with HC1 standard errors, N = 901.</p>
 
-    <h2>Gate 1 — covariate-adjusted variant</h2>
-    <p>Weighting by p<sub>i</sub> re-tilts the arms along covariates. Chance imbalance can therefore survive inside the weighted sample even under randomization. Weighted least squares partials ideology, trait anxiety and age out of both η and treatment, and the CATE is re-estimated from the residuals.</p>
+    <h2>Gate 1 — trust-stratum estimates</h2>
+    <p>The treated arm splits on the observed trust rating. For each stratum, entropy balancing reweights the control arm to exact mean equality on 18 pre-treatment covariates, and the effect is the treated-stratum mean minus the reweighted control mean. Exact balance makes residual covariate adjustment identically zero, so no adjusted variant exists.</p>
     <div class="scroller">
       <table>
-        <thead><tr><th>Estimand</th><th class="num">Hájek</th><th class="num">Adjusted</th><th class="num">Shift</th><th class="num">95% CI</th><th class="num">P(&gt;0)</th></tr></thead>
+        <thead><tr><th>Estimand</th><th class="num">Estimate</th><th class="num">95% CI</th><th class="num">84% CI</th><th class="num">P(&gt;0)</th></tr></thead>
         <tbody>
-          <tr><td>Higher trust</td><td class="num">0.402</td><td class="num">0.329</td><td class="num">−0.072</td><td class="num">[0.186, 0.543]</td><td class="num">1.000</td></tr>
-          <tr><td>Lower trust</td><td class="num">0.137</td><td class="num">0.110</td><td class="num">−0.027</td><td class="num">[−0.030, 0.226]</td><td class="num">0.936</td></tr>
-          <tr><td>Difference</td><td class="num">0.265</td><td class="num">0.219</td><td class="num">−0.046</td><td class="num">[0.057, 0.466]</td><td class="num">0.995</td></tr>
+          <tr><td>Higher trust</td><td class="num">0.362</td><td class="num">[0.208, 0.510]</td><td class="num">[0.254, 0.468]</td><td class="num">1.000</td></tr>
+          <tr><td>Lower trust</td><td class="num">0.094</td><td class="num">[−0.025, 0.216]</td><td class="num">[0.007, 0.179]</td><td class="num">0.940</td></tr>
+          <tr><td>Difference</td><td class="num">0.267</td><td class="num">[0.124, 0.427]</td><td class="num">[0.162, 0.382]</td><td class="num">1.000</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lede">Same ordering, modestly attenuated.</p>
+    <p class="lede">Bootstrap percentile intervals, B = 2000, weights refit inside each replicate.</p>
 
     <h2>Gate 2 — the fixed conjunctive corner</h2>
     <p>A respondent sits in the corner if trait anxiety and automation risk each fall in the pooled sample's top tercile, both measured pre-treatment: trait anxiety z ≥ 0.53 and automation risk ≥ 54.5th percentile. Membership follows deterministically from the data. Only the treatment effect is estimated, inside and outside the corner, by weighted least squares.</p>
@@ -86,19 +86,19 @@
       <table>
         <thead><tr><th>Stratum</th><th class="num">τ<sub>base</sub></th><th class="num">δ</th><th class="num">Corner (τ<sub>base</sub>+δ)</th><th class="num">Share</th></tr></thead>
         <tbody>
-          <tr class="highlight"><td>Higher trust</td><td class="num">0.288<br>[0.128, 0.442]</td><td class="num">0.397<br>[0.083, 0.690]</td><td class="num">0.685<br>[0.364, 0.980]</td><td class="num">12.0%</td></tr>
-          <tr><td>Lower trust</td><td class="num">0.092<br>[−0.033, 0.217]</td><td class="num">0.194<br>[−0.056, 0.466]</td><td class="num">0.285<br>[0.041, 0.552]</td><td class="num">11.5%</td></tr>
+          <tr class="highlight"><td>Higher trust</td><td class="num">0.309<br>[0.147, 0.465]</td><td class="num">0.412<br>[−0.077, 0.915]</td><td class="num">0.721<br>[0.272, 1.187]</td><td class="num">11.7%</td></tr>
+          <tr><td>Lower trust</td><td class="num">0.084<br>[−0.046, 0.212]</td><td class="num">0.109<br>[−0.358, 0.541]</td><td class="num">0.193<br>[−0.223, 0.594]</td><td class="num">11.7%</td></tr>
         </tbody>
       </table>
     </div>
     <p class="lede">105 of 901 respondents (11.7%) qualify. The two moderators are near-independent, corr(A, R) = 0.014, and the corner share matches the ≈ 11.1% implied by independent terciles.</p>
 
     <h2>Cutoff-choice sensitivity</h2>
-    <p>The same model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). Where trust is higher, δ's 95% CI excludes zero at every cutoff. It shrinks toward the stratum-average effect as the corner widens, but never crosses zero. Lower-trust δ stays null throughout.</p>
+    <p>The same model was fit at three pre-specified cutoffs: the median (50th percentile), the 58.3rd percentile, and the tercile (66.7th, primary). The higher-trust corner total's 95% CI excludes zero at every cutoff. The increment δ is directionally stable, with P(&gt;0) at or above 0.95 at each cutoff. Its 95% CI includes zero at each cutoff, so the increment is the underpowered quantity. Lower-trust δ stays null throughout.</p>
 
     <div class="callout">
-      <span class="label">How badly would principal ignorability have to fail?</span>
-      <p>Driving these estimates to zero requires a hidden differential treatment response of −1.17 SD for the higher-trust effect and −0.52 SD for the difference between the two. Both are large, and both run opposite in sign to the mechanism under study.</p>
+      <span class="label">How badly would mean ignorability have to fail?</span>
+      <p>These estimates fall to zero only under a hidden baseline difference of +0.58 SD for the higher-trust effect, or +0.28 SD for the stratum contrast: the reweighted controls would have to understate the higher-trust stratum's no-treatment outcome by that much despite exact balance on 18 covariates.</p>
     </div>
 
     <p class="foot">All intervals are bootstrap percentile intervals, B = 2000, with every estimation step refit inside each replicate.</p>

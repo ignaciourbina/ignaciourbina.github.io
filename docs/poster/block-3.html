@@ -47,7 +47,7 @@
     </div>
 
     <h2>Identification</h2>
-    <p>Expert trust is observed only in the treated arm. A pre-treatment proxy carries it into both. A random forest on 15 pre-treatment terms predicts the trust rating. A logit on that proxy gives the principal score p<sub>i</sub>. Arm means are then Hájek-weighted by p<sub>i</sub> for the higher-trust stratum and by 1 − p<sub>i</sub> for the lower-trust one. The estimand is identified under randomization plus principal ignorability.</p>
+    <p>Expert trust is observed only in the treated arm. The treated arm splits on the observed rating. For each stratum, entropy balancing reweights the control arm to match the stratum's pre-treatment profile exactly, mean for mean, on 18 covariates (Hainmueller 2012). The estimand is identified under randomization plus mean ignorability of the no-treatment outcome given those covariates.</p>
 
     </section>
 
@@ -99,16 +99,16 @@
     <p>Policy demand combines five 7-point items on how to respond to AI-driven automation: expanding unemployment benefits and income subsidies; stricter federal regulation of AI deployment; funding retraining programs; strengthening labor protections; and limiting how many jobs AI may automate within companies. The battery spans redistribution, regulation, retraining, labor protections and employment limits, so it does not anchor to a single ideological frame (ω = 0.83, scored by a graded response model).</p>
     <p>Expert trust asks after treatment how far the respondent considers the Oxford researchers a trustworthy source on job automation risk. Trait anxiety is a four-item pre-treatment scale (ω = 0.92). Automation risk is the expert percentile for the respondent's own occupation, fixed before the experiment.</p>
 
-    <h2>The trust proxy</h2>
-    <p>A random forest (500 trees, depth ≤ 10, minimum leaf size 5) is trained on the treated arm to predict the five-point trust rating from 15 pre-treatment terms: education, numeracy, age, race, gender, Democrat and liberal indicators, and the automation-risk percentile, each as a level; the squares of education, numeracy and age; and the interactions age × race, age × education, race × education and numeracy × education.</p>
-    <p>The prediction, standardized over the full sample, is the proxy Q̂. It is defined in both arms because every input is pre-treatment. A binary logit of high-trust status (trust ≥ 4) on Q̂ yields p<sub>i</sub> = Pr(high trust | Q̂<sub>i</sub>). The higher-trust effect is the difference in self-normalized weighted arm means of η with weights p<sub>i</sub>. The lower-trust effect uses 1 − p<sub>i</sub>. No post-treatment variable enters the weights, so the same weights apply in the control arm.</p>
+    <h2>The entropy weights</h2>
+    <p>Treated respondents split at a trust rating of 4 or higher: 161 higher-trust, 314 lower-trust. For each stratum, the 426 control respondents receive weights that equate their means, exactly, to the stratum's means on 18 pre-treatment covariates: party identification, ideology, age, education, numeracy, religiosity, locus of control, job worry, financial worry, economic hope, economic anxiety, trait anxiety, the risk and patience indices, prior exposure to automation information, gender, race, and the automation-risk percentile. Entropy balancing selects the weight vector closest to uniform among all vectors that achieve that balance (Hainmueller 2012).</p>
+    <p>The stratum effect is the treated-stratum mean of η minus the entropy-weighted control mean. The weights stay dispersed: the effective control sample for the higher-trust stratum is 326 of 426, and the largest single weight is below 1%. No post-treatment variable enters the weights.</p>
 
     <h2>Balance</h2>
-    <p>No covariate difference survives Holm correction. Trait anxiety is the largest standardized mean difference at 0.144 (p = 0.031, Holm p = 0.400), followed by age at 0.120 and ideology at −0.110. Those three are the adjustment set for the covariate-adjusted variant of the trust-stratum estimates.</p>
+    <p>Balance is exact by construction: after weighting, every one of the 18 covariate means matches between the treated stratum and its control group to machine precision. Residual covariate adjustment is therefore identically zero, and the estimates need no adjusted variant.</p>
 
     <div class="callout warn">
       <span class="label">The assumption, stated plainly</span>
-      <p>Principal ignorability is untestable in this design, because expert trust was never measured in the control arm. A design measuring trust before treatment would estimate the missing quantity directly.</p>
+      <p>Mean ignorability is untestable in this design, because expert trust was never measured in the control arm: the reweighted controls must recover each stratum's no-treatment mean. A design measuring trust before treatment would estimate the missing quantity directly.</p>
     </div>
   </section>
 
