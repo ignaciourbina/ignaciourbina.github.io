@@ -321,11 +321,17 @@
     {
       "id": "4-linear-algebra",
       "number": "4",
-      "title": "Linear Algebra",
-      "description": "Vectors and vector operations, orthogonality, span, basis and linear independence, systems of equations, matrix operations, and an introduction to multivariate calculus.",
+      "title": "Linear Algebra, Regression First",
+      "description": "Every idea here is introduced because fitting a line to data demands it: least squares and the first-order condition in two variables, the normal equations as a linear system, matrices as linear transformations, Gaussian elimination, vectors and the dot product, linear independence, the inverse, the determinant and rank, and finally regression in matrix form.",
       "slides": {
         "url": "/files/math-camp/4-linear-algebra.pdf",
         "pages": 101
+      },
+      "companion": {
+        "url": "/files/math-camp/4-linear-algebra-companion-proofs.pdf",
+        "pages": 12,
+        "title": "Companion proofs",
+        "description": "Full proofs of the results the slides state without proof: convexity and the first-order condition, the normal equations, row operations, the cosine formula and Cauchy-Schwarz, determinants, rank, and the OLS normal equations in matrix form."
       },
       "graphs": []
     }

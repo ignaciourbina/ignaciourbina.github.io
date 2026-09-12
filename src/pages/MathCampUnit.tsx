@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Download, ClipboardCheck, PenLine } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Download, FileText, ClipboardCheck, PenLine } from 'lucide-react'
 import { getMathCampPractice, getMathCampQuiz, getMathCampUnit } from '../content'
 
 export default function MathCampUnit() {
@@ -35,15 +35,29 @@ export default function MathCampUnit() {
         </span>
         <h1 className="text-3xl md:text-4xl font-extrabold text-ink mb-3">{unit.title}</h1>
         <p className="text-lg text-muted max-w-2xl mb-6">{unit.description}</p>
-        <a
-          href={unit.slides.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-lg font-semibold text-sm hover:bg-green-hover transition-colors shadow-sm"
-        >
-          <Download size={16} />
-          Lecture slides (PDF, {unit.slides.pages} pp)
-        </a>
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={unit.slides.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-lg font-semibold text-sm hover:bg-green-hover transition-colors shadow-sm"
+          >
+            <Download size={16} />
+            Lecture slides (PDF, {unit.slides.pages} pp)
+          </a>
+          {unit.companion && (
+            <a
+              href={unit.companion.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={unit.companion.description}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-panel border border-line rounded-lg font-semibold text-sm text-muted hover:border-green hover:text-green transition-colors"
+            >
+              <FileText size={16} />
+              {unit.companion.title} (PDF, {unit.companion.pages} pp)
+            </a>
+          )}
+        </div>
       </header>
 
       {unit.note && (

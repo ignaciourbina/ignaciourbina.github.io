@@ -46,6 +46,15 @@ export interface MathCampSlides {
   pages: number
 }
 
+// A second PDF hanging off a unit: the companion note that carries the proofs
+// the slides state but do not prove. Optional -- only unit 4 has one so far.
+export interface MathCampCompanion {
+  url: string
+  pages: number
+  title: string
+  description: string
+}
+
 export interface QuizOption {
   id: string
   text: string
@@ -79,6 +88,7 @@ export interface MathCampUnit {
   title: string
   description: string
   slides: MathCampSlides
+  companion?: MathCampCompanion
   note?: string
   graphs: MathCampGraph[]
 }
