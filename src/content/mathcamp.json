@@ -333,7 +333,68 @@
         "title": "Companion proofs",
         "description": "Full proofs of the results the slides state without proof: convexity and the first-order condition, the normal equations, row operations, the cosine formula and Cauchy-Schwarz, determinants, rank, and the OLS normal equations in matrix form."
       },
-      "graphs": []
+      "graphs": [
+        {
+          "slug": "least-squares-line",
+          "title": "Least squares: choose the line, watch the SSR",
+          "expression": "SSR(a, b) = Σ(yᵢ − a − b xᵢ)²",
+          "description": "The ten states from the slides, with the line under your control. Drag a and b and the residual segments grow and shrink while the SSR readout follows. It bottoms out at 16, at exactly a = 52 and b = −2 — the fit the deck derives three separate ways. The minimiser and the minimum are solved in the build, never typed in."
+        },
+        {
+          "slug": "ssr-contours",
+          "title": "SSR(a, b) as contours, and the first-order condition",
+          "expression": "∇SSR(a, b) = 0",
+          "description": "The objective drawn as nested ellipses in the (b, a) plane. Move the point and both partial derivatives are reported live; they read zero only at the centre, which is what the first-order condition says. There is deliberately no gradient arrow: the two axes carry different units, so an arrow would not meet the contours at a right angle on screen and would teach something false."
+        },
+        {
+          "slug": "partial-derivative-slices",
+          "title": "Freeze a, and SSR is a parabola in b",
+          "expression": "b*(a) = (428 − 10a)/46",
+          "description": "How a function of two variables gets minimised with one-variable tools. Hold a fixed and SSR becomes an ordinary parabola in b, of the kind Unit 2 already handled. Slide a and the vertex slides along its own line; it touches the floor SSR = 16 only when a = 52. The vertex formula is derived symbolically in the build."
+        },
+        {
+          "slug": "normal-equations-lines",
+          "title": "The normal equations as two lines, and the determinant",
+          "expression": "10a + 10b = 500,  10a + 46b = 428",
+          "description": "The 'Which Case Are We In?' slide, made movable. The second equation's three coefficients are sliders, so you can push the pair until the lines are parallel (no solution) or lie on top of each other (infinitely many) and watch the determinant reach zero at exactly that moment. It is 360 for the real data, and zero precisely when the two a-coefficients agree."
+        },
+        {
+          "slug": "matrix-transformation",
+          "title": "A 2×2 matrix acting on the unit square",
+          "expression": "T(x) = Ax",
+          "description": "Four sliders for the four entries. The unit square and its image are drawn together with the images of e₁ and e₂, which are labelled with their coordinates so you can read off the one fact the section rests on: the images of the basis vectors are the columns of the matrix. The determinant is reported as the signed area of the image."
+        },
+        {
+          "slug": "composition-order",
+          "title": "Order matters: RS against SR",
+          "expression": "RS ≠ SR",
+          "description": "Stretch then rotate, against rotate then stretch, on the same axes. Slide the stretch factor k and the two images stay stubbornly different — they agree only at k = 1, where the stretch is the identity and there is nothing for the order to disagree about. Both products are computed symbolically in the build and checked to differ."
+        },
+        {
+          "slug": "determinant-collapse",
+          "title": "The determinant as area, and where it vanishes",
+          "expression": "det [[2, s], [1, 2]] = 4 − s",
+          "description": "The first column is nailed down and the second swings. As it lands on the first, the parallelogram flattens, its area runs to zero, and the matrix goes singular: the algebraic statement and the geometric one arriving at the same instant, s = 4. The collapse point is solved in the build, and the rank is checked to fall to 1 there."
+        },
+        {
+          "slug": "dot-product-angle",
+          "title": "The dot product as an angle",
+          "expression": "u · v = ‖u‖‖v‖ cos θ",
+          "description": "One vector fixed, the other turning on a circle. The dot product is reported live and changes sign exactly as the turning vector crosses the dashed perpendicular, which is the whole content of the formula. The identity itself is verified symbolically in the build rather than asserted."
+        },
+        {
+          "slug": "projection-and-residual",
+          "title": "Projection, residual, and the right angle OLS makes",
+          "expression": "e = y − projₓ(y),   e · x = 0",
+          "description": "The geometry that regression turns out to be: the fitted part is a projection, the residual is what is left over, and the two meet at a right angle. Move y anywhere and the residual's dot product with x stays at zero — which is the first-order condition from the start of the unit, seen from the side. The orthogonality is proved symbolically for every y, not just the one on screen."
+        },
+        {
+          "slug": "span-and-independence",
+          "title": "Span and linear independence, as a lattice",
+          "expression": "c₁v₁ + c₂v₂",
+          "description": "Every integer combination of the two vectors, drawn as a lattice of points. While the vectors are independent the lattice fills out the plane; the instant one becomes a multiple of the other it collapses onto a single line, and the determinant crosses zero at the same moment. This is multicollinearity, in two dimensions, where you can see it."
+        }
+      ]
     }
   ]
 }

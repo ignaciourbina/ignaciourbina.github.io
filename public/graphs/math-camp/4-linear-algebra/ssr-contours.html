@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSR(a, b) as contours, and the first-order condition</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'X_{1}=\\left[-2,-1,-1,0,1,1,2,3,3,4\\right]',
+		hidden: true,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'Y_{1}=\\left[55,55,53,53,52,48,49,45,47,43\\right]',
+		hidden: true,
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: '10y^{2}+20xy-1000y+46x^{2}-856x+25160=26',
+		color: '#000000',
+		lineWidth: 1.5,
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: '10y^{2}+20xy-1000y+46x^{2}-856x+25160=56',
+		color: '#000000',
+		lineWidth: 1.5,
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '10y^{2}+20xy-1000y+46x^{2}-856x+25160=116',
+		color: '#000000',
+		lineWidth: 1.5,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '10y^{2}+20xy-1000y+46x^{2}-856x+25160=216',
+		color: '#000000',
+		lineWidth: 1.5,
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: '10y^{2}+20xy-1000y+46x^{2}-856x+25160=416',
+		color: '#000000',
+		lineWidth: 1.5,
+		id: '6',
+	});
+	calculator.setExpression({
+		latex: 'p=-4',
+		sliderBounds: {
+			min: '-6',
+			max: '2',
+			step: '0.01',
+		},
+		id: '7',
+	});
+	calculator.setExpression({
+		latex: 'q=58',
+		sliderBounds: {
+			min: '40',
+			max: '66',
+			step: '0.01',
+		},
+		id: '8',
+	});
+	calculator.setExpression({
+		latex: 'S_{p}=\\operatorname{total}\\left(\\left(Y_{1}-\\left(q+pX_{1}\\right)\\right)^{2}\\right)',
+		id: '9',
+	});
+	calculator.setExpression({
+		latex: 'G_{a}=-2\\operatorname{total}\\left(Y_{1}-q-pX_{1}\\right)',
+		id: '10',
+	});
+	calculator.setExpression({
+		latex: 'G_{b}=-2\\operatorname{total}\\left(X_{1}\\left(Y_{1}-q-pX_{1}\\right)\\right)',
+		id: '11',
+	});
+	calculator.setExpression({
+		latex: '\\left(p,q\\right)',
+		color: '#2d70b3',
+		pointSize: 12,
+		label: 'SSR = ${S_p}',
+		showLabel: true,
+		id: '12',
+	});
+	calculator.setExpression({
+		latex: '\\left(-2,52\\right)',
+		color: '#c74440',
+		pointSize: 12,
+		label: 'minimum: SSR = 16',
+		showLabel: true,
+		id: '13',
+	});
+	calculator.setExpression({
+		latex: '\\left(-5.6,65\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'dSSR/da = ${G_a}',
+		showLabel: true,
+		id: '14',
+	});
+	calculator.setExpression({
+		latex: '\\left(-5.6,63.5\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'dSSR/db = ${G_b}',
+		showLabel: true,
+		id: '15',
+	});
+	calculator.setExpression({
+		latex: '\\left(-5.6,62\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'both zero only at the centre: that is the FOC',
+		showLabel: true,
+		id: '16',
+	});
+	calculator.setMathBounds({ left: -6, right: 2, bottom: 39, top: 67 });
+</script>
+</body>
+</html>

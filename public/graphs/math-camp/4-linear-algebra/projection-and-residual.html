@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projection, residual, and the right angle OLS makes</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'X=\\left(4,1\\right)',
+		hidden: true,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'g=1.5',
+		sliderBounds: {
+			min: '-4',
+			max: '5',
+			step: '0.05',
+		},
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 'h=3.5',
+		sliderBounds: {
+			min: '-4',
+			max: '5',
+			step: '0.05',
+		},
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: 'Y=\\left(g,h\\right)',
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: 'c=\\frac{4g+h}{17}',
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: 'P=\\left(4c,c\\right)',
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: 'y=\\frac{x}{4}',
+		color: '#000000',
+		lineStyle: 'DASHED',
+		lineWidth: 1.5,
+		id: '6',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),X\\right)',
+		color: '#c74440',
+		lineWidth: 3,
+		id: '7',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),Y\\right)',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '8',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),P\\right)',
+		color: '#388c46',
+		lineWidth: 3,
+		id: '9',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(P,Y\\right)',
+		color: '#fa7e19',
+		lineWidth: 3,
+		id: '10',
+	});
+	calculator.setExpression({
+		latex: 'X',
+		color: '#c74440',
+		pointSize: 10,
+		label: 'x',
+		showLabel: true,
+		id: '11',
+	});
+	calculator.setExpression({
+		latex: 'Y',
+		color: '#2d70b3',
+		pointSize: 10,
+		label: 'y',
+		showLabel: true,
+		id: '12',
+	});
+	calculator.setExpression({
+		latex: 'P',
+		color: '#388c46',
+		pointSize: 10,
+		label: 'proj of y onto x',
+		showLabel: true,
+		id: '13',
+	});
+	calculator.setExpression({
+		latex: 'E=\\left(g-4c\\right)\\cdot4+\\left(h-c\\right)\\cdot1',
+		id: '14',
+	});
+	calculator.setExpression({
+		latex: '\\left(-4.4,4.6\\right)',
+		color: '#fa7e19',
+		pointSize: 1,
+		label: 'residual = y - proj',
+		showLabel: true,
+		id: '15',
+	});
+	calculator.setExpression({
+		latex: '\\left(-4.4,4.1\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'residual . x = ${E}  (zero for every y)',
+		showLabel: true,
+		id: '16',
+	});
+	calculator.setMathBounds({ left: -4.6, right: 6.4, bottom: -3, top: 4.8 });
+</script>
+</body>
+</html>

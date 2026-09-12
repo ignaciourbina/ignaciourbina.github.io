@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The dot product as an angle</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  #calculator { width: 100%; height: 100%; }
+</style>
+<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+	var elt = document.getElementById("calculator");
+	var calculator = Desmos.GraphingCalculator(elt);
+	calculator.setExpression({
+		latex: 'u=\\left(3,1\\right)',
+		hidden: true,
+		id: '0',
+	});
+	calculator.setExpression({
+		latex: 'r=3',
+		sliderBounds: {
+			min: '0.5',
+			max: '4',
+			step: '0.05',
+		},
+		id: '1',
+	});
+	calculator.setExpression({
+		latex: 't=1',
+		sliderBounds: {
+			min: '0',
+			max: '6.28',
+			step: '0.01',
+		},
+		id: '2',
+	});
+	calculator.setExpression({
+		latex: 'V=\\left(r\\cos t,r\\sin t\\right)',
+		id: '3',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),\\left(3,1\\right)\\right)',
+		color: '#c74440',
+		lineWidth: 3,
+		id: '4',
+	});
+	calculator.setExpression({
+		latex: '\\operatorname{polygon}\\left(\\left(0,0\\right),V\\right)',
+		color: '#2d70b3',
+		lineWidth: 3,
+		id: '5',
+	});
+	calculator.setExpression({
+		latex: '\\left(3,1\\right)',
+		color: '#c74440',
+		pointSize: 10,
+		label: 'u = (3, 1)',
+		showLabel: true,
+		id: '6',
+	});
+	calculator.setExpression({
+		latex: 'V',
+		color: '#2d70b3',
+		pointSize: 10,
+		label: 'v',
+		showLabel: true,
+		id: '7',
+	});
+	calculator.setExpression({
+		latex: 'y=-3x',
+		color: '#000000',
+		lineStyle: 'DASHED',
+		lineWidth: 1.5,
+		id: '8',
+	});
+	calculator.setExpression({
+		latex: 'D=3r\\cos t+r\\sin t',
+		id: '9',
+	});
+	calculator.setExpression({
+		latex: 'N=\\sqrt{10}\\cdot r',
+		id: '10',
+	});
+	calculator.setExpression({
+		latex: 'Q=\\frac{D}{N}',
+		id: '11',
+	});
+	calculator.setExpression({
+		latex: '\\left(-4.4,4.4\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'u . v = ${D}',
+		showLabel: true,
+		id: '12',
+	});
+	calculator.setExpression({
+		latex: '\\left(-4.4,3.9\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: '|u||v| = ${N}, so cos(angle) = ${Q}',
+		showLabel: true,
+		id: '13',
+	});
+	calculator.setExpression({
+		latex: '\\left(-4.4,3.4\\right)',
+		color: '#000000',
+		pointSize: 1,
+		label: 'zero on the dashed line: perpendicular',
+		showLabel: true,
+		id: '14',
+	});
+	calculator.setMathBounds({ left: -4.6, right: 4.6, bottom: -4.2, top: 4.6 });
+</script>
+</body>
+</html>
