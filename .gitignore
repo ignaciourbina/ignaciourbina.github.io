@@ -35,3 +35,4 @@ dist-ssr
 *.pdf
 !public/files/**/*.pdf
 !docs/files/**/*.pdf
+docs/
