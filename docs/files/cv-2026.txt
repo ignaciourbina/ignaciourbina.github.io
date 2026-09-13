@@ -1,96 +1,316 @@
-IGNACIO URBINA
-Stony Brook University, Department of Political Science
+Ignacio Urbina
+Stony Brook University
+Department of Political Science
+Stony Brook, NY 11794
+github.com/ignaciourbina
 
-1. EDUCATION
-1.1 Ph.D. Candidate, Political Science, SUNY Stony Brook (2021-Present, expected May 2027)
-1.2 M.Sc., Economics, Adolfo Ibañez University (2015-2016)
-1.3 M.Sc., Public Policy, Adolfo Ibañez University (2013-2014)
-1.4 B.Sc., Management Science, Adolfo Ibañez University (2009-2012)
+Email: ignacio.urbina@stonybrook.edu
+Website: mÍ
+Scholar: Google Scholar
+Teaching: Interactive Tools
 
-2. RESEARCH
-2.1 Published Papers
-2.1.1 Smirnov, Hsieh, & Urbina (2025). Finite pool of worry and emotions in climate change tweets during COVID-19. Journal of Environmental Psychology.
-2.2 Dissertation Research
-2.2.1 The Conditional Activation Model (Job Market Paper)
-2.2.2 Simulating Open Democracy
-2.2.3 One Dimension or Many? The Structure of Artificial Intelligence Attitudes in Mass Publics (with Smirnov)
-2.3 Under Review
-2.3.1 Communication and Cooperation with Human and Artificial Agents (with Kline & Ponda). Under review at Computers in Human Behavior.
-2.4 Working Papers
-2.4.1 Fractured Trust (with Sgorlon)
-2.4.2 Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social Survey, 2002-2022
-2.4.3 Repressive Democracies: The Relationship Between State's Repression Severity, Protests, and Policy Change
-2.5 Work in Progress
-2.5.1 Public Attitudes Toward AGI and Superintelligent AI (with Smirnov)
-2.5.2 Mind Under Pressure (with Araya, Vidigal, & Sharygina)
-2.5.3 Does Trait Aggression Predict Vote Choice for Far-Right Candidates? (with Sgorlon)
-2.5.4 Minding The (Experimental) Gap(s) (with Bankert, Kline, & McDonough)
-2.5.5 Misperceptions of Immigrants on the Workforce (with Sgorlon, Senturk, & Echeverri)
-2.5.6 Bots, Collective Action, and Social Media
-2.5.7 Does Social Signaling in a Public Goods Game Encourage Pareto Optimality or Detrimental Freeriding? (with McDonough, Kline, Brown, & McDonnell)
+Education
+2021–Present
 
-3. NON-PEER REVIEWED PUBLICATIONS
-3.1 Chile's 2019 Social Uprising. The Stony Brook Worker (2022)
-3.2 Eficiencia de los hospitales publicos de alta complejidad en Chile. Estudios de Finanzas Publicas (2021, with Sugg)
+Ph.D. Candidate, Political Science, State University of New York at Stony Brook, US.*
 
-4. RESEARCH TOOLS
-4.1 Experiments: oBots, bpel-lab-games, qualtrics-builder, bpe-lab.com
-4.2 Analysis: SAR Framework, irb-client, osf-tool
-4.3 Productivity: agentic-WeekPlanner, clio-assistant
-4.4 Teaching: 21 interactive statistics tools on HuggingFace Spaces, CausalFlow
+2015–2016
 
-5. PROFESSIONAL EXPERIENCE
-5.1 Lab Manager, Behavioral Political Economy Lab, Stony Brook University (2024-Present)
-5.2 Research Assistant, Smirnov & Kline, Stony Brook University (2022-2023)
-5.3 Economic Analyst, Budget Office, Chilean Ministry of Finance (2018-2021)
-5.4 Consultant, InnovacionAL SPA (2017)
-5.5 Intern, Deloitte Chile (2012-2013)
-5.6 Research Assistant, Montecinos, Paraje, Braun, & Agostini, Adolfo Ibañez University (2014-2018)
+M.Sc., Master in Economics, Adolfo Ibáñez University, Chile.
 
-6. CONFERENCES AND PRESENTATIONS
-6.1 Presenter: MPSA 2026, IMEBESS 2024, APSA 2024, MPSA 2024, ISPP 2024, Chilean PolSci 2024/2018, IPSA 2023, SBU Sociology Colloquium 2023, LAPOP Summer School 2023, Chilean Public Policy 2016/2014, Economics Chilean Society 2016
-6.2 Discussant: APSA 2024, MPSA 2024, IPSA 2023
-6.3 Non-presenter co-author: POLMETH 2024, Human Rights Workshop URI 2024, APSA 2023, LatAm PolMeth 2023
+2013–2014
 
-7. GRANTS, AWARDS, AND FELLOWSHIPS
-7.1 Milton Lodge Graduate Research Scholarship, 2024 ($500)
-7.2 NSF BIAS-NRT Travel Grant, 2024 ($1,100)
-7.3 LatAm Political Methodology Meeting Best Poster Award, 2023 ($200)
-7.4 GSEU Professional Development Award, 2023 ($355)
-7.5 Koppelman Fellowship, 2023 ($3,000)
-7.6 SBU Fine Arts, Humanities, and Social Sciences Grant, 2022 ($4,000)
-7.7 SBU Fine Arts, Humanities, and Social Sciences Grant, 2022 ($3,500)
-7.8 SBU College of Arts and Sciences Fellowship, 2021 ($3,000)
-7.9 Best GPA, Master's in Public Policy, Adolfo Ibañez University, 2014
-7.10 Academic Honor Scholarship, Adolfo Ibañez University, 2009-2011
+M.Sc., Master in Public Policy, Adolfo Ibáñez University, Chile.
 
-8. TEACHING
-8.1 Instructor of Record
-8.1.1 Math Camp for Incoming Ph.D. Students, Stony Brook (2025, 2024 Fall)
-8.1.2 Intro. to Statistical Methods in Political Science, Stony Brook (2025, 2024 Summer, 2025 Spring)
-8.1.3 Introductory Statistics, Stony Brook (2024 Fall)
-8.1.4 Behavioral Economics, Finis Terrae University (2018-2020)
-8.1.5 Microeconomics, Finis Terrae University (2016-2018)
-8.1.6 Introduction to Economics, Finis Terrae University (2016)
-8.1.7 Industrial Organization, Adolfo Ibañez University (2016)
-8.1.8 Microeconomics I, Adolfo Ibañez University (2016)
-8.2 Teaching Assistant
-8.2.1 World Politics, Stony Brook (2022 Spring)
-8.2.2 Introduction to American Government, Stony Brook (2021 Fall)
-8.2.3 Econometrics, Adolfo Ibañez University (2015)
-8.2.4 Impact Evaluation for Public Policies, Adolfo Ibañez University (2014-2015)
-8.2.5 Chilean Economics, Adolfo Ibañez University (2015)
-8.2.6 Intermediate Macroeconomics, Adolfo Ibañez University (2015)
-8.2.7 Mathematical Economics, Adolfo Ibañez University (2013)
-8.2.8 Calculus III, Adolfo Ibañez University (2013)
-8.2.9 Industrial Organization, Adolfo Ibañez University (2013)
-8.2.10 Introduction to Macroeconomics, Adolfo Ibañez University (2011)
-8.2.11 Introduction to Microeconomics, Adolfo Ibañez University (2011)
-8.2.12 Introduction to Economics, Adolfo Ibañez University (2010)
+2009–2012
 
-9. ADDITIONAL TRAINING, SKILLS, AND OTHERS
-9.1 Traineeship: NSF Research Traineeship, Detecting and Addressing Bias in Data, Humans, and Institutions, Stony Brook (2023-Present)
-9.2 Summer Schools: Vanderbilt LAPOP Summer School in International Survey Methods (2023)
-9.3 Methods: Survey experiments, causal inference, Bayesian statistics, agent-based modeling, factor analysis, data visualization
-9.4 Software: Python, R, Stata, TypeScript/Node.js, oTree, Qualtrics, Connect, Prolific, LaTeX, PostgreSQL, Supabase, Heroku
-9.5 Other: Vice-president, Student Government Board, Adolfo Ibañez University (2012); Graduate Student Organization Senator, Political Science, Stony Brook (2023-2024)
+B.Sc., Management Science, Adolfo Ibáñez University, Chile.
+*
+
+Expected graduation: May 2027.
+
+Research
+Published Papers
+1. Oleg Smirnov, Pei-Hsun Hsieh, & Ignacio Urbina. (2025). Finite pool of worry and emotions in climate
+change tweets during COVID-19. Journal of Environmental Psychology, 106, 102728. doi.
+Dissertation Research
+Three Essays on the Political Implications of AI. Committee: Oleg Smirnov (Chair), Reuben Kline, Andrew Engelhardt.
+
+1. Ignacio Urbina. The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven
+Automation (Job Market Paper).
+• Introduces a two-gate framework explaining when citizens update policy preferences in response to AI-driven
+
+job automation risk. Pre-registered experiment with 901 U.S. workers; trust-stratum effects recovered by entropy
+balancing on pre-treatment covariates.
+
+2. Ignacio Urbina. Simulating Open Democracy: An Agent-Based Framework for Testing Deliberative Institutional Designs.
+• Open-source simulation using LLM agents as synthetic citizens to test how different institutional rules impact
+
+democratic consensus. Presented at the 2026 MPSA Meeting.
+
+3. Ignacio Urbina & Oleg Smirnov. One Dimension or Many? The Structure of Artificial Intelligence Attitudes
+in Mass Publics.
+• Maps the structure of U.S. public attitudes toward AI with exploratory factor analysis on a nationally representative
+
+sample (N = 5,153): fifty-two items resolve into ten factors organized by the social context of deployment, a beliefsystem network with no general-attitude hub, and demographic cleavages that reverse direction across dimensions.
+
+1
+
+Under Review
+1. Ignacio Urbina, Reuben Kline, & Akhil Ponda. Communication and Cooperation with Human and Artificial Agents. Submitted to Computers in Human Behavior.
+• 2x2 factorial behavioral experiment (oTree): human vs. AI partner, with vs. without communication, in one shot
+
+Prisoner’s Dilemma and Stag Hunt games.
+• Presented at the 2023 APSA Meeting, Oxford’s Talking to Machines Workshop (May 2024), and the 2024 IMEBESS
+
+Conference.
+
+Working Papers
+1. Ignacio Urbina & Vitória Sgorlon. Fractured Trust: The Spillover Effects of Police Violence on Satisfaction
+with Democracy and Political Trust.
+• Three studies: two-wave survey experiment in Brazil (N = 1,004), observational analysis of Chile’s 2019 protest
+
+repression, and cross-national LAPOP analysis of sixteen Latin American countries.
+• Presented at the 2024 Society of Political Methodology Conference, the 2024 Human Rights Measurement Work-
+
+shop at the University of Rhode Island, the 2024 MPSA Meeting, and the 2024 APSA Meeting.
+• Winner of the Best Poster Award at the 2023 Latin American Political Methodology Meeting.
+• Awarded with the 2022 Stony Brook University Fine Arts, Humanities, and Social Sciences Research Grant
+
+($4,000).
+
+2. Ignacio Urbina. Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European
+Social Survey, 2002–2022
+• Rebuilds and extends the Thewissen and Rueda (2019) design across all eleven European Social Survey waves (N >
+
+275,000 in 39 countries). The automation risk association with redistribution preferences reappears in 2002–2012
+but is smaller in the following decade, with wide country-year variation.
+• Welfare and labor market institutions condition the exposure–insecurity link: union density weakens it, while net
+income inequality and strict employment protection strengthen it.
+
+3. Ignacio Urbina. Repressive Democracies: The Relationship Between State’s Repression Severity, Protests, and
+Policy Change.
+• A global game of policy change in which citizens protest under uncertainty about the critical crowd required
+
+and the state sets the severity of repression in advance. The unique threshold equilibrium delivers unconditional
+comparative statics, and the policy prize drops out of the participation margin.
+• An anger extension shows that backlash is an elasticity condition on the motivational response to severity and that
+outrage caps the state’s optimal repression.
+
+Work in Progress
+1. Oleg Smirnov & Ignacio Urbina. Public Attitudes Toward Artificial General Intelligence and Superintelligent AI.
+• Original survey instrument with novel question battery, fielded on Prolific (N ∼ 900). Data collection finished.
+• Awarded with the 2022 Stony Brook University Fine Arts, Humanities, and Social Sciences Research Grant
+
+($3,500).
+
+2. Ignacio Urbina, Daniel Araya, Robert Vidigal, & Angelika Sharygina. Mind Under Pressure: Does Cognitive Overload Increase Susceptibility to Misinformation?
+• Pre-registered 2x3 factorial survey experiment testing whether an LLM assistant reduces misinformation suscep-
+
+tibility under cognitive overload.
+
+2
+
+3. Alexa Bankert, Reuben Kline, Ignacio Urbina, & Thomas McDonough. Minding The (Experimental)
+Gap(s): Prosociality with Real and Hypothetical Stakes in the Lab and Online.
+• Behavioral experiment comparing prosociality with real vs. hypothetical stakes across lab and online settings.
+
+Replication with new data collection upcoming.
+
+4. Vitória Sgorlon, Ignacio Urbina, Anakiz Elif Senturk, & Santiago Echeverri. Misperceptions of Immigrants
+on the Workforce: Unpacking Labor Market Concerns.
+• Four-arm pre-registered experiment (N = 1,810 U.S. workers) testing whether occupation-specific or national
+
+facts about immigrants in the workforce reduce perceived economic threat and shift immigration attitudes.
+• Pooled effects are null because over- and under-estimators respond in opposite directions.
+
+5. Ignacio Urbina. Bots, Collective Action, and Social Media: An Agent-Based Model of Adversarial Suppression in Polarized Networks.
+• Agent based model of bot manipulation in social networks. Simulates how adversarial bots exploit network topol-
+
+ogy to suppress political coordination. Bayesian calibration against empirical protest and social media studies.
+
+6. Tom McDonough, Reuben Kline, Ignacio Urbina, William Brown, & Josh McDonnell. Does Social Signaling in a Public Goods Game Encourage Pareto Optimality or Detrimental Freeriding?
+Non-peer Reviewed Publications
+1. Urbina, I. (2022). Chile’s 2019 Social Uprising: Social Movements as Drivers of Public Opinion. The Stony
+Brook Worker. Fall 2022, Issue 2. Accessible at: https://stonybrookworker.com/issues/sbw-issue-2/chiles-2019-social-uprising-social-movements-as-drivers-of-public-opinion.
+2. Urbina, I., & Sugg, D. (2021, June). Análisis de la eficiencia de los hospitales públicos de alta complejidad
+en Chile entre 2014 y 2018. Estudios de Finanzas Publicas, Dirección de Presupuestos, Ministerio de
+Hacienda, Chile. Accessible at: http://www.dipres.cl/598/articles-232639_doc_pdf.pdf.
+
+Professional Experience
+2025–Present
+
+Lab Manager - Behavioral Political Economy Lab (BPEL), Stony Brook University. Supervisor: Prof. Reuben Kline (Ph.D. Political Science, UC Irvine). Coordinate team
+of 10 research assistants; manage lab operations, onboarding, and project workflows
+for behavioral experiments. Built full-stack participant recruitment and management
+system.
+
+2022–May 23’
+
+Research Assistant - Supervisors: Prof. Oleg Smirnov (Ph.D. Political Science, U. of
+Oregon), & Prof. Reuben Kline (Ph.D. Political Science, UC Irvine).
+
+May 2018–May 21’ Economic Analyst - Research Department of the Budget Office of the Chilean Ministry of Finance.
+May 2017–Oct 17’
+
+Consultant - InnovacionAL SPA.
+
+Dec 2012–Feb 13’
+
+Intern - Deloitte Chile, Finance Transformation Consulting.
+
+2014–2018
+
+Research Assistant - Supervisors: Prof. Alejandro Montecinos (Ph.D. in Economics,
+Notre Dame), Prof. Guillermo Paraje (Ph.D. in Economics, Cambridge), Prof. Matías
+Braun (Ph.D. in Economics, Harvard), & Prof. Claudio Agostini (Ph.D. in Economics,
+U. of Michigan).
+
+3
+
+Conferences and Presentations
+Presenter: NYAAPOR Young Public Opinion Scholars Competition (2026), APSA (2026, 24’), MPSA (2026,
+24’), IMEBESS (2024), ISPP (2024), Chilean Political Science Meeting (2024, 18’), IPSA World Congress
+(2023), SBU Graduate Sociology Students Colloquium (2023), Vanderbilt University’s LAPOP Summer
+School Workshop Session (2023), Chilean Society for Public Policy Meeting (2016, 14’), Economics Chilean
+Society Anual Meeting (2016).
+Discussant: MPSA (2024), IPSA World Congress, Buenos Aires (2023), APSA (2024).
+Panel Co-Organizer: APSA (2024).
+Non-presenter co-author: Poster Session POLMETH (2024), Human Rights Workshop at URI (2024), APSA
+(2023), Poster Session - Latin American Political Methodology Meeting (2023).
+
+Grants, Awards, and Fellowships
+2026 NYAAPOR Young Public Opinion Scholars Competition Finalist
+2024 Milton Lodge Graduate Research Scholarship ($500)
+2024 NSF BIAS-NRT Travel Grant ($1,100)
+2023 Latin American Political Methodology Meeting Best Poster Award ($200)
+2023 GSEU Professional Development Award ($355)
+2023 Stony Brook University Political Science Department Koppelman Fellowship ($3,000)
+2022 Stony Brook University Fine Arts, Humanities, and Social Sciences Grant ($4,000)
+2022 Stony Brook University Fine Arts, Humanities, and Social Sciences Grant ($3,500)
+2021 Stony Brook University College of Arts and Sciences Fellowship ($3,000)
+2014 Best GPA of the Master’s in Public Policy. School of Government, Adolfo Ibáñez University (2014 Cohort)
+2011, 10’, & 09’ Academic Honor Scholarship. School of Business, Adolfo Ibáñez University. Awarded to
+top-performing students based on GPA
+
+Teaching
+Instructor of Record
+Stony Brook University
+
+Finis Terrae University
+
+Adolfo Ibáñez University
+
+Math Camp for Incoming Ph.D. Students
+Intro. to Statistical Methods in Political Science
+Introductory Statistics
+Behavioral Economics
+Microeconomics
+Introduction to Economics
+Industrial Organization
+Microeconomics I
+
+4
+
+26’, 25’, 24’ Fall
+25’, 24’ Summer, 25’ Spring,
+26’ Winter
+2024 Fall
+2020, 19’, 18’
+2018, 17’, 16’
+2016
+2016
+2016
+
+Teaching Assistant
+Stony Brook University
+Adolfo Ibáñez University
+
+World Politics
+Introduction to American Government
+Econometrics
+Impact Evaluation for Public Policies
+Chilean Economics
+Intermediate Macroeconomics
+Mathematical Economics
+Calculus III
+Industrial Organization
+Introduction to Macroeconomics
+Introduction to Microeconomics
+Introduction to Economics
+
+2022 Spring
+2021 Fall
+2015
+2014, 15’
+2015
+2015
+2013
+2013
+2013
+2011
+2011
+2010
+
+Professional Service
+Journal Reviewer:
+
+Research & Politics, PLOS One.
+
+Additional Training, Skills, and Others
+Traineeship:
+
+NSF Research Traineeship Detecting and Addressing Bias in Data, Humans, and Institutions at Stony Brook University (2023-Present)
+
+Summer Schools:
+
+Vanderbilt University’s LAPOP Summer School in International Survey Methods
+(June 2023).
+
+Methods:
+
+Survey experiments, causal inference, multilevel modeling, Bayesian statistics, formal
+modeling, agent-based modeling, computational text analysis, network analysis, factor
+analysis and measurement models, machine learning, data visualization.
+
+Software:
+
+Python (advanced), R (advanced), Stata (advanced), TypeScript/Node.js (Claude Code,
+Codex – Agentic Pair Programming), oTree (advanced), Qualtrics (advanced), Connect, Prolific, LATEX, PostgreSQL, Supabase, Heroku.
+
+Other:
+
+Elected Vice-president of the first Student Government Board at Adolfo Ibáñez University (2012).
+Graduate Student Organization Senator, Department of Political Science, Stony Brook
+University (2023-2024).
+
+Research Tools
+Since 2023, I have integrated AI-assisted tools into my research workflow. AI will transform how researchers
+process information, organize collective knowledge, and communicate findings. This has led me to build a
+set of open-source tools that support different stages of the research cycle:
+
+5
+
+Experiments:
+
+oBots (oTree bot testing), bpel-lab-games (oTree implementation for the cooperation and communication with LLMs experiments), qualtrics-builder (programmatic
+Qualtrics QSF survey generation), bpe-lab.com, a full stack participant recruitment
+and management system I built for the BPEL.
+
+Analysis:
+
+SAR Framework (agentic literature review pipeline), irb-client (IRB protocol automation), osf-tool (pre-registration drafting).
+
+Productivity:
+
+agentic-WeekPlanner (planning system with AI chat), clio-assistant (agentic project
+management with LLM orchestrator).
+
+Teaching:
+
+21 public, open source interactive statistics tools on HuggingFace Spaces. CausalFlow
+(visual DAG specification).
+
+6
+
+
