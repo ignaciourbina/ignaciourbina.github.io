@@ -2,12 +2,17 @@ import { Github, Linkedin, Mail, FileText } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader'
 import Button from '../components/Button'
 import { about, site } from '../content'
+import { versionedPdf } from '../lib/pdfVersion'
 
 const socialLinks = [
   { href: site.social.github.url, icon: Github, label: site.social.github.label },
   { href: site.social.linkedin.url, icon: Linkedin, label: site.social.linkedin.label },
   { href: `mailto:${site.social.email.address}`, icon: Mail, label: site.social.email.label },
-  { href: about.profile.cvUrl || '#', icon: FileText, label: 'CV' },
+  {
+    href: about.profile.cvUrl ? versionedPdf(about.profile.cvUrl) : '#',
+    icon: FileText,
+    label: 'CV',
+  },
 ]
 
 export default function About() {
@@ -101,7 +106,7 @@ export default function About() {
       {/* CV */}
       <SectionHeader kicker="Download">CV</SectionHeader>
       <p className="text-muted mb-6">Download my full curriculum vitae:</p>
-      <Button href={about.profile.cvUrl} variant="primary">
+      <Button href={versionedPdf(about.profile.cvUrl)} variant="primary">
         Download CV (PDF)
       </Button>
 

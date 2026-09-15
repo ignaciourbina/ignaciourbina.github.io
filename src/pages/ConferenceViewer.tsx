@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, Download, Maximize2 } from 'lucide-react'
 import { conferences } from '../content'
+import { versionedPdf } from '../lib/pdfVersion'
 
 export default function ConferenceViewer() {
   const { slug } = useParams<{ slug: string }>()
@@ -40,7 +41,7 @@ export default function ConferenceViewer() {
         <div className="flex items-center gap-4">
           {pres.pdfUrl && (
             <a
-              href={pres.pdfUrl}
+              href={versionedPdf(pres.pdfUrl)}
               download
               className="flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors"
               title="Download PDF"

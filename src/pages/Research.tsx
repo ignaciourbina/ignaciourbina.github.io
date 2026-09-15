@@ -1,5 +1,6 @@
 import SectionHeader from '../components/SectionHeader'
 import { research } from '../content'
+import { versionedPdf } from '../lib/pdfVersion'
 
 function renderMarkdown(text: string) {
   return text
@@ -49,7 +50,7 @@ export default function Research() {
             <p className="text-muted text-sm leading-relaxed">{paper.description}</p>
             {'pdfUrl' in paper && paper.pdfUrl && (
               <a
-                href={paper.pdfUrl}
+                href={versionedPdf(paper.pdfUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-green hover:text-green-hover transition-colors"
@@ -104,7 +105,7 @@ export default function Research() {
             )}
             {'pdfUrl' in paper && paper.pdfUrl && (
               <a
-                href={paper.pdfUrl}
+                href={versionedPdf(paper.pdfUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-green hover:text-green-hover transition-colors"
