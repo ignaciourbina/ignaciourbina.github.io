@@ -101,7 +101,7 @@
       {
         "authors": "**Ignacio Urbina**",
         "title": "Bots, Collective Action, and Social Media: An Agent-Based Model of Adversarial Suppression in Polarized Networks",
-        "description": "Simulates how adversarial bots exploit network topology to suppress political coordination. Bayesian calibration against empirical protest and social media studies."
+        "description": "Simulates how adversarial bots exploit network topology to suppress political coordination."
       },
       {
         "authors": "Tom McDonough, Reuben Kline, **Ignacio Urbina**, William Brown, & Josh McDonnell",
