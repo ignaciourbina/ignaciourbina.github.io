@@ -64,8 +64,8 @@
       },
       {
         "authors": "**Ignacio Urbina**",
-        "title": "Repressive Democracies: The Relationship Between State's Repression Severity, Protests, and Policy Change",
-        "description": "A global game of policy change: citizens decide whether to protest under uncertainty about the critical crowd required, and the state sets the severity of repression in advance. The unique threshold equilibrium delivers unconditional comparative statics, and an anger extension shows that backlash is an elasticity condition and that outrage caps the state's optimal severity.",
+        "title": "Repressive Democracies: State Repression, Protest, and Policy Change",
+        "description": "A global game of policy-change protest in which a democratic state chooses expected harm per participant before citizens mobilize. Higher marginal preparation costs induce harsher repression only when deterrence saves more operational resources than harsher tactics consume; accountability restrains harm, and backlash depends on motivational elasticity.",
         "pdfUrl": "/files/repressive-democracies-working-paper.pdf"
       }
     ]
