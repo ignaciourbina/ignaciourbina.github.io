@@ -51,7 +51,7 @@
       {
         "authors": "**Ignacio Urbina**",
         "title": "Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social Survey, 2002–2022",
-        "description": "Rebuilds and extends the Thewissen and Rueda (2019) design across all eleven European Social Survey waves (more than 270,000 respondents in 35 countries). The automation risk association with redistribution preferences reappears in 2002–2012 but is smaller in the following decade, with wide country-year variation. Welfare and labor-market institutions condition the exposure–insecurity link: union density weakens it, while net income inequality and strict employment protection strengthen it.",
+        "description": "Rebuilds and extends the Thewissen and Rueda (2019) design across all eleven European Social Survey waves (more than 270,000 respondents in 35 countries). A formal insurance model predicts how welfare institutions moderate the automation risk–redistribution link. The positive association replicates through 2012 but disappears in the aggregate after 2014; earnings-related benefits amplify it, flat-rate generosity buffers it, and net income inequality flattens it.",
         "pdfUrl": "/files/automation-redistribution-working-paper.pdf"
       },
       {
@@ -65,7 +65,7 @@
       {
         "authors": "**Ignacio Urbina**",
         "title": "Repressive Democracies: State Repression, Protest, and Policy Change",
-        "description": "A global game of policy-change protest in which a democratic state chooses expected harm per participant before citizens mobilize. Higher marginal preparation costs induce harsher repression only when deterrence saves more operational resources than harsher tactics consume; accountability restrains harm, and backlash depends on motivational elasticity.",
+        "description": "A model of an elected executive who sets a policing directive before citizens decide whether to join a threshold protest. When preparing for each protester becomes costlier, the state authorizes more harm only if the resources saved by deterrence exceed the added cost of harsher tactics. Stronger accountability lowers expected harm, and repression backfires only when motivation rises faster than harm.",
         "pdfUrl": "/files/repressive-democracies-working-paper.pdf"
       }
     ]
