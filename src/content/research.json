@@ -66,7 +66,8 @@
         "authors": "**Ignacio Urbina**",
         "title": "Repressive Democracies: State Repression, Protest, and Policy Change",
         "description": "A model of an elected executive who sets a policing directive before citizens decide whether to join a threshold protest. When preparing for each protester becomes costlier, the state authorizes more harm only if the resources saved by deterrence exceed the added cost of harsher tactics. Stronger accountability lowers expected harm, and repression backfires only when motivation rises faster than harm.",
-        "pdfUrl": "/files/repressive-democracies-working-paper.pdf"
+        "pdfUrl": "/files/repressive-democracies-working-paper.pdf",
+        "appendixUrl": "/files/repressive-democracies-appendix.pdf"
       }
     ]
   },
