@@ -67,7 +67,8 @@
         "title": "Repressive Democracies: State Repression, Protest, and Policy Change",
         "description": "A model of an elected executive who sets a policing directive before citizens decide whether to join a threshold protest. When preparing for each protester becomes costlier, the state authorizes more harm only if the resources saved by deterrence exceed the added cost of harsher tactics. Stronger accountability lowers expected harm, and repression backfires only when motivation rises faster than harm.",
         "pdfUrl": "/files/repressive-democracies-working-paper.pdf",
-        "appendixUrl": "/files/repressive-democracies-appendix.pdf"
+        "appendixUrl": "/files/repressive-democracies-appendix.pdf",
+        "note": "Under review"
       }
     ]
   },
@@ -90,7 +91,7 @@
         "description": "Pre-registered cross-national study (US N = 933, Brazil N = 1,004). CFA, logistic regression, mediation analysis. Data collection completed."
       },
       {
-        "authors": "Alexa Bankert, Reuben Kline, **Ignacio Urbina**, & Thomas McDonough",
+        "authors": "Alexa Bankert, Reuben Kline, Thomas McDonough, & **Ignacio Urbina**",
         "title": "Minding The (Experimental) Gap(s): Prosociality with Real and Hypothetical Stakes in the Lab and Online",
         "description": "Behavioral experiment comparing prosociality with real vs. hypothetical stakes across lab and online settings."
       },
