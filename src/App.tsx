@@ -7,6 +7,7 @@ import Tools from './pages/Tools'
 import Research from './pages/Research'
 import Teaching from './pages/Teaching'
 import About from './pages/About'
+import BPEL from './pages/BPEL'
 import CV from './pages/CV'
 import Conferences from './pages/Conferences'
 import ConferenceViewer from './pages/ConferenceViewer'
@@ -25,6 +26,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="tools" element={<Tools />} />
+        <Route path="bpel" element={<BPEL />} />
         <Route
           path="tools/gpu-gateway"
           element={
