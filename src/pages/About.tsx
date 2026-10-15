@@ -17,7 +17,7 @@ const socialLinks = [
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="reading-container py-12">
       {/* Header with profile */}
       <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-16">
         <div className="w-40 h-40 rounded-full bg-ink flex items-center justify-center text-white text-5xl font-extrabold shrink-0 tracking-tight">

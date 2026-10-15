@@ -20,7 +20,7 @@ export default function MathCampUnit() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="site-container py-12">
       <Link
         to="/math-camp"
         className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-green transition-colors mb-8"

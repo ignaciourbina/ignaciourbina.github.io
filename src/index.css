@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .site-container {
+    @apply w-full max-w-[90rem] mx-auto px-6 sm:px-8 xl:px-12;
+  }
+
+  .reading-container {
+    @apply w-full max-w-[76rem] mx-auto px-6 sm:px-8 xl:px-12;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

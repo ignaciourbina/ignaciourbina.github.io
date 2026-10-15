@@ -63,7 +63,7 @@ function UnitCard({ unit }: { unit: MathCampUnit }) {
 
 export default function MathCamp() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="site-container py-12">
       <header className="mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
           Teaching materials

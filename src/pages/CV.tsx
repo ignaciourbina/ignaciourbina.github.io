@@ -8,7 +8,7 @@ const CV_PAGES = 6
 
 export default function CV() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="reading-container py-12">
       <header className="mb-10">
         <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
           Curriculum Vitae

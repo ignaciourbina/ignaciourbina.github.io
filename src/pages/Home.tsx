@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="py-20 md:py-32">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="site-container">
           <span className="text-xs font-bold uppercase tracking-widest text-green mb-4 block">
             Ph.D. Candidate in Political Science
           </span>
@@ -18,7 +18,7 @@ export default function Home() {
             {home.hero.greeting.replace(' 👋', '')}
           </h1>
           <p
-            className="text-lg md:text-xl text-muted max-w-2xl mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-muted max-w-3xl mb-10 leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: home.hero.introduction.replace(
                 /\*\*(.*?)\*\*/g,
@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* Featured Tools */}
-      <section className="max-w-5xl mx-auto px-6 pb-8">
+      <section className="site-container pb-8">
         <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
           Open-source
         </span>
@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="max-w-5xl mx-auto px-6 py-16 mb-8">
+      <section className="site-container py-16 mb-8">
         <div className="border-t border-line pt-16">
           <span className="text-xs font-bold uppercase tracking-widest text-green mb-2 block">
             Background

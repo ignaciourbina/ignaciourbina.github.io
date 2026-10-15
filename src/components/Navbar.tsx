@@ -33,22 +33,22 @@ export default function Navbar() {
 
   return (
     <nav className="bg-paper/80 backdrop-blur-md border-b border-line sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="site-container">
+        <div className="flex items-center justify-between gap-6 h-16">
           <Link
             to="/"
-            className="font-bold text-lg text-ink tracking-tight hover:text-green transition-colors"
+            className="shrink-0 whitespace-nowrap font-bold text-lg text-ink tracking-tight hover:text-green transition-colors"
           >
             {site.navigation.brand}
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1 2xl:gap-2">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                  `shrink-0 whitespace-nowrap px-3 2xl:px-4 py-1.5 rounded text-sm font-medium transition-colors ${
                     isActive ? 'text-green bg-green-soft' : 'text-muted hover:text-ink'
                   }`
                 }
@@ -56,7 +56,7 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <div className="flex items-center gap-1 ml-4 pl-4 border-l border-line">
+            <div className="flex shrink-0 items-center gap-1 ml-4 pl-4 border-l border-line">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
@@ -73,9 +73,11 @@ export default function Navbar() {
           </div>
 
           <button
-            className="md:hidden p-2 text-ink"
+            className="xl:hidden p-2 text-ink"
             onClick={handleToggle}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="site-mobile-menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -83,8 +85,12 @@ export default function Navbar() {
 
         {isOpen && (
           <>
-            <div className="fixed inset-0 z-40" onClick={handleClose} aria-hidden="true" />
-            <div className="md:hidden pb-4 relative z-50">
+            <div
+              className="fixed inset-0 z-40 xl:hidden"
+              onClick={handleClose}
+              aria-hidden="true"
+            />
+            <div id="site-mobile-menu" className="xl:hidden pb-4 relative z-50">
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <NavLink
