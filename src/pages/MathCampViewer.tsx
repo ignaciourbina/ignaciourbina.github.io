@@ -21,7 +21,7 @@ export default function MathCampViewer() {
   const graphUrl = `/graphs/math-camp/${unit.id}/${graph.slug}.html`
 
   return (
-    <div className="flex flex-col" style={{ height: 'calc(100vh - 4rem)' }}>
+    <div className="flex flex-col sm:h-[calc(100vh-4rem)]">
       <div className="bg-panel border-b border-line px-6 py-3 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-4 min-w-0">
           <Link
@@ -61,7 +61,7 @@ export default function MathCampViewer() {
       <iframe
         src={graphUrl}
         title={graph.title}
-        className="flex-1 w-full bg-white"
+        className="h-[75vh] shrink-0 w-full bg-white sm:h-auto sm:flex-1"
         style={{ border: 'none' }}
         allow="fullscreen"
       />
