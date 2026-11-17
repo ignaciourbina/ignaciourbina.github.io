@@ -68,7 +68,6 @@ Working Papers
      risk predicts support for redistribution through 2012 and that the link disappears in the decade after. Traces the change
      to welfare state design. Earnings related benefits strengthen the link, and flat transfers weaken it.
 2. Ignacio Urbina. Austerity, Democracy, and Coercion: A Model of Fiscal Pressure and the Severity of Protest Policing.
-
    • Develops a global game in which an elected executive sets protest policing before mobilization. Budget pressure raises
      authorized harm where costs lie in deployment and lowers it where the same inputs implement force.
 
