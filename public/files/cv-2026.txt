@@ -43,18 +43,16 @@ Three Essays on the Political Implications of AI. Committee: Oleg Smirnov (Chair
 Under Review
 
 1. Ignacio Urbina, Akhil Ponda, & Reuben Kline. Communication and Cooperation with Human and Artificial
-   Agents. Under review at Behaviour & Information Technology.
+   Agents. Under review.
    • 2x2 factorial behavioral experiment (oTree): human vs. AI partner, with vs. without communication, in one shot Prisoner’s
       Dilemma and Stag Hunt games.
    • Presented at the 2023 APSA Meeting, Oxford’s Talking to Machines Workshop (May 2024), and the 2024 IMEBESS Con-
       ference.
-Ready for Resubmission
-
-1. Ignacio Urbina & Vitória Sgorlon. Fractured Trust: The Spillover Effects of Police Violence on Satisfaction with
-   Democracy and Political Trust.
+2. Ignacio Urbina & Vitória Sgorlon. Fractured Trust: The Spillover Effects of Police Violence on Satisfaction with
+   Democracy and Political Trust. Under review.
    • Three studies: two-wave survey experiment in Brazil (N = 1,004), observational analysis of Chile’s 2019 protest repression,
-     and cross-national LAPOP analysis of sixteen Latin American countries.
-   • Presented at the 2024 Society of Political Methodology Conference, the 2024 Human Rights Measurement Workshop at
+      and cross-national LAPOP analysis of sixteen Latin American countries.
+   • Presented at the 2024 Society of Political Methodology Conference, the 2024 Human Rights Measurement Workshop at
      the University of Rhode Island, the 2024 MPSA Meeting, and the 2024 APSA Meeting.
    • Winner of the Best Poster Award at the 2023 Latin American Political Methodology Meeting.
    • Awarded with the 2022 Stony Brook University Fine Arts, Humanities, and Social Sciences Research Grant ($4,000).
