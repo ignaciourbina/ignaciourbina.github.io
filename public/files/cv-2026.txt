@@ -64,7 +64,7 @@ Working Papers
 
 1. Ignacio Urbina. Automation Risk, Redistribution, and Economic Vulnerability: Evidence from the European Social
    Survey, 2002–2022
-   • Develops a formal insurance model and tests it on more than 270,000 respondents in 35 countries. Finds that automation
+   • Develops a formal insurance model and tests it on more than 260,000 respondents in 32 countries. Finds that automation
      risk predicts support for redistribution through 2012 and that the link disappears in the decade after. Traces the change
      to welfare state design. Earnings related benefits strengthen the link, and flat transfers weaken it.
 2. Ignacio Urbina. Austerity, Democracy, and Coercion: A Model of Fiscal Pressure and the Severity of Protest Policing.
