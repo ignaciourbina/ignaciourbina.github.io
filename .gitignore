@@ -36,3 +36,6 @@ dist-ssr
 !public/files/**/*.pdf
 !docs/files/**/*.pdf
 docs/
+
+# Text originals of the paper PDFs; public/files holds only their 450 DPI image versions (scripts/flatten-pdfs.sh)
+pdf-sources/
