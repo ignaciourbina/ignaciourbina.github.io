@@ -48,16 +48,28 @@ export default function Research() {
               )}
             </div>
             <p className="text-muted text-sm leading-relaxed">{paper.description}</p>
-            {'pdfUrl' in paper && paper.pdfUrl && (
-              <a
-                href={versionedPdf(paper.pdfUrl)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-green hover:text-green-hover transition-colors"
-              >
-                Download Paper (PDF)
-              </a>
-            )}
+            <div className="flex flex-wrap gap-x-4 mt-3">
+              {'pdfUrl' in paper && paper.pdfUrl && (
+                <a
+                  href={versionedPdf(paper.pdfUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-green hover:text-green-hover transition-colors"
+                >
+                  Download Paper (PDF)
+                </a>
+              )}
+              {'appendixUrl' in paper && paper.appendixUrl && (
+                <a
+                  href={versionedPdf(paper.appendixUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-green hover:text-green-hover transition-colors"
+                >
+                  Download Supplemental Information (PDF)
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
