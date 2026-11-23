@@ -11,7 +11,7 @@
         "authors": "**Ignacio Urbina**",
         "title": "The Conditional Activation Model: Uncovering Policy Demand Responses to AI-Driven Automation",
         "note": "Job Market Paper",
-        "description": "Introduces a two-gate framework explaining when citizens update policy preferences in response to AI-driven job automation risk. Pre-registered experiment with 901 U.S. workers; trust-stratum effects recovered by principal-score weighting of both arms.",
+        "description": "Introduces a two-gate framework explaining when citizens update policy preferences in response to AI-driven job automation risk. Pre-registered experiment with 901 U.S. workers. Weak average effects in this literature reflect the pooling of different responses rather than stable policy preferences.",
         "pdfUrl": "/files/cam-working-paper.pdf",
         "appendixUrl": "/files/cam-appendix.pdf"
       },
